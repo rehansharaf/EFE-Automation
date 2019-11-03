@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.crm.qa.testcases.LogActivityTest">
+        <methods>
+          <include name="reachedwithBusinessLead"/>
+          <include name="createRegularAccount"/>
+          <include name="reachedwithBusinessLead_UnplannedMeeting"/>
+          <include name="createFalconAccount"/>
+          <include name="nolead_Reached_createWorkplaceOpportunity"/>
+          <include name="meeting_CompleteFlow"/>
+          <include name="createDemoUsers"/>
+          <include name="CreateAccount_Spouse"/>
+          <include name="demoTest"/>
+          <include name="reached_Schedule_Appointment"/>
+          <include name="reachedwithBusinessLead_ScheduleTodo"/>
+          <include name="createRPAccount"/>
+          <include name="createCTAccount"/>
+          <include name="notReached"/>
+          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
+          <include name="setUp"/>
+          <include name="createCTAccount1"/>
+          <include name="Unenrollment_TerminateAll"/>
+          <include name="navigateToRetailUser"/>
+          <include name="tearDown"/>
+          <include name="CreateRetail1Account"/>
+          <include name="nolead_Reached_createBranchOpportunity"/>
+          <include name="CreateRetail2Account"/>
+          <include name="notReachedwithBusinessLead"/>
+          <include name="reached_Schedule_Phonecall"/>
+          <include name="debug"/>
+          <include name="LogACallSpouse"/>
+          <include name="Unenrollment_delinkAccount"/>
+          <include name="meeting_CompleteFlowWithOptions"/>
+          <include name="nolead_Reached_MultipleOpportunity"/>
+          <include name="reached"/>
+          <include name="reached_Schedule_ToDo"/>
+          <include name="reachedwithBusinessLead_SchedulePhoneCall"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
