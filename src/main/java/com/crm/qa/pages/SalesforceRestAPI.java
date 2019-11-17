@@ -59,6 +59,8 @@ public class SalesforceRestAPI extends TestBase {
     private static  String branleadId;
     private static  int uriselection;
     private static  String sponsorId;
+    private static 	String spousesfdcid;
+    private static 	String primarysfdcid;
     
     static String uid = DetailsPage.uniqueid;
     
@@ -172,6 +174,8 @@ public class SalesforceRestAPI extends TestBase {
 	   String[] sfdcId = new String[10];
 	   sfdcId[0] = objMap.get("sfdcId");
 	   sfdcId[1] = objMap.get("businessLeadId");
+	   sfdcId[2] = objMap.get("spousesfdcId");
+	   sfdcId[3] = objMap.get("primarysfdcId");
 	   return sfdcId;
 	   
    }
@@ -381,9 +385,6 @@ public class SalesforceRestAPI extends TestBase {
         retail.put("BillingCountry", "USA");
         retail.put("Type", "Branch Retail");
  
-        
-      //  System.out.println("JSON for retail record to be inserted:\n" + retail.toString(1));
-
         //Construct the objects needed for the request
         HttpClient httpClient = HttpClientBuilder.create().build();
         JSONObject retail1 = new JSONObject();

@@ -1,5 +1,6 @@
 package com.crm.qa.pages;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,10 +8,13 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.internal.Coordinates;
+import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -20,6 +24,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.base.TestBase;
+import com.crm.qa.pages.*;
+import com.crm.qa.util.TestUtil;
 
 public class Opportunities extends TestBase{
 
@@ -75,10 +81,17 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//span[contains(text(),'View All')]")
 	WebElement oppViewAll;			
 	
-	@FindBy(xpath = "//div[contains(text(),'Create Workplace Opportunity')]")
+	//@FindBy(xpath = "//div[contains(text(),'Create Workplace Opportunity')]")
+	//WebElement createWorkplaceOpportunity;
+	
+	@FindBy(xpath = "//input[contains (@name, ('Create_Opportunity'))]/../label/span[contains (@class, ('slds-checkbox'))]")
 	WebElement createWorkplaceOpportunity;
 	
-	@FindBy(xpath = "//div[contains(text(),'Create Branch/PA Opportunity')]")
+	
+	//@FindBy(xpath = "//div[contains(text(),'Create Branch/PA Opportunity')]")
+	//WebElement createBranchOpportunity;
+	
+	@FindBy(xpath = "//input[contains (@name, ('Create_Referral_Opportunity'))]/../label/span[contains (@class, ('slds-checkbox'))]")
 	WebElement createBranchOpportunity;
 	
 	@FindBy(xpath = "//div[contains(text(),'Please type the number of 401k Roll-In Accounts being transferred')]/../../../following-sibling::div/input")
@@ -174,6 +187,11 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//div[contains(text(),'Do not close any existing tasks')]")
 	WebElement createNewTask;
 	
+	@FindBy(xpath = "(//footer[@class='slds-card__footer actionButtonBar slds-grid slds-grid_align-spread'])[2]")
+	WebElement scrolltofooter;
+	
+	
+	
 	DetailsPage details = new DetailsPage();
 	
 	SoftAssert softAssertion = new SoftAssert();
@@ -187,15 +205,23 @@ public class Opportunities extends TestBase{
 	String schedule3 = "Appointment";
 	String timeStamp1 = "AUG 25, 2018";
 	
-public void createWorkplaceOpportunity() throws InterruptedException {
+public void createWorkplaceOpportunity() throws InterruptedException, ParseException {
 		
 	Thread.sleep(5000);
 	
 		commentsTextarea.sendKeys(commentsToEnter);
-		Select outcome1 = new Select(outcome);
-		outcome1.selectByIndex(1);
+		
+		//Select outcome1 = new Select(outcome);
+		//outcome1.selectByIndex(1);
+		
 		solutionsDiscussed.click();
+		
+		details.selectOutcome(1);
+		
+		scrolltofooter.click();
+		
 		createWorkplaceOpportunity.click();
+		
 		details.clickNextButton();
 		
 		/*
@@ -206,7 +232,7 @@ public void createWorkplaceOpportunity() throws InterruptedException {
 		 */
 		
 		
-		
+		Thread.sleep(2000);
 		oppField1.sendKeys("2");
 		oppField2.sendKeys("50000");
 		//oppField3.sendKeys("10000");
@@ -220,15 +246,20 @@ public void createWorkplaceOpportunity() throws InterruptedException {
 	}
 
 
-public void createBranchOpportunity() throws InterruptedException {
+public void createBranchOpportunity() throws InterruptedException, ParseException {
 	
 	Thread.sleep(5000);	
 	
 	commentsTextarea.sendKeys(commentsToEnter);
+
 	solutionsDiscussed.click();
-	Select outcome1 = new Select(outcome);
-	outcome1.selectByIndex(1);
+	
+	details.selectOutcome(1);
+	
+	scrolltofooter.click();
+	
 	createBranchOpportunity.click();
+	
 	details.clickNextButton();	
 	
 	
@@ -248,13 +279,14 @@ public void createBranchOpportunity() throws InterruptedException {
 	tMAssets.sendKeys("250000");
 	
 	details.clickNextButton();
+	
 	Thread.sleep(10000);	
-	
-	
 	
 	
 }
 	
+
+
 public void verifyWorkplaceOpportunity() throws InterruptedException {
 	
 	Thread.sleep(5000);
@@ -404,7 +436,13 @@ public void clickOpportunityLink() throws InterruptedException {
 	}
 	
 	
-	
+/*	
+public void scrollIntoViewClick(WebElement element) { 
+    js.executeScript("arguments[0].scrollIntoView(true);", element);
+    js.executeScript("arguments[0].click();", element);
+}
+*/
+
 	
 	public boolean isLeadLinkVisible(){
 	    WebDriverWait zeroWait = new WebDriverWait(driver, 0);

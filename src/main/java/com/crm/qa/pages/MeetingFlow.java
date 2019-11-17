@@ -39,6 +39,8 @@ public class MeetingFlow extends TestBase {
 	@FindBy(xpath = "//button[contains(text(),'Previous')]/..//following-sibling::button")
 	WebElement nextButton1;
 	
+	//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]
+	
 	
 	@FindBy(xpath = "//div[contains(text(),'Management')]")
 	WebElement solutionsDiscussed;
@@ -69,9 +71,15 @@ public class MeetingFlow extends TestBase {
 	@FindBy(xpath = "//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select")
 	WebElement meetClient;
 	
+	@FindBy(xpath = "//*[contains (text(), ('How Did You Meet With Client'))]/../../../../div/select")
+	WebElement meetClient2;
+	
+	
 	@FindBy(xpath = "//div[contains(text(),'Select Meeting Outcome')]/../../../following-sibling::div/select")
 	WebElement meetingOutcome;
 	
+	@FindBy(xpath = "//*[contains (text(), ('Select Meeting Outcome'))]/../../../../div/select")
+	WebElement meetingOutcome2;
 	
 	@FindBy(xpath = "//div[contains(text(),'Enter a Date for Phone Call')]/../../following-sibling::div/div/input")
 	WebElement enterDate1;
@@ -250,40 +258,34 @@ public class MeetingFlow extends TestBase {
 	}
 	
 	public void meetingCompletedFlow() throws InterruptedException {
-		//I need to unerstand this flow so i dont see the error message on screen.
 		
-	    jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
+		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
 		
 		String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
 		commentsTextarea.sendKeys("TestingPurpose" + timeStamp);
+		
 		solutionsDiscussed.click();
 		
-		//Select outcome1 = new Select(outcome);
-		//outcome1.selectByIndex(2);
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
 		DetailsPage detailspage = new DetailsPage();
 		detailspage.clickNextButton();
-		//activityType.click();
 		
-		jse2.executeScript("arguments[0].click()", nextButton1); 
-		//nextButton1.click();
-		jse2.executeScript("arguments[0].scrollIntoView()", meetClient); 
+		//TestUtil.ifButtonPresentclick("//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]");
 		
-		//Select meetClient1 = new Select(meetClient);
-		//meetClient1.selectByIndex(1);
-		TestUtil.SelectDropDownOption(meetClient, "Meeting");
+		nextButton1.click();
 		
-		Select meetingOutcome1 = new Select(meetingOutcome);
-		meetingOutcome1.selectByIndex(1);
-		jse2.executeScript("arguments[0].click()", nextButton1); 
+		TestUtil.SelectDropDownOption(meetClient2, "In-Person");
 		
-		//nextButton1.click();
+		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
+		
+		//TestUtil.ifButtonPresentclick("//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]");
+		
+		nextButton1.click();
 		
 		financialPlan.click();
 		
-		jse2.executeScript("arguments[0].click()", nextButton1); 
-		//nextButton1.click();	
+		nextButton1.click();	
 		
 		
 	}
@@ -291,57 +293,46 @@ public class MeetingFlow extends TestBase {
 	
 public void meetingCompleteFlowWithOptions() throws InterruptedException {
 	
-		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
+		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
 		
 		String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
 		commentsTextarea.sendKeys("TestingPurpose" + timeStamp);
+		
 		solutionsDiscussed.click();
-		Select outcome1 = new Select(outcome);
-		outcome1.selectByIndex(2);
-//		scheduleType.click();
+		
+		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
 		DetailsPage detailspage = new DetailsPage();
 		detailspage.clickNextButton();
 		
-		jse2.executeScript("arguments[0].click()", nextButton1); 
+		nextButton1.click();
+			
+		TestUtil.SelectDropDownOption(meetClient2, "In-Person");
 		
-		//nextButton1.click();
-	//	Thread.sleep(5000);
-		jse2.executeScript("arguments[0].scrollIntoView()", meetClient); 
-		Select meetClient1 = new Select(meetClient);
-		meetClient1.selectByIndex(1);
-		Select meetingOutcome1 = new Select(meetingOutcome);
-		meetingOutcome1.selectByIndex(1);
+		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
+		
 		nextButton1.click();
-	//	Thread.sleep(5000);
-		//jse2.executeScript("arguments[0].scrollIntoView()", n); 
+	
 		financialCheckupTopics.click();
+	
 		nextButton1.click();
-		//Thread.sleep(5000);
+		
 		selectTopics();
+		
 		nextButton1.click();
-//		enterDate1.sendKeys(timeStamp1);			
-//		nextButton1.click();
-		//Thread.sleep(5000);
-	//	Assert.assertEquals(true, commentsTextarea.isDisplayed());
-	//	Thread.sleep(5000);
-//		verifymeetingInformation();
+
 	}
 
 public void selectTopics() {
 	
+		List<WebElement> selectTopics  = driver.findElements(By.xpath("//span[contains(text(),'Log Activity')]/../../../../following-sibling::div//select"));
 	
-	List<WebElement> selectTopics  = driver.findElements(By.xpath("//span[contains(text(),'Log Activity')]/../../../../following-sibling::div//select"));
+		for(WebElement elem : selectTopics) { TestUtil.SelectDropDownOption(elem, "Green");	}
 	
-//	Iterator<WebElement> iter = selectTopics.iterator();
-
-	for(WebElement elem : selectTopics) {
-		
-	    Select we1 = new Select(elem);
-		we1.selectByIndex(2);    
 	}
-}
 	
+
+
 public void verifymeetingInformation() {
 	
 	DetailsPage detailspage = new DetailsPage();

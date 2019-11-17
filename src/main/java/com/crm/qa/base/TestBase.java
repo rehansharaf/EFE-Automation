@@ -4,12 +4,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.Format;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -23,6 +25,8 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
+import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.util.WebEventListener;
 
@@ -156,9 +160,6 @@ public class TestBase {
 		
 		driver.get(prop.getProperty("url"));
 		
-		
-		
-		
 	}
 	
 	
@@ -168,8 +169,16 @@ public class TestBase {
 	}
 	
 	
-	
-	
+	public static String generateRndmNum(String range) {
+	    
+		 int intrange = Integer.parseInt(range);
+		 Random rand = new Random(System.currentTimeMillis());
+		 int num = rand.nextInt(intrange);
+		 String snum = Integer.toString(num); 
+		 
+		  return snum;
+		
+		}
 	
 	
 	

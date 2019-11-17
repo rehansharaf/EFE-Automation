@@ -106,6 +106,18 @@ public class SalesforceTestRestAPI extends TestBase {
 	}
 	
 	
+	public static void dataCreation_businesslead() {
+
+		SalesforceRestAPI.APIConnection();
+		SalesforceRestAPI.createRetailRecord();
+		SalesforceRestAPI.updateRetailRecord();
+		SalesforceRestAPI.updateBrancAccountRelationship();
+		SalesforceRestAPI.createBusinessLead();
+		
+	}
+	
+	
+	
 	
 	public static void dataCreation3(String FirstName, String LastName, String Email) {
 
@@ -174,8 +186,8 @@ public class SalesforceTestRestAPI extends TestBase {
 
 		//	softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start Time"), "call date mismatch");
 			
-			boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
-			softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
+			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
+			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
 			//boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
 			//softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
 			softAssertion.assertEquals(taskDescription, description, "Task description mismatch");
@@ -232,8 +244,10 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void validateTaskScheduleData(int i) {
+	public static void validateTaskScheduleData(int i) throws InterruptedException {
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			taskId = task.getJSONObject(1).getString("Id");
@@ -269,8 +283,13 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void validateMeetingData(int i, int j) {
+	
+	
+	
+	public static void validateMeetingData(int i, int j) throws InterruptedException {
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			meetingId = task.getJSONObject(0).getString("Id");
@@ -304,8 +323,10 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 	
-	public static void validateUnplannedMeetingData(int i) {
+	public static void validateUnplannedMeetingData(int i) throws InterruptedException {
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			meetingId = task.getJSONObject(0).getString("Id");
@@ -337,8 +358,10 @@ public class SalesforceTestRestAPI extends TestBase {
 	
 
 
-	public static void validateLeadData(int i) {
+	public static void validateLeadData(int i) throws InterruptedException {
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			leadId = task.getJSONObject(0).getString("Id");
@@ -358,8 +381,10 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void validateLeadDataReached(int i) {
+	public static void validateLeadDataReached(int i) throws InterruptedException {
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			leadId = task.getJSONObject(0).getString("Id");
@@ -383,8 +408,10 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void validateBranchOpportunity(int i) {
+	public static void validateBranchOpportunity(int i) throws InterruptedException {
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			String oppId = task.getJSONObject(0).getString("Id");
@@ -408,9 +435,11 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void validateWorkPlaceOpportunity(int i) {
+	public static void validateWorkPlaceOpportunity(int i) throws InterruptedException {
 		// TODO Auto-generated method stub
 
+		Thread.sleep(5000);	
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			String oppId = task.getJSONObject(0).getString("Id");
@@ -434,8 +463,10 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void verifyFinancialAccount(int i, String j, Boolean Status) {
+	public static void verifyFinancialAccount(int i, String j, Boolean Status) throws InterruptedException {
 		// TODO Auto-generated method stub
+		
+		Thread.sleep(5000);	
 		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);

@@ -3,6 +3,7 @@ package com.crm.qa.pages;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -116,22 +117,17 @@ public class HomePage extends TestBase {
 	
 	public void navigateToRetailuser() throws InterruptedException{
 		
-		
-		
-		//String AccountURL = prop.getProperty("AccountURL");
 		//GEt the value of sfdcId via Hash map
 		String sfdcId = SalesforceRestAPI.objMap.get("sfdcId");
-		//String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000tt9xoQAA/view";
-		//String url = AccountURL;
+		
+		prop.setProperty("primarysfdcId", sfdcId);
+		SalesforceRestAPI.objMap.put("primarysfdcId", sfdcId);
 		
 		
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
 		AccountURL = url;
 		
-      
 		driver.navigate().to(url);
-		
-		//TestUtil.elementVisible(advisorLink);
 		
 	}
 	
@@ -148,20 +144,15 @@ public static void navigateToUser(String role) throws InterruptedException{
 		
 		Thread.sleep(5000);
 		
-		//TestUtil.waitForElement("Login", advisorLogin);
-		
-		int size = driver.findElements(By.tagName("iframe")).size();
-		
 		driver.switchTo().frame(0);
-		
-		TestUtil.elementVisible("//*[@id='topButtonRow']/input[4]");
 		
 		advisorLogin.click();
 		
 		driver.switchTo().defaultContent();
 		
-		TestUtil.elementVisible("//span[@class='title'][contains(text(),'Details')]");
+		Thread.sleep(5000);
 		
+		//TestUtil.closeAllOpenTabs(driver);
 		
 		driver.navigate().refresh();
 		
@@ -174,6 +165,8 @@ public static void navigateToUser(String role) throws InterruptedException{
 	
 		
 }
+
+
 
 //This can be commented since it is covered in the above method ---navigateToUser(String role)
 
@@ -192,9 +185,11 @@ public void navigateToSpouseuser() throws InterruptedException{
       
 		driver.navigate().to(url);
 		
-		
 	}
-		
+
+
+
+
 	public void clickSearchInput() throws InterruptedException{
 		
 		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/page/home");

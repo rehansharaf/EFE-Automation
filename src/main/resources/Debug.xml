@@ -14,7 +14,15 @@
 		<class name="com.crm.qa.testcases.LogActivityTest">
 			
 			<methods>
-					<include name="CreateRetail1Account"></include>
+			<!-- 		
+				<include name="nolead_Reached_createBranchOpportunity"></include>
+				<include name="nolead_Reached_createWorkplaceOpportunity"></include>	
+			
+					<include name="UpdatePrimaryAccountdetails"></include>
+			-->
+			
+				<include name="experiment"></include>
+				
 			
 					
 			</methods>

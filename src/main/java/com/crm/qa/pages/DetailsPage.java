@@ -1,5 +1,6 @@
 package com.crm.qa.pages;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.awt.AWTException;
@@ -29,6 +30,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.internal.Locatable;
@@ -71,6 +73,9 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//b[contains(text(),'Create Opportunity')]")
 	WebElement CreateOpportunityLabel;
 
+	//check if this element is used anywhere in any scripts if not..delete it
+	@FindBy(xpath = "(//b[contains(text(),'Create Opportunity')])[2]")
+	WebElement CreateOpportunityLabel1;
 	
 	@FindBy(xpath = "//span[@class='title'][contains(text(),'Communications')]")
 	WebElement Communications;
@@ -237,6 +242,11 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//button[contains(text(),'Previous')]/..//following-sibling::button")
 	WebElement nextButton1;
 	
+	//@FindBy(xpath = "(//button[contains(text(),'Next')])[2]")
+	//WebElement nextButton1;
+	
+	
+	
 	@FindBy(xpath = "//span[contains(text(),'Last Modified By')]/../following-sibling::div/span/span")
 	WebElement taskLastModifiedDate;
 	
@@ -270,25 +280,125 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//li[@title='To-Do']")
 	WebElement todoTab;
 	
-	@FindBy(xpath = "//div[contains(text(),'Subject')]/../../../following-sibling::div//input")
+	//@FindBy(xpath = "//div[contains(text(),'Subject')]/../../../following-sibling::div//input")
+	//WebElement subjectArea;
+	
+	@FindBy(xpath = "//input[contains (@name ,'Subject')]")
 	WebElement subjectArea;
 	
-	@FindBy(xpath = "(//div[contains(text(),'End Date and Time')]/../../../following-sibling::div//input)[1]")
-	WebElement meetingEndDate1;
 	
-	@FindBy(xpath = "(//div[contains(text(),'End Date and Time')]/../../../following-sibling::div//input)[2]")
+	//@FindBy(xpath = "(//div[contains(text(),'End Date and Time')]/../../../following-sibling::div//input)[1]")
+	//WebElement meetingEndDate1;
+	
+	@FindBy(xpath = "(//input[contains (@name ,'Start_Date_and_Time')])[1]")
+	WebElement meetingStartDate1;
+	
+	//@FindBy(xpath = "(//div[contains(text(),'End Date and Time')]/../../../following-sibling::div//input)[2]")
+	//WebElement meetingEndTime1;
+	
+	@FindBy(xpath = "(//input[contains (@name ,'Start_Date_and_Time')])[2]")
+	WebElement meetingStartTime1;
+
+	
+	@FindBy(xpath = "(//input[contains (@name ,'End_Date_and_Time')])[1]")
+	WebElement meetingEndDate1;
+
+	@FindBy(xpath = "(//input[contains (@name ,'End_Date_and_Time')])[2]")
 	WebElement meetingEndTime1;
 	
-
-	@FindBy(xpath = "//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select")
+	
+		
+	//@FindBy(xpath = "//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select")
+	//WebElement meetwithClient;
+	
+	
+	@FindBy(xpath = "(//select[contains(@class,'select uiInput')])[2]")
 	WebElement meetwithClient;
 	
-	@FindBy(xpath = "//div[contains(text(),'Select Meeting Outcome')]/../../../following-sibling::div/select")
+	
+	
+	//@FindBy(xpath = "//div[contains(text(),'Select Meeting Outcome')]/../../../following-sibling::div/select")
+	//WebElement meetingOutcome;
+	
+	@FindBy(xpath = "(//select[contains(@class,'select uiInput')])[3]")
 	WebElement meetingOutcome;
+	
 	
 	@FindBy(xpath = "//button[contains(text(),'Next')]")
 	WebElement NextBtn;
 	
+	@FindBy(xpath = "//font[contains(text(),'Please select an Advisor')]")
+	WebElement plsSelectAdvisor;
+	
+	@FindBy(xpath = "(//*[contains(@class,'slds-form slds-form_stacked')])[4]//button[contains (@title, 'Edit Assigned Planner')]")
+	WebElement editAssignedPlanner;
+	
+	@FindBy(xpath = "(//input[contains (@title, 'Search People')])[1]")
+	WebElement assignedPlannerSelection;
+	
+	@FindBy(xpath = "((//*[contains(@class,'slds-form slds-form_stacked')]/div[2]/div[2]/div[1]/div[2]/span[1])[3]")
+	WebElement assignedPlannerComboBox;
+	
+	
+	@FindBy(xpath = "(//button[contains(@class,' forceActionButton')])[2]")
+	WebElement saveBtnAssignedPlanner;
+	
+	@FindBy(xpath = "(//a[contains(text(),'Log out')])")
+	WebElement LoggedUser;
+	
+	@FindBy(xpath = "//span[contains (text(), 'Reload')]")
+	WebElement Reload;
+	
+	@FindBy(xpath = "//input[contains (@name, 'assignedToNotDefaulted')]")
+	WebElement assignedtoDropDown;
+	
+	@FindBy(xpath = "//div[contains (@class,('forcePageBlockSectionRow'))])[19]")
+	WebElement scrolltoAccountDetails;
+	
+	@FindBy(xpath = "//button[contains (@title, ('Edit Client Provided Email'))]")
+	WebElement emailEditBtn;
+	
+	@FindBy(xpath = "//button[contains (@title, ('Edit Work Phone'))]")
+	WebElement workphoneEditBtn;
+	
+	@FindBy(xpath = "//button[contains (@title, ('Edit Date of Birth'))]")
+	WebElement dobEditBtn;
+	
+	@FindBy(xpath = "//button[contains (@title, ('Edit Gender'))]")
+	WebElement genderEditBtn;
+		
+	@FindBy(xpath = "//button[contains (@title, ('Edit Mailing Address'))]")
+	WebElement addressEditBtn;
+	
+	@FindBy(xpath = "(//input[contains (@type, ('email'))])[1]")
+	WebElement emailEditInput;
+	
+	@FindBy(xpath = "(//*[contains (@class, ('datePicker'))])[1]/..")
+	WebElement dobEditInput;
+	
+	@FindBy(xpath = "(//span[contains (text(), ('Work Phone'))]/../..//input)[1]")
+	WebElement workphoneEditInput;
+	
+	@FindBy(xpath = "(//a[contains(@class,'select')][contains(@role,'button')])[3]")
+	WebElement genderDropDown;
+	
+	@FindBy(xpath = "//div[contains (@class,('forcePageBlockSectionRow'))])[30]")
+	WebElement scrolltoAddressInformation;
+	
+	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing Street'))]")
+	WebElement textMailingStreet;
+	
+	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing City'))]")
+	WebElement textMailingCity;
+	
+	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing State/Province'))]")
+	WebElement textMailingState;
+	
+	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing Zip/Postal Code'))]")
+	WebElement textMailingZipCode;
+	
+	@FindBy(xpath = "(//button[contains (@title, ('Save'))]")
+	WebElement updateSaveBtn;
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 
@@ -319,7 +429,7 @@ public class DetailsPage extends TestBase {
 	    static String verifyDate = ret[1];
 	    static String meetingDate = ret[2];
 	    static String meetingformattedDate = ret[3];
-	    static String uniqueid = ret[4];
+	    public static String uniqueid = ret[4];
 	    static String unplannedDate = ret[6];
 	    
 	    String schedule1 = "Phone Call";
@@ -348,16 +458,8 @@ public class DetailsPage extends TestBase {
 
 	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
 		
-	
-		
-			//Eleminate Thread sleep via check
-			//Thread.sleep(5000);
-	
-		
-		
 			TestUtil.waitForElement("Comments", comments);
-		
-		
+	
 			System.out.println("TimeStamp......................" + timeStamp );
 			prop.setProperty("Call Start Time", timeStamp);
 			
@@ -367,31 +469,25 @@ public class DetailsPage extends TestBase {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.SUBTRACT));		
 		}
 
-		//Thread.sleep(5000);
+			
+		Thread.sleep(2000);
 		commentsTextarea.sendKeys(commentsToEnter);
 		
+		//Thread.sleep(5000);
 		prop.setProperty("EnteredComments", commentsToEnter);
 		
 		Thread.sleep(2000);
-		
 		selectOutcome(i);
 		
 		
 		TestUtil.waitForElement("Management", solutionsDiscussed );
-		//Thread.sleep(5000);
 		
 		solutionsDiscussed.click();
 		
-		//Thread.sleep(5000);
-		
-		
-		
 		clickNextButton();	
 		
-		
 		TestUtil.waitForElement("Comments", comments);
-		
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		
 	}
 		 
@@ -451,6 +547,99 @@ public class DetailsPage extends TestBase {
 		    softAssertion.assertAll();
 		    	    
 		}
+	
+
+	public void updateAccountDetails() throws InterruptedException {
+		
+				
+		Thread.sleep(5000);
+		emailEditBtn.click();
+
+		//Thread.sleep(3000);
+		emailEditInput.clear();
+		emailEditInput.sendKeys("TestUpdate"+ Math.floor(Math.random()*11111) + "@gmail.com");
+		
+		workphoneEditInput.clear();
+		workphoneEditInput.sendKeys("9998887777");
+		
+		driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		//updateSaveBtn.click();
+		
+		Thread.sleep(5000);
+		
+		
+		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[19]")).click();
+		
+		//scrolltoAccountDetails.click();
+		
+		genderEditBtn.click();
+		Thread.sleep(3000);
+		genderDropDown.click();
+		driver.findElement(By.xpath("//a[contains(text(),'Male')]")).click();
+		
+		
+		//dobEditBtn.click();
+		dobEditInput.click();
+		driver.findElement(By.xpath("//span[contains(text(),'Today')]")).click();
+		
+		//dobEditInput.sendKeys("8/15/1978");
+		
+		driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		
+		//updateSaveBtn.click();
+		
+		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[30]")).click();
+		
+		//scrolltoAddressInformation.click();
+		
+		Thread.sleep(5000);
+		addressEditBtn.click();
+		Thread.sleep(3000);
+		textMailingStreet.clear();
+		textMailingStreet.sendKeys("1234 Test Street");
+		textMailingCity.clear();
+		textMailingCity.sendKeys("Scottsdale");
+		textMailingState.clear();
+		textMailingState.sendKeys("AZ");
+		textMailingZipCode.clear();
+		textMailingZipCode.sendKeys("85254");
+		
+		driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		//updateSaveBtn.click();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	private String verifyTaskDetails(String taskName) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -761,9 +950,15 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 		 
 		driver.switchTo().window(oldTab);
 	}
+
+	
 	
 
 	public void scheduleworkflow(String schedule) throws InterruptedException {
+		
+		Thread.sleep(2000);
+		
+		String	LoggedinUser = LoggedUser.getText().substring(11);
 		
 		if (schedule.equals(schedule1)) {
 			
@@ -775,6 +970,19 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 			//TestUtil.waitForElement("DueDate_ToDo", enterDate1);
 			
 			TestUtil.waitForElement("Future Phone Call", futurePhoneCall);
+
+			
+			/*		
+			String getdrop = driver.findElement(By.xpath("(//input[contains (@placeholder, ('Select an Option'))])[1]")).getText();
+			String getdrop1 = driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText().substring(4).trim();
+			
+			if (driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText() != null){
+			assignedtoDropDown.click();
+			assignedtoDropDown.sendKeys(LoggedinUser);
+			driver.findElement(By.xpath("(//*[contains (@title, '" +LoggedinUser+ "')])[5]")).click();			
+			}
+			*/
+	
 			enterDate1.sendKeys(enteredDate);
 			enterSubject_Phone.sendKeys(commentsToEnter);
 			nextButton1.click();
@@ -792,6 +1000,35 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 				createFutureMeeting();
 				nextButton1.click();
 		}
+	
+/*		
+		if(driver.findElements(By.xpath("(//*[contains(@class,'slds-form slds-form_stacked')]/div[2]/div[2]/div[1]/div[2]/span[1])[3]")).isEmpty()){	
+		
+		String advisorsfdcId1 = prop.getProperty("advisorsfdcId1");
+		
+		editAssignedPlanner.click();
+		
+		assignedPlannerSelection.sendKeys(LoggedinUser);
+		
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("(//*[contains (@title, ('" +LoggedinUser+ "'))])[5]")).click();
+		
+		for (String currentWindow: driver.getWindowHandles())
+		       driver.switchTo().window(currentWindow);
+		{
+		    System.out.println(driver.getCurrentUrl());
+		    driver.findElement(By.xpath("(//*[contains (@href, ('" + advisorsfdcId1 + "'))])[2]")).click();
+		}
+		
+		Thread.sleep(3000);
+		saveBtnAssignedPlanner.click();
+		
+		Reload.click();
+		
+		}
+	*/
+
+	
 	}
 
 	
@@ -804,13 +1041,20 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 		
 		//Thread.sleep(5000);
 		
-		TestUtil.waitForElement("Comments", comments);
+		
+		//TestUtil.waitForElement("Comments", comments);
+		
+		Thread.sleep(5000);
 		commentsTextarea.sendKeys(commentsToEnter);
-		Thread.sleep(2000);
+		
+		//Thread.sleep(5000);
 		
 		prop.setProperty("EnteredComments", commentsToEnter);
+		
+		Thread.sleep(5000);
 		prop.setProperty("Call Start Time", timeStamp);
 		
+		//Thread.sleep(5000);
 		solutionsDiscussed.click();
 		System.out.println(i);
 		
@@ -825,42 +1069,35 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 		
 		clickNextButton();	
 		
-		
+		/*
 		if (driver.findElements(By.xpath("//div[contains(text(),'Open Tasks')]")).size() > 0){
 			 NextBtn.getSize();	{ clickNextButton();}
 		}
+		*/
 		
 		scheduleworkflow(sched);
 		
 	}
 
 
-	public void verifyExistingTasks() throws InterruptedException {
-		
-		clickNextButton();
-		Thread.sleep(5000);
-		
-		if(!driver.findElements(By.xpath("//div[contains(text(),'Do not close any existing tasks')]")).isEmpty()){
-			createNewTask.click();
-	    }else{
-	    	System.out.println("No Previous Tasks screen displayed");
-	    }
-		
-	}
 	
-
 
 public String[] reached_scheduleAppointment() throws InterruptedException, ParseException {
 	
+	TestUtil.waitForElement("Comments", comments);
+	
+	Thread.sleep(5000);
+	
 	commentsTextarea.sendKeys(commentsToEnter);
-	//Select outcome1 = new Select(outcome);
-	//outcome1.selectByIndex(1);
-	 //selectOutcome(1);
+	
 	TestUtil.SelectDropDownOption(outcome, "Reached");
 	
 	solutionsDiscussed.click();
+	
 	scheduleApp.click();
+	
 	clickNextButton();
+	
 	Thread.sleep(5000);	
 	String[] meetingLinks = createBDAppointment(meetingDate);
 	nextButton1.click();
@@ -871,44 +1108,19 @@ public String[] reached_scheduleAppointment() throws InterruptedException, Parse
 public void reached_scheduleAppointment1() throws InterruptedException, ParseException, AWTException {
 	
 	
-	jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
+	//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
+	
+	
+	TestUtil.waitForElement("Comments", comments);
+	
+	Thread.sleep(5000);
 	
 	commentsTextarea.sendKeys(commentsToEnter);
-	//Select outcome1 = new Select(outcome);
-	//outcome1.selectByIndex(1);
-	//selectOutcome(1);
-	TestUtil.SelectDropDownOption(outcome, "Reached");
 	
-	//TestUtil.waitforelement(SchedulePanelRecognize);
-	//TestUtil.waitforelement(scheduleApp);
+	TestUtil.SelectDropDownOption(outcome, "Reached");
 	
 	solutionsDiscussed.click();
 	
-	//TestUtil.clickElement(scheduleApp);
-	
-	//JavascriptExecutor jsExec = (JavascriptExecutor) driver; 
-	//jsExec.executeScript("document.getElementsByClassName('col right-col slds-size--3-of-12 ').scrollDown += 100");
-	
-	//Thread.sleep(5000);
-	
-	//driver.findElement(By.xpath("//span[@class='slds-card__header-link slds-text-heading_small']")).click();
-	
-	//JavascriptExecutor js;
-	//js = (JavascriptExecutor) driver;
-	//Dimension d = new Dimension(800,480);
-	//driver.manage().window().maximize();
-	//driver.findElement(By.xpath("//span[@class='slds-card__header-link slds-text-heading_small']")).click();
-	//js.executeScript("window.scrollTo(0,17)");
-    
-	
-	
-	
-	
-	//driver.findElement(By.xpath("//div[@class='slds-card__body slds-card__body_inner centerWrapper flowruntimeBody']//div[@class='body']")).click();
-	//driver.findElement(By.xpath("//b[contains(text(),'Schedule')]")).click();
-	//driver.findElement(By.xpath("//b[contains(text(),'Create Opportunity')]")).click();
-	
-	//TestUtil.clickvisibleElement(CreateOpportunityLabel);
 	
 	CreateOpportunityLabel.click();
 	Thread.sleep(3000);
@@ -929,65 +1141,51 @@ public void reached_scheduleAppointment1() throws InterruptedException, ParseExc
 */		
 	createFutureAppointment();
 	
-	
-	NextBtn.getSize();
-	{
-	 clickNextButton();
-	}
+	NextBtn.getSize();{clickNextButton();}
 	
 }
 
 public void unplannedAppointment() throws InterruptedException, ParseException {
+	
 	Thread.sleep(5000);
 	commentsTextarea.sendKeys(commentsToEnter);
-	//Select outcome1 = new Select(outcome);
-	//outcome1.selectByIndex(2);
-	//selectOutcome(2);
+	
+	Thread.sleep(3000);
 	TestUtil.SelectDropDownOption(outcome, "Meeting");
 	solutionsDiscussed.click();
 
 	clickNextButton();
-	Thread.sleep(5000);
+	
+	Thread.sleep(3000);
 	subjectArea.sendKeys(commentsToEnter);
+	
 	meetingEndDate1.sendKeys(unplannedDate);
 	meetingEndTime1.click();
 	meetingEndTime1.clear();
 	meetingEndTime1.sendKeys("8:00 PM");
+	subjectArea.click();
 	nextButton1.click();
+	
 	Thread.sleep(5000);
+	TestUtil.SelectDropDownOption(meetwithClient, "In-Person");
 	
-	Select mclient = new Select(meetwithClient);
-	mclient.selectByIndex(1);
-	
-	Select moutcome = new Select(meetingOutcome);
-	moutcome.selectByIndex(1);
+	TestUtil.SelectDropDownOption(meetingOutcome, "No-Show");
 	
 	nextButton1.click();
-	
-
-	
+		
 }
+
 
 private void createFutureAppointment() throws InterruptedException {
 	
 	jse2.executeScript("arguments[0].scrollIntoView()", meetingClient);
 
-	//Select mClient = new Select(meetingClient);
-	//mClient.selectByIndex(1);
-	
 	TestUtil.SelectDropDownOption(meetingClient, "On-Phone");
 	Thread.sleep(3000);
 	meetingStartDate.sendKeys(enteredDate);
 	meetingStartTime.click();
 	meetingStartTime.clear();
 	meetingStartTime.sendKeys("12:00 PM");
-	//meetingEndDate.sendKeys(enteredDate);
-	//meetingEndTime.click();
-	//meetingEndTime.clear();
-	//meetingEndTime.sendKeys("12:30 PM");
-//	assignedTo.sendKeys("Rhonda Kemp");
-//	meetingLocation.sendKeys("AZ - Phoenix - Chandler (Appt Only)");
-	
 	
 	meetingDuration.sendKeys("60");
 	
@@ -1078,6 +1276,15 @@ public void verifyMeeting(String Link) throws InterruptedException {
 	
 }
 
+
+public void navigateToCoClient() throws InterruptedException{
+	
+	
+	
+}
+
+
+
 public String[] scheduleReferralAppointment() throws InterruptedException, ParseException {
 	
 	ReferralAppointment ref = new ReferralAppointment();
@@ -1107,23 +1314,21 @@ public void selectOutcome(int i) throws InterruptedException, ParseException {
 	
 	}
 
-
-public void setuniqueId() throws InterruptedException, ParseException {
+public void verifyExistingTasks() throws InterruptedException {
 	
-	uniqueid = generateRndmNum(uniqueid); 
-	}
-
-
-public static String generateRndmNum(String range) {
-    
-	 int intrange = Integer.parseInt(range);
-	 Random rand = new Random(System.currentTimeMillis());
-	 int num = rand.nextInt(intrange);
-	 String snum = Integer.toString(num); 
-	 
-	  return snum;
+	clickNextButton();
+	Thread.sleep(5000);
 	
-	}
+	if(!driver.findElements(By.xpath("//div[contains(text(),'Do not close any existing tasks')]")).isEmpty()){
+		createNewTask.click();
+    }else{
+    	System.out.println("No Previous Tasks screen displayed");
+    }
+	
+}
+
+
+
 
 
 

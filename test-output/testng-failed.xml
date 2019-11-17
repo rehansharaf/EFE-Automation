@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]" parallel="methods">
   <listeners>
     <listener class-name="com.qa.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test name="Free CRM App Test Cases(failed)">
+  <test name="Free CRM App Test Cases(failed)" parallel="methods">
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="LogACallSpouse"/>
+          <include name="experiment"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

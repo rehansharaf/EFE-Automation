@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -33,6 +34,8 @@ import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.VerifyTodo;
 import com.crm.qa.pages.createLead;
 import com.crm.qa.pages.verifyLead;
+import com.crm.qa.pages.HouseholdPage;
+import com.crm.qa.pages.CommunicationPage;
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.util.Validation;
 import com.crm.qa.util.ExcelWrite;
@@ -54,6 +57,8 @@ public class LogActivityTest extends TestBase {
 	SalesforceTestRestAPI sfdcTestRestAPI;
 	SalesforceRestAPI sfdcRestAPI;
 	RetailAccount retailAccount;
+	HouseholdPage householdPage;
+	CommunicationPage communicationPage;
 	
 	VerifyTodo verifyTodo = new VerifyTodo();
 	
@@ -72,7 +77,8 @@ public class LogActivityTest extends TestBase {
 		sfdcTestRestAPI = new SalesforceTestRestAPI();
 		sfdcRestAPI = new SalesforceRestAPI();
 		retailAccount = new RetailAccount();
-		
+		householdPage = new HouseholdPage();
+		communicationPage = new CommunicationPage();
 		
 		//homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		String uname = sfdcData.get("sfdcUsername");
@@ -88,17 +94,9 @@ public class LogActivityTest extends TestBase {
 			e.printStackTrace();
 		}
 		
-		//driver.findElement(By.xpath("//div[@class='slds-icon-waffle']")).click();
-		
-		
-		//HomePage.navigateToUser();
-		
-		//TestUtil.waitforPageLoad(driver, 500000);
-		//driver.findElement(By.xpath("(//a[@id='appTile'])[8]")).click();
-		
-		
 		
 	}
+	
 	
 	@Test()
 	public void debug() throws InterruptedException, ParseException{
@@ -108,13 +106,11 @@ public class LogActivityTest extends TestBase {
 	}
 	
 
-
+	
 	@Test()
 	public void notReached() throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
 		TestUtil.print("Not Reached");
-		
-		initialize();
 		
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.dataCreation_basic();
@@ -138,8 +134,6 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser();			
 		detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
-		
-		
 									
 	}
 
@@ -174,8 +168,6 @@ public class LogActivityTest extends TestBase {
 	}
 	
 
-
-
 	@Test()
 	public void reached_Schedule_Appointment() throws InterruptedException, ParseException, AWTException{
 		
@@ -204,11 +196,13 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void notReachedwithBusinessLead() throws InterruptedException, ParseException, IOException{
 		
-		SalesforceTestRestAPI.APIConnection();
+		TestUtil.print("Not Reached with Business Lead");
+		
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.enterComments(0);
 		SalesforceTestRestAPI.validateTaskData(1);
-		
 		SalesforceTestRestAPI.validateLeadData(4);	
 								
 	}
@@ -216,12 +210,13 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void reachedwithBusinessLead() throws InterruptedException, ParseException, IOException{
 		
+		TestUtil.print("Reached with Business Lead");
 		
-		SalesforceTestRestAPI.APIConnection();
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
-		
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
 	}
@@ -229,7 +224,11 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void reachedwithBusinessLead_SchedulePhoneCall() throws Exception{
 		
-		SalesforceTestRestAPI.APIConnection();
+		TestUtil.print("Reached with Business Lead, Schedule Phone Call");
+		
+		//SalesforceTestRestAPI.APIConnection();
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "Phone Call");
 		SalesforceTestRestAPI.validateTaskData1(1);
@@ -240,7 +239,12 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void reachedwithBusinessLead_ScheduleTodo() throws Exception{
 		
-		SalesforceTestRestAPI.APIConnection();
+		TestUtil.print("Reached with Business Lead, Schedule To Do");
+		
+		//SalesforceTestRestAPI.APIConnection();
+		
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "ToDo");
 		SalesforceTestRestAPI.validateTaskData1(1);
@@ -252,7 +256,12 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void reachedwithBusinessLead_ScheduleMeeting() throws InterruptedException, ParseException, AWTException{
 		
-		SalesforceTestRestAPI.APIConnection();
+		
+		TestUtil.print("Reached with Business Lead, Schedule Meeting");
+		//SalesforceTestRestAPI.APIConnection();
+		
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_scheduleAppointment1();
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
@@ -263,65 +272,131 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void reachedwithBusinessLead_UnplannedMeeting() throws InterruptedException, ParseException{
 		
-		SalesforceTestRestAPI.APIConnection();
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting");
+		
+		//SalesforceTestRestAPI.APIConnection();
+		
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser();			
+		detailsPage.unplannedAppointment();
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	}
+
+	@Test()
+	public void UnplannedMeeting() throws InterruptedException, ParseException{
+		
+		TestUtil.print("Setting up an UnPlanned Meeting");
+		
+		//SalesforceTestRestAPI.APIConnection();
+		
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser();			
 		detailsPage.unplannedAppointment();
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
 	}
 	
-//Yahan say ker na hay	
+	
+	
+
 	@Test()
 	public void meeting_CompleteFlow() throws InterruptedException, ParseException, AWTException{
 		
+		HomePage.navigateToUser("advisor");
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.dataCreation1();
+		
+		System.out.println("Running homePage.navigateToRetailuser()..................... ");
 		homePage.navigateToRetailuser();
+		
+		System.out.println("Running detailsPage.reached_scheduleAppointment1()..................... ");
 		detailsPage.reached_scheduleAppointment1();
+		
 		MeetingFlow meetingflow = new MeetingFlow();
+		
+		System.out.println("Running meetingflow.meetingCompletedFlow()..................... ");
 		meetingflow.meetingCompletedFlow();
-		//SalesforceTestRestAPI.validateMeetingData(3, 1);
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
+		SalesforceTestRestAPI.validateMeetingData(3, 1);
 	}
 
 	
 	@Test()
 	public void meeting_CompleteFlowWithOptions() throws InterruptedException, ParseException, AWTException{
 		
+		HomePage.navigateToUser("advisor");
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.dataCreation1();
+		
+		System.out.println("Running homePage.navigateToRetailuser()..................... ");
 		homePage.navigateToRetailuser();
+		
+		System.out.println("Running detailsPage.reached_scheduleAppointment1()..................... ");
 		detailsPage.reached_scheduleAppointment1();
+		
+		System.out.println("Running meetingflow.meetingCompletedFlowWithOptions()..................... ");
 		MeetingFlow meetingflow = new MeetingFlow();
 		meetingflow.meetingCompleteFlowWithOptions();
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateMeetingData(3, 1);
 	}
 	
 	
 	@Test()
-	public void nolead_Reached_createBranchOpportunity() throws InterruptedException {
+	public void nolead_Reached_createBranchOpportunity() throws InterruptedException, ParseException {
 		
+		HomePage.navigateToUser("advisor");
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.APIConnection();
+		
+		System.out.println("Running homePage.navigateToRetailuser()..................... ");
 		homePage.navigateToRetailuser();
+		
+		System.out.println("Running opp.createBranchOpportunity()..................... ");
 		Opportunities opp = new Opportunities();
 		opp.createBranchOpportunity();	
+				
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateTaskData(1);
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateBranchOpportunity(6);	
 		
 				
 	}
 	
 	@Test()
-	public void nolead_Reached_createWorkplaceOpportunity() throws InterruptedException {
+	public void nolead_Reached_createWorkplaceOpportunity() throws InterruptedException, ParseException {
 		
+		HomePage.navigateToUser("advisor");
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.APIConnection();
+		
+		System.out.println("Running homePage.navigateToRetailuser()..................... ");
 		homePage.navigateToRetailuser();
+		
+		System.out.println("Running opp.createBranchOpportunity()..................... ");
 		Opportunities opp = new Opportunities();
 		opp.createWorkplaceOpportunity();	
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateTaskData(1);
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);	
 		
 				
 	}
 	
 	@Test()
-	public void nolead_Reached_MultipleOpportunity() throws InterruptedException {
+	public void nolead_Reached_MultipleOpportunity() throws InterruptedException, ParseException {
 		
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();
@@ -339,20 +414,56 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Log a Call Spouse");
 		
-		initialize();
-		
+		System.out.println("Running HomePage.navigatetoUser..................... ");
 		HomePage.navigateToUser("advisor");
+		System.out.println("Running SalesforceTestRestAPI.APIConnection()..................... ");
 		SalesforceTestRestAPI.APIConnection();
+		System.out.println("Running homePage.navigateToRetailuser..................... ");
 		homePage.navigateToRetailuser();
 		RetailAccount acc = new RetailAccount();
+		System.out.println("Running acc.addSpouse..................... ");
 		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
+		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
 		homePage.navigateToSpouseuser();
+		System.out.println("Running detailsPage.reached_schedule(1, Phone Call)..................... ");
 		detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
-		
-		
 				
 	}
+	
+	
+	@Test()
+	public void LogaCallwithSpouse_ValidateAtPrimary() throws Exception {
+		
+		TestUtil.print("Log a Call with Spouse and Validate at Primary");
+		
+		//CreateRetail2Account();
+		System.out.println("Running HomePage.navigatetoUser..................... ");
+		HomePage.navigateToUser("advisor");
+		
+		System.out.println("Running SalesforceTestRestAPI.APIConnection()..................... ");
+		SalesforceTestRestAPI.APIConnection();
+		
+		System.out.println("Running homePage.navigateToRetailuser..................... ");
+		homePage.navigateToRetailuser();
+		
+		System.out.println("Running acc.addSpouse..................... ");
+		RetailAccount acc = new RetailAccount();
+		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
+		
+		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
+		homePage.navigateToSpouseuser();
+		
+		System.out.println("Running detailsPage.enterComments(1)..................... ");
+		detailsPage.enterComments(1);
+		
+		//System.out.println("Running Salesforce API validateTaskData1(1)..................... ");
+		//SalesforceTestRestAPI.validateTaskData1(1);
+		
+		communicationPage.validateCallonCommunication();
+		
+	}
+	
 	
 	
 	@Test()
@@ -371,6 +482,7 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
+	
 	@Test()
 	public void CreateRetail1Account_Spouse() throws Exception {
 		
@@ -385,11 +497,25 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
+	@Test()
+	public void CreateRetail1Account() throws Exception {
+		
+		//TestUtil.print("Create a Retail 1 Account");
+		System.out.println("Creating Retail 1 Account.........................");
+		
+		RetailAccount acc = new RetailAccount();
+		acc.createRetailuser(1);
+		acc.validRetailuser();
+				
+	}
+	
+	
 	
 	@Test()
 	public void CreateRetail2Account() throws Exception {
 		
-		TestUtil.print("Create Retail2 Account");
+		//TestUtil.print("Create Retail2 Account");
+		System.out.println("Creating Retail 2 Account.........................");
 		
 		HomePage.navigateToUser("advisor");
 		RetailAccount acc = new RetailAccount();
@@ -398,16 +524,39 @@ public class LogActivityTest extends TestBase {
 				
 	}
 	
+
+	
 	@Test()
-	public void CreateRetail1Account() throws Exception {
+	public void UpdatePrimaryAccountdetails() throws Exception {
 		
-		TestUtil.print("Creat a Retail 1 Account");
+		//TestUtil.print("Create Retail2 Account");
+		System.out.println("UpdatePrimaryAccountdetails.........................");
 		
+		//HomePage.navigateToUser("advisor");
+		//RetailAccount acc = new RetailAccount();
+		CreateRetail2Account();
+		detailsPage.updateAccountDetails();
+		
+		
+		
+	}
+	
+	@Test()
+	public void UpdateSpouseAccountdetails() throws Exception {
+		
+		//TestUtil.print("Create Retail2 Account");
+		System.out.println("UpdateSpouseAccountdetails.........................");
+		
+		HomePage.navigateToUser("advisor");
 		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(1);
+		acc.createRetailuser(2);
 		acc.validRetailuser();
 				
 	}
+	
+	
+	
+	
 	
 	
 	@Test()
@@ -526,12 +675,16 @@ public class LogActivityTest extends TestBase {
 		
 	}
 
-	
-	public void initialize() throws InterruptedException, ParseException {
-	
-		detailsPage.setuniqueId();
+
+	@Test()
+	public void experiment() throws InterruptedException {
+		
+		HomePage.navigateToUser("advisor");
+		detailsPage.updateAccountDetails();	
+		
 	}
-	
+
+
 	
 	
 	

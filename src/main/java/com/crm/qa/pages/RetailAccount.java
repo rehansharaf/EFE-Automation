@@ -105,7 +105,10 @@ public class RetailAccount extends TestBase {
 	WebElement msgDontGiveUpYet;
 	
 		
-	@FindBy(xpath = "//h1[@id='primaryField']/span")
+	//@FindBy(xpath = "//h1[@id='primaryField']/span")
+	//WebElement username;
+	
+	@FindBy(xpath = "//*[@id='primaryField']")
 	WebElement username;
 	
 	//@FindBy(xpath="(//button[@title='Edit Plan Sponsor Name']//preceding-sibling::span)[2]")
@@ -133,8 +136,22 @@ public class RetailAccount extends TestBase {
 	@FindBy(xpath="//ul[@role='presentation']//li//a[@title='Retail']")
 	WebElement retailType1;
 	
-	@FindBy(xpath="//span[contains(@class,'title')][contains(text(),'Household')]")
+	//@FindBy(xpath="//span[contains(@class,'title')][contains(text(),'Household')]")
+	//WebElement householdTab;
+	
+	//@FindBy(xpath="//span[@class='title'][contains(text(),'Household')]")
+	//WebElement householdTab;
+	//@FindBy(xpath="//span[contains(text(),'Household')]")
+	//WebElement householdTab;
+	
+	
+	
+	@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab6'))]")
 	WebElement householdTab;
+	
+	@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab8'))]")
+	WebElement communicationTab;
+	
 	
 	@FindBy(xpath="(//div[contains(@class,'col main-col slds-size--6-of-12')]//li)[2]")
 	WebElement householdTablink;
@@ -210,7 +227,8 @@ public class RetailAccount extends TestBase {
 	@FindBy(xpath="(//a[contains (@role, 'option')])[1]")
 	WebElement assignedPlannerOption;
 	
-	
+	@FindBy(xpath="(//a[contains(@class,'forceOutputLookup')])[1]")
+	WebElement plannerAdvisor;
 	
 	@FindBy(xpath="//div[contains (@class, 'slds-lookup__result-meta')]")
 	WebElement assignedPlannerdropdown;
@@ -218,12 +236,8 @@ public class RetailAccount extends TestBase {
 	@FindBy(xpath="//input[contains (@placeholder, 'Search People...')]")
 	WebElement searchpeopleDropDown;
 	
-	
-	
 	@FindBy(xpath="//span[contains(@title, 'My Open Opportunities')]")
 	WebElement myOpenOptty;
-	
-	
 	
 	
 	
@@ -253,13 +267,15 @@ public class RetailAccount extends TestBase {
 	
 	public void createRetailuser(int i) throws Exception {
 		
-		Thread.sleep(10000);
+		//Thread.sleep(10000);
 		
 		
 		if (i==2){
 		
+			
 		LoggedinUser = LoggedUser.getText().substring(11);
-		
+		//LoggedinUser = plannerAdvisor.getText();
+			
 		}
 		
 		
@@ -281,7 +297,7 @@ public class RetailAccount extends TestBase {
 		globalButton.click();
 		}
 		
-		//Thread.sleep(10000);
+		Thread.sleep(5000);
 		
 		
 		TestUtil.waitForElement("Create Retail Account", createRetail);
@@ -330,10 +346,13 @@ public class RetailAccount extends TestBase {
 		
 		
 		saveButton.click();
-		prop.put("retailuser", "password"); 
+		prop.put("retailuser", "password");
+		Thread.sleep(10000);
 		System.out.println(aname);
 		
 		prop.setProperty("retailuser", aname);
+		Thread.sleep(3000);
+		
 		try {
 			prop.store(output, null);
 		} catch (IOException e) {
@@ -345,20 +364,29 @@ public class RetailAccount extends TestBase {
 	
 	public void validRetailuser() throws InterruptedException {
 		
-		String username1 = prop.getProperty("retailuser");
+		//String username1 = prop.getProperty("retailuser");
 
-		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/page/home");
-		//Thread.sleep(15000);
+		Thread.sleep(3000);
 		
-		TestUtil.waitForElement("My Open Opportunities", myOpenOptty);
+		//driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/page/home");
+		//TestUtil.waitForElement("My Open Opportunities", myOpenOptty);
 		
-		searchInput.sendKeys(prop.getProperty("retailuser"));
-		Thread.sleep(15000);
+		//searchInput.sendKeys(prop.getProperty("retailuser"));
+		//searchInput.sendKeys(username1);
+		
+		searchInput.sendKeys(aname);
+		Thread.sleep(5000);
 		//searchInput.sendKeys(Keys.ENTER);
 		searchInput.sendKeys(Keys.RETURN);
 		//driver.findElement(By.xpath("(//span[contains(@class,'mruName slds-text-body--regular')])[1]")).click();
 		//searchInput.sendKeys(Keys.RETURN);
 		Thread.sleep(10000);
+		
+		//if (msgDontGiveUpYet.getText() == "Don't give up yet!")	{ driver.navigate().refresh(); Thread.sleep(3000);}
+		
+		if (driver.findElements(By.xpath("//div[contains (text() , 'give up yet')]")).size() != 0)
+		{ driver.navigate().refresh(); Thread.sleep(3000);}
+		
 		
 		driver.findElement(By.xpath("(//a[contains(text(),'"+aname+"')])[1]")).click();
 		//driver.findElement(By.xpath("(//span[contains(@class,'mruName slds-text-body--regular')])[1]")).click();
@@ -376,7 +404,7 @@ public class RetailAccount extends TestBase {
 		   System.out.println("User Number is empty");
 		}
 					
-		System.out.println(AccountName);
+		System.out.println(textInsideUserNumber);
 		System.out.println(prop.getProperty("retailuser"));
 		softAssertion.assertEquals(AccountName, prop.getProperty("retailuser"), "Account Name mismatch in open task");
 		softAssertion.assertEquals(retailText.getText(), "");
@@ -390,23 +418,25 @@ public class RetailAccount extends TestBase {
 		
 		//TestUtil.waitforPageLoad();
 		
-		TestUtil.waitForElement("Household", householdTab);
+		//TestUtil.waitForElement("Household", householdTab);
 		Thread.sleep(3000);
 		householdTab.click();
-		//jse2.executeScript("arguments[0].click()", householdTab);
 		
+		
+		Thread.sleep(3000);
 		//TestUtil.waitforPageLoad(10);
 		TestUtil.waitForElement("Add Co-Client", addCoclient);
 		addCoclient.click();
 		
-		//Thread.sleep(5000);
 		
+		Thread.sleep(3000);
 		TestUtil.waitForElement("Add Household Member", householdMember);
 		createNewAccount.click();
 		
 		nextButton.click();
-		//Thread.sleep(5000);
+	
 		
+		Thread.sleep(3000);
 		TestUtil.waitForElement("Add Household Member", householdMember);
 		spouseFirstName.sendKeys(SpouseFirstName);
 		spouseLastName.sendKeys(SpouseLastName);
@@ -419,7 +449,7 @@ public class RetailAccount extends TestBase {
 		Thread.sleep(10000);
 		
 		
-		TestUtil.waitForElement("Household", householdTab);
+		//TestUtil.waitForElement("Household", householdTab);
 		householdTab.click();
 		
 		/*
@@ -434,17 +464,32 @@ public class RetailAccount extends TestBase {
 		
 		coClientButton.click();
 		
+		Thread.sleep(3000);
 		String spouseUrl = driver.getCurrentUrl();
 		String []url = spouseUrl.split("/");
 		String spousesfdcId = url[6];
+		
 		prop.setProperty("spousesfdcId", spousesfdcId);
 		SalesforceRestAPI.objMap.put("spousesfdcId", spousesfdcId);
+		
+		//prop.setProperty("sfdcId", spousesfdcId);
+		//SalesforceRestAPI.objMap.put("sfdcId", spousesfdcId);
 		
 	
 	
 	}
 	
-	
+	public static String generateRndmNum(String range) {
+	    
+		 int intrange = Integer.parseInt(range);
+		 Random rand = new Random(System.currentTimeMillis());
+		 int num = rand.nextInt(intrange);
+		 String snum = Integer.toString(num); 
+		 
+		  return snum;
+		
+		}	
+
 	
 	
 	

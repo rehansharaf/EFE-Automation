@@ -1,33 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="30" total="32" passed="2">
+<testng-results skipped="0" failed="0" ignored="36" total="37" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="252299" started-at="2019-11-03T03:22:15Z" finished-at="2019-11-03T03:26:27Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="61179" started-at="2019-11-17T09:13:29Z" finished-at="2019-11-17T09:14:30Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="252299" started-at="2019-11-03T03:22:15Z" finished-at="2019-11-03T03:26:27Z">
+    <test name="Free CRM App Test Cases" duration-ms="61179" started-at="2019-11-17T09:13:29Z" finished-at="2019-11-17T09:14:30Z">
       <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="10238" started-at="2019-11-02T20:22:15Z" finished-at="2019-11-02T20:22:25Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="9308" started-at="2019-11-17T02:13:29Z" finished-at="2019-11-17T02:13:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="notReached" duration-ms="97440" started-at="2019-11-02T20:22:25Z" finished-at="2019-11-02T20:24:03Z">
+        <test-method status="PASS" signature="experiment()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="experiment" duration-ms="51144" started-at="2019-11-17T02:13:38Z" finished-at="2019-11-17T02:14:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- notReached -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="687" started-at="2019-11-02T20:24:03Z" finished-at="2019-11-02T20:24:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="9054" started-at="2019-11-02T20:24:03Z" finished-at="2019-11-02T20:24:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="LogACallSpouse()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="LogACallSpouse" duration-ms="134183" started-at="2019-11-02T20:24:12Z" finished-at="2019-11-02T20:26:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogACallSpouse -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="672" started-at="2019-11-02T20:26:27Z" finished-at="2019-11-02T20:26:27Z">
+        </test-method> <!-- experiment -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="708" started-at="2019-11-17T02:14:29Z" finished-at="2019-11-17T02:14:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

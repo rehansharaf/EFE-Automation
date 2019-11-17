@@ -35,8 +35,8 @@ import com.google.common.base.Function;
 
 public class TestUtil extends TestBase{
 	
-	public static long PAGE_LOAD_TIMEOUT = 20;
-	public static long IMPLICIT_WAIT = 20;
+	public static long PAGE_LOAD_TIMEOUT = 30;
+	public static long IMPLICIT_WAIT = 30;
 	
 	public static String TESTDATA_SHEET_PATH = (System.getProperty("user.dir")+ "/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx");
 
@@ -191,12 +191,28 @@ public class TestUtil extends TestBase{
    	  
      	}
 
-	  
+
+     public static void ifButtonPresentclick(String element){
+     
+     List<WebElement> ele = driver.findElements(By.xpath(element));
+      if (ele.size() > 0){ ele.get(0).click();}
+      else {System.out.println("Button not found....");}
+     
+     }
+     
      
      public static boolean isElementPresent(WebElement element) {
     	  try {element.isDisplayed(); return true;}
     	  catch (org.openqa.selenium.NoSuchElementException e) {return false;}
     	}
+
+     
+     public static void closeAllOpenTabs(WebDriver driver) {
+    	 	
+    	 	WebElement openTabgrid= driver.findElement(By.xpath("//*[contains (@class, ('tabBarItems slds-grid'))]")); 
+    	 	List<WebElement> listoftabs = openTabgrid.findElements(By.xpath("//a[contains (@href, ('/lightning/r/Account'))]"));
+    	 	for (WebElement listoftab : listoftabs) {driver.findElement(By.xpath("//div[2]//button[1][contains (@title, ('Close'))]")).click();  }
+       }
      
   /*   
      public static void waitforPageLoad(WebDriver driver, int timeout) {
