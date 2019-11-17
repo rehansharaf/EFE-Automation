@@ -352,7 +352,7 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//input[contains (@name, 'assignedToNotDefaulted')]")
 	WebElement assignedtoDropDown;
 	
-	@FindBy(xpath = "//div[contains (@class,('forcePageBlockSectionRow'))])[19]")
+	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[19]")
 	WebElement scrolltoAccountDetails;
 	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Client Provided Email'))]")
@@ -382,7 +382,7 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//a[contains(@class,'select')][contains(@role,'button')])[3]")
 	WebElement genderDropDown;
 	
-	@FindBy(xpath = "//div[contains (@class,('forcePageBlockSectionRow'))])[30]")
+	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[30]")
 	WebElement scrolltoAddressInformation;
 	
 	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing Street'))]")
@@ -397,7 +397,7 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing Zip/Postal Code'))]")
 	WebElement textMailingZipCode;
 	
-	@FindBy(xpath = "(//button[contains (@title, ('Save'))]")
+	@FindBy(xpath = "//button[contains (@title, ('Save'))]")
 	WebElement updateSaveBtn;
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
@@ -562,15 +562,15 @@ public class DetailsPage extends TestBase {
 		workphoneEditInput.clear();
 		workphoneEditInput.sendKeys("9998887777");
 		
-		driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
-		//updateSaveBtn.click();
+		//driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		updateSaveBtn.click();
 		
 		Thread.sleep(5000);
 		
 		
-		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[19]")).click();
+		//driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[19]")).click();
 		
-		//scrolltoAccountDetails.click();
+		scrolltoAccountDetails.click();
 		
 		genderEditBtn.click();
 		Thread.sleep(3000);
@@ -584,15 +584,15 @@ public class DetailsPage extends TestBase {
 		
 		//dobEditInput.sendKeys("8/15/1978");
 		
-		driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		//driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
 		
-		//updateSaveBtn.click();
+		updateSaveBtn.click();
 		
 		Thread.sleep(5000);
 		
-		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[30]")).click();
+		//driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[30]")).click();
 		
-		//scrolltoAddressInformation.click();
+		scrolltoAddressInformation.click();
 		
 		Thread.sleep(5000);
 		addressEditBtn.click();
@@ -606,8 +606,8 @@ public class DetailsPage extends TestBase {
 		textMailingZipCode.clear();
 		textMailingZipCode.sendKeys("85254");
 		
-		driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
-		//updateSaveBtn.click();
+		//driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		updateSaveBtn.click();
 		
 		
 	}
