@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -366,7 +367,10 @@ public class DetailsPage extends TestBase {
 	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Gender'))]")
 	WebElement genderEditBtn;
-		
+	
+	@FindBy(xpath = "//a[contains(text(),'Male')]")
+	WebElement genderMale;
+	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Mailing Address'))]")
 	WebElement addressEditBtn;
 	
@@ -375,6 +379,12 @@ public class DetailsPage extends TestBase {
 	
 	@FindBy(xpath = "(//*[contains (@class, ('datePicker'))])[1]/..")
 	WebElement dobEditInput;
+	
+	//@FindBy(xpath = "//span[contains(text(),'Today')]")
+	//WebElement dobAsToday;
+	
+	@FindBy(xpath = "(//a[contains (@class, 'datePicker')]/..//input[contains (@class, ('input'))])[1]")
+	WebElement dobInput;
 	
 	@FindBy(xpath = "(//span[contains (text(), ('Work Phone'))]/../..//input)[1]")
 	WebElement workphoneEditInput;
@@ -557,44 +567,32 @@ public class DetailsPage extends TestBase {
 
 		//Thread.sleep(3000);
 		emailEditInput.clear();
-		emailEditInput.sendKeys("TestUpdate"+ Math.floor(Math.random()*11111) + "@gmail.com");
+		emailEditInput.sendKeys("testupdate001@gmail.com");
 		
 		workphoneEditInput.clear();
 		workphoneEditInput.sendKeys("9998887777");
 		
-		//driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
 		updateSaveBtn.click();
 		
 		Thread.sleep(5000);
-		
-		
-		//driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[19]")).click();
-		
 		scrolltoAccountDetails.click();
 		
 		genderEditBtn.click();
 		Thread.sleep(3000);
 		genderDropDown.click();
-		driver.findElement(By.xpath("//a[contains(text(),'Male')]")).click();
-		
-		
-		//dobEditBtn.click();
+		genderMale.click();
+	
 		dobEditInput.click();
-		driver.findElement(By.xpath("//span[contains(text(),'Today')]")).click();
-		
-		//dobEditInput.sendKeys("8/15/1978");
-		
-		//driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
+		//dobAsToday.click();
+		dobInput.clear();
+		dobInput.sendKeys("12/11/1972");
 		
 		updateSaveBtn.click();
 		
 		Thread.sleep(5000);
-		
-		//driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[30]")).click();
-		
 		scrolltoAddressInformation.click();
 		
-		Thread.sleep(5000);
+		//Thread.sleep(3000);
 		addressEditBtn.click();
 		Thread.sleep(3000);
 		textMailingStreet.clear();
@@ -606,17 +604,74 @@ public class DetailsPage extends TestBase {
 		textMailingZipCode.clear();
 		textMailingZipCode.sendKeys("85254");
 		
-		//driver.findElement(By.xpath("//button[contains (@title, ('Save'))]")).click();
 		updateSaveBtn.click();
+		Thread.sleep(5000);
+		driver.navigate().refresh();
+	}
+	
+	
+	public void verifyAccountDetails() throws InterruptedException {
+		
+		Thread.sleep(5000);
+		
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		Date date = new Date();
+		
+		String clientEmail = getFieldData("Edit Client Provided Email");
+		if (clientEmail.equals("testupdate001@gmail.com")){System.out.println("Email verified....");} else {System.out.println("Email not matched");}
+		
+		String workPhone = getFieldData("Edit Work Phone");
+		if (workPhone.equals("(999) 888-7777")){System.out.println("Workphone verified....");} else {System.out.println("Workphone not matched");}
+		
+		
+		scrolltoAccountDetails.click();
+		
+		String gender = getFieldData("Edit Gender");
+		if (gender.equals("Male")){System.out.println("Gender verified.....");} else {System.out.println("Gender not matched");}
+		
+		
+		String dateOfBirth = getFieldData("Edit Date of Birth");
+		if (dateOfBirth.equals("12/11/1972")){System.out.println("DOB Verified....");} else {System.out.println("DOB not matched");}
+		
+		
+		scrolltoAddressInformation.click();
+		
+		String mailingAddress = getFieldData("Edit Mailing Address").substring(0,37).trim();
+		mailingAddress = mailingAddress.replace("\n", "").replace("\r", "");
+		if (mailingAddress.equals("1234 Test StreetScottsdale, AZ 85254")){System.out.println("Mailing Address verified....");} else {System.out.println("Mailing Address doesnot match");}
+		
 		
 		
 	}
 	
 	
+	public void exp() throws InterruptedException {
+		Thread.sleep(5000);
+		//scrolltoAccountDetails.click();
+		
+		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[25]")).click();
+		
+
+		
+		
+		
+		genderEditBtn.click();
+		dobEditInput.click();
+		//dobAsToday.click();
+		dobInput.clear();
+		dobInput.sendKeys("12/11/1972");
+		//driver.findElement(By.xpath("(//a[contains (@class, 'datePicker')]/..//input[contains (@class, ('input'))])[1]")).clear();
+		//driver.findElement(By.xpath("(//a[contains (@class, 'datePicker')]/..//input[contains (@class, ('input'))])[1]")).sendKeys("12/11/1972");;
+		updateSaveBtn.click();
+	}
 	
 	
-	
-	
+	public String getFieldData(String field) throws InterruptedException {
+		
+		String fielddata = driver.findElement(By.xpath("//button[contains (@title, ('" +field+ "'))]/..//span[contains (@class, ('test-id'))]")).getText();
+		
+		return fielddata;
+	}
 	
 	
 	

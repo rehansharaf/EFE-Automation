@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="36" total="37" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="64707" started-at="2019-11-17T17:23:11Z" finished-at="2019-11-17T17:24:16Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="165293" started-at="2019-11-18T05:57:53Z" finished-at="2019-11-18T06:00:38Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="64707" started-at="2019-11-17T17:23:11Z" finished-at="2019-11-17T17:24:16Z">
+    <test name="Free CRM App Test Cases" duration-ms="165293" started-at="2019-11-18T05:57:53Z" finished-at="2019-11-18T06:00:38Z">
       <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="15418" started-at="2019-11-17T10:23:11Z" finished-at="2019-11-17T10:23:27Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="9270" started-at="2019-11-17T22:57:53Z" finished-at="2019-11-17T22:58:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="experiment()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="experiment" duration-ms="48527" started-at="2019-11-17T10:23:27Z" finished-at="2019-11-17T10:24:15Z">
+        <test-method status="PASS" signature="UpdatePrimaryAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="UpdatePrimaryAccountdetails" duration-ms="155250" started-at="2019-11-17T22:58:02Z" finished-at="2019-11-17T23:00:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- experiment -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="742" started-at="2019-11-17T10:24:15Z" finished-at="2019-11-17T10:24:16Z">
+        </test-method> <!-- UpdatePrimaryAccountdetails -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="753" started-at="2019-11-17T23:00:37Z" finished-at="2019-11-17T23:00:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

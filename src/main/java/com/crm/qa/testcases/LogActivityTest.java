@@ -529,13 +529,13 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void UpdatePrimaryAccountdetails() throws Exception {
 		
-		//TestUtil.print("Create Retail2 Account");
-		System.out.println("UpdatePrimaryAccountdetails.........................");
+		TestUtil.print("UpdatePrimaryAccountdetails");
 		
 		//HomePage.navigateToUser("advisor");
 		//RetailAccount acc = new RetailAccount();
 		CreateRetail2Account();
 		detailsPage.updateAccountDetails();
+		detailsPage.verifyAccountDetails();	
 		
 		
 		
@@ -680,7 +680,9 @@ public class LogActivityTest extends TestBase {
 	public void experiment() throws InterruptedException {
 		
 		HomePage.navigateToUser("advisor");
-		detailsPage.updateAccountDetails();	
+		detailsPage.exp();
+		//detailsPage.updateAccountDetails();
+		//detailsPage.verifyAccountDetails();	
 		
 	}
 
