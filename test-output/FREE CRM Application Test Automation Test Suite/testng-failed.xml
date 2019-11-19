@@ -9,8 +9,8 @@
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
           <include name="tearDown"/>
+          <include name="UpdatePrimaryAccountdetails"/>
           <include name="setUp"/>
-          <include name="experiment"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

@@ -353,6 +353,9 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//input[contains (@name, 'assignedToNotDefaulted')]")
 	WebElement assignedtoDropDown;
 	
+	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[5]")
+	WebElement scrolltoClientInformation;
+	
 	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[19]")
 	WebElement scrolltoAccountDetails;
 	
@@ -565,10 +568,11 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(5000);
 		emailEditBtn.click();
 
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 		emailEditInput.clear();
 		emailEditInput.sendKeys("testupdate001@gmail.com");
 		
+		Thread.sleep(3000);
 		workphoneEditInput.clear();
 		workphoneEditInput.sendKeys("9998887777");
 		
@@ -605,7 +609,7 @@ public class DetailsPage extends TestBase {
 		textMailingZipCode.sendKeys("85254");
 		
 		updateSaveBtn.click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		driver.navigate().refresh();
 	}
 	
@@ -614,55 +618,36 @@ public class DetailsPage extends TestBase {
 		
 		Thread.sleep(5000);
 		
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-		Date date = new Date();
+		scrolltoClientInformation.click();
 		
 		String clientEmail = getFieldData("Edit Client Provided Email");
-		if (clientEmail.equals("testupdate001@gmail.com")){System.out.println("Email verified....");} else {System.out.println("Email not matched");}
+		softAssertion.assertEquals(clientEmail, "testupdate001@gmail.com", "Email not matched.....");
 		
 		String workPhone = getFieldData("Edit Work Phone");
-		if (workPhone.equals("(999) 888-7777")){System.out.println("Workphone verified....");} else {System.out.println("Workphone not matched");}
-		
+		softAssertion.assertEquals(workPhone, "(999) 888-7777", "Workphone not matched.....");
 		
 		scrolltoAccountDetails.click();
 		
 		String gender = getFieldData("Edit Gender");
-		if (gender.equals("Male")){System.out.println("Gender verified.....");} else {System.out.println("Gender not matched");}
-		
+		softAssertion.assertEquals(gender, "Male", "Gender not matched....");
 		
 		String dateOfBirth = getFieldData("Edit Date of Birth");
-		if (dateOfBirth.equals("12/11/1972")){System.out.println("DOB Verified....");} else {System.out.println("DOB not matched");}
-		
+		softAssertion.assertEquals(dateOfBirth, "12/11/1972", "DOB not matched.....");
 		
 		scrolltoAddressInformation.click();
 		
 		String mailingAddress = getFieldData("Edit Mailing Address").substring(0,37).trim();
 		mailingAddress = mailingAddress.replace("\n", "").replace("\r", "");
-		if (mailingAddress.equals("1234 Test StreetScottsdale, AZ 85254")){System.out.println("Mailing Address verified....");} else {System.out.println("Mailing Address doesnot match");}
+		softAssertion.assertEquals(mailingAddress, "1234 Test StreetScottsdale, AZ 85254", "Mailing Address not matched.....");
 		
-		
+		softAssertion.assertAll();
 		
 	}
 	
 	
 	public void exp() throws InterruptedException {
 		Thread.sleep(5000);
-		//scrolltoAccountDetails.click();
-		
-		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[25]")).click();
-		
-
-		
-		
-		
-		genderEditBtn.click();
-		dobEditInput.click();
-		//dobAsToday.click();
-		dobInput.clear();
-		dobInput.sendKeys("12/11/1972");
-		//driver.findElement(By.xpath("(//a[contains (@class, 'datePicker')]/..//input[contains (@class, ('input'))])[1]")).clear();
-		//driver.findElement(By.xpath("(//a[contains (@class, 'datePicker')]/..//input[contains (@class, ('input'))])[1]")).sendKeys("12/11/1972");;
-		updateSaveBtn.click();
+	
 	}
 	
 	

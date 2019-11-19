@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="36" total="37" passed="1">
+<testng-results skipped="0" failed="0" ignored="35" total="37" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="165293" started-at="2019-11-18T05:57:53Z" finished-at="2019-11-18T06:00:38Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="229154" started-at="2019-11-18T23:00:09Z" finished-at="2019-11-18T23:03:59Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="165293" started-at="2019-11-18T05:57:53Z" finished-at="2019-11-18T06:00:38Z">
+    <test name="Free CRM App Test Cases" duration-ms="229154" started-at="2019-11-18T23:00:09Z" finished-at="2019-11-18T23:03:59Z">
       <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="9270" started-at="2019-11-17T22:57:53Z" finished-at="2019-11-17T22:58:02Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="9203" started-at="2019-11-18T16:00:10Z" finished-at="2019-11-18T16:00:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdatePrimaryAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="UpdatePrimaryAccountdetails" duration-ms="155250" started-at="2019-11-17T22:58:02Z" finished-at="2019-11-17T23:00:37Z">
+        <test-method status="PASS" signature="UpdatePrimaryAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="UpdatePrimaryAccountdetails" duration-ms="83953" started-at="2019-11-18T16:00:19Z" finished-at="2019-11-18T16:01:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UpdatePrimaryAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="753" started-at="2019-11-17T23:00:37Z" finished-at="2019-11-17T23:00:38Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="739" started-at="2019-11-18T16:01:43Z" finished-at="2019-11-18T16:01:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="setUp" is-config="true" duration-ms="8243" started-at="2019-11-18T16:01:43Z" finished-at="2019-11-18T16:01:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="UpdateSpouseAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="UpdateSpouseAccountdetails" duration-ms="126264" started-at="2019-11-18T16:01:52Z" finished-at="2019-11-18T16:03:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateSpouseAccountdetails -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@35d176f7]" name="tearDown" is-config="true" duration-ms="730" started-at="2019-11-18T16:03:58Z" finished-at="2019-11-18T16:03:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

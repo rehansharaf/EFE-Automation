@@ -146,8 +146,11 @@ public class RetailAccount extends TestBase {
 	
 	
 	
-	@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab6'))]")
+	//@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab6'))]")
+	//WebElement householdTab;
+	@FindBy(xpath="//a[contains (@class, ('tabHeader'))]//span[contains (text(), ('Household'))]")
 	WebElement householdTab;
+	
 	
 	@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab8'))]")
 	WebElement communicationTab;
@@ -419,25 +422,25 @@ public class RetailAccount extends TestBase {
 		//TestUtil.waitforPageLoad();
 		
 		//TestUtil.waitForElement("Household", householdTab);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		householdTab.click();
 		
 		
 		Thread.sleep(3000);
 		//TestUtil.waitforPageLoad(10);
-		TestUtil.waitForElement("Add Co-Client", addCoclient);
+		//TestUtil.waitForElement("Add Co-Client", addCoclient);
 		addCoclient.click();
 		
 		
 		Thread.sleep(3000);
-		TestUtil.waitForElement("Add Household Member", householdMember);
+		//TestUtil.waitForElement("Add Household Member", householdMember);
 		createNewAccount.click();
 		
 		nextButton.click();
 	
 		
 		Thread.sleep(3000);
-		TestUtil.waitForElement("Add Household Member", householdMember);
+		//TestUtil.waitForElement("Add Household Member", householdMember);
 		spouseFirstName.sendKeys(SpouseFirstName);
 		spouseLastName.sendKeys(SpouseLastName);
 		spouseDOB.sendKeys("10/16/1958");
@@ -446,9 +449,10 @@ public class RetailAccount extends TestBase {
 		nextButton1.click();
 		
 		
+		
+		
+		//driver.navigate().refresh();
 		Thread.sleep(10000);
-		
-		
 		//TestUtil.waitForElement("Household", householdTab);
 		householdTab.click();
 		
@@ -457,6 +461,7 @@ public class RetailAccount extends TestBase {
 		   System.out.println("Co-Client Exists");
 		}
 		*/
+		Thread.sleep(2000);
 		
 		if(!coClientButton.isEnabled()){
 			   System.out.println("Co-Client Exists");

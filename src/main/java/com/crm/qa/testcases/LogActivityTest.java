@@ -533,8 +533,15 @@ public class LogActivityTest extends TestBase {
 		
 		//HomePage.navigateToUser("advisor");
 		//RetailAccount acc = new RetailAccount();
-		CreateRetail2Account();
+		//CreateRetail2Account();
+		System.out.println("Running HomePage.navigatetoUser..................... ");
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.APIConnection();
+		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
+		homePage.navigateToRetailuser();
+		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
 		detailsPage.updateAccountDetails();
+		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
 		detailsPage.verifyAccountDetails();	
 		
 		
@@ -544,14 +551,22 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void UpdateSpouseAccountdetails() throws Exception {
 		
-		//TestUtil.print("Create Retail2 Account");
-		System.out.println("UpdateSpouseAccountdetails.........................");
+		TestUtil.print("UpdateSpouseAccountdetails");
 		
+		System.out.println("Running HomePage.navigatetoUser..................... ");
 		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.APIConnection();
+		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
+		homePage.navigateToRetailuser();
+		System.out.println("Running acc.addSpouse..................... ");
 		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(2);
-		acc.validRetailuser();
-				
+		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
+		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
+		homePage.navigateToSpouseuser();
+		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
+		detailsPage.updateAccountDetails();
+		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
+		detailsPage.verifyAccountDetails();		
 	}
 	
 	
