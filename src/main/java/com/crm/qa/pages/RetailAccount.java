@@ -258,7 +258,7 @@ public class RetailAccount extends TestBase {
 	String aname = fname+" "+lname;
 	
 	String LoggedinUser;
-	
+	String AccountId;
 	
 //	Properties prop = new Properties();
 	
@@ -370,19 +370,12 @@ public class RetailAccount extends TestBase {
 		//String username1 = prop.getProperty("retailuser");
 
 		Thread.sleep(3000);
-		
-		//driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/page/home");
-		//TestUtil.waitForElement("My Open Opportunities", myOpenOptty);
-		
-		//searchInput.sendKeys(prop.getProperty("retailuser"));
-		//searchInput.sendKeys(username1);
-		
 		searchInput.sendKeys(aname);
+		
 		Thread.sleep(5000);
 		//searchInput.sendKeys(Keys.ENTER);
 		searchInput.sendKeys(Keys.RETURN);
-		//driver.findElement(By.xpath("(//span[contains(@class,'mruName slds-text-body--regular')])[1]")).click();
-		//searchInput.sendKeys(Keys.RETURN);
+		
 		Thread.sleep(10000);
 		
 		//if (msgDontGiveUpYet.getText() == "Don't give up yet!")	{ driver.navigate().refresh(); Thread.sleep(3000);}
@@ -392,20 +385,17 @@ public class RetailAccount extends TestBase {
 		
 		
 		driver.findElement(By.xpath("(//a[contains(text(),'"+aname+"')])[1]")).click();
-		//driver.findElement(By.xpath("(//span[contains(@class,'mruName slds-text-body--regular')])[1]")).click();
 		
 		Thread.sleep(10000);
 		String AccountName = username.getText();
 		
 		driver.navigate().refresh();
-		//userNumberTitle.click();
+		
 		Thread.sleep(5000);
 		String textInsideUserNumber = userId.getText();
+		
 		// Check whether input field is blank
-		if(textInsideUserNumber.isEmpty())
-		{
-		   System.out.println("User Number is empty");
-		}
+		if(textInsideUserNumber.isEmpty()){System.out.println("User Number is empty");}
 					
 		System.out.println(textInsideUserNumber);
 		System.out.println(prop.getProperty("retailuser"));
@@ -416,44 +406,29 @@ public class RetailAccount extends TestBase {
 	
 	public void addSpouse(String SpouseFirstName, String SpouseLastName) throws InterruptedException {
 	
-		
-		Thread.sleep(10000);
-		
-		//TestUtil.waitforPageLoad();
-		
-		//TestUtil.waitForElement("Household", householdTab);
 		Thread.sleep(5000);
 		householdTab.click();
 		
-		
 		Thread.sleep(3000);
-		//TestUtil.waitforPageLoad(10);
-		//TestUtil.waitForElement("Add Co-Client", addCoclient);
 		addCoclient.click();
 		
-		
 		Thread.sleep(3000);
-		//TestUtil.waitForElement("Add Household Member", householdMember);
 		createNewAccount.click();
 		
 		nextButton.click();
-	
 		
 		Thread.sleep(3000);
-		//TestUtil.waitForElement("Add Household Member", householdMember);
 		spouseFirstName.sendKeys(SpouseFirstName);
 		spouseLastName.sendKeys(SpouseLastName);
 		spouseDOB.sendKeys("10/16/1958");
 		genderSelection.click();
 		relationshipSelection.click();
 		nextButton1.click();
+		Thread.sleep(3000);
 		
-		
-		
-		
-		//driver.navigate().refresh();
-		Thread.sleep(10000);
-		//TestUtil.waitForElement("Household", householdTab);
+		driver.navigate().refresh();
+	
+		Thread.sleep(5000);
 		householdTab.click();
 		
 		/*
@@ -478,11 +453,46 @@ public class RetailAccount extends TestBase {
 		SalesforceRestAPI.objMap.put("spousesfdcId", spousesfdcId);
 		
 		//prop.setProperty("sfdcId", spousesfdcId);
-		//SalesforceRestAPI.objMap.put("sfdcId", spousesfdcId);
+		SalesforceRestAPI.objMap.put("sfdcId", spousesfdcId);
 		
-	
-	
 	}
+	
+	
+	public void searchAccount() throws InterruptedException{
+	
+		String aname = prop.getProperty("retailuser");
+		
+		
+		driver.findElement(By.xpath("//button[contains (@title, ('Show Navigation Menu'))]")).click();
+		driver.findElement(By.xpath("//span[contains (@class,('menuLabel slds-listbox'))][contains(text(),'Accounts')]")).click();
+		driver.findElement(By.xpath("//a[contains (@title, ('" +aname+ "'))]")).click();
+		
+		
+		Thread.sleep(2000);
+		String AccountName = username.getText();
+		String textInsideUserNumber = userId.getText();
+		
+		// Check whether input field is blank
+		if(textInsideUserNumber.isEmpty()){System.out.println("User Number is empty");}
+					
+		System.out.println(textInsideUserNumber);
+		System.out.println(prop.getProperty("retailuser"));
+		softAssertion.assertEquals(AccountName, prop.getProperty("retailuser"), "Account Name mismatch in open task");
+		softAssertion.assertEquals(retailText.getText(), "");
+	
+		
+	}
+	
+	
+	public static String getAccountId() throws InterruptedException{
+		
+		String accountUrl = driver.getCurrentUrl();
+		String []url = accountUrl.split("/");
+		String accountId = url[6];
+		
+		return accountId;
+	}
+	
 	
 	public static String generateRndmNum(String range) {
 	    

@@ -303,6 +303,8 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void meeting_CompleteFlow() throws InterruptedException, ParseException, AWTException{
 		
+		TestUtil.print("Meeting Complete Flow");
+		
 		HomePage.navigateToUser("advisor");
 		
 		System.out.println("Running SalesforceTestRestAPI..................... ");
@@ -327,6 +329,8 @@ public class LogActivityTest extends TestBase {
 	@Test()
 	public void meeting_CompleteFlowWithOptions() throws InterruptedException, ParseException, AWTException{
 		
+		TestUtil.print("Meeting Complete Flow with Options");
+		
 		HomePage.navigateToUser("advisor");
 		
 		System.out.println("Running SalesforceTestRestAPI..................... ");
@@ -349,6 +353,8 @@ public class LogActivityTest extends TestBase {
 	
 	@Test()
 	public void nolead_Reached_createBranchOpportunity() throws InterruptedException, ParseException {
+		
+		TestUtil.print("create Branch Opportunity with no Lead and Reached Option");
 		
 		HomePage.navigateToUser("advisor");
 		
@@ -373,6 +379,8 @@ public class LogActivityTest extends TestBase {
 	
 	@Test()
 	public void nolead_Reached_createWorkplaceOpportunity() throws InterruptedException, ParseException {
+		
+		TestUtil.print("Create WorkPlace Opportunity with no Lead and Reached Option");
 		
 		HomePage.navigateToUser("advisor");
 		
@@ -425,7 +433,7 @@ public class LogActivityTest extends TestBase {
 		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
 		homePage.navigateToSpouseuser();
-		System.out.println("Running detailsPage.reached_schedule(1, Phone Call)..................... ");
+		System.out.println("Running detailsPage.enterComments(1)..................... ");
 		detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
 				
@@ -505,7 +513,8 @@ public class LogActivityTest extends TestBase {
 		
 		RetailAccount acc = new RetailAccount();
 		acc.createRetailuser(1);
-		acc.validRetailuser();
+		//acc.validRetailuser();
+		acc.searchAccount();
 				
 	}
 	
@@ -520,7 +529,8 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToUser("advisor");
 		RetailAccount acc = new RetailAccount();
 		acc.createRetailuser(2);
-		acc.validRetailuser();
+		//acc.validRetailuser();
+		acc.searchAccount();
 				
 	}
 	
@@ -691,11 +701,13 @@ public class LogActivityTest extends TestBase {
 	}
 
 
+	
 	@Test()
 	public void experiment() throws InterruptedException {
 		
 		HomePage.navigateToUser("advisor");
-		detailsPage.exp();
+		SalesforceTestRestAPI.APIConnection();
+		retailAccount.searchAccount();
 		//detailsPage.updateAccountDetails();
 		//detailsPage.verifyAccountDetails();	
 		
