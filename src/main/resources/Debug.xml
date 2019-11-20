@@ -23,8 +23,7 @@
 				<include name="UpdateSpouseAccountdetails"></include>
 					
 			-->
-				<include name="UpdatePrimaryAccountdetails"></include>
-				<include name="UpdateSpouseAccountdetails"></include>
+				<include name="UpdatePrimaryAccountdetails"></include>	
 		
 					
 			</methods>
