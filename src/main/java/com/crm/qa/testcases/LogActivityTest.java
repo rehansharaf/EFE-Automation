@@ -119,6 +119,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateTaskData(1);
 		softAssertion.assertAll();
 		
+		TestUtil.closeAllOpenTabs(driver);
 		
 	}
 
@@ -134,7 +135,8 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser();			
 		detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
-									
+		
+		TestUtil.closeAllOpenTabs(driver);
 	}
 
 	
@@ -149,7 +151,8 @@ public class LogActivityTest extends TestBase {
 		detailsPage.reached_schedule(1, "Phone Call");
 		SalesforceTestRestAPI.validateTaskData1(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
-							
+		
+		TestUtil.closeAllOpenTabs(driver);
 	}
 
 		
@@ -165,6 +168,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateTaskData1(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
+		TestUtil.closeAllOpenTabs(driver);
 	}
 	
 
@@ -178,7 +182,8 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser();				
 		detailsPage.reached_scheduleAppointment1();
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
-											
+	
+		TestUtil.closeAllOpenTabs(driver);
 	}
 
 
@@ -205,7 +210,9 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateTaskData(1);
 		SalesforceTestRestAPI.validateLeadData(4);	
 								
+		TestUtil.closeAllOpenTabs(driver);
 	}
+	
 	
 	@Test()
 	public void reachedwithBusinessLead() throws InterruptedException, ParseException, IOException{
@@ -219,6 +226,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateTaskData1(1);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
+		TestUtil.closeAllOpenTabs(driver);
 	}
 	
 	@Test()
@@ -235,7 +243,10 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
+		TestUtil.closeAllOpenTabs(driver);
 	}
+	
+	
 	@Test()
 	public void reachedwithBusinessLead_ScheduleTodo() throws Exception{
 		
@@ -251,6 +262,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
+		TestUtil.closeAllOpenTabs(driver);
 	}
 	
 	@Test()
@@ -267,6 +279,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
+		TestUtil.closeAllOpenTabs(driver);
 	}
 	
 	@Test()
@@ -281,6 +294,8 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser();			
 		detailsPage.unplannedAppointment();
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+		TestUtil.closeAllOpenTabs(driver);
 	}
 
 	@Test()
@@ -295,6 +310,8 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser();			
 		detailsPage.unplannedAppointment();
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+		TestUtil.closeAllOpenTabs(driver);
 	}
 	
 	
@@ -323,6 +340,9 @@ public class LogActivityTest extends TestBase {
 		
 		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateMeetingData(3, 1);
+	
+		TestUtil.closeAllOpenTabs(driver);
+	
 	}
 
 	
@@ -348,6 +368,9 @@ public class LogActivityTest extends TestBase {
 		
 		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateMeetingData(3, 1);
+	
+		TestUtil.closeAllOpenTabs(driver);
+	
 	}
 	
 	
@@ -374,6 +397,7 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Running SalesforceTestRestAPI..................... ");
 		SalesforceTestRestAPI.validateBranchOpportunity(6);	
 		
+		TestUtil.closeAllOpenTabs(driver);
 				
 	}
 	
@@ -436,6 +460,8 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Running detailsPage.enterComments(1)..................... ");
 		detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
+		
+		TestUtil.closeAllOpenTabs(driver);
 				
 	}
 	
@@ -470,6 +496,8 @@ public class LogActivityTest extends TestBase {
 		
 		communicationPage.validateCallonCommunication();
 		
+		TestUtil.closeAllOpenTabs(driver);
+		
 	}
 	
 	
@@ -486,6 +514,8 @@ public class LogActivityTest extends TestBase {
 		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		homePage.navigateToSpouseuser();
 		SalesforceRestAPI.createCTAccount();
+		
+		TestUtil.closeAllOpenTabs(driver);
 				
 	}
 	
@@ -501,21 +531,24 @@ public class LogActivityTest extends TestBase {
 		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		homePage.navigateToSpouseuser();
 		detailsPage.enterComments(1);
+		
+		TestUtil.closeAllOpenTabs(driver);
 				
 	}
 	
 	
 	@Test()
-	public void CreateRetail1Account() throws Exception {
+	public static void  CreateRetail1Account() throws Exception {
 		
 		//TestUtil.print("Create a Retail 1 Account");
 		System.out.println("Creating Retail 1 Account.........................");
 		
+		TestUtil.closeAllOpenTabs(driver);
 		RetailAccount acc = new RetailAccount();
 		acc.createRetailuser(1);
-		//acc.validRetailuser();
 		acc.searchAccount();
-				
+		
+		
 	}
 	
 	
@@ -529,9 +562,9 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToUser("advisor");
 		RetailAccount acc = new RetailAccount();
 		acc.createRetailuser(2);
-		//acc.validRetailuser();
 		acc.searchAccount();
-				
+		
+		
 	}
 	
 
@@ -547,14 +580,21 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Running HomePage.navigatetoUser..................... ");
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
+		
+		//TestUtil.closeAllOpenTabs(driver);
+		
 		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
 		homePage.navigateToRetailuser();
+		
+		System.out.println("Running retailAccount.clickAccountAccountScreen..................... ");
+		retailAccount.clickAccountviaAccountScreen();
+		
 		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
 		detailsPage.updateAccountDetails();
 		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
 		detailsPage.verifyAccountDetails();	
 		
-		
+		//TestUtil.closeAllOpenTabs(driver);
 		
 	}
 	
@@ -566,17 +606,29 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Running HomePage.navigatetoUser..................... ");
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
+		
 		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
 		homePage.navigateToRetailuser();
+		
+		
+		System.out.println("Running retailAccount.clickAccountAccountScreen..................... ");
+		retailAccount.clickAccountviaAccountScreen();
+		
 		System.out.println("Running acc.addSpouse..................... ");
 		RetailAccount acc = new RetailAccount();
 		acc.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
+		
 		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
 		homePage.navigateToSpouseuser();
+		
 		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
 		detailsPage.updateAccountDetails();
+		
 		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
 		detailsPage.verifyAccountDetails();		
+	
+		TestUtil.closeAllOpenTabs(driver);
+	
 	}
 	
 	
@@ -706,10 +758,7 @@ public class LogActivityTest extends TestBase {
 	public void experiment() throws InterruptedException {
 		
 		HomePage.navigateToUser("advisor");
-		SalesforceTestRestAPI.APIConnection();
-		retailAccount.searchAccount();
-		//detailsPage.updateAccountDetails();
-		//detailsPage.verifyAccountDetails();	
+		TestUtil.closeAllOpenTabs(driver);	
 		
 	}
 

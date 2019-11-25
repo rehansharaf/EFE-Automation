@@ -406,7 +406,7 @@ public class RetailAccount extends TestBase {
 	
 	public void addSpouse(String SpouseFirstName, String SpouseLastName) throws InterruptedException {
 	
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		householdTab.click();
 		
 		Thread.sleep(3000);
@@ -428,7 +428,7 @@ public class RetailAccount extends TestBase {
 		
 		driver.navigate().refresh();
 	
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		householdTab.click();
 		
 		/*
@@ -462,10 +462,18 @@ public class RetailAccount extends TestBase {
 	
 		String aname = prop.getProperty("retailuser");
 		
-		
+		/*
 		driver.findElement(By.xpath("//button[contains (@title, ('Show Navigation Menu'))]")).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[contains (@class,('menuLabel slds-listbox'))][contains(text(),'Accounts')]")).click();
-		driver.findElement(By.xpath("//a[contains (@title, ('" +aname+ "'))]")).click();
+		//driver.findElement(By.xpath("//a[contains (@title, ('" +aname+ "'))]")).click();
+		
+		*/
+		
+		changeNavigationMenu("Accounts");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//a[contains (@title, ('" +aname+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
+		
 		
 		
 		Thread.sleep(2000);
@@ -479,9 +487,39 @@ public class RetailAccount extends TestBase {
 		System.out.println(prop.getProperty("retailuser"));
 		softAssertion.assertEquals(AccountName, prop.getProperty("retailuser"), "Account Name mismatch in open task");
 		softAssertion.assertEquals(retailText.getText(), "");
+		
+		Thread.sleep(2000);
+		
+		//changeNavigationMenu("Home");
+		
+		/*
+		
+		driver.findElement(By.xpath("//button[contains (@title, ('Show Navigation Menu'))]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains (@class,('menuLabel slds-listbox'))][contains(text(),'Home')]")).click();
+		*/
+	}
 	
+	public static void changeNavigationMenu(String Menu) throws InterruptedException{
+		
+		driver.findElement(By.xpath("//button[contains (@title, ('Show Navigation Menu'))]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains (@class,('menuLabel slds-listbox'))][contains(text(),'" +Menu+ "')]")).click();
+	}
+	
+	
+	public void clickAccountviaAccountScreen() throws InterruptedException{ 
+		
+		Thread.sleep(2000);
+		changeNavigationMenu("Accounts");
+		Thread.sleep(2000);
+		TestUtil.closeAllOpenTabs(driver);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//a[contains (@title, ('" +aname+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
+		Thread.sleep(2000);
 		
 	}
+	
 	
 	
 	public static String getAccountId() throws InterruptedException{

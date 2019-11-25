@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 
 import com.crm.qa.util.TestUtil;
-
+import com.crm.qa.pages.RetailAccount;
 
 
 import com.crm.qa.base.TestBase;
@@ -84,8 +84,7 @@ public class HomePage extends TestBase {
 	WebElement homeLink;
 	
 	
-	
-	
+
 	
 	
 	
@@ -129,6 +128,8 @@ public class HomePage extends TestBase {
 		
 		driver.navigate().to(url);
 		
+		Thread.sleep(5000);
+		
 	}
 	
 public static void navigateToUser(String role) throws InterruptedException{
@@ -155,6 +156,8 @@ public static void navigateToUser(String role) throws InterruptedException{
 		//TestUtil.closeAllOpenTabs(driver);
 		
 		driver.navigate().refresh();
+		
+	
 		
 	}
 	
@@ -183,6 +186,8 @@ public void navigateToSpouseuser() throws InterruptedException{
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+spouseId+"/view";
 		System.out.println(url);
       
+	
+		
 		driver.navigate().to(url);
 		
 	}

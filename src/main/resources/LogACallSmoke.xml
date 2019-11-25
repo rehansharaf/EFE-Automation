@@ -4,6 +4,7 @@
 
 	<listeners>
 		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
+		<listener class-name="com.qa.EventListener.FailureRetryListener"/>
 	</listeners>
 
 

@@ -207,14 +207,26 @@ public class TestUtil extends TestBase{
     	}
 
      
-     public static void closeAllOpenTabs(WebDriver driver) {
+     public static void closeAllOpenTabs(WebDriver driver) throws InterruptedException {
     	 	
     	 	WebElement openTabgrid= driver.findElement(By.xpath("//*[contains (@class, ('tabBarItems slds-grid'))]")); 
-    	 	List<WebElement> listoftabs = openTabgrid.findElements(By.xpath("//a[contains (@href, ('/lightning/r/Account'))]"));
-    	 	for (WebElement listoftab : listoftabs) {driver.findElement(By.xpath("//div[2]//button[1][contains (@title, ('Close'))]")).click();  }
-       }
+    	 	
+    	 	Thread.sleep(2000);
+    	 	
+    	 	List<WebElement> listoftabs = openTabgrid.findElements(By.xpath("//a[contains (@class, ('slds-context-bar'))][contains (@href, ('/lightning/'))]"));
+    	 	
+    	 	int i = listoftabs.size();
+    	 	
+    	 	if (listoftabs.size()>1){
+    	 		for (int j=0; j<i-1; j++)
+    	 			{driver.findElement(By.xpath("//div[2]//button[1][contains (@title, ('Close'))]")).click(); }
+    	 		}
+     	 	
+     		}
+ 
      
-  /*   
+     
+     /*   
      public static void waitforPageLoad(WebDriver driver, int timeout) {
     	 Wait<WebDriver> wait = new WebDriverWait(driver, timeout);
     	    wait.until(new Function<WebDriver, Boolean>() {

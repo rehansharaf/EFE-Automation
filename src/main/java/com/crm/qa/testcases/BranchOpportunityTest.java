@@ -15,10 +15,13 @@ import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
+import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.createLead;
 import com.crm.qa.pages.verifyLead;
+import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.util.TestUtil;
+import com.crm.qa.testcases.LogActivityTest;
 
 public class BranchOpportunityTest extends TestBase {
 	
@@ -30,6 +33,7 @@ public class BranchOpportunityTest extends TestBase {
 	verifyLead verifylead;
 	Opportunities opp;
 	ReferralAppointment ref;
+	RetailAccount retailAccount;
 	
 	@BeforeMethod
 	public void setUp() {
@@ -37,8 +41,74 @@ public class BranchOpportunityTest extends TestBase {
 		testUtil = new TestUtil();
 		detailsPage = new DetailsPage();
 		loginPage = new LoginPage();
+		retailAccount = new RetailAccount();
+		opp = new Opportunities();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}
+	
+	
+	
+	
+	@Test()
+	public void createBranchOptty() throws Exception {
+		
+		TestUtil.print("create Branch Opportunity ");
+		
+		//LogActivityTest.CreateRetail1Account();
+		
+		RetailAccount acc = new RetailAccount();
+		acc.createRetailuser(1);
+			
+		System.out.println("Running homePage.navigateToRetailuser()..................... ");
+		homePage.navigateToRetailuser();
+		
+		System.out.println("Running retailAccount.clickAccountAccountScreen..................... ");
+		retailAccount.clickAccountviaAccountScreen();
+		
+		System.out.println("Running opp.createBranchOpportunity()..................... ");
+		//Opportunities opp = new Opportunities();
+		opp.createBranchOpportunity();
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	@Test()
+	public void nolead_Reached_createBranchOpportunity() throws InterruptedException, ParseException {
+		
+		TestUtil.print("create Branch Opportunity with no Lead and Reached Option");
+		
+		HomePage.navigateToUser("advisor");
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
+		SalesforceTestRestAPI.APIConnection();
+		
+		System.out.println("Running homePage.navigateToRetailuser()..................... ");
+		homePage.navigateToRetailuser();
+		
+		System.out.println("Running opp.createBranchOpportunity()..................... ");
+		Opportunities opp = new Opportunities();
+		opp.createBranchOpportunity();	
+				
+		System.out.println("Running SalesforceTestRestAPI..................... ");
+		SalesforceTestRestAPI.validateTaskData(1);
+		
+		System.out.println("Running SalesforceTestRestAPI..................... ");
+		SalesforceTestRestAPI.validateBranchOpportunity(6);	
+		
+		TestUtil.closeAllOpenTabs(driver);
+				
+	}
+	
+	
+	
+	
+	
+	
 	
 	@Test()
 	public void createBranchOpportunity_Schedulerefapp() throws InterruptedException, ParseException {
@@ -89,7 +159,7 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	@Test()
-	public void createBranchOpportunity() throws InterruptedException {
+	public void createBranchOpportunity() throws InterruptedException, ParseException {
 	
 		homePage.clickSearchInput();
 		opp.deleteOpportunity();
@@ -99,7 +169,7 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	@Test()
-	public void createWorkplaceOpportunity() throws InterruptedException {
+	public void createWorkplaceOpportunity() throws InterruptedException, ParseException {
 	
 		homePage.clickSearchInput();
 		opp.deleteOpportunity();

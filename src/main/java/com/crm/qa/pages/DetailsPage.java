@@ -459,7 +459,7 @@ public class DetailsPage extends TestBase {
 		
 		}
 	
-//	SoftAssert softAssertion = new SoftAssert();
+	SoftAssert softAssertion = new SoftAssert();
 //	SoftAssert softAssertion2 = new SoftAssert();
 //	SoftAssert softAssertion3 = new SoftAssert();
 	
@@ -647,7 +647,7 @@ public class DetailsPage extends TestBase {
 		mailingAddress = mailingAddress.replace("\n", "").replace("\r", "");
 		softAssertion.assertEquals(mailingAddress, "1234 Test StreetScottsdale, AZ 85254", "Mailing Address not matched.....");
 		
-		softAssertion.assertAll();
+		//softAssertion.assertAll();
 		
 	}
 	

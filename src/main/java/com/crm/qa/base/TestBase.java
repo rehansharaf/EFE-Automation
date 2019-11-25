@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -125,6 +127,7 @@ public class TestBase {
 			options.addArguments("incognito");
 			options.setExperimentalOption("prefs", prefs);
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+			
 		    //options.merge(capabilities);
 			
 			driver= new ChromeDriver(capabilities);

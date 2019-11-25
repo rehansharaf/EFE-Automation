@@ -211,9 +211,6 @@ public void createWorkplaceOpportunity() throws InterruptedException, ParseExcep
 	
 		commentsTextarea.sendKeys(commentsToEnter);
 		
-		//Select outcome1 = new Select(outcome);
-		//outcome1.selectByIndex(1);
-		
 		solutionsDiscussed.click();
 		
 		details.selectOutcome(1);
