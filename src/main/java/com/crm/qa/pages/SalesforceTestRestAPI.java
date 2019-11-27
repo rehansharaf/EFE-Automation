@@ -487,26 +487,6 @@ public class SalesforceTestRestAPI extends TestBase {
 	}
 
 	
-	/*
-	//Create setters 
-
-
-		public String gettaskName() {return SalesforceTestRestAPI.taskName;}
-		public Object gettaskType() {return SalesforceTestRestAPI.taskType;}
-		public Object gettaskActivityDate() {return SalesforceTestRestAPI.taskActivityDate;}	
-		public Object getmeetingId() {return SalesforceTestRestAPI.meetingId;}
-		public Object getmeetingMedium() {return SalesforceTestRestAPI.meetingMedium;}
-		public Object getmeetingStatus() {return SalesforceTestRestAPI.meetingStatus;}
-		public Object getleadCallAttempts() {return SalesforceTestRestAPI.leadCallAttempts;}	
-		public Object getleadCustomerContact() {return SalesforceTestRestAPI.leadCustomerContact;}
-		public Object getleadIsConverted() {return SalesforceTestRestAPI.leadIsConverted;}
-		public Object getmeetingType() {return SalesforceTestRestAPI.meetingType;}
-		public Object getmeetingSubType() {return SalesforceTestRestAPI.meetingSubType;}	
-		public Object getmeetingStartDate() {return SalesforceTestRestAPI.meetingStartDate;}
-		public Object getmeetingEndDate() {return SalesforceTestRestAPI.meetingEndDate;}
-		public Object getappointmentStartDateText() {return SalesforceTestRestAPI.appointmentStartDateText;}
-		public String getdescription() {return SalesforceTestRestAPI.description;}	
-		public String getcallTime() {return SalesforceTestRestAPI.callTime;}
-		*/
+	
 	
 }

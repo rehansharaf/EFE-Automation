@@ -453,6 +453,7 @@ public class DetailsPage extends TestBase {
 		static String commentsToEnter = "TestingPurpose " + uniqueid;
 		static String[] splitStr1 = timeStamp.split("\\s+");
 
+		String emailupdate = "testf"+uniqueid+"@updateaccount.com";
 
 		public DetailsPage() {
 		PageFactory.initElements(driver, this);
@@ -569,7 +570,8 @@ public class DetailsPage extends TestBase {
 
 		//Thread.sleep(3000);
 		emailEditInput.clear();
-		emailEditInput.sendKeys("testupdate001@gmail.com");
+		
+		emailEditInput.sendKeys(emailupdate);
 		
 		//Thread.sleep(3000);
 		workphoneEditInput.clear();
@@ -614,30 +616,30 @@ public class DetailsPage extends TestBase {
 	}
 	
 	
-	public void verifyAccountDetails() throws InterruptedException {
-		
-		
+	public void verifyAccountDetails(String cEmail, String wPhone, String cGender, String cDateofBirth, String mAddress ) throws InterruptedException {
 		
 		Thread.sleep(5000);
-		
 		
 		//scrolltoClientInformation.click();
 		
 		String clientEmail = getFieldData("Edit Client Provided Email");
-		softAssertion.assertEquals(clientEmail, "testupdate001@gmail.com", "Email not matched.....");
+		//clientEmail = clientEmail.substring(clientEmail.indexOf("@")+ 1);
+		softAssertion.assertEquals(clientEmail, cEmail, "Email not matched.....");
+		
 		
 		String workPhone = getFieldData("Edit Work Phone");
-		softAssertion.assertEquals(workPhone, "(999) 888-7777", "Workphone not matched.....");
+		softAssertion.assertEquals(workPhone, wPhone, "Workphone not matched.....");
 		
 		scrolltoAccountDetails.click();
 		
 		Thread.sleep(3000);
 		
 		String gender = getFieldData("Edit Gender");
-		softAssertion.assertEquals(gender, "Male", "Gender not matched....");
+		softAssertion.assertEquals(gender, cGender, "Gender not matched....");
+		
 		
 		String dateOfBirth = getFieldData("Edit Date of Birth");
-		softAssertion.assertEquals(dateOfBirth, "12/11/1972", "DOB not matched.....");
+		softAssertion.assertEquals(dateOfBirth, cDateofBirth, "DOB not matched.....");
 		
 		scrolltoAddressInformation.click();
 		
@@ -645,9 +647,9 @@ public class DetailsPage extends TestBase {
 		
 		String mailingAddress = getFieldData("Edit Mailing Address").substring(0,37).trim();
 		mailingAddress = mailingAddress.replace("\n", "").replace("\r", "");
-		softAssertion.assertEquals(mailingAddress, "1234 Test StreetScottsdale, AZ 85254", "Mailing Address not matched.....");
+		softAssertion.assertEquals(mailingAddress, mAddress, "Mailing Address not matched.....");
 		
-		//softAssertion.assertAll();
+		softAssertion.assertAll();
 		
 	}
 	
@@ -1346,6 +1348,14 @@ public void verifyExistingTasks() throws InterruptedException {
     }else{
     	System.out.println("No Previous Tasks screen displayed");
     }
+
+}
+	
+
+public String emailupdate() throws InterruptedException {
+	
+	 return emailupdate;	
+	
 	
 }
 

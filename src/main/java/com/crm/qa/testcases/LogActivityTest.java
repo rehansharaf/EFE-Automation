@@ -592,7 +592,7 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
 		detailsPage.updateAccountDetails();
 		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
-		detailsPage.verifyAccountDetails();	
+		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale, AZ 85254");	
 		
 		//TestUtil.closeAllOpenTabs(driver);
 		
@@ -625,7 +625,7 @@ public class LogActivityTest extends TestBase {
 		detailsPage.updateAccountDetails();
 		
 		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
-		detailsPage.verifyAccountDetails();		
+		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale, AZ 85254");		
 	
 		TestUtil.closeAllOpenTabs(driver);
 	

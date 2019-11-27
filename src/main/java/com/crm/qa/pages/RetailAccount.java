@@ -297,7 +297,9 @@ public class RetailAccount extends TestBase {
 		
 		//if (globalButton.isDisplayed()) {
 		if (globalButton.isEnabled()) {
-		globalButton.click();
+		
+			Thread.sleep(2000);
+			globalButton.click();
 		}
 		
 		Thread.sleep(5000);
@@ -527,6 +529,9 @@ public class RetailAccount extends TestBase {
 		String accountUrl = driver.getCurrentUrl();
 		String []url = accountUrl.split("/");
 		String accountId = url[6];
+		
+		//prop.setProperty("sfdcId", accountId);
+		//SalesforceRestAPI.objMap.put("sfdcId", accountId);
 		
 		return accountId;
 	}

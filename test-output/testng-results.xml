@@ -1,312 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" ignored="15" total="38" passed="22">
+<testng-results skipped="2" failed="1" ignored="15" total="39" passed="21">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="2079317" started-at="2019-11-25T17:14:01Z" finished-at="2019-11-25T17:48:41Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="3604412" started-at="2019-11-27T16:36:45Z" finished-at="2019-11-27T17:36:49Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="2079317" started-at="2019-11-25T17:14:01Z" finished-at="2019-11-25T17:48:41Z">
+    <test name="Free CRM App Test Cases" duration-ms="3604412" started-at="2019-11-27T16:36:45Z" finished-at="2019-11-27T17:36:49Z">
       <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="9733" started-at="2019-11-25T10:14:01Z" finished-at="2019-11-25T10:14:11Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="9704" started-at="2019-11-27T09:36:45Z" finished-at="2019-11-27T09:36:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="notReached" duration-ms="53924" started-at="2019-11-25T10:14:11Z" finished-at="2019-11-25T10:15:05Z">
+        <test-method status="PASS" signature="notReached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="notReached" duration-ms="68747" started-at="2019-11-27T09:36:54Z" finished-at="2019-11-27T09:38:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- notReached -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="820" started-at="2019-11-25T10:15:05Z" finished-at="2019-11-25T10:15:06Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="770" started-at="2019-11-27T09:38:03Z" finished-at="2019-11-27T09:38:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7993" started-at="2019-11-25T10:15:06Z" finished-at="2019-11-25T10:15:14Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8857" started-at="2019-11-27T09:38:04Z" finished-at="2019-11-27T09:38:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached" duration-ms="54482" started-at="2019-11-25T10:15:14Z" finished-at="2019-11-25T10:16:08Z">
+        <test-method status="PASS" signature="reached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached" duration-ms="60583" started-at="2019-11-27T09:38:13Z" finished-at="2019-11-27T09:39:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reached -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="746" started-at="2019-11-25T10:16:08Z" finished-at="2019-11-25T10:16:09Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="741" started-at="2019-11-27T09:39:13Z" finished-at="2019-11-27T09:39:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7612" started-at="2019-11-25T10:16:09Z" finished-at="2019-11-25T10:16:17Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8200" started-at="2019-11-27T09:39:14Z" finished-at="2019-11-27T09:39:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UnplannedMeeting" duration-ms="63059" started-at="2019-11-25T10:16:17Z" finished-at="2019-11-25T10:17:20Z">
+        <test-method status="PASS" signature="UnplannedMeeting()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UnplannedMeeting" duration-ms="75888" started-at="2019-11-27T09:39:22Z" finished-at="2019-11-27T09:40:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UnplannedMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="768" started-at="2019-11-25T10:17:20Z" finished-at="2019-11-25T10:17:20Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="739" started-at="2019-11-27T09:40:38Z" finished-at="2019-11-27T09:40:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7602" started-at="2019-11-25T10:17:20Z" finished-at="2019-11-25T10:17:28Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="14752" started-at="2019-11-27T09:40:39Z" finished-at="2019-11-27T09:40:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_ToDo()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached_Schedule_ToDo" duration-ms="67073" started-at="2019-11-25T10:17:28Z" finished-at="2019-11-25T10:18:35Z">
+        <test-method status="PASS" signature="reached_Schedule_ToDo()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached_Schedule_ToDo" duration-ms="73149" started-at="2019-11-27T09:40:54Z" finished-at="2019-11-27T09:42:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reached_Schedule_ToDo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="748" started-at="2019-11-25T10:18:35Z" finished-at="2019-11-25T10:18:36Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="743" started-at="2019-11-27T09:42:07Z" finished-at="2019-11-27T09:42:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7674" started-at="2019-11-25T10:18:36Z" finished-at="2019-11-25T10:18:44Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8351" started-at="2019-11-27T09:42:07Z" finished-at="2019-11-27T09:42:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_Phonecall()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached_Schedule_Phonecall" duration-ms="66429" started-at="2019-11-25T10:18:44Z" finished-at="2019-11-25T10:19:50Z">
+        <test-method status="PASS" signature="reached_Schedule_Phonecall()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached_Schedule_Phonecall" duration-ms="77434" started-at="2019-11-27T09:42:16Z" finished-at="2019-11-27T09:43:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reached_Schedule_Phonecall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="741" started-at="2019-11-25T10:19:50Z" finished-at="2019-11-25T10:19:51Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="733" started-at="2019-11-27T09:43:33Z" finished-at="2019-11-27T09:43:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7646" started-at="2019-11-25T10:19:51Z" finished-at="2019-11-25T10:19:58Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8113" started-at="2019-11-27T09:43:34Z" finished-at="2019-11-27T09:43:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_Appointment()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached_Schedule_Appointment" duration-ms="82910" started-at="2019-11-25T10:19:58Z" finished-at="2019-11-25T10:21:21Z">
+        <test-method status="PASS" signature="reached_Schedule_Appointment()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reached_Schedule_Appointment" duration-ms="97288" started-at="2019-11-27T09:43:42Z" finished-at="2019-11-27T09:45:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reached_Schedule_Appointment -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="745" started-at="2019-11-25T10:21:21Z" finished-at="2019-11-25T10:21:22Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="747" started-at="2019-11-27T09:45:19Z" finished-at="2019-11-27T09:45:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7656" started-at="2019-11-25T10:21:22Z" finished-at="2019-11-25T10:21:30Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8373" started-at="2019-11-27T09:45:20Z" finished-at="2019-11-27T09:45:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="LogACallSpouse()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="LogACallSpouse" duration-ms="98063" started-at="2019-11-25T10:21:30Z" finished-at="2019-11-25T10:23:08Z">
+        <test-method status="PASS" signature="LogACallSpouse()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="LogACallSpouse" duration-ms="107381" started-at="2019-11-27T09:45:28Z" finished-at="2019-11-27T09:47:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogACallSpouse -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="746" started-at="2019-11-25T10:23:08Z" finished-at="2019-11-25T10:23:08Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="747" started-at="2019-11-27T09:47:16Z" finished-at="2019-11-27T09:47:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7427" started-at="2019-11-25T10:23:08Z" finished-at="2019-11-25T10:23:16Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8126" started-at="2019-11-27T09:47:17Z" finished-at="2019-11-27T09:47:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="LogaCallwithSpouse_ValidateAtPrimary()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="LogaCallwithSpouse_ValidateAtPrimary" duration-ms="128086" started-at="2019-11-25T10:23:16Z" finished-at="2019-11-25T10:25:24Z">
+        <test-method status="PASS" signature="LogaCallwithSpouse_ValidateAtPrimary()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="LogaCallwithSpouse_ValidateAtPrimary" duration-ms="108307" started-at="2019-11-27T09:47:25Z" finished-at="2019-11-27T09:49:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogaCallwithSpouse_ValidateAtPrimary -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="744" started-at="2019-11-25T10:25:24Z" finished-at="2019-11-25T10:25:25Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="748" started-at="2019-11-27T09:49:13Z" finished-at="2019-11-27T09:49:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7532" started-at="2019-11-25T10:25:25Z" finished-at="2019-11-25T10:25:32Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8551" started-at="2019-11-27T09:49:14Z" finished-at="2019-11-27T09:49:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="CreateRetail1Account()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail1Account" duration-ms="45709" started-at="2019-11-25T10:25:32Z" finished-at="2019-11-25T10:26:18Z">
+        <test-method status="PASS" signature="CreateRetail1Account()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail1Account" duration-ms="50993" started-at="2019-11-27T09:49:22Z" finished-at="2019-11-27T09:50:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateRetail1Account -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="743" started-at="2019-11-25T10:26:18Z" finished-at="2019-11-25T10:26:19Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="691" started-at="2019-11-27T09:50:13Z" finished-at="2019-11-27T09:50:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7510" started-at="2019-11-25T10:26:19Z" finished-at="2019-11-25T10:26:26Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8216" started-at="2019-11-27T09:50:14Z" finished-at="2019-11-27T09:50:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="CreateRetail2Account()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail2Account" duration-ms="56052" started-at="2019-11-25T10:26:26Z" finished-at="2019-11-25T10:27:22Z">
+        <test-method status="PASS" signature="CreateRetail2Account()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail2Account" duration-ms="63441" started-at="2019-11-27T09:50:22Z" finished-at="2019-11-27T09:51:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateRetail2Account -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="734" started-at="2019-11-25T10:27:22Z" finished-at="2019-11-25T10:27:23Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="752" started-at="2019-11-27T09:51:26Z" finished-at="2019-11-27T09:51:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7785" started-at="2019-11-25T10:27:23Z" finished-at="2019-11-25T10:27:31Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8378" started-at="2019-11-27T09:51:26Z" finished-at="2019-11-27T09:51:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="CreateRetail1Account_Spouse()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail1Account_Spouse" duration-ms="110179" started-at="2019-11-25T10:27:31Z" finished-at="2019-11-25T10:29:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateRetail1Account_Spouse -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="746" started-at="2019-11-25T10:29:21Z" finished-at="2019-11-25T10:29:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7710" started-at="2019-11-25T10:29:22Z" finished-at="2019-11-25T10:29:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReachedwithBusinessLead()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="notReachedwithBusinessLead" duration-ms="59739" started-at="2019-11-25T10:29:29Z" finished-at="2019-11-25T10:30:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- notReachedwithBusinessLead -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="736" started-at="2019-11-25T10:30:29Z" finished-at="2019-11-25T10:30:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7474" started-at="2019-11-25T10:30:30Z" finished-at="2019-11-25T10:30:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead" duration-ms="59391" started-at="2019-11-25T10:30:37Z" finished-at="2019-11-25T10:31:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="776" started-at="2019-11-25T10:31:37Z" finished-at="2019-11-25T10:31:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7515" started-at="2019-11-25T10:31:38Z" finished-at="2019-11-25T10:31:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_SchedulePhoneCall()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_SchedulePhoneCall" duration-ms="71456" started-at="2019-11-25T10:31:45Z" finished-at="2019-11-25T10:32:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_SchedulePhoneCall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="755" started-at="2019-11-25T10:32:57Z" finished-at="2019-11-25T10:32:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7535" started-at="2019-11-25T10:32:57Z" finished-at="2019-11-25T10:33:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleTodo()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_ScheduleTodo" duration-ms="71513" started-at="2019-11-25T10:33:05Z" finished-at="2019-11-25T10:34:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleTodo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="763" started-at="2019-11-25T10:34:16Z" finished-at="2019-11-25T10:34:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7558" started-at="2019-11-25T10:34:17Z" finished-at="2019-11-25T10:34:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_UnplannedMeeting()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_UnplannedMeeting" duration-ms="65558" started-at="2019-11-25T10:34:25Z" finished-at="2019-11-25T10:35:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_UnplannedMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="739" started-at="2019-11-25T10:35:30Z" finished-at="2019-11-25T10:35:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7619" started-at="2019-11-25T10:35:31Z" finished-at="2019-11-25T10:35:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleMeeting()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_ScheduleMeeting" duration-ms="87800" started-at="2019-11-25T10:35:39Z" finished-at="2019-11-25T10:37:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="737" started-at="2019-11-25T10:37:06Z" finished-at="2019-11-25T10:37:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7666" started-at="2019-11-25T10:37:07Z" finished-at="2019-11-25T10:37:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="meeting_CompleteFlow()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="meeting_CompleteFlow" duration-ms="93381" started-at="2019-11-25T10:37:15Z" finished-at="2019-11-25T10:38:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- meeting_CompleteFlow -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="742" started-at="2019-11-25T10:38:48Z" finished-at="2019-11-25T10:38:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7565" started-at="2019-11-25T10:38:49Z" finished-at="2019-11-25T10:38:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="meeting_CompleteFlowWithOptions()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="meeting_CompleteFlowWithOptions" duration-ms="96268" started-at="2019-11-25T10:38:56Z" finished-at="2019-11-25T10:40:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- meeting_CompleteFlowWithOptions -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="734" started-at="2019-11-25T10:40:33Z" finished-at="2019-11-25T10:40:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7569" started-at="2019-11-25T10:40:33Z" finished-at="2019-11-25T10:40:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="nolead_Reached_createBranchOpportunity()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="nolead_Reached_createBranchOpportunity" duration-ms="78763" started-at="2019-11-25T10:40:41Z" finished-at="2019-11-25T10:42:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- nolead_Reached_createBranchOpportunity -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="765" started-at="2019-11-25T10:42:00Z" finished-at="2019-11-25T10:42:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7425" started-at="2019-11-25T10:42:01Z" finished-at="2019-11-25T10:42:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdatePrimaryAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UpdatePrimaryAccountdetails" duration-ms="100429" started-at="2019-11-25T10:42:08Z" finished-at="2019-11-25T10:43:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UpdatePrimaryAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="745" started-at="2019-11-25T10:43:48Z" finished-at="2019-11-25T10:43:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7385" started-at="2019-11-25T10:43:49Z" finished-at="2019-11-25T10:43:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="UpdateSpouseAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UpdateSpouseAccountdetails" duration-ms="132198" started-at="2019-11-25T10:43:57Z" finished-at="2019-11-25T10:46:09Z">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method status="SKIP" signature="CreateRetail1Account_Spouse()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail1Account_Spouse" duration-ms="736690" started-at="2019-11-27T09:51:35Z" finished-at="2019-11-27T10:03:52Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[element click intercepted: Element <div class="slds-grid slds-gutters_small full cols-2 forcePageBlockSectionRow" data-aura-rendered-by="2631:0" data-aura-class="forcePageBlockSectionRow">...</div> is not clickable at point (957, 861). Other element would receive the click: <lightning-spinner data-data-rendering-service-uid="424" data-aura-rendered-by="1635:0" class="slds-spinner_container cGriffinButtons" data-aura-class="cGriffinButtons"></lightning-spinner>
-  (Session info: chrome=78.0.3904.108)
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'PHX-ISHARAF', ip: '10.1.2.130', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir396_361194423}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53631}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 029f94ffaebb597104825b815c2786ac]]>
+              <![CDATA[timeout]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: element click intercepted: Element <div class="slds-grid slds-gutters_small full cols-2 forcePageBlockSectionRow" data-aura-rendered-by="2631:0" data-aura-class="forcePageBlockSectionRow">...</div> is not clickable at point (957, 861). Other element would receive the click: <lightning-spinner data-data-rendering-service-uid="424" data-aura-rendered-by="1635:0" class="slds-spinner_container cGriffinButtons" data-aura-class="cGriffinButtons"></lightning-spinner>
-  (Session info: chrome=78.0.3904.108)
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'PHX-ISHARAF', ip: '10.1.2.130', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir396_361194423}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53631}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 029f94ffaebb597104825b815c2786ac
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy10.click(Unknown Source)
-	at com.crm.qa.pages.DetailsPage.verifyAccountDetails(DetailsPage.java:632)
-	at com.crm.qa.testcases.LogActivityTest.UpdateSpouseAccountdetails(LogActivityTest.java:628)
+              <![CDATA[java.lang.AssertionError: timeout
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.crm.qa.util.TestUtil.waitForElement(TestUtil.java:170)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:475)
+	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse(LogActivityTest.java:533)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -334,23 +169,278 @@ Session ID: 029f94ffaebb597104825b815c2786ac
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UpdateSpouseAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="761" started-at="2019-11-25T10:46:09Z" finished-at="2019-11-25T10:46:10Z">
+        </test-method> <!-- CreateRetail1Account_Spouse -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="835" started-at="2019-11-27T10:03:52Z" finished-at="2019-11-27T10:03:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="7854" started-at="2019-11-25T10:46:10Z" finished-at="2019-11-25T10:46:17Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8697" started-at="2019-11-27T10:03:52Z" finished-at="2019-11-27T10:04:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdateSpouseAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UpdateSpouseAccountdetails" duration-ms="142462" started-at="2019-11-25T10:46:17Z" finished-at="2019-11-25T10:48:40Z">
+        <test-method status="FAIL" signature="CreateRetail1Account_Spouse()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="CreateRetail1Account_Spouse" duration-ms="736615" started-at="2019-11-27T10:04:01Z" finished-at="2019-11-27T10:16:18Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[timeout]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: timeout
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.crm.qa.util.TestUtil.waitForElement(TestUtil.java:170)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:475)
+	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse(LogActivityTest.java:533)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1014)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1215)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateRetail1Account_Spouse -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="759" started-at="2019-11-27T10:16:18Z" finished-at="2019-11-27T10:16:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8098" started-at="2019-11-27T10:16:18Z" finished-at="2019-11-27T10:16:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="notReachedwithBusinessLead()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="notReachedwithBusinessLead" duration-ms="65242" started-at="2019-11-27T10:16:27Z" finished-at="2019-11-27T10:17:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- notReachedwithBusinessLead -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="735" started-at="2019-11-27T10:17:32Z" finished-at="2019-11-27T10:17:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8215" started-at="2019-11-27T10:17:33Z" finished-at="2019-11-27T10:17:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="reachedwithBusinessLead()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead" duration-ms="64688" started-at="2019-11-27T10:17:41Z" finished-at="2019-11-27T10:18:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reachedwithBusinessLead -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="792" started-at="2019-11-27T10:18:45Z" finished-at="2019-11-27T10:18:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8304" started-at="2019-11-27T10:18:46Z" finished-at="2019-11-27T10:18:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="reachedwithBusinessLead_SchedulePhoneCall()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_SchedulePhoneCall" duration-ms="79728" started-at="2019-11-27T10:18:55Z" finished-at="2019-11-27T10:20:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reachedwithBusinessLead_SchedulePhoneCall -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="727" started-at="2019-11-27T10:20:14Z" finished-at="2019-11-27T10:20:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="10742" started-at="2019-11-27T10:20:15Z" finished-at="2019-11-27T10:20:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleTodo()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_ScheduleTodo" duration-ms="86651" started-at="2019-11-27T10:20:26Z" finished-at="2019-11-27T10:21:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reachedwithBusinessLead_ScheduleTodo -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="757" started-at="2019-11-27T10:21:52Z" finished-at="2019-11-27T10:21:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8350" started-at="2019-11-27T10:21:53Z" finished-at="2019-11-27T10:22:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="reachedwithBusinessLead_UnplannedMeeting()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_UnplannedMeeting" duration-ms="70707" started-at="2019-11-27T10:22:01Z" finished-at="2019-11-27T10:23:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reachedwithBusinessLead_UnplannedMeeting -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="749" started-at="2019-11-27T10:23:12Z" finished-at="2019-11-27T10:23:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="9287" started-at="2019-11-27T10:23:13Z" finished-at="2019-11-27T10:23:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleMeeting()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="reachedwithBusinessLead_ScheduleMeeting" duration-ms="95438" started-at="2019-11-27T10:23:22Z" finished-at="2019-11-27T10:24:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reachedwithBusinessLead_ScheduleMeeting -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="757" started-at="2019-11-27T10:24:58Z" finished-at="2019-11-27T10:24:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8256" started-at="2019-11-27T10:24:58Z" finished-at="2019-11-27T10:25:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="meeting_CompleteFlow()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="meeting_CompleteFlow" duration-ms="103145" started-at="2019-11-27T10:25:07Z" finished-at="2019-11-27T10:26:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- meeting_CompleteFlow -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="762" started-at="2019-11-27T10:26:50Z" finished-at="2019-11-27T10:26:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8230" started-at="2019-11-27T10:26:51Z" finished-at="2019-11-27T10:26:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="meeting_CompleteFlowWithOptions()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="meeting_CompleteFlowWithOptions" duration-ms="100814" started-at="2019-11-27T10:26:59Z" finished-at="2019-11-27T10:28:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- meeting_CompleteFlowWithOptions -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="750" started-at="2019-11-27T10:28:40Z" finished-at="2019-11-27T10:28:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8313" started-at="2019-11-27T10:28:40Z" finished-at="2019-11-27T10:28:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="nolead_Reached_createBranchOpportunity()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="nolead_Reached_createBranchOpportunity" duration-ms="84511" started-at="2019-11-27T10:28:49Z" finished-at="2019-11-27T10:30:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- nolead_Reached_createBranchOpportunity -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="772" started-at="2019-11-27T10:30:13Z" finished-at="2019-11-27T10:30:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8234" started-at="2019-11-27T10:30:14Z" finished-at="2019-11-27T10:30:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="UpdatePrimaryAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UpdatePrimaryAccountdetails" duration-ms="109624" started-at="2019-11-27T10:30:22Z" finished-at="2019-11-27T10:32:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdatePrimaryAccountdetails -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="746" started-at="2019-11-27T10:32:12Z" finished-at="2019-11-27T10:32:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8021" started-at="2019-11-27T10:32:13Z" finished-at="2019-11-27T10:32:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="SKIP" signature="UpdateSpouseAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UpdateSpouseAccountdetails" duration-ms="109547" started-at="2019-11-27T10:32:21Z" finished-at="2019-11-27T10:34:10Z">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>
+              <![CDATA[stale element reference: element is not attached to the page document
+  (Session info: chrome=78.0.3904.108)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'PHX-ISHARAF', ip: '10.8.100.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir1928_1009783049}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:64891}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 89c8b0048f1ee2b29525d3df480a5488]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=78.0.3904.108)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'PHX-ISHARAF', ip: '10.8.100.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir1928_1009783049}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:64891}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 89c8b0048f1ee2b29525d3df480a5488
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
+	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
+	at com.sun.proxy.$Proxy13.click(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
+	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy10.click(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.updateAccountDetails(DetailsPage.java:584)
+	at com.crm.qa.testcases.LogActivityTest.UpdateSpouseAccountdetails(LogActivityTest.java:625)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UpdateSpouseAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="755" started-at="2019-11-25T10:48:40Z" finished-at="2019-11-25T10:48:41Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="760" started-at="2019-11-27T10:34:10Z" finished-at="2019-11-27T10:34:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="setUp" is-config="true" duration-ms="8343" started-at="2019-11-27T10:34:11Z" finished-at="2019-11-27T10:34:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="UpdateSpouseAccountdetails()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="UpdateSpouseAccountdetails" duration-ms="148973" started-at="2019-11-27T10:34:19Z" finished-at="2019-11-27T10:36:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateSpouseAccountdetails -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@1dfe2924]" name="tearDown" is-config="true" duration-ms="759" started-at="2019-11-27T10:36:48Z" finished-at="2019-11-27T10:36:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

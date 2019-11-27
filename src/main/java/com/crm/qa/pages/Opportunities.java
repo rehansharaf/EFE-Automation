@@ -118,10 +118,14 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//div[contains(text(),'Comments')]/../../../following-sibling::div/div/textarea")
 	WebElement commentsTextarea;
 	
-	@FindBy(xpath = "//span[contains(text(),'Opportunity')]")
+	//@FindBy(xpath = "//span[contains(text(),'Opportunity')]")
+	//WebElement oppLink;
+	
+	@FindBy(xpath = "//span[@class='title'][contains(text(),'Opportunity')]")
+	WebElement oppTab;
+	
+	@FindBy(xpath = "(//a[contains (@class, ('textUnderline'))][contains(@href, ('/lightning/'))])[1]")
 	WebElement oppLink;
-	
-	
 
 	@FindBy(xpath = "//div[contains(text(),'Outcome')]/../../../following-sibling::div/select")
 	WebElement outcome;
@@ -332,7 +336,98 @@ public void verifyBranchOpportunity() throws InterruptedException {
 	 driver.switchTo().window(oldTab);
 }
 
+
+
+public void verifyBranchOppty(String status) throws InterruptedException {
+
+	Thread.sleep(2000);
+	String stage = driver.findElement(By.xpath("//div[contains (@class, ('recordCell'))]//span[contains(text(),'" +status+ "')]")).getText();
+	softAssertion.assertEquals(stage, status, "Stage doesnot match");
 	
+	//Add Page Factory element
+	String closeOpttyasLostonDetailsPage = driver.findElement(By.xpath("//div[contains(@class,'col main-col slds-size--6-of-12')]//*[contains(text(),'Close Opportunity as Lost')]")).getText();
+	softAssertion.assertEquals(closeOpttyasLostonDetailsPage, "Close Opportunity as Lost", "Action doesnot exist on Detail Page");
+	
+	oppLink.click();
+	
+	Thread.sleep(2000);
+	//Add Page Factory element
+	String closeOpttyasLostonOpttyPage = driver.findElement(By.xpath("//div[@class='row region-subheader']//*[contains(text(),'Close Opportunity as Lost')]")).getText();
+	softAssertion.assertEquals(closeOpttyasLostonOpttyPage, "Close Opportunity as Lost", "Action doesnot exist opportunity Page");
+
+	softAssertion.assertAll();
+	
+	
+}
+
+
+public void opportunityClosedLost() throws InterruptedException {
+
+	Thread.sleep(2000);
+	
+	
+	
+	//Click Close Opportunity as Lost Radio button - Add the PageFactory element
+	driver.findElement(By.xpath("//label[contains (@for, ('closeOpportunityChoice'))]//span[contains (@class, ('slds-radio--faux'))]")).click();
+	
+	//Click Close Opportunity as Lost Next button - Add the PageFactory element
+	driver.findElement(By.xpath("//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")).click();
+
+	//Loss Reason DropDown - Add the PageFactory element
+	driver.findElement(By.xpath("//select[ contains (@id, ('dropdownInput1:'))]")).click();
+	
+	TestUtil.SelectDropDownOption(driver.findElement(By.xpath("//select[ contains (@id, ('dropdownInput1:'))]")), "Duplicate");
+	
+	driver.findElement(By.xpath("//select[ contains (@id, ('dropdownInput1:'))]")).click();
+	
+	//Loss Reason Notes - Add the PageFactory element
+	driver.findElement(By.xpath("(//textarea[contains (@id, ('longInput'))])[1]")).sendKeys("Automation Testing - Dont bother");
+
+	//Click Close Opportunity as Lost Next button - Add the PageFactory element
+	driver.findElement(By.xpath("//div[contains (@class, ('actionsRight'))]//button[contains (@title,'Previous')]/following-sibling::button")).click();
+
+
+	//driver.navigate().refresh();
+	
+	//Thread.sleep(2000);
+	
+	oppLink.click();
+	
+	//Scroll down ( tracking information)
+	//driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[55]")).getSize();
+
+
+	
+	Thread.sleep(2000);
+	//Get stage status - Add the PageFactory element
+	String Stagestatus = driver.findElement(By.xpath("//button[contains (@title, ('Edit Stage'))]/parent::div/span/span")).getText();
+	
+	 
+	 
+	softAssertion.assertEquals(Stagestatus, "Closed Lost", "Stage is not Closed Lost");
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 public String leadURL() throws InterruptedException {
@@ -345,7 +440,7 @@ public String leadURL() throws InterruptedException {
 	}
 	
 	
-		public void deleteOpportunity() throws InterruptedException {
+public void deleteOpportunity() throws InterruptedException {
 		
 		String count = oppCount.getText();
 		
@@ -357,7 +452,7 @@ public String leadURL() throws InterruptedException {
 		}
 	}
 		
-		public void deleteOpportunities() throws InterruptedException {
+public void deleteOpportunities() throws InterruptedException {
 			
 //			Thread.sleep(5000);			
 			WebElement dropdownElement;			

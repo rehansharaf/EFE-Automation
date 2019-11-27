@@ -9,6 +9,7 @@
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
+          <include name="CreateRetail1Account_Spouse"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="UpdateSpouseAccountdetails"/>

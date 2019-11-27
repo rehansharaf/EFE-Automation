@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite">
-              <span class="suite-name border-skipped">FREE CRM Application Test Automation Test Suite</span>
+              <span class="suite-name border-failed">FREE CRM Application Test Automation Test Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">23 methods,  1 skipped,  22 passed</span>
+                    <span class="method-stats">24 methods, 1 failed,  2 skipped,  21 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" class="hide-methods failed suite-FREE_CRM_Application_Test_Automation_Test_Suite"> (hide)</a> <!-- hide-methods failed suite-FREE_CRM_Application_Test_Automation_Test_Suite -->
+                      <a href="#" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" class="show-methods failed suite-FREE_CRM_Application_Test_Automation_Test_Suite"> (show)</a> <!-- show-methods failed suite-FREE_CRM_Application_Test_Automation_Test_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-FREE_CRM_Application_Test_Automation_Test_Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" title="com.crm.qa.testcases.LogActivityTest" hash-for-method="CreateRetail1Account_Spouse">CreateRetail1Account_Spouse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-FREE_CRM_Application_Test_Automation_Test_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title skipped">Skipped methods</span>
@@ -100,6 +114,11 @@
                       <a href="#" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" class="show-methods skipped suite-FREE_CRM_Application_Test_Automation_Test_Suite"> (show)</a> <!-- show-methods skipped suite-FREE_CRM_Application_Test_Automation_Test_Suite -->
                     </span>
                     <div class="method-list-content skipped suite-FREE_CRM_Application_Test_Automation_Test_Suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" title="com.crm.qa.testcases.LogActivityTest" hash-for-method="CreateRetail1Account_Spouse">CreateRetail1Account_Spouse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img width="3%" src="skipped.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" title="com.crm.qa.testcases.LogActivityTest" hash-for-method="UpdateSpouseAccountdetails">UpdateSpouseAccountdetails</a> <!-- method navigator-link -->
@@ -117,11 +136,6 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" title="com.crm.qa.testcases.LogActivityTest" hash-for-method="CreateRetail1Account">CreateRetail1Account</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" title="com.crm.qa.testcases.LogActivityTest" hash-for-method="CreateRetail1Account_Spouse">CreateRetail1Account_Spouse</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -236,6 +250,28 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-FREE_CRM_Application_Test_Automation_Test_Suite" class="panel FREE_CRM_Application_Test_Automation_Test_Suite">
+          <div class="suite-FREE_CRM_Application_Test_Automation_Test_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.crm.qa.testcases.LogActivityTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CreateRetail1Account_Spouse">
+                  </a> <!-- CreateRetail1Account_Spouse -->
+                  <span class="method-name">CreateRetail1Account_Spouse</span>
+                  <div class="stack-trace">java.lang.AssertionError: timeout
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.crm.qa.util.TestUtil.waitForElement(TestUtil.java:170)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:475)
+	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse(LogActivityTest.java:533)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-FREE_CRM_Application_Test_Automation_Test_Suite-class-failed -->
           <div class="suite-FREE_CRM_Application_Test_Automation_Test_Suite-class-skipped">
             <div class="main-panel-header rounded-window-top">
               <img src="skipped.png"/>
@@ -244,16 +280,31 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="CreateRetail1Account_Spouse">
+                  </a> <!-- CreateRetail1Account_Spouse -->
+                  <span class="method-name">CreateRetail1Account_Spouse</span>
+                  <div class="stack-trace">java.lang.AssertionError: timeout
+	at org.junit.Assert.fail(Assert.java:88)
+	at com.crm.qa.util.TestUtil.waitForElement(TestUtil.java:170)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:475)
+	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse(LogActivityTest.java:533)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="UpdateSpouseAccountdetails">
                   </a> <!-- UpdateSpouseAccountdetails -->
                   <span class="method-name">UpdateSpouseAccountdetails</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;div class=&quot;slds-grid slds-gutters_small full cols-2 forcePageBlockSectionRow&quot; data-aura-rendered-by=&quot;2631:0&quot; data-aura-class=&quot;forcePageBlockSectionRow&quot;&gt;...&lt;/div&gt; is not clickable at point (957, 861). Other element would receive the click: &lt;lightning-spinner data-data-rendering-service-uid=&quot;424&quot; data-aura-rendered-by=&quot;1635:0&quot; class=&quot;slds-spinner_container cGriffinButtons&quot; data-aura-class=&quot;cGriffinButtons&quot;&gt;&lt;/lightning-spinner&gt;
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=78.0.3904.108)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.1.2.130&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.6&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir396_361194423}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53631}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 029f94ffaebb597104825b815c2786ac
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir1928_1009783049}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:64891}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 89c8b0048f1ee2b29525d3df480a5488
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -267,8 +318,8 @@ Session ID: 029f94ffaebb597104825b815c2786ac
 	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
 	at com.sun.proxy.$Proxy10.click(Unknown Source)
-	at com.crm.qa.pages.DetailsPage.verifyAccountDetails(DetailsPage.java:632)
-	at com.crm.qa.testcases.LogActivityTest.UpdateSpouseAccountdetails(LogActivityTest.java:628)
+	at com.crm.qa.pages.DetailsPage.updateAccountDetails(DetailsPage.java:584)
+	at com.crm.qa.testcases.LogActivityTest.UpdateSpouseAccountdetails(LogActivityTest.java:625)
 ... Removed 35 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -286,13 +337,6 @@ Session ID: 029f94ffaebb597104825b815c2786ac
                   <a name="CreateRetail1Account">
                   </a> <!-- CreateRetail1Account -->
                   <span class="method-name">CreateRetail1Account</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="CreateRetail1Account_Spouse">
-                  </a> <!-- CreateRetail1Account_Spouse -->
-                  <span class="method-name">CreateRetail1Account_Spouse</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -518,104 +562,108 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(23);
+data.addRows(24);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'UpdateSpouseAccountdetails')
+data.setCell(0, 1, 'CreateRetail1Account_Spouse')
 data.setCell(0, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(0, 3, 142462);
+data.setCell(0, 3, 736690);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'UpdateSpouseAccountdetails')
+data.setCell(1, 1, 'CreateRetail1Account_Spouse')
 data.setCell(1, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(1, 3, 132198);
+data.setCell(1, 3, 736615);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'LogaCallwithSpouse_ValidateAtPrimary')
+data.setCell(2, 1, 'UpdateSpouseAccountdetails')
 data.setCell(2, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(2, 3, 128086);
+data.setCell(2, 3, 148973);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'CreateRetail1Account_Spouse')
+data.setCell(3, 1, 'UpdatePrimaryAccountdetails')
 data.setCell(3, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(3, 3, 110179);
+data.setCell(3, 3, 109624);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'UpdatePrimaryAccountdetails')
+data.setCell(4, 1, 'UpdateSpouseAccountdetails')
 data.setCell(4, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(4, 3, 100429);
+data.setCell(4, 3, 109547);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'LogACallSpouse')
+data.setCell(5, 1, 'LogaCallwithSpouse_ValidateAtPrimary')
 data.setCell(5, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(5, 3, 98063);
+data.setCell(5, 3, 108307);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'meeting_CompleteFlowWithOptions')
+data.setCell(6, 1, 'LogACallSpouse')
 data.setCell(6, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(6, 3, 96268);
+data.setCell(6, 3, 107381);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'meeting_CompleteFlow')
 data.setCell(7, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(7, 3, 93381);
+data.setCell(7, 3, 103145);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'reachedwithBusinessLead_ScheduleMeeting')
+data.setCell(8, 1, 'meeting_CompleteFlowWithOptions')
 data.setCell(8, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(8, 3, 87800);
+data.setCell(8, 3, 100814);
 data.setCell(9, 0, 9)
 data.setCell(9, 1, 'reached_Schedule_Appointment')
 data.setCell(9, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(9, 3, 82910);
+data.setCell(9, 3, 97288);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'nolead_Reached_createBranchOpportunity')
+data.setCell(10, 1, 'reachedwithBusinessLead_ScheduleMeeting')
 data.setCell(10, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(10, 3, 78763);
+data.setCell(10, 3, 95438);
 data.setCell(11, 0, 11)
 data.setCell(11, 1, 'reachedwithBusinessLead_ScheduleTodo')
 data.setCell(11, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(11, 3, 71513);
+data.setCell(11, 3, 86651);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'reachedwithBusinessLead_SchedulePhoneCall')
+data.setCell(12, 1, 'nolead_Reached_createBranchOpportunity')
 data.setCell(12, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(12, 3, 71456);
+data.setCell(12, 3, 84511);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'reached_Schedule_ToDo')
+data.setCell(13, 1, 'reachedwithBusinessLead_SchedulePhoneCall')
 data.setCell(13, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(13, 3, 67073);
+data.setCell(13, 3, 79728);
 data.setCell(14, 0, 14)
 data.setCell(14, 1, 'reached_Schedule_Phonecall')
 data.setCell(14, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(14, 3, 66429);
+data.setCell(14, 3, 77434);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'reachedwithBusinessLead_UnplannedMeeting')
+data.setCell(15, 1, 'UnplannedMeeting')
 data.setCell(15, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(15, 3, 65558);
+data.setCell(15, 3, 75888);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'UnplannedMeeting')
+data.setCell(16, 1, 'reached_Schedule_ToDo')
 data.setCell(16, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(16, 3, 63059);
+data.setCell(16, 3, 73149);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'notReachedwithBusinessLead')
+data.setCell(17, 1, 'reachedwithBusinessLead_UnplannedMeeting')
 data.setCell(17, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(17, 3, 59739);
+data.setCell(17, 3, 70707);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'reachedwithBusinessLead')
+data.setCell(18, 1, 'notReached')
 data.setCell(18, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(18, 3, 59391);
+data.setCell(18, 3, 68747);
 data.setCell(19, 0, 19)
-data.setCell(19, 1, 'CreateRetail2Account')
+data.setCell(19, 1, 'notReachedwithBusinessLead')
 data.setCell(19, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(19, 3, 56052);
+data.setCell(19, 3, 65242);
 data.setCell(20, 0, 20)
-data.setCell(20, 1, 'reached')
+data.setCell(20, 1, 'reachedwithBusinessLead')
 data.setCell(20, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(20, 3, 54482);
+data.setCell(20, 3, 64688);
 data.setCell(21, 0, 21)
-data.setCell(21, 1, 'notReached')
+data.setCell(21, 1, 'CreateRetail2Account')
 data.setCell(21, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(21, 3, 53924);
+data.setCell(21, 3, 63441);
 data.setCell(22, 0, 22)
-data.setCell(22, 1, 'CreateRetail1Account')
+data.setCell(22, 1, 'reached')
 data.setCell(22, 2, 'com.crm.qa.testcases.LogActivityTest')
-data.setCell(22, 3, 45709);
+data.setCell(22, 3, 60583);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'CreateRetail1Account')
+data.setCell(23, 2, 'com.crm.qa.testcases.LogActivityTest')
+data.setCell(23, 3, 50993);
 window.suiteTableData['FREE_CRM_Application_Test_Automation_Test_Suite']= { tableData: data, tableDiv: 'times-div-FREE_CRM_Application_Test_Automation_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 31 minutes</span>
+              <span class="suite-total-time">Total running time: 56 minutes</span>
               <div id="times-div-FREE_CRM_Application_Test_Automation_Test_Suite">
               </div> <!-- times-div-FREE_CRM_Application_Test_Automation_Test_Suite -->
             </div> <!-- times-div -->
@@ -683,275 +731,289 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">notReached</span>
-                <span class="method-start">9733 ms</span>
+                <span class="method-start">9704 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">63658 ms</span>
+                <span class="method-start">78452 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">64479 ms</span>
+                <span class="method-start">79223 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reached</span>
-                <span class="method-start">72472 ms</span>
+                <span class="method-start">88080 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">126954 ms</span>
+                <span class="method-start">148663 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">127701 ms</span>
+                <span class="method-start">149404 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">UnplannedMeeting</span>
-                <span class="method-start">135313 ms</span>
+                <span class="method-start">157604 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">198372 ms</span>
+                <span class="method-start">233493 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">199141 ms</span>
+                <span class="method-start">234232 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reached_Schedule_ToDo</span>
-                <span class="method-start">206743 ms</span>
+                <span class="method-start">248984 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">273817 ms</span>
+                <span class="method-start">322133 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">274566 ms</span>
+                <span class="method-start">322877 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reached_Schedule_Phonecall</span>
-                <span class="method-start">282240 ms</span>
+                <span class="method-start">331228 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">348670 ms</span>
+                <span class="method-start">408662 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">349412 ms</span>
+                <span class="method-start">409396 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reached_Schedule_Appointment</span>
-                <span class="method-start">357058 ms</span>
+                <span class="method-start">417509 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">439969 ms</span>
+                <span class="method-start">514798 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">440714 ms</span>
+                <span class="method-start">515546 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">LogACallSpouse</span>
-                <span class="method-start">448370 ms</span>
+                <span class="method-start">523919 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">546434 ms</span>
+                <span class="method-start">631301 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">547181 ms</span>
+                <span class="method-start">632048 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">LogaCallwithSpouse_ValidateAtPrimary</span>
-                <span class="method-start">554608 ms</span>
+                <span class="method-start">640174 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">682694 ms</span>
+                <span class="method-start">748481 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">683438 ms</span>
+                <span class="method-start">749230 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">CreateRetail1Account</span>
-                <span class="method-start">690970 ms</span>
+                <span class="method-start">757781 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">736679 ms</span>
+                <span class="method-start">808776 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">737423 ms</span>
+                <span class="method-start">809468 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">CreateRetail2Account</span>
-                <span class="method-start">744933 ms</span>
+                <span class="method-start">817684 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">800986 ms</span>
+                <span class="method-start">881126 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">801721 ms</span>
+                <span class="method-start">881879 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">CreateRetail1Account_Spouse</span>
-                <span class="method-start">809506 ms</span>
+                <span class="method-start">890257 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">919686 ms</span>
+                <span class="method-start">1626950 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">920432 ms</span>
+                <span class="method-start">1627785 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">CreateRetail1Account_Spouse</span>
+                <span class="method-start">1636482 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">2373098 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">2373858 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">notReachedwithBusinessLead</span>
-                <span class="method-start">928142 ms</span>
+                <span class="method-start">2381956 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">987881 ms</span>
+                <span class="method-start">2447199 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">988617 ms</span>
+                <span class="method-start">2447934 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reachedwithBusinessLead</span>
-                <span class="method-start">996091 ms</span>
+                <span class="method-start">2456149 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1055483 ms</span>
+                <span class="method-start">2520838 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1056259 ms</span>
+                <span class="method-start">2521630 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reachedwithBusinessLead_SchedulePhoneCall</span>
-                <span class="method-start">1063774 ms</span>
+                <span class="method-start">2529934 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1135231 ms</span>
+                <span class="method-start">2609662 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1135987 ms</span>
+                <span class="method-start">2610389 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reachedwithBusinessLead_ScheduleTodo</span>
-                <span class="method-start">1143522 ms</span>
+                <span class="method-start">2621131 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1215035 ms</span>
+                <span class="method-start">2707782 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1215798 ms</span>
+                <span class="method-start">2708539 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reachedwithBusinessLead_UnplannedMeeting</span>
-                <span class="method-start">1223356 ms</span>
+                <span class="method-start">2716889 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1288915 ms</span>
+                <span class="method-start">2787596 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1289655 ms</span>
+                <span class="method-start">2788345 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">reachedwithBusinessLead_ScheduleMeeting</span>
-                <span class="method-start">1297274 ms</span>
+                <span class="method-start">2797632 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1385075 ms</span>
+                <span class="method-start">2893070 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1385813 ms</span>
+                <span class="method-start">2893827 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">meeting_CompleteFlow</span>
-                <span class="method-start">1393479 ms</span>
+                <span class="method-start">2902083 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1486861 ms</span>
+                <span class="method-start">3005229 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1487603 ms</span>
+                <span class="method-start">3005991 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">meeting_CompleteFlowWithOptions</span>
-                <span class="method-start">1495168 ms</span>
+                <span class="method-start">3014221 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1591436 ms</span>
+                <span class="method-start">3115036 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1592171 ms</span>
+                <span class="method-start">3115787 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">nolead_Reached_createBranchOpportunity</span>
-                <span class="method-start">1599740 ms</span>
+                <span class="method-start">3124100 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1678504 ms</span>
+                <span class="method-start">3208611 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1679270 ms</span>
+                <span class="method-start">3209384 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">UpdatePrimaryAccountdetails</span>
-                <span class="method-start">1686695 ms</span>
+                <span class="method-start">3217618 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1787124 ms</span>
+                <span class="method-start">3327242 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1787870 ms</span>
+                <span class="method-start">3327988 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">UpdateSpouseAccountdetails</span>
-                <span class="method-start">1795255 ms</span>
+                <span class="method-start">3336009 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">1927455 ms</span>
+                <span class="method-start">3445557 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">1928217 ms</span>
+                <span class="method-start">3446317 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">UpdateSpouseAccountdetails</span>
-                <span class="method-start">1936071 ms</span>
+                <span class="method-start">3454660 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">2078534 ms</span>
+                <span class="method-start">3603633 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

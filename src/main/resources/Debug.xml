@@ -31,12 +31,9 @@
 					
 			-->
 					
-				<include name="LogACallSpouse"></include>
-				<include name="CreateRetail1Account"></include>
-				<include name="CreateRetail2Account"></include>
-				<include name="CreateRetail1Account_Spouse"></include>
 				<include name="UpdatePrimaryAccountdetails"></include>
 				<include name="UpdateSpouseAccountdetails"></include>
+		
 				
 				
 					

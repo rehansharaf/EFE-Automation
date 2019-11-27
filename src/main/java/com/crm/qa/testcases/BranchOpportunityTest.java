@@ -25,6 +25,7 @@ import com.crm.qa.testcases.LogActivityTest;
 
 public class BranchOpportunityTest extends TestBase {
 	
+
 	DetailsPage detailsPage;
 	LoginPage loginPage;
 	HomePage homePage;
@@ -34,6 +35,9 @@ public class BranchOpportunityTest extends TestBase {
 	Opportunities opp;
 	ReferralAppointment ref;
 	RetailAccount retailAccount;
+	
+	
+	SoftAssert softAssertion = new SoftAssert();
 	
 	@BeforeMethod
 	public void setUp() {
@@ -50,16 +54,19 @@ public class BranchOpportunityTest extends TestBase {
 	
 	
 	@Test()
+	
 	public void createBranchOptty() throws Exception {
 		
-		TestUtil.print("create Branch Opportunity ");
+		//TestUtil.print("create Branch Opportunity ");
 		
 		//LogActivityTest.CreateRetail1Account();
+		System.out.println("Running HomePage.navigatetoUser..................... ");
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.APIConnection();
 		
-		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(1);
-			
-		System.out.println("Running homePage.navigateToRetailuser()..................... ");
+		TestUtil.closeAllOpenTabs(driver);
+		
+		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
 		homePage.navigateToRetailuser();
 		
 		System.out.println("Running retailAccount.clickAccountAccountScreen..................... ");
@@ -69,10 +76,43 @@ public class BranchOpportunityTest extends TestBase {
 		//Opportunities opp = new Opportunities();
 		opp.createBranchOpportunity();
 		
+	}
+	
+	
+	
+	
+	@Test()
+	
+	public void createandverifyBranchOptty() throws Exception {
 		
+		TestUtil.print("create and verify Branch Opportunity ");
 		
+		createBranchOptty();
+		
+		opp.verifyBranchOppty("New");
+		
+		TestUtil.closeAllOpenTabs(driver);
 		
 	}
+	
+	@Test()
+	public void opttyClosedLost() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
+		
+		createBranchOptty();
+		
+		opp.opportunityClosedLost();
+		
+		TestUtil.closeAllOpenTabs(driver);
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -91,14 +131,17 @@ public class BranchOpportunityTest extends TestBase {
 		homePage.navigateToRetailuser();
 		
 		System.out.println("Running opp.createBranchOpportunity()..................... ");
-		Opportunities opp = new Opportunities();
+		//Opportunities opp = new Opportunities();
 		opp.createBranchOpportunity();	
-				
-		System.out.println("Running SalesforceTestRestAPI..................... ");
-		SalesforceTestRestAPI.validateTaskData(1);
 		
-		System.out.println("Running SalesforceTestRestAPI..................... ");
-		SalesforceTestRestAPI.validateBranchOpportunity(6);	
+		
+		
+		
+		//System.out.println("Running SalesforceTestRestAPI..................... ");
+		//SalesforceTestRestAPI.validateTaskData(1);
+		
+		//System.out.println("Running SalesforceTestRestAPI..................... ");
+		//SalesforceTestRestAPI.validateBranchOpportunity(6);	
 		
 		TestUtil.closeAllOpenTabs(driver);
 				
