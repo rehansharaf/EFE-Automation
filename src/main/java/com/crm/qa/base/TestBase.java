@@ -107,7 +107,7 @@ public class TestBase {
 		
 		if(browserName.equals("chrome")){
 			
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\ISharaf\\Desktop\\SeleniumLib\\Driver\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver_path"));
 			
 			DesiredCapabilities capabilities = new DesiredCapabilities().chrome();
 			
@@ -144,7 +144,7 @@ public class TestBase {
 			
 		}
 		else if(browserName.equals("FF")){
-			System.setProperty("webdriver.gecko.driver", "C:\\Users\\ISharaf\\Desktop\\SeleniumLib\\Driver\\geckodriver.exe");	
+			System.setProperty("webdriver.gecko.driver", prop.getProperty("firefox_path"));	
 			driver = new FirefoxDriver(); 
 		
 		}

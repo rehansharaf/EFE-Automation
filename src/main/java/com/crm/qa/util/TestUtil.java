@@ -35,8 +35,8 @@ import com.google.common.base.Function;
 
 public class TestUtil extends TestBase{
 	
-	public static long PAGE_LOAD_TIMEOUT = 30;
-	public static long IMPLICIT_WAIT = 30;
+	public static long PAGE_LOAD_TIMEOUT = 50;
+	public static long IMPLICIT_WAIT = 50;
 	
 	public static String TESTDATA_SHEET_PATH = (System.getProperty("user.dir")+ "/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx");
 
@@ -209,6 +209,8 @@ public class TestUtil extends TestBase{
      
      public static void closeAllOpenTabs(WebDriver driver) throws InterruptedException {
     	 	
+    	 	
+    	 
     	 	WebElement openTabgrid= driver.findElement(By.xpath("//*[contains (@class, ('tabBarItems slds-grid'))]")); 
     	 	
     	 	Thread.sleep(2000);
@@ -222,8 +224,38 @@ public class TestUtil extends TestBase{
     	 			{driver.findElement(By.xpath("//div[2]//button[1][contains (@title, ('Close'))]")).click(); }
     	 		}
      	 	
-     		}
+    	 	clickAccountLink();
+     }
  
+     public static void clickAccountLink() throws InterruptedException {
+    	 
+    	 String accountId = Navigation.get_sfdcID();
+    	 
+    	 driver.findElement(By.xpath("//a[contains (@class, ('" +accountId+ "'))]")).click();
+    	 Thread.sleep(2000);
+    	 
+    	 
+     }
+ 
+     public void clickAccountviaAccountScreen() throws InterruptedException{ 
+ 		
+ 		Thread.sleep(2000);
+ 		changeNavigationMenu("Accounts");
+ 		Thread.sleep(2000);
+ 		TestUtil.closeAllOpenTabs(driver);
+ 		Thread.sleep(2000);
+ 		driver.findElement(By.xpath("(//a[contains (@title, ('" +Navigation.getaccountName()+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
+ 		Thread.sleep(2000);
+ 		
+ 	}
+     
+     public static void changeNavigationMenu(String Menu) throws InterruptedException{
+ 		
+ 		driver.findElement(By.xpath("//button[contains (@title, ('Show Navigation Menu'))]")).click();
+ 		Thread.sleep(2000);
+ 		driver.findElement(By.xpath("//span[contains (@class,('menuLabel slds-listbox'))][contains(text(),'" +Menu+ "')]")).click();
+ 	}
+ 	
      
      
      /*   

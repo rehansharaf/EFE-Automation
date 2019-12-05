@@ -472,12 +472,12 @@ public class DetailsPage extends TestBase {
 
 	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
 		
-			TestUtil.waitForElement("Comments", comments);
+		TestUtil.waitForElement("Comments", comments);
 	
-			System.out.println("TimeStamp......................" + timeStamp );
-			prop.setProperty("Call Start Time", timeStamp);
+		System.out.println("TimeStamp......................" + timeStamp );
+		prop.setProperty("Call Start Time", timeStamp);
 			
-			for(int j=0; j<5; j++){		
+		for(int j=0; j<5; j++){		
 				
 			//See if we can remove it just incase if it doesnot help
 			driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.SUBTRACT));		
@@ -1200,12 +1200,12 @@ public void unplannedAppointment() throws InterruptedException, ParseException {
 }
 
 
-private void createFutureAppointment() throws InterruptedException {
+public void createFutureAppointment() throws InterruptedException {
 	
 	jse2.executeScript("arguments[0].scrollIntoView()", meetingClient);
 
 	TestUtil.SelectDropDownOption(meetingClient, "On-Phone");
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 	meetingStartDate.sendKeys(enteredDate);
 	meetingStartTime.click();
 	meetingStartTime.clear();
@@ -1214,7 +1214,7 @@ private void createFutureAppointment() throws InterruptedException {
 	meetingDuration.sendKeys("60");
 	
 	nextButton1.click();
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 	
 	jse2.executeScript("arguments[0].click()", nextButton1);
 	//nextButton1.click();

@@ -37,19 +37,7 @@ public class HomePage extends TestBase {
 	public static String AccountURL;
 	public static String SpouseAccountURL;
 	
-	
-	
-//	@FindBy(xpath = "//td[contains(text(),'User: Naveen K')]")
-//	@CacheLookup
-//	WebElement userNameLabel;
-//
-//	@FindBy(xpath = "//a[contains(text(),'Contacts')]")
-//	WebElement contactsLink;
-//	
-//	@FindBy(xpath = "//div[@class='slds-global-header__item']//div[@class='slds-global-header__logo'] ")
-//	WebElement logoEFE;
-//	
-//
+
 	@FindBy(xpath = "//div[contains(text(),'User Detail')]")
 	static
 	WebElement advisorLink;
@@ -73,13 +61,7 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//span[@class='title'][contains(text(),'Details')]")
 	WebElement detailonDetailPage;
 	
-	
 
-//	@FindBy(xpath = "(//a[@data-recordid='0010R00000FQTUOQA5'])[1]")
-//String searchUser = prop.getProperty("searchUser");
-//	WebElement searchUser = driver.findElement(By.xpath(prop.getProperty("userXpath")));
-	
-//	https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000IGOVOQA5/view
 	@FindBy(xpath = "(//span[contains(text(),'Home')])[1]")
 	WebElement homeLink;
 	
@@ -185,9 +167,7 @@ public void navigateToSpouseuser() throws InterruptedException{
 		String spouseId = prop.getProperty("spousesfdcId");
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+spouseId+"/view";
 		System.out.println(url);
-      
-	
-		
+      	
 		driver.navigate().to(url);
 		
 	}
@@ -207,73 +187,7 @@ public void navigateToSpouseuser() throws InterruptedException{
 		Thread.sleep(5000);
 		selectUser.click();
 		
-		
-//		WebElement searchUser = driver.findElement(By.xpath(prop.getProperty("userXpath")));
-//		searchUser.click();	
-		
-//	String selectLinkOpeninNewTab = Keys.chord(Keys.COMMAND,Keys.SHIFT, Keys.ENTER, "t"); 
-		//String selectLinkOpeninNewTab = Keys.chord(Keys.COMMAND,Keys.PAGE_DOWN); 
-		
-	//selectUser.sendKeys(Keys.COMMAND + "t");
-	
-		//selectUser.sendKeys(Keys.COMMAND + 'T');
-		
-		
-	//Actions act = new Actions(driver);
-	
-	
-	//act.contextClick(selectUser).perform();
-	
-	//act.contextClick(selectUser).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_UP).sendKeys(Keys.DOWN).sendKeys(Keys.ENTER).build().perform();
-	//act.contextClick(selectUser).build().perform();
-	  
-	
-	//WebElement elementEdit =driver.findElement(By.cssSelector(".context-menu-one"));
 
-	//elementEdit.click(); 
-	
-	//act.sendKeys(Keys.PAGE_DOWN).perform();
-
-		
-		//act.keyDown(Keys.COMMAND).click(selectUser).keyUp(Keys.SHIFT).perform();
-		
-		//act.keyDown(Keys.COMMAND).keyDown(Keys.SHIFT).sendKeys(searchuser).click();
-		
-		//act.moveToElement(selectUser).keyDown(Keys.COMMAND).sendKeys("t").build().perform();
-				
-		
-		//return new searchResultsPage();
-		
-		
-	
-		//Actionchains act = new Actionchains(driver);
-		
-		
-	//	Actions act = new Actions(driver);
-		
-
-		
-				
-		//Open the link in new window
-	//	act.contextClick(selectUser).sendKeys(Keys.ARROW_RIGHT).build().perform();
-		
-	//	act.contextClick(selectUser).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.ENTER).build().perform();
-	
-		
-		
-		
-	//	WebElement elementOpen = driver.findElement(By.linkText("Open")); /*This will select menu after right click */
-
-	//	elementOpen.click();
-		
-	//	WebElement elementEdit =driver.findElement(By.cssSelector(".context-menu-item.icon.icon-edit>span"));
-     //   elementEdit.click();
-
-		
-		
-	
-	//	selectUser.sendKeys(Keys.COMMAND, Keys.SHIFT, Keys.ARROW_LEFT);
-		
 	}	
 	
 public void clickRetailSearchInput() throws InterruptedException{

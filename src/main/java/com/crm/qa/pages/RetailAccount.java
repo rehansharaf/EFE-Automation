@@ -270,21 +270,13 @@ public class RetailAccount extends TestBase {
 	
 	public void createRetailuser(int i) throws Exception {
 		
-		//Thread.sleep(10000);
-		
-		
-		if (i==2){
-		
-			
-		LoggedinUser = LoggedUser.getText().substring(11);
-		//LoggedinUser = plannerAdvisor.getText();
-			
-		}
+		if (i==2){LoggedinUser = LoggedUser.getText().substring(11);}
 		
 		
 		try {
 			//output = new FileOutputStream("/Users/rnalam/Downloads/Sampleproject/PageObjectModel/QAconfig.properties");
-			output = new FileOutputStream("C:/Users/ISharaf/QAconfig.properties");
+			//output = new FileOutputStream("C:/Users/ISharaf/QAconfig.properties");
+			output = new FileOutputStream(prop.getProperty("QAconfig_path"));
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -293,17 +285,7 @@ public class RetailAccount extends TestBase {
 		
 		Thread.sleep(10000);
 		
-				
-		
-		//if (globalButton.isDisplayed()) {
-		if (globalButton.isEnabled()) {
-		
-			Thread.sleep(2000);
-			globalButton.click();
-		}
-		
-		Thread.sleep(5000);
-		
+	    globalButton.click(); 
 		
 		TestUtil.waitForElement("Create Retail Account", createRetail);
 		createRetail.click();

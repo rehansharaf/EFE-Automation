@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SFDC Test Automation Test Suite" parallel="methods" thread-count="1">
+
+	<listeners>
+		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
+		<listener class-name="com.qa.EventListener.FailureRetryListener"/>
+	</listeners>
+
+<!--
+			<test name="Log a Call Test Scenarios">
+			<classes>
+			<class name="com.crm.qa.testcases.LogActivityTest">
+			<methods>
+					<include name="notReached"></include>
+					<include name="reached"></include>
+					<include name="UnplannedMeeting"></include>
+					<include name="reached_Schedule_ToDo"></include>
+					<include name="reached_Schedule_Phonecall"></include>
+					<include name="reached_Schedule_Appointment"></include>
+					<include name="LogACallSpouse"></include>
+					<include name="LogaCallwithSpouse_ValidateAtPrimary"></include>
+					<include name="CreateRetail1Account"></include>
+					<include name="CreateRetail2Account"></include>
+					<include name="CreateRetail1Account_Spouse"></include>
+					<include name="notReachedwithBusinessLead"></include>
+					<include name="reachedwithBusinessLead"></include>
+					<include name="reachedwithBusinessLead_SchedulePhoneCall"></include>
+					<include name="reachedwithBusinessLead_ScheduleTodo"></include>
+					<include name="reachedwithBusinessLead_UnplannedMeeting"></include>
+					<include name="reachedwithBusinessLead_ScheduleMeeting"></include>
+					<include name="meeting_CompleteFlow"></include>
+					<include name="meeting_CompleteFlowWithOptions"></include>	
+					<include name="nolead_Reached_createBranchOpportunity"></include>
+					<include name="UpdatePrimaryAccountdetails"></include>
+					<include name="UpdateSpouseAccountdetails"></include>
+			</methods>
+			</class>
+			</classes>
+			</test>
+	
+	-->
+			<test name="Branch Opportunity Test Scenarios">
+			<classes>
+			<class name="com.crm.qa.testcases.BranchOpportunityTest">
+			<methods>
+	
+				<include name="createBranchOptty_viaAPI"></include>
+				<include name="moveStageStatusManually"></include>	
+				<include name="opttyClosedLost_viaAPI"></include>
+				<include name="logacall_notReached_Optty"></include>
+				<include name="logacall_Reached_StageClosedLost"></include>	
+				<include name="scheduleMeetingandthenCloseMeeting"></include>
+				<include name="scheduleMeetingviaNextAction"></include>	
+			</methods>
+			</class>
+			</classes>
+			</test>
+</suite>

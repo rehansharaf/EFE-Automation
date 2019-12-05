@@ -14,7 +14,8 @@
 			<class name="com.crm.qa.testcases.LogActivityTest">
 			
 			<methods>
-					<include name="debugTest2"></include>
+					<include name="CreateRetail1Account"></include>
+					
 		
 						
 			</methods>

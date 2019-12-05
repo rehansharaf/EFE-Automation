@@ -74,14 +74,16 @@ public class SalesforceTestRestAPI extends TestBase {
 	public static void APIConnection() {
 
 		try {
-			output = new FileOutputStream("C:\\Users\\ISharaf\\workspace\\POM_Updated\\QAconfig.properties");
+			//output = new FileOutputStream("C:\\Users\\ISharaf\\workspace\\POM_Updated\\QAconfig.properties");
+			output = new FileOutputStream(prop.getProperty("QAconfig_path"));
+			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		dataCreation();
+		dataCreation_basic();
 
 	}
 
@@ -435,6 +437,9 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
+	
+	
+	
 	public static void validateWorkPlaceOpportunity(int i) throws InterruptedException {
 		// TODO Auto-generated method stub
 

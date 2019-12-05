@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -27,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import java.time.*;
 
 import com.crm.qa.base.TestBase;
  
@@ -62,6 +66,8 @@ public class SalesforceRestAPI extends TestBase {
     private static 	String spousesfdcid;
     private static 	String primarysfdcid;
     
+    private static LocalDate futureDate = LocalDate.now().plusDays(15);
+    
     static String uid = DetailsPage.uniqueid;
     
     static String fname = "Testf"+ uid;
@@ -80,7 +86,7 @@ public class SalesforceRestAPI extends TestBase {
    public static void APIConnection() {
 	   
 	   try {
-			output = new FileOutputStream("C:\\Users\\ISharaf\\workspace\\POM_Updated\\QAconfig.properties");
+			output = new FileOutputStream(prop.getProperty("QAconfig_path"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -211,10 +217,6 @@ public class SalesforceRestAPI extends TestBase {
     
     
     
-    
-    
-    
-    
  
     // Query Leads using REST HttpGet
     public static JSONArray queryTaskObject(int i) {
@@ -254,8 +256,7 @@ public class SalesforceRestAPI extends TestBase {
            // String uri = baseUri + "/query?q=select+Id+,+AccountId+,+Call_Start_Time__c+,+Description+,+Call_Outcome__c+,+Call_Type__c+,+Status+,+Solutions_Discussed__c+from+Task+where+AccountId+='" +sfdcId+"'+ORDER+BY+CreatedDate+Desc";
           //  System.out.println("Query URL: " + taskUri);
             
-            if (i == 1) {	
-            	
+            if (i == 1) {
             	Uri = taskUri;
             		
             		
@@ -967,7 +968,7 @@ public static void createBranchOpp(String fname1, String lname1) {
         branchopp.put("LeadSource","NAC Outbound");
         branchopp.put("Agent_Input_Expected_Amount__c","125000");
         branchopp.put("StageName","New");
-        branchopp.put("CloseDate","2019-09-24");
+        branchopp.put("CloseDate",futureDate);
         branchopp.put("Name",fname1+" "+lname1);
         branchopp.put("Preferred_Meeting_Zip_Code__c","85016");
         branchopp.put("OwnerId", "0050R000000XRFmQAO");
@@ -1319,6 +1320,12 @@ public static void createRegularAccount() {
 	 */
   
  }   
+
+
+
+public static String getFirstName() {return fname;}
+
+public static String getLastName() {return lname;}
 
 
 
