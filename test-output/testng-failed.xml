@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [SFDC Test Automation Test Suite]" parallel="methods">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]" parallel="methods">
   <listeners>
-    <listener class-name="com.qa.ExtentReportListener.ExtentReporterNG"/>
+    <listener class-name="com.qa.EventListener.TestListener"/>
     <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Branch Optty Test Scenarios(failed)" parallel="methods">
+  <test name="Free CRM App Test Cases(failed)" parallel="methods">
     <classes>
       <class name="com.crm.qa.testcases.BranchOpportunityTest">
         <methods>
-          <include name="opttyClosedLost_viaAPI"/>
           <include name="setUp"/>
+          <include name="exp" invocation-numbers="0 0"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
     </classes>
-  </test> <!-- Branch Optty Test Scenarios(failed) -->
-</suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->
+  </test> <!-- Free CRM App Test Cases(failed) -->
+</suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

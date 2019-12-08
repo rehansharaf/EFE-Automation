@@ -1,152 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" ignored="10" total="17" passed="6">
+<testng-results skipped="0" failed="0" ignored="44" total="46" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="SFDC Test Automation Test Suite" duration-ms="451714" started-at="2019-12-05T17:09:15Z" finished-at="2019-12-05T17:16:47Z">
+  <suite name="SFDC Test Automation Test Suite" duration-ms="157877" started-at="2019-12-08T04:05:08Z" finished-at="2019-12-08T04:07:46Z">
     <groups>
     </groups>
-    <test name="Branch Optty Test Scenarios" duration-ms="451714" started-at="2019-12-05T17:09:15Z" finished-at="2019-12-05T17:16:47Z">
+    <test name="Log a Call Test Scenarios" duration-ms="92140" started-at="2019-12-08T04:05:08Z" finished-at="2019-12-08T04:06:40Z">
+      <class name="com.crm.qa.testcases.LogActivityTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@77be656f]" name="setUp" is-config="true" duration-ms="11227" started-at="2019-12-07T21:05:08Z" finished-at="2019-12-07T21:05:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="notReached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@77be656f]" name="notReached" duration-ms="80153" started-at="2019-12-07T21:05:19Z" finished-at="2019-12-07T21:06:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- notReached -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@77be656f]" name="tearDown" is-config="true" duration-ms="725" started-at="2019-12-07T21:06:39Z" finished-at="2019-12-07T21:06:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+    </test> <!-- Log a Call Test Scenarios -->
+    <test name="Branch Opportunity Test Scenarios" duration-ms="65520" started-at="2019-12-08T04:06:40Z" finished-at="2019-12-08T04:07:46Z">
       <class name="com.crm.qa.testcases.BranchOpportunityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="6802" started-at="2019-12-05T10:09:15Z" finished-at="2019-12-05T10:09:22Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4461c7e3]" name="setUp" is-config="true" duration-ms="8839" started-at="2019-12-07T21:06:40Z" finished-at="2019-12-07T21:06:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="moveStageStatusManually()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="moveStageStatusManually" duration-ms="47250" started-at="2019-12-05T10:09:22Z" finished-at="2019-12-05T10:10:09Z">
+        <test-method status="PASS" signature="createBranchOptty_viaAPI()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4461c7e3]" name="createBranchOptty_viaAPI" duration-ms="55963" started-at="2019-12-07T21:06:49Z" finished-at="2019-12-07T21:07:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- moveStageStatusManually -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="749" started-at="2019-12-05T10:10:09Z" finished-at="2019-12-05T10:10:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="5652" started-at="2019-12-05T10:10:10Z" finished-at="2019-12-05T10:10:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="SKIP" signature="opttyClosedLost_viaAPI()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="opttyClosedLost_viaAPI" duration-ms="39380" started-at="2019-12-05T10:10:16Z" finished-at="2019-12-05T10:10:55Z">
-          <exception class="org.openqa.selenium.WebDriverException">
-            <message>
-              <![CDATA[element click intercepted: Element <span class="slds-radio--faux" data-aura-rendered-by="16:894;a"></span> is not clickable at point (536, 255). Other element would receive the click: <lightning-spinner data-data-rendering-service-uid="390" data-aura-rendered-by="1637:0" class="slds-spinner_container cGriffinButtons" data-aura-class="cGriffinButtons"></lightning-spinner>
-  (Session info: chrome=78.0.3904.108)
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'PHX-ISHARAF', ip: '10.1.2.130', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir13032_279497509}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:62248}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 5a6e5e7c99185c3ba6c637413939ef45]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: element click intercepted: Element <span class="slds-radio--faux" data-aura-rendered-by="16:894;a"></span> is not clickable at point (536, 255). Other element would receive the click: <lightning-spinner data-data-rendering-service-uid="390" data-aura-rendered-by="1637:0" class="slds-spinner_container cGriffinButtons" data-aura-class="cGriffinButtons"></lightning-spinner>
-  (Session info: chrome=78.0.3904.108)
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'PHX-ISHARAF', ip: '10.1.2.130', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_221'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=77.0.3865.40 (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir13032_279497509}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:62248}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 5a6e5e7c99185c3ba6c637413939ef45
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:359)
-	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:132)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- opttyClosedLost_viaAPI -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="741" started-at="2019-12-05T10:10:55Z" finished-at="2019-12-05T10:10:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="5503" started-at="2019-12-05T10:10:56Z" finished-at="2019-12-05T10:11:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="opttyClosedLost_viaAPI()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="opttyClosedLost_viaAPI" duration-ms="51245" started-at="2019-12-05T10:11:01Z" finished-at="2019-12-05T10:11:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- opttyClosedLost_viaAPI -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="738" started-at="2019-12-05T10:11:52Z" finished-at="2019-12-05T10:11:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="5598" started-at="2019-12-05T10:11:53Z" finished-at="2019-12-05T10:11:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logacall_notReached_Optty()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="logacall_notReached_Optty" duration-ms="56139" started-at="2019-12-05T10:11:59Z" finished-at="2019-12-05T10:12:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logacall_notReached_Optty -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="756" started-at="2019-12-05T10:12:55Z" finished-at="2019-12-05T10:12:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="5663" started-at="2019-12-05T10:12:56Z" finished-at="2019-12-05T10:13:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logacall_Reached_StageClosedLost()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="logacall_Reached_StageClosedLost" duration-ms="65077" started-at="2019-12-05T10:13:01Z" finished-at="2019-12-05T10:14:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logacall_Reached_StageClosedLost -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="731" started-at="2019-12-05T10:14:06Z" finished-at="2019-12-05T10:14:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="5831" started-at="2019-12-05T10:14:07Z" finished-at="2019-12-05T10:14:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="scheduleMeetingandthenCloseMeeting()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="scheduleMeetingandthenCloseMeeting" duration-ms="61398" started-at="2019-12-05T10:14:13Z" finished-at="2019-12-05T10:15:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- scheduleMeetingandthenCloseMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="759" started-at="2019-12-05T10:15:14Z" finished-at="2019-12-05T10:15:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="setUp" is-config="true" duration-ms="5558" started-at="2019-12-05T10:15:15Z" finished-at="2019-12-05T10:15:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="scheduleMeetingviaNextAction()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="scheduleMeetingviaNextAction" duration-ms="85366" started-at="2019-12-05T10:15:21Z" finished-at="2019-12-05T10:16:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- scheduleMeetingviaNextAction -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@42dafa95]" name="tearDown" is-config="true" duration-ms="749" started-at="2019-12-05T10:16:46Z" finished-at="2019-12-05T10:16:47Z">
+        </test-method> <!-- createBranchOptty_viaAPI -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4461c7e3]" name="tearDown" is-config="true" duration-ms="716" started-at="2019-12-07T21:07:45Z" finished-at="2019-12-07T21:07:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
-    </test> <!-- Branch Optty Test Scenarios -->
+    </test> <!-- Branch Opportunity Test Scenarios -->
   </suite> <!-- SFDC Test Automation Test Suite -->
 </testng-results>

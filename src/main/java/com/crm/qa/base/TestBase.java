@@ -15,6 +15,7 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +28,9 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.TestUtil;
@@ -41,8 +45,7 @@ public class TestBase {
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
 	public  static WebDriverWait wait ;
-	
-	
+
 	
 	public TestBase(){
 		try {
@@ -66,7 +69,11 @@ public class TestBase {
 	//   Map<String, String> sfdcData = new HashMap<String, String>();
 	public static HashMap<String, String> sfdcData = new HashMap<String, String>();
 		
-		
+	 public WebDriver getDriver() {
+	        return driver;
+	    }
+	
+	
 	public static String[] addDaysToCurrentTime(int days){
 		String timestamp1, timestamp2, timestamp3, timestamp4, timestamp5, timestamp6, timestamp7;
 		Calendar calendar = Calendar.getInstance();
@@ -139,8 +146,6 @@ public class TestBase {
 			Properties log4jProp = new Properties();
 			log4jProp.setProperty("log4j.rootLogger", "WARN");
 			PropertyConfigurator.configure(log4jProp);
-			
-			
 			
 		}
 		else if(browserName.equals("FF")){

@@ -240,114 +240,33 @@ public class Opportunities extends TestBase{
 	
 	
 	
-public void createWorkplaceOpportunity() throws InterruptedException, ParseException {
+public void createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
 		
-	Thread.sleep(5000);
-	
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		solutionsDiscussed.click();
-		
-		details.selectOutcome(1);
-		
-		scrolltofooter.click();
-		
-		createWorkplaceOpportunity.click();
-		
-		details.clickNextButton();
-	
-		
-		/*
-		 * if(!driver.findElements(By.
-		 * xpath("//div[contains(text(),'Do not close any existing tasks')]")).isEmpty()
-		 * ){ createNewTask.click(); nextButton1.click(); }else{
-		 * System.out.println("No Previous Tasks screen displayed"); }
-		 */
-		
+		enterCommentsfor("WorkplaceOptty", 1);
 		
 		Thread.sleep(2000);
 		oppField1.sendKeys("2");
 		oppField2.sendKeys("50000");
-		//oppField3.sendKeys("10000");
-		//oppField4.sendKeys("15000");
-		//oppField5.sendKeys("20000");
-		
+	
 		nextButton2.click();	
-		
 		Thread.sleep(5000);	
 		
 	}
 
 
+
+
 public void createBranchOpportunity() throws InterruptedException, ParseException, IOException {
 	
-	Thread.sleep(5000);	
-	
-	enterComments(1);
-	
-	/*
-	commentsTextarea.sendKeys(commentsToEnter);
-
-	solutionsDiscussed.click();
-	
-	details.selectOutcome(1);
-	
-	scrolltofooter.click();
-	
-	createBranchOpportunity.click();
-	
-	details.clickNextButton();	
-	
-	*/
-		/*
-		 * if(!driver.findElements(By.
-		 * xpath("//div[contains(text(),'Do not close any existing tasks')]")).isEmpty()
-		 * ){ createNewTask.click(); nextButton1.click(); }else{
-		 * System.out.println("No Previous Tasks screen displayed"); }
-		 */
-	
-
-	
-		/*
-		 * Select leadSource2 = new Select(leadSource1); leadSource2.selectByIndex(10);
-		 */
-	
-	tMAssets.sendKeys("250000");
-	
-	details.clickNextButton();
-	
-	Thread.sleep(10000);	
-	
+		enterCommentsfor("BranchOptty", 1);
+		
+		tMAssets.sendKeys("250000");
+		details.clickNextButton();
+		
+		Thread.sleep(10000);	
 	
 }
 	
-
-
-
-
-public void verifyBranchOppty() throws InterruptedException, AWTException {
-
-	String status = "Closed Lost";
-	
-	Thread.sleep(2000);
-	String stage = driver.findElement(By.xpath("//div[contains (@class, ('recordCell'))]//span[contains(text(),'" +status+ "')]")).getText();
-	softAssertion.assertEquals(stage, status, "Stage doesnot match");
-	
-	//Add Page Factory element
-	String closeOpttyasLostonDetailsPage = driver.findElement(By.xpath("//div[contains(@class,'col main-col slds-size--6-of-12')]//*[contains(text(),'Close Opportunity as Lost')]")).getText();
-	softAssertion.assertEquals(closeOpttyasLostonDetailsPage, "Close Opportunity as Lost", "Action doesnot exist on Detail Page");
-	
-	oppLink.click();
-	
-	Thread.sleep(2000);
-	//Add Page Factory element
-	String closeOpttyasLostonOpttyPage = driver.findElement(By.xpath("//div[@class='row region-subheader']//*[contains(text(),'Close Opportunity as Lost')]")).getText();
-	softAssertion.assertEquals(closeOpttyasLostonOpttyPage, "Close Opportunity as Lost", "Action doesnot exist opportunity Page");
-
-	softAssertion.assertAll();
-	
-	
-}
 
 
 public void opportunityClosedLost() throws InterruptedException, AWTException {
@@ -378,10 +297,9 @@ public void opportunityClosedLost() throws InterruptedException, AWTException {
 	Thread.sleep(5000);
 	oppLink.click();
 	
-	validateOpportunityDetails();
+	//validateOpportunityDetails();
+	//validateOpttyforStageStatus("Closed Lost");
 	
-	
-
 
 }
 
@@ -400,16 +318,7 @@ public void moveOpttyStageManually() throws InterruptedException, AWTException {
 	
 	softAssertion.assertEquals(validationMessage.getText(), "You are not allowed to change the status manually.", "Validation Message is incorrect or didnt appear");
 	 
-	
-	/*
-	List<String> StageStatus = new ArrayList<>();
-	
-	for (int i = 0; i<=7; i++) {
-		
-		StageStatus.add(markStageStatus());
-	}
-	
-	*/
+
 }
 
 
@@ -425,12 +334,14 @@ public  void logacall_NotReached() throws InterruptedException, AWTException, IO
 	
 	//driver.navigate().refresh();
 	
+	/*
 	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
 	
 	validateLeadSource("NAC Outbound");
 	validateStageStatus("New");
 	validateExpectedAmount("$125,000.00");
-	
+	*/
+	//validateOpttyforStageStatus("Attempting");
 	
 }
 
@@ -446,12 +357,16 @@ public  void logacall_Reached() throws InterruptedException, AWTException, IOExc
 	
 	driver.navigate().refresh();
 	Thread.sleep(5000);
+	
+	//validateOpttyforStageStatus("Attempting");
+	
+	/*
 	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
 	
 	validateLeadSource("NAC Outbound");
 	validateStageStatus("Attempting");
 	validateExpectedAmount("$125,000.00");
-	
+	*/
 }
 
 
@@ -474,11 +389,15 @@ public  void scheduleandCloseMeeting() throws InterruptedException, AWTException
 	oppLink.click();
 	
 	Thread.sleep(2000);
+	
+	//validateOpttyforStageStatus("Initial Appointment");
+	
+	/*
 	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
 	validateLeadSource("NAC Outbound");
 	validateStageStatus("Initial Appointment");
 	validateExpectedAmount("$125,000.00");
-
+*/
 }
 
 
@@ -513,6 +432,9 @@ public  void scheduleMeetingusingNextAction() throws InterruptedException, AWTEx
 	
 	Thread.sleep(2000);
 	
+	//validateOpttyforStageStatus("Initial Appointment");
+	
+/*	
 	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
 	
 	validateLeadSource("NAC Outbound");
@@ -520,25 +442,44 @@ public  void scheduleMeetingusingNextAction() throws InterruptedException, AWTEx
 	validateExpectedAmount("$125,000.00");
 
 	softAssertion.assertAll();
-
+*/
+	
+	
 }
 
 	
 
 
+public void enterCommentsfor(String opttyType, int Outcome) throws InterruptedException, ParseException, IOException {
+	
+		Thread.sleep(5000);
+	
+		commentsTextarea.sendKeys(commentsToEnter);
+		solutionsDiscussed.click();
+		details.selectOutcome(Outcome);
+		scrolltofooter.click();
+		
+		if (opttyType =="WorkplaceOptty"){createWorkplaceOpportunity.click();details.clickNextButton();}
+		else if (opttyType =="BranchOptty"){createBranchOpportunity.click();details.clickNextButton();}
+	
+}
 
 
 
-public void validateOpportunityDetails() throws InterruptedException, AWTException {
+
+
+
+public void validateOpttyforStageStatus(String stageStatus) throws InterruptedException, AWTException {
 	
 	Thread.sleep(2000);
 	
 	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
 	
 	validateLeadSource("NAC Outbound");
-	validateLeadReason("Duplicate");
-	validateStageStatus("Closed Lost");
+	validateStageStatus(stageStatus);
 	validateExpectedAmount("$125,000.00");
+	
+	if (stageStatus == "Closed Lost") {validateLeadReason("Duplicate");}
 
 	softAssertion.assertAll();
 	
@@ -570,6 +511,34 @@ public void validateOpportunityDetails() throws InterruptedException, AWTExcepti
 	*/
 	
 }
+
+
+
+public void verifyBranchOppty() throws InterruptedException, AWTException {
+
+	String status = "Closed Lost";
+	
+	Thread.sleep(2000);
+	String stage = driver.findElement(By.xpath("//div[contains (@class, ('recordCell'))]//span[contains(text(),'" +status+ "')]")).getText();
+	softAssertion.assertEquals(stage, status, "Stage doesnot match");
+	
+	//Add Page Factory element
+	String closeOpttyasLostonDetailsPage = driver.findElement(By.xpath("//div[contains(@class,'col main-col slds-size--6-of-12')]//*[contains(text(),'Close Opportunity as Lost')]")).getText();
+	softAssertion.assertEquals(closeOpttyasLostonDetailsPage, "Close Opportunity as Lost", "Action doesnot exist on Detail Page");
+	
+	oppLink.click();
+	
+	Thread.sleep(2000);
+	//Add Page Factory element
+	String closeOpttyasLostonOpttyPage = driver.findElement(By.xpath("//div[@class='row region-subheader']//*[contains(text(),'Close Opportunity as Lost')]")).getText();
+	softAssertion.assertEquals(closeOpttyasLostonOpttyPage, "Close Opportunity as Lost", "Action doesnot exist opportunity Page");
+
+	softAssertion.assertAll();
+	
+	
+}
+
+
 
 
 public String markStageStatus() throws InterruptedException, AWTException {

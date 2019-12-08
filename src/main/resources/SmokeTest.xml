@@ -3,11 +3,11 @@
 <suite name="SFDC Test Automation Test Suite" parallel="methods" thread-count="1">
 
 	<listeners>
-		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
+		<listener class-name="com.qa.EventListener.TestListener"/>
 		<listener class-name="com.qa.EventListener.FailureRetryListener"/>
 	</listeners>
 
-<!--
+
 			<test name="Log a Call Test Scenarios">
 			<classes>
 			<class name="com.crm.qa.testcases.LogActivityTest">
@@ -39,7 +39,7 @@
 			</classes>
 			</test>
 	
-	-->
+	
 			<test name="Branch Opportunity Test Scenarios">
 			<classes>
 			<class name="com.crm.qa.testcases.BranchOpportunityTest">
@@ -52,6 +52,7 @@
 				<include name="logacall_Reached_StageClosedLost"></include>	
 				<include name="scheduleMeetingandthenCloseMeeting"></include>
 				<include name="scheduleMeetingviaNextAction"></include>	
+		
 			</methods>
 			</class>
 			</classes>

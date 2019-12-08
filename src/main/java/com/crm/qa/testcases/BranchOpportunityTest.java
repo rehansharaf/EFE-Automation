@@ -1,6 +1,7 @@
 package com.crm.qa.testcases;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.ParseException;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.Status;
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactsPage;
 import com.crm.qa.pages.DetailsPage;
@@ -25,6 +27,8 @@ import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.testcases.LogActivityTest;
+
+import com.qa.ExtentReportListener.*;
 
 public class BranchOpportunityTest extends TestBase {
 	
@@ -53,6 +57,137 @@ public class BranchOpportunityTest extends TestBase {
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
+	
+
+	
+	@Test()
+
+	public void createBranchOptty_viaAPI() throws Exception {
+		
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.APIConnection();
+		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.getFirstName(), SalesforceRestAPI.getLastName());
+		opp.navigateTouser("primary");
+		opp.validateOpttyCounter(1);
+		
+	}
+	
+	
+	@Test()
+	public void opttyClosedLost_viaAPI() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
+		
+		createBranchOptty_viaAPI();
+		opp.opportunityClosedLost();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
+		opp.validateOpttyforStageStatus("Closed Lost");
+		
+		
+	}
+	
+	
+	
+	@Test()
+	public void moveStageStatusManually() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Move Stage Status Manually ");
+		
+		createBranchOptty_viaAPI();
+		opp.moveOpttyStageManually();
+		
+	}
+	
+	
+	@Test()
+	public void logacall_notReached_Optty() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Log a Call / Not Reached ");
+		
+		createBranchOptty_viaAPI();
+		opp.logacall_NotReached();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
+		opp.validateOpttyforStageStatus("Attempting");
+		
+	}
+	
+	
+	@Test()
+	public void logacall_Reached_Optty() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Log a Call / Reached  ");
+		
+		createBranchOptty_viaAPI();
+		opp.logacall_Reached();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
+		opp.validateOpttyforStageStatus("Attempting");
+		
+	}
+	
+
+	@Test()
+	public void logacall_Reached_StageClosedLost() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Log a Call / Reached - Move Stage to Closed ");
+		
+		createBranchOptty_viaAPI();
+		opp.logacall_Reached_StageClosedLost();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
+		opp.validateOpttyforStageStatus("Closed Lost");
+		
+	}
+	
+	
+	@Test()
+	public void scheduleMeetingandthenCloseMeeting() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Schedule Meeting and then Close Meeting ");
+		
+		createBranchOptty_viaAPI();
+		opp.scheduleandCloseMeeting();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		opp.validateOpttyforStageStatus("Initial Appointment");
+		
+	}
+	
+	
+	@Test()
+	public void scheduleMeetingviaNextAction() throws Exception {
+		
+		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
+		
+		createBranchOptty_viaAPI();
+		opp.scheduleMeetingusingNextAction();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		opp.validateOpttyforStageStatus("Initial Appointment");
+		
+	}
+	
+	
+	
+	
+	@Test(description = "Experiment 1 - Test Case.")
+	public void exp(Method method) throws Exception {
+		
+		/*
+		HomePage.navigateToUser("advisor");
+		SalesforceTestRestAPI.APIConnection();
+		
+		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.getFirstName(), SalesforceRestAPI.getLastName());
+	
+		//SalesforceTestRestAPI.validateBranchOpportunity(6);
+		*/
+		//logger.log(Status.INFO, "test example");
+		ExtentTestManager.startTest(method.getName(), "Test Case Description.");
+		
+		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000uzeBZQAY/view");
+		//logger.log(Status.INFO, "Navigate to SFDC Account");
+		driver.findElement(By.xpath("//label[contains (@for, ('scheduleAnAppointmentChoice'))]//span[contains (@class, ('slds-radio--faux'))]")).click();
+		driver.findElement(By.xpath("//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")).click();
+		
+		
+		
+	}
 	
 	
 /*	
@@ -108,147 +243,8 @@ public class BranchOpportunityTest extends TestBase {
 	
 */	
 	
-	@Test()
-
-	public void createBranchOptty_viaAPI() throws Exception {
-		
-		HomePage.navigateToUser("advisor");
-		SalesforceTestRestAPI.APIConnection();
-		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.getFirstName(), SalesforceRestAPI.getLastName());
-		SalesforceTestRestAPI.validateBranchOpportunity(6);
-		opp.navigateTouser("primary");
-		opp.validateOpttyCounter(1);
-		
-	}
 	
-	
-	@Test()
-	public void opttyClosedLost_viaAPI() throws Exception {
-		
-		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.opportunityClosedLost();
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
-	}
-	
-	
-	
-	@Test()
-	public void moveStageStatusManually() throws Exception {
-		
-		TestUtil.print("Newly created Opportunity - Move Stage Status Manually ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.moveOpttyStageManually();
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
-	}
-	
-	
-	@Test()
-	public void logacall_notReached_Optty() throws Exception {
-		
-		TestUtil.print("Newly created Opportunity - Log a Call / Not Reached ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.logacall_NotReached();
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
-	}
-	
-	
-	@Test()
-	public void logacall_Reached_Optty() throws Exception {
-		
-		TestUtil.print("Newly created Opportunity - Log a Call / Reached  ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.logacall_Reached();
-		
-		
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
-	}
-	
-
-	@Test()
-	public void logacall_Reached_StageClosedLost() throws Exception {
-		
-		TestUtil.print("Newly created Opportunity - Log a Call / Reached - Move Stage to Closed ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.logacall_Reached_StageClosedLost();
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
-	}
-	
-	
-	@Test()
-	public void scheduleMeetingandthenCloseMeeting() throws Exception {
-		
-		TestUtil.print("Newly created Opportunity - Schedule Meeting and then Close Meeting ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.scheduleandCloseMeeting();
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
-	}
-	
-	
-	@Test()
-	public void scheduleMeetingviaNextAction() throws Exception {
-		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
-		
-		createBranchOptty_viaAPI();
-		
-		opp.scheduleMeetingusingNextAction();
-		
-		
-		
-	}
-	
-	
-	
-	
-	@Test()
-	public void exp() throws Exception {
-		
-		/*
-		HomePage.navigateToUser("advisor");
-		SalesforceTestRestAPI.APIConnection();
-		
-		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.getFirstName(), SalesforceRestAPI.getLastName());
-	
-		//SalesforceTestRestAPI.validateBranchOpportunity(6);
-		*/
-		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000uzeBZQAY/view");
-		driver.findElement(By.xpath("//label[contains (@for, ('scheduleAnAppointmentChoice'))]//span[contains (@class, ('slds-radio--faux'))]")).click();
-		driver.findElement(By.xpath("//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")).click();
-		
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
+	/*
 	@Test()
 	public void nolead_Reached_createBranchOpportunity() throws InterruptedException, ParseException, IOException {
 		
@@ -278,11 +274,11 @@ public class BranchOpportunityTest extends TestBase {
 		TestUtil.closeAllOpenTabs(driver);
 				
 	}
+	*/
 	
+	/*----------------------------------------------------------------------------------------------------------*/
 	
-	
-	
-	
+	/*
 	
 	
 	@Test()
@@ -344,7 +340,7 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	@Test()
-	public void createWorkplaceOpportunity() throws InterruptedException, ParseException {
+	public void createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
 	
 		homePage.clickSearchInput();
 		opp.deleteOpportunity();
@@ -354,7 +350,7 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	@Test()
-	public void businessLead_CreateWorkplaceOpportunity() throws InterruptedException, ParseException {
+	public void businessLead_CreateWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
 			
 		homePage.clickSearchInput();
 		verifyLead verifylead = new verifyLead();
@@ -370,7 +366,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 	}
 	
-	
+	*/
 	
 	
 	

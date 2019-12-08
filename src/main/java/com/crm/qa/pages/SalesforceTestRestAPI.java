@@ -438,6 +438,40 @@ public class SalesforceTestRestAPI extends TestBase {
 	}
 
 	
+	public static void validateBranchOpportunity_Stage(String stageStatus, int i) throws InterruptedException {
+
+		Thread.sleep(5000);	
+		
+		try {
+			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
+			String oppId = task.getJSONObject(0).getString("Id");
+			String oppLeadSource = task.getJSONObject(0).getString("LeadSource");
+			String oppCreatedDate = task.getJSONObject(0).getString("CreatedDate");
+			String oppStageName = task.getJSONObject(0).getString("StageName");
+
+			int oppTotalAmount = task.getJSONObject(0).getInt("Total_Expected_Amount__c");
+
+			softAssertion.assertEquals(oppLeadSource, "NAC Outbound", "Opp Lead Source mismatch");
+			softAssertion.assertEquals(oppTotalAmount, "250000", "Opp Total Amount Call Attempts mismatch");
+			softAssertion.assertEquals(oppStageName, stageStatus, "Opp Stage Name mismatch");
+
+			System.out.println("Opportunity record is----------------------------------------------------- " + oppId
+					+ " " + oppLeadSource + " " + oppTotalAmount);
+			// softAssertion.assertAll();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public static void validateWorkPlaceOpportunity(int i) throws InterruptedException {

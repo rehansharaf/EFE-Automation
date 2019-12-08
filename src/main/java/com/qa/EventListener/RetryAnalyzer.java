@@ -10,6 +10,13 @@ package com.qa.EventListener;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
+import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import com.crm.qa.base.TestBase;
+import com.qa.ExtentReportListener.ExtentTestManager;
 
 
 
@@ -32,4 +39,16 @@ public class RetryAnalyzer implements IRetryAnalyzer {
 		}
 		return false;
 	}	
+
+	 public void extendReportsFailOperations(ITestResult iTestResult) {
+	        Object testClass = iTestResult.getInstance();
+	        WebDriver webDriver = ((TestBase) testClass).getDriver();
+	        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);
+	        ExtentTestManager.getTest().log(LogStatus.FAIL, "Test Failed",
+	            ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+	    }
+	
+
+
+
 }

@@ -3,7 +3,11 @@
 <suite name="FREE CRM Application Test Automation Test Suite" parallel="methods" thread-count="1">
 
 	<listeners>
-		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
+		<listener class-name="com.qa.EventListener.TestListener"/>
+       <!--
+        <listener class-name="utils.Listeners.AnnotationTransformer"/>
+       -->
+        <listener class-name="com.qa.EventListener.FailureRetryListener"/>
 	</listeners>
 
 
@@ -16,25 +20,22 @@
 			<methods>
 			<!-- 		
 				
-				<include name="opttyClosedLost"></include>
-				<include name="moveStageStatusManually"></include>
-				<include name="exp"></include>	
-				<include name="opttyClosedLost_viaAPI"></include>
-				<include name="logacall_notReached_Optty"></include>
-				<include name="logacall_Reached_StageClosedLost"></include>	
-				<include name="scheduleMeetingandthenCloseMeeting"></include>
-				<include name="scheduleMeetingviaNextAction"></include>	
-					
-			-->
-					
-				
-				<include name="opttyClosedLost"></include>
+				<include name="createBranchOptty_viaAPI"></include>
 				<include name="moveStageStatusManually"></include>	
 				<include name="opttyClosedLost_viaAPI"></include>
 				<include name="logacall_notReached_Optty"></include>
 				<include name="logacall_Reached_StageClosedLost"></include>	
 				<include name="scheduleMeetingandthenCloseMeeting"></include>
 				<include name="scheduleMeetingviaNextAction"></include>	
+				
+				<include name="exp"></include>		
+			-->
+					
+				
+				<include name="exp"></include>
+
+			
+
 				
 				
 					

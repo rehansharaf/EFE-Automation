@@ -354,7 +354,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser();
-	
+		
 		Opportunities opp = new Opportunities();
 		opp.createBranchOpportunity();	
 				
@@ -365,7 +365,7 @@ public class LogActivityTest extends TestBase {
 	
 	
 	@Test()
-	public void nolead_Reached_createWorkplaceOpportunity() throws InterruptedException, ParseException {
+	public void nolead_Reached_createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
 		
 		TestUtil.print("Create WorkPlace Opportunity with no Lead and Reached Option");
 		
