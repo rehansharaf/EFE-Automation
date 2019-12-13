@@ -1,41 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="44" total="46" passed="2">
+<testng-results skipped="0" failed="0" ignored="38" total="39" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="SFDC Test Automation Test Suite" duration-ms="157877" started-at="2019-12-08T04:05:08Z" finished-at="2019-12-08T04:07:46Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="103877" started-at="2019-12-13T21:20:14Z" finished-at="2019-12-13T21:21:58Z">
     <groups>
     </groups>
-    <test name="Log a Call Test Scenarios" duration-ms="92140" started-at="2019-12-08T04:05:08Z" finished-at="2019-12-08T04:06:40Z">
+    <test name="Free CRM App Test Cases" duration-ms="103877" started-at="2019-12-13T21:20:14Z" finished-at="2019-12-13T21:21:58Z">
       <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@77be656f]" name="setUp" is-config="true" duration-ms="11227" started-at="2019-12-07T21:05:08Z" finished-at="2019-12-07T21:05:19Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@2473b9ce]" name="setUp" is-config="true" duration-ms="8874" started-at="2019-12-13T14:20:14Z" finished-at="2019-12-13T14:20:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReached()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@77be656f]" name="notReached" duration-ms="80153" started-at="2019-12-07T21:05:19Z" finished-at="2019-12-07T21:06:39Z">
+        <test-method status="PASS" signature="meeting_CompleteFlowWithOptions()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@2473b9ce]" name="meeting_CompleteFlowWithOptions" duration-ms="94223" started-at="2019-12-13T14:20:23Z" finished-at="2019-12-13T14:21:57Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- notReached -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@77be656f]" name="tearDown" is-config="true" duration-ms="725" started-at="2019-12-07T21:06:39Z" finished-at="2019-12-07T21:06:40Z">
+        </test-method> <!-- meeting_CompleteFlowWithOptions -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@2473b9ce]" name="tearDown" is-config="true" duration-ms="759" started-at="2019-12-13T14:21:57Z" finished-at="2019-12-13T14:21:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
-    </test> <!-- Log a Call Test Scenarios -->
-    <test name="Branch Opportunity Test Scenarios" duration-ms="65520" started-at="2019-12-08T04:06:40Z" finished-at="2019-12-08T04:07:46Z">
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4461c7e3]" name="setUp" is-config="true" duration-ms="8839" started-at="2019-12-07T21:06:40Z" finished-at="2019-12-07T21:06:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="createBranchOptty_viaAPI()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4461c7e3]" name="createBranchOptty_viaAPI" duration-ms="55963" started-at="2019-12-07T21:06:49Z" finished-at="2019-12-07T21:07:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createBranchOptty_viaAPI -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4461c7e3]" name="tearDown" is-config="true" duration-ms="716" started-at="2019-12-07T21:07:45Z" finished-at="2019-12-07T21:07:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
-    </test> <!-- Branch Opportunity Test Scenarios -->
-  </suite> <!-- SFDC Test Automation Test Suite -->
+    </test> <!-- Free CRM App Test Cases -->
+  </suite> <!-- FREE CRM Application Test Automation Test Suite -->
 </testng-results>

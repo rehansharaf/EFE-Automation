@@ -9,8 +9,8 @@
     <classes>
       <class name="com.crm.qa.testcases.BranchOpportunityTest">
         <methods>
+          <include name="moveStageStatusManually"/>
           <include name="setUp"/>
-          <include name="exp" invocation-numbers="0 0"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->

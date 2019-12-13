@@ -48,7 +48,7 @@ import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.google.common.base.Function;
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.DetailsPage__exp2;
 import com.crm.qa.base.TestBase;
 
 
@@ -64,6 +64,8 @@ public class CommunicationPage extends TestBase {
 	@FindBy(xpath="//lightning-formatted-text[contains(text(),'Call')]")
 	WebElement loggedCall;
 	
+	@FindBy(xpath="//*[@class='slds-button__icon slds-button__icon--large']")
+	WebElement notificationMsg;
 	
 	
 	
@@ -79,6 +81,12 @@ public class CommunicationPage extends TestBase {
 	public void validateCallonCommunication() throws InterruptedException{
 	
 		Thread.sleep(2000);
+		 if (driver.findElements(By.xpath("//*[@class='slds-button__icon slds-button__icon--large']")).size() != 0){
+			 	Thread.sleep(3000);
+			 	driver.findElement(By.xpath("//*[@class='slds-button__icon slds-button__icon--large']")).click();
+			 	Thread.sleep(2000);
+			 }
+		
 		communicationTab.click();
 		Thread.sleep(2000);
 		allTab.click();

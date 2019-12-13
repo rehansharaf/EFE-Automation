@@ -469,11 +469,6 @@ public class SalesforceTestRestAPI extends TestBase {
 	
 	
 	
-	
-	
-	
-	
-	
 	public static void validateWorkPlaceOpportunity(int i) throws InterruptedException {
 		// TODO Auto-generated method stub
 

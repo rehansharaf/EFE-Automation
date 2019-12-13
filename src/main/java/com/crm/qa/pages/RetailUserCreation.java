@@ -243,7 +243,7 @@ public void addSpouse(String SpouseFirstName, String SpouseLastName) throws Inte
 	String []url = spouseUrl.split("/");
 	String spousesfdcId = url[6];
 	prop.setProperty("spousesfdcId", spousesfdcId);
-	SalesforceRestAPI.objMap.put("spousesfdcId", spousesfdcId);
+	SalesforceRestAPI_exp2.objMap.put("spousesfdcId", spousesfdcId);
 	
 
 

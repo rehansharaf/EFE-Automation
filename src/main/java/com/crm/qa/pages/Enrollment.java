@@ -93,8 +93,8 @@ public class Enrollment extends TestBase {
 	
 	
 	
-	DetailsPage detailspage = new DetailsPage();
-	String uid = DetailsPage.uniqueid;
+	DetailsPage__exp2 detailspage = new DetailsPage__exp2();
+	String uid = DetailsPage.uid;
 	
 	String fname = "Testf"+ uid;
 	String lname = "Testl"+ uid;

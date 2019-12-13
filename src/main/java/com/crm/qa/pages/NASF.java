@@ -119,7 +119,7 @@ public class NASF extends TestBase{
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 	
 	
-	static String uid = DetailsPage.uniqueid;
+	static String uid = DetailsPage.uid;
 		
 	static String fname = "Testf"+ uid;
 	static String lname = "Testl"+ uid;

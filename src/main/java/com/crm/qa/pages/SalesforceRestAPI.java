@@ -33,6 +33,7 @@ import org.json.JSONTokener;
 import java.time.*;
 
 import com.crm.qa.base.TestBase;
+import com.crm.qa.util.RetailUserdetails;
  
 public class SalesforceRestAPI extends TestBase {
  
@@ -67,22 +68,30 @@ public class SalesforceRestAPI extends TestBase {
     private static 	String primarysfdcid;
     
     private static LocalDate futureDate = LocalDate.now().plusDays(15);
-    
+   
+    /*
     static String uid = DetailsPage.uniqueid;
     
     static String fname = "Testf"+ uid;
 	static String lname = "Testl"+ uid;
 	static String bname = "Testb"+ uid;
 	
-	static OutputStream output = null;
+	*/
+   
+    //public static String uid = RetailUserdetails.getUniqueID();
+    
+    public static String uid;
+    public static String fname ;
+    public static String lname ;
+    public static String bname ;
+   
 	
+	static OutputStream output = null;
 	static String Uri = null;
 	
 	public static Map<String, String> objMap = new HashMap<String, String>();
 	
-    
-	 
- 
+
    public static void APIConnection() {
 	   
 	   try {
@@ -371,6 +380,7 @@ public class SalesforceRestAPI extends TestBase {
 	
     try {
     	 
+
         //create the JSON object containing the new lead details.
         JSONObject retail = new JSONObject();
         retail.put("FirstName", fname);
@@ -685,7 +695,8 @@ public static void updateRetailRecord1() {
 		String uri = baseUri + "/sobjects/Branch_Account_Relationship__c";
 		
 	    try {
-	    	 
+	    	
+	    	//String bname = getUniqueIds().get("bname");
 	    	//for (int i = 0; i < 2; i++){
 	    	
 	    	//create the JSON object containing the new lead details.
@@ -1110,9 +1121,12 @@ public static void createRPAccount( String id) {
         //create the JSON object containing the new lead details.
         JSONObject RPAccount = new JSONObject();
         
-        String aName = "RPAccount" +  " " + DetailsPage.uniqueid;
-        String regName = "RPRegistration" +  " " + DetailsPage.uniqueid;
-        String aNum = "001" + DetailsPage.uniqueid;
+        //String aName = "RPAccount" +  " " + DetailsPage.uniqueid;
+        //String regName = "RPRegistration" +  " " + DetailsPage.uniqueid;
+        //String aNum = "001" + DetailsPage.uniqueid;
+        String aName = "RPAccount" +  " " + DetailsPage.uid;
+        String regName = "RPRegistration" +  " " + DetailsPage.uid;
+        String aNum = "001" + DetailsPage.uid;
         
         RPAccount.put("Name", aName);
         RPAccount.put("RecordTypeId", "01246000000hP8BAAU");
@@ -1184,9 +1198,13 @@ public static void createCTAccount() {
         //create the JSON object containing the new lead details.
         JSONObject CTAccount = new JSONObject();
         
-        String aName = "CTAccount" +  " " + DetailsPage.uniqueid;
-        String regName = "CTRegistration" +  " " + DetailsPage.uniqueid;
-        String aNum = "002" + DetailsPage.uniqueid;
+        //String aName = "CTAccount" +  " " + DetailsPage.uniqueid;
+        //String regName = "CTRegistration" +  " " + DetailsPage.uniqueid;
+        //String aNum = "002" + DetailsPage.uniqueid;
+        
+        String aName = "CTAccount" +  " " + DetailsPage.uid;
+        String regName = "CTRegistration" +  " " + DetailsPage.uid;
+        String aNum = "002" + DetailsPage.uid;
         
         CTAccount.put("Name", aName);
         CTAccount.put("RecordTypeId", "01246000000hP8BAAU");
@@ -1258,9 +1276,13 @@ public static void createRegularAccount() {
         //create the JSON object containing the new lead details.
         JSONObject regAccount = new JSONObject();
         
-        String aName = "RegularAccount" +  " " + DetailsPage.uniqueid;
-        String regName = "Regular" +  " " + DetailsPage.uniqueid;
-        String aNum = "003" + DetailsPage.uniqueid;
+        //String aName = "RegularAccount" +  " " + DetailsPage.uniqueid;
+        //String regName = "Regular" +  " " + DetailsPage.uniqueid;
+        //String aNum = "003" + DetailsPage.uniqueid;
+        
+        String aName = "RegularAccount" +  " " + DetailsPage.uid;
+        String regName = "Regular" +  " " + DetailsPage.uid;
+        String aNum = "003" + DetailsPage.uid;
         
         regAccount.put("Name", aName);
         regAccount.put("RecordTypeId", "01246000000hP8BAAU");
@@ -1322,11 +1344,13 @@ public static void createRegularAccount() {
  }   
 
 
+public void set_uid(String userid) {this.uid = userid;}
+public void set_fname(String firstname) {this.fname = firstname;}
+public void set_lname(String lastname) {this.lname = lastname;}
+public void set_bname(String busname) {this.bname = busname;}
 
-public static String getFirstName() {return fname;}
-
-public static String getLastName() {return lname;}
-
+public static String getFirstName(){return fname;}
+public static String getLastName(){return lname;}
 
 
 

@@ -50,7 +50,9 @@ import com.crm.qa.util.Validation;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.google.common.base.Function;
+import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.util.TestUtil;
+import com.crm.qa.pages.SalesforceRestAPI_exp2;
 
 public class DetailsPage extends TestBase {
 	
@@ -436,24 +438,36 @@ public class DetailsPage extends TestBase {
 		String timeStamp11 = timestamp11.format(new Date());
 		String[] dateStr12 = timeStamp11.split("\\s+");
 		
-
+/*
 		static String[] ret = addDaysToCurrentTime(7);
 	    String enteredDate = ret[0];
 	    static String verifyDate = ret[1];
 	    static String meetingDate = ret[2];
 	    static String meetingformattedDate = ret[3];
-	    public static String uniqueid = ret[4];
+	    public static String uid = ret[4];
 	    static String unplannedDate = ret[6];
+	    
+*/
+		public static String enteredDate;
+		public static String  verifyDate;
+		public static String  meetingDate;
+		public static String  meetingformattedDate;
+	    public static String uid ;
+	    public static String  unplannedDate;
+	    
+	    
 	    
 	    String schedule1 = "Phone Call";
 		String schedule2 = "ToDo";
 		String schedule3 = "Appointment";
 		
 	 
-		static String commentsToEnter = "TestingPurpose " + uniqueid;
+		
+		//static String commentsToEnter = "TestingPurpose " + uid;
+		static String commentsToEnter;
 		static String[] splitStr1 = timeStamp.split("\\s+");
 
-		String emailupdate = "testf"+uniqueid+"@updateaccount.com";
+		String emailupdate = "testf"+uid+"@updateaccount.com";
 
 		public DetailsPage() {
 		PageFactory.initElements(driver, this);
@@ -472,18 +486,16 @@ public class DetailsPage extends TestBase {
 
 	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
 		
+		//uid= SalesforceRestAPI.uid;
+		 
+		String commentsToEnter = "TestingPurpose " + uid;
+		
 		TestUtil.waitForElement("Comments", comments);
 	
 		System.out.println("TimeStamp......................" + timeStamp );
 		prop.setProperty("Call Start Time", timeStamp);
-			
-		for(int j=0; j<5; j++){		
-				
-			//See if we can remove it just incase if it doesnot help
-			driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.SUBTRACT));		
-		}
-
-			
+	
+		
 		Thread.sleep(2000);
 		commentsTextarea.sendKeys(commentsToEnter);
 		
@@ -505,62 +517,236 @@ public class DetailsPage extends TestBase {
 		
 	}
 		 
+
+
+	public void scheduleworkflow(String schedule) throws InterruptedException {
 		
-	
-	public void clickNextButton() throws InterruptedException {
-		List<WebElement> nextButtonCount = driver.findElements(By.xpath("//button[contains(text(),'Next')]"));
-	    int nextButtonSize = nextButtonCount.size();
-	    //WebElement nextButton = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
-	   // Thread.sleep(5000);
-	    WebElement myelement = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
-	    JavascriptExecutor jse2 = (JavascriptExecutor)driver;
-	    jse2.executeScript("arguments[0].scrollIntoView()", myelement); 
-		//nextButton.click();
-		//Thread.sleep(5000);
-	    myelement.click();
-	    Thread.sleep(10000);
-	}
-	
-	
-	
-	public void closeExistingTask(int i) throws InterruptedException {
+		Thread.sleep(2000);
 		
-		for(int j=0; j<10; j++){		
-			driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.ADD));		
-		}
+		String commentsToEnter = "TestingPurpose " + uid;
 		
+		//String LoggedinUser = LoggedUser.getText().substring(11);
 		
-			commentsTextarea.sendKeys(commentsToEnter);
-			solutionsDiscussed.click();
-			Select outcome1 = new Select(outcome);
-			System.out.println(outcome);
-			outcome1.selectByIndex(i);
+		if (schedule.equals(schedule1)) {
 			
-			Thread.sleep(5000);
-			clickNextButton();		
-			Thread.sleep(5000);
-			closeTask.click();		
+			
+			TestUtil.waitForElement("Future Phone Call", futurePhoneCall);
+
+			
+		/*		
+			String getdrop = driver.findElement(By.xpath("(//input[contains (@placeholder, ('Select an Option'))])[1]")).getText();
+			String getdrop1 = driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText().substring(4).trim();
+			
+			if (driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText() != null){
+			assignedtoDropDown.click();
+			assignedtoDropDown.sendKeys(LoggedinUser);
+			driver.findElement(By.xpath("(//*[contains (@title, '" +LoggedinUser+ "')])[5]")).click();			
+			}
+		*/
+	
+			enterDate1.sendKeys(enteredDate);
+			enterSubject_Phone.sendKeys(commentsToEnter);
+			nextButton1.click();
+					
+		} else if (schedule.equals(schedule2)) {
+			
+			//Thread.sleep(2000);	
+			TestUtil.waitForElement("Due Date", dueDate);
+			enterDate1.sendKeys(enteredDate);
+			enterSubject_ToDo.sendKeys(commentsToEnter);
 			nextButton1.click();
 			
-			List<WebElement> taskList = driver.findElements(By.xpath("//div[@class='uiBlock flowruntimeInputWrapper']//div[@class='slds-form-element__control']//div"));		
-		    System.out.println(taskList.size());
-		    int s = taskList.size()-1 ;
-		    WebElement taskData = driver.findElement(By.xpath("(//div[@class='uiBlock flowruntimeInputWrapper']//div[@class='slds-form-element__control']//div)["+ s+"]"));
-		    System.out.println(taskData.getText());
-		    String taskName = taskData.getText();
-		    String status = verifyTaskDetails(taskName);
-		    softAssertion.assertEquals(status,"Open", "Status mismatch in open task");
-		    
-		    taskData.click();
-		    
-		    nextButton1.click();
-		    
-		    String status1 = verifyTaskDetails(taskName);
-		    softAssertion.assertEquals(status1,"Completed", "Status mismatch in open task");
-		    
-		    softAssertion.assertAll();
-		    	    
+		} else {
+				//Thread.sleep(2000);	
+				createFutureMeeting();
+				nextButton1.click();
 		}
+	
+	/*		
+		if(driver.findElements(By.xpath("(//*[contains(@class,'slds-form slds-form_stacked')]/div[2]/div[2]/div[1]/div[2]/span[1])[3]")).isEmpty()){	
+		
+			String advisorsfdcId1 = prop.getProperty("advisorsfdcId1");
+			editAssignedPlanner.click();
+			assignedPlannerSelection.sendKeys(LoggedinUser);
+		
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("(//*[contains (@title, ('" +LoggedinUser+ "'))])[5]")).click();
+		
+			for (String currentWindow: driver.getWindowHandles())
+		       driver.switchTo().window(currentWindow);
+			{System.out.println(driver.getCurrentUrl()); driver.findElement(By.xpath("(//*[contains (@href, ('" + advisorsfdcId1 + "'))])[2]")).click();}
+		
+			Thread.sleep(3000);
+			saveBtnAssignedPlanner.click();
+			
+			Reload.click();
+		
+		}
+	*/
+
+	
+	}
+
+	
+	public void createFutureMeeting() {
+		//To Do......
+		}
+
+
+	public void reached_schedule(int i, String sched) throws InterruptedException, Exception {
+		
+		String commentsToEnter = "TestingPurpose " + uid;
+		
+		Thread.sleep(5000);
+		commentsTextarea.sendKeys(commentsToEnter);
+		
+		//Thread.sleep(5000);
+		
+		prop.setProperty("EnteredComments", commentsToEnter);
+		
+		Thread.sleep(5000);
+		prop.setProperty("Call Start Time", timeStamp);
+		
+		//Thread.sleep(5000);
+		solutionsDiscussed.click();
+		System.out.println(i);
+		
+		selectOutcome(i);
+		System.out.println("index : " +i);
+	
+		
+		if      (sched.equals(schedule3)) {CreateOpportunityLabel.click(); 	scheduleApp.click();} 
+		else if (sched.equals(schedule2)) {CreateOpportunityLabel.click();	toDo.click();} 
+		else if (sched.equals(schedule1)) {CreateOpportunityLabel.click();	scheduleType.click();}
+		
+		
+		clickNextButton();	
+		
+		/*
+		if (driver.findElements(By.xpath("//div[contains(text(),'Open Tasks')]")).size() > 0){
+			 NextBtn.getSize();	{ clickNextButton();}
+		}
+		*/
+		
+		scheduleworkflow(sched);
+		
+	}
+
+	
+
+	public String[] reached_scheduleAppointment() throws InterruptedException, ParseException {
+	
+		String commentsToEnter = "TestingPurpose " + uid;
+		
+		TestUtil.waitForElement("Comments", comments);
+		
+		Thread.sleep(5000);
+		commentsTextarea.sendKeys(commentsToEnter);
+		
+		TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
+		
+		solutionsDiscussed.click();
+		
+		scheduleApp.click();
+		
+		clickNextButton();
+		
+		Thread.sleep(5000);	
+		String[] meetingLinks = createBDAppointment(meetingDate);
+		nextButton1.click();
+		return meetingLinks;
+	}
+
+
+	public void reached_scheduleAppointment1() throws InterruptedException, ParseException, AWTException {
+	
+	
+		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
+		
+		String commentsToEnter = "TestingPurpose " + uid;
+		
+		TestUtil.waitForElement("Comments", comments);
+		
+		Thread.sleep(5000);
+		commentsTextarea.sendKeys(commentsToEnter);
+		
+		TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
+		solutionsDiscussed.click();
+		
+		CreateOpportunityLabel.click();
+		Thread.sleep(3000);
+		scheduleApp.click();
+
+		Thread.sleep(3000);
+		clickNextButton();
+		
+		Thread.sleep(5000);
+	
+	/*	
+		//If Next Button is present on the screen then click Next Button 
+	    NextBtn.getSize();{ clickNextButton(); }
+	
+	*/		
+		createFutureAppointment();
+		
+		NextBtn.getSize();{clickNextButton();}
+		
+	}
+
+	public void unplannedAppointment() throws InterruptedException, ParseException {
+		
+		String commentsToEnter = "TestingPurpose " + uid;
+		
+		Thread.sleep(5000);
+		commentsTextarea.sendKeys(commentsToEnter);
+		
+		Thread.sleep(3000);
+		TestUtil.SelectDropDownOption(outcome, "Meeting");
+		solutionsDiscussed.click();
+	
+		clickNextButton();
+		
+		Thread.sleep(3000);
+		subjectArea.sendKeys(commentsToEnter);
+		
+		meetingEndDate1.sendKeys(unplannedDate);
+		meetingEndTime1.click();
+		meetingEndTime1.clear();
+		meetingEndTime1.sendKeys("8:00 PM");
+		subjectArea.click();
+		nextButton1.click();
+		
+		Thread.sleep(5000);
+		TestUtil.SelectDropDownOption(meetwithClient, "In-Person Meeting");
+		
+		TestUtil.SelectDropDownOption(meetingOutcome, "No-Show");
+		
+		nextButton1.click();
+			
+	}
+	
+
+	public void createFutureAppointment() throws InterruptedException {
+		
+		jse2.executeScript("arguments[0].scrollIntoView()", meetingClient);
+	
+		TestUtil.SelectDropDownOption(meetingClient, "On-Phone Meeting");
+		Thread.sleep(2000);
+		meetingStartDate.sendKeys(enteredDate);
+		meetingStartTime.click();
+		meetingStartTime.clear();
+		meetingStartTime.sendKeys("12:00 PM");
+		
+		meetingDuration.sendKeys("60");
+		
+		nextButton1.click();
+		Thread.sleep(2000);
+		
+		jse2.executeScript("arguments[0].click()", nextButton1);
+		//nextButton1.click();
+		
+	}
+	
 	
 
 	public void updateAccountDetails() throws InterruptedException {
@@ -662,6 +848,65 @@ public class DetailsPage extends TestBase {
 		return fielddata;
 	}
 	
+	
+	
+	public void clickNextButton() throws InterruptedException {
+		List<WebElement> nextButtonCount = driver.findElements(By.xpath("//button[contains(text(),'Next')]"));
+	    int nextButtonSize = nextButtonCount.size();
+	    //WebElement nextButton = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
+	   // Thread.sleep(5000);
+	    WebElement myelement = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
+	    JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	    jse2.executeScript("arguments[0].scrollIntoView()", myelement); 
+		//nextButton.click();
+		//Thread.sleep(5000);
+	    myelement.click();
+	    Thread.sleep(10000);
+	}
+	
+	
+	
+	public void closeExistingTask(int i) throws InterruptedException {
+		
+		for(int j=0; j<10; j++){		
+			driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.ADD));		
+		}
+		
+			String commentsToEnter = "TestingPurpose " + uid;
+			
+			commentsTextarea.sendKeys(commentsToEnter);
+			solutionsDiscussed.click();
+			Select outcome1 = new Select(outcome);
+			System.out.println(outcome);
+			outcome1.selectByIndex(i);
+			
+			Thread.sleep(5000);
+			clickNextButton();		
+			Thread.sleep(5000);
+			closeTask.click();		
+			nextButton1.click();
+			
+			List<WebElement> taskList = driver.findElements(By.xpath("//div[@class='uiBlock flowruntimeInputWrapper']//div[@class='slds-form-element__control']//div"));		
+		    System.out.println(taskList.size());
+		    int s = taskList.size()-1 ;
+		    WebElement taskData = driver.findElement(By.xpath("(//div[@class='uiBlock flowruntimeInputWrapper']//div[@class='slds-form-element__control']//div)["+ s+"]"));
+		    System.out.println(taskData.getText());
+		    String taskName = taskData.getText();
+		    String status = verifyTaskDetails(taskName);
+		    softAssertion.assertEquals(status,"Open", "Status mismatch in open task");
+		    
+		    taskData.click();
+		    
+		    nextButton1.click();
+		    
+		    String status1 = verifyTaskDetails(taskName);
+		    softAssertion.assertEquals(status1,"Completed", "Status mismatch in open task");
+		    
+		    softAssertion.assertAll();
+		    	    
+		}
+	
+
 	
 	
 	public void exp() throws InterruptedException {
@@ -1001,226 +1246,6 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 
 	
 	
-
-	public void scheduleworkflow(String schedule) throws InterruptedException {
-		
-		Thread.sleep(2000);
-		
-		//String LoggedinUser = LoggedUser.getText().substring(11);
-		
-		if (schedule.equals(schedule1)) {
-			
-			
-			TestUtil.waitForElement("Future Phone Call", futurePhoneCall);
-
-			
-		/*		
-			String getdrop = driver.findElement(By.xpath("(//input[contains (@placeholder, ('Select an Option'))])[1]")).getText();
-			String getdrop1 = driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText().substring(4).trim();
-			
-			if (driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText() != null){
-			assignedtoDropDown.click();
-			assignedtoDropDown.sendKeys(LoggedinUser);
-			driver.findElement(By.xpath("(//*[contains (@title, '" +LoggedinUser+ "')])[5]")).click();			
-			}
-		*/
-	
-			enterDate1.sendKeys(enteredDate);
-			enterSubject_Phone.sendKeys(commentsToEnter);
-			nextButton1.click();
-					
-		} else if (schedule.equals(schedule2)) {
-			
-			//Thread.sleep(2000);	
-			TestUtil.waitForElement("Due Date", dueDate);
-			enterDate1.sendKeys(enteredDate);
-			enterSubject_ToDo.sendKeys(commentsToEnter);
-			nextButton1.click();
-			
-		} else {
-				//Thread.sleep(2000);	
-				createFutureMeeting();
-				nextButton1.click();
-		}
-	
-	/*		
-		if(driver.findElements(By.xpath("(//*[contains(@class,'slds-form slds-form_stacked')]/div[2]/div[2]/div[1]/div[2]/span[1])[3]")).isEmpty()){	
-		
-			String advisorsfdcId1 = prop.getProperty("advisorsfdcId1");
-			editAssignedPlanner.click();
-			assignedPlannerSelection.sendKeys(LoggedinUser);
-		
-			Thread.sleep(5000);
-			driver.findElement(By.xpath("(//*[contains (@title, ('" +LoggedinUser+ "'))])[5]")).click();
-		
-			for (String currentWindow: driver.getWindowHandles())
-		       driver.switchTo().window(currentWindow);
-			{System.out.println(driver.getCurrentUrl()); driver.findElement(By.xpath("(//*[contains (@href, ('" + advisorsfdcId1 + "'))])[2]")).click();}
-		
-			Thread.sleep(3000);
-			saveBtnAssignedPlanner.click();
-			
-			Reload.click();
-		
-		}
-	*/
-
-	
-	}
-
-	
-	public void createFutureMeeting() {
-		//To Do......
-		}
-
-
-	public void reached_schedule(int i, String sched) throws InterruptedException, Exception {
-		
-		Thread.sleep(5000);
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		//Thread.sleep(5000);
-		
-		prop.setProperty("EnteredComments", commentsToEnter);
-		
-		Thread.sleep(5000);
-		prop.setProperty("Call Start Time", timeStamp);
-		
-		//Thread.sleep(5000);
-		solutionsDiscussed.click();
-		System.out.println(i);
-		
-		selectOutcome(i);
-		System.out.println("index : " +i);
-	
-		
-		if      (sched.equals(schedule3)) {CreateOpportunityLabel.click(); 	scheduleApp.click();} 
-		else if (sched.equals(schedule2)) {CreateOpportunityLabel.click();	toDo.click();} 
-		else if (sched.equals(schedule1)) {CreateOpportunityLabel.click();	scheduleType.click();}
-		
-		
-		clickNextButton();	
-		
-		/*
-		if (driver.findElements(By.xpath("//div[contains(text(),'Open Tasks')]")).size() > 0){
-			 NextBtn.getSize();	{ clickNextButton();}
-		}
-		*/
-		
-		scheduleworkflow(sched);
-		
-	}
-
-	
-
-	public String[] reached_scheduleAppointment() throws InterruptedException, ParseException {
-	
-		TestUtil.waitForElement("Comments", comments);
-		
-		Thread.sleep(5000);
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		TestUtil.SelectDropDownOption(outcome, "Reached");
-		
-		solutionsDiscussed.click();
-		
-		scheduleApp.click();
-		
-		clickNextButton();
-		
-		Thread.sleep(5000);	
-		String[] meetingLinks = createBDAppointment(meetingDate);
-		nextButton1.click();
-		return meetingLinks;
-	}
-
-
-	public void reached_scheduleAppointment1() throws InterruptedException, ParseException, AWTException {
-	
-	
-		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		
-		
-		TestUtil.waitForElement("Comments", comments);
-		
-		Thread.sleep(5000);
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		TestUtil.SelectDropDownOption(outcome, "Reached");
-		solutionsDiscussed.click();
-		
-		CreateOpportunityLabel.click();
-		Thread.sleep(3000);
-		scheduleApp.click();
-
-		Thread.sleep(3000);
-		clickNextButton();
-		
-		Thread.sleep(5000);
-	
-	/*	
-		//If Next Button is present on the screen then click Next Button 
-	    NextBtn.getSize();{ clickNextButton(); }
-	
-	*/		
-		createFutureAppointment();
-		
-		NextBtn.getSize();{clickNextButton();}
-		
-	}
-
-public void unplannedAppointment() throws InterruptedException, ParseException {
-	
-	Thread.sleep(5000);
-	commentsTextarea.sendKeys(commentsToEnter);
-	
-	Thread.sleep(3000);
-	TestUtil.SelectDropDownOption(outcome, "Meeting");
-	solutionsDiscussed.click();
-
-	clickNextButton();
-	
-	Thread.sleep(3000);
-	subjectArea.sendKeys(commentsToEnter);
-	
-	meetingEndDate1.sendKeys(unplannedDate);
-	meetingEndTime1.click();
-	meetingEndTime1.clear();
-	meetingEndTime1.sendKeys("8:00 PM");
-	subjectArea.click();
-	nextButton1.click();
-	
-	Thread.sleep(5000);
-	TestUtil.SelectDropDownOption(meetwithClient, "In-Person");
-	
-	TestUtil.SelectDropDownOption(meetingOutcome, "No-Show");
-	
-	nextButton1.click();
-		
-}
-
-
-public void createFutureAppointment() throws InterruptedException {
-	
-	jse2.executeScript("arguments[0].scrollIntoView()", meetingClient);
-
-	TestUtil.SelectDropDownOption(meetingClient, "On-Phone");
-	Thread.sleep(2000);
-	meetingStartDate.sendKeys(enteredDate);
-	meetingStartTime.click();
-	meetingStartTime.clear();
-	meetingStartTime.sendKeys("12:00 PM");
-	
-	meetingDuration.sendKeys("60");
-	
-	nextButton1.click();
-	Thread.sleep(2000);
-	
-	jse2.executeScript("arguments[0].click()", nextButton1);
-	//nextButton1.click();
-	
-}
-
 private String[] createBDAppointment(String meetingDate) throws InterruptedException, ParseException {
 	
 	bdAppointment.click();
@@ -1332,8 +1357,8 @@ public String commentsArray(String commentText) throws InterruptedException, Par
 //index didnt work so i replaced this with se by text
 public void selectOutcome(int i) throws InterruptedException, ParseException {
 	
-	if (i==0){TestUtil.SelectDropDownOption(outcome, "Not Reached");}
-	else if(i==1){TestUtil.SelectDropDownOption(outcome, "Reached");}
+	if (i==0){TestUtil.SelectDropDownOption(outcome, "Phone Call - Not Reached");}
+	else if(i==1){TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");}
 	else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
 	
 	}

@@ -16,7 +16,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import com.crm.qa.base.TestBase;
-import com.qa.ExtentReportListener.ExtentTestManager;
+import com.qa.ExtentReport.ExtentTestManager;
 
 
 

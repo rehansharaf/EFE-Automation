@@ -48,7 +48,7 @@ import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.google.common.base.Function;
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.DetailsPage__exp2;
 import com.crm.qa.base.TestBase;
 
 

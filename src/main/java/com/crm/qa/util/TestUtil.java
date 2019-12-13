@@ -5,9 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -23,15 +21,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static org.junit.Assert.*;
-
-//import org.fusesource.jansi.AnsiConsole;
-
 import com.crm.qa.base.TestBase;
-import com.google.common.base.Function;
+
 
 public class TestUtil extends TestBase{
 	
@@ -229,7 +222,7 @@ public class TestUtil extends TestBase{
  
      public static void clickAccountLink() throws InterruptedException {
     	 
-    	 String accountId = Navigation.get_sfdcID();
+    	 String accountId = RetailUserdetails.get_sfdcID();
     	 
     	 driver.findElement(By.xpath("//a[contains (@class, ('" +accountId+ "'))]")).click();
     	 Thread.sleep(2000);
@@ -244,7 +237,7 @@ public class TestUtil extends TestBase{
  		Thread.sleep(2000);
  		TestUtil.closeAllOpenTabs(driver);
  		Thread.sleep(2000);
- 		driver.findElement(By.xpath("(//a[contains (@title, ('" +Navigation.getaccountName()+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
+ 		driver.findElement(By.xpath("(//a[contains (@title, ('" +RetailUserdetails.getaccountName("primary")+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
  		Thread.sleep(2000);
  		
  	}
@@ -273,7 +266,16 @@ public class TestUtil extends TestBase{
    	}
    */ 
      
-     
+     public boolean isLeadLinkVisible(){
+ 	    WebDriverWait zeroWait = new WebDriverWait(driver, 0);
+ 	    ExpectedCondition<WebElement> c = ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value='Create New Application']"));
+ 	    try {
+ 	        zeroWait.until(c);
+ 	        return true;
+ 	    } catch (Exception e) {
+ 	        return false;
+ 	    }
+ 	}   
      
      
      

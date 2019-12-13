@@ -11,8 +11,8 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.crm.qa.base.TestBase;
-import com.qa.ExtentReportListener.ExtentManager;
-import com.qa.ExtentReportListener.ExtentTestManager;
+import com.qa.ExtentReport.ExtentManager;
+import com.qa.ExtentReport.ExtentTestManager;
 
 
 public class TestListener extends TestBase implements ITestListener {

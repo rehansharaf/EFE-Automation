@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactsPage;
-import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.DetailsPage__exp2;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
@@ -24,7 +24,7 @@ import com.crm.qa.util.TestUtil;
 
 public class DebugTests extends TestBase {
 	
-	DetailsPage detailsPage;
+	DetailsPage__exp2 detailsPage;
 	LoginPage loginPage;
 	HomePage homePage;
 	TestUtil testUtil;
@@ -40,7 +40,7 @@ public class DebugTests extends TestBase {
 	public void setUp() {
 		initialization();
 		testUtil = new TestUtil();
-		detailsPage = new DetailsPage();
+		detailsPage = new DetailsPage__exp2();
 	    loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}

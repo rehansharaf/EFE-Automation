@@ -275,7 +275,7 @@ public class MeetingFlow extends TestBase {
 		
 		nextButton1.click();
 		
-		TestUtil.SelectDropDownOption(meetClient2, "In-Person");
+		TestUtil.SelectDropDownOption(meetClient2, "In-Person Meeting");
 		
 		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
 		
@@ -283,7 +283,8 @@ public class MeetingFlow extends TestBase {
 		
 		nextButton1.click();
 		
-		financialPlan.click();
+		//financialPlan.click();
+		selectFinacialTopicscheckbox();
 		
 		nextButton1.click();	
 		
@@ -307,14 +308,15 @@ public void meetingCompleteFlowWithOptions() throws InterruptedException {
 		
 		nextButton1.click();
 			
-		TestUtil.SelectDropDownOption(meetClient2, "In-Person");
+		TestUtil.SelectDropDownOption(meetClient2, "In-Person Meeting");
 		
 		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
 		
 		nextButton1.click();
 	
-		financialCheckupTopics.click();
-	
+		//financialCheckupTopics.click();
+		selectFinacialTopicscheckbox();
+		
 		nextButton1.click();
 		
 		selectTopics();
@@ -330,8 +332,14 @@ public void selectTopics() {
 		for(WebElement elem : selectTopics) { TestUtil.SelectDropDownOption(elem, "Green");	}
 	
 	}
-	
 
+public void selectFinacialTopicscheckbox() {
+	
+	List<WebElement> selectFinTopicsChkbx  = driver.findElements(By.xpath("//span[contains (@class, ('checkbox--faux'))]"));
+
+	for(WebElement elem : selectFinTopicsChkbx) { elem.click();	}
+
+}
 
 public void verifymeetingInformation() {
 	

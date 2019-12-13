@@ -11,14 +11,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import com.crm.qa.pages.ContactsPage;
-import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.DetailsPage__exp2;
 import com.crm.qa.pages.Enrollment;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
-import com.crm.qa.pages.RetailAccount;
-import com.crm.qa.pages.SalesforceRestAPI;
+import com.crm.qa.pages.RetailAccount__exp2;
+import com.crm.qa.pages.SalesforceRestAPI_exp2;
 import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.VerifyTodo;
@@ -30,9 +30,9 @@ import java.util.HashMap;
 import com.crm.qa.base.TestBase;
 
 
-public class APIValidation extends SalesforceRestAPI {
+public class APIValidation extends SalesforceRestAPI_exp2 {
 
-	static SalesforceRestAPI APIValidation = new SalesforceRestAPI();
+	static SalesforceRestAPI_exp2 APIValidation = new SalesforceRestAPI_exp2();
 	
 	public static void prereq (){
 		

@@ -34,7 +34,7 @@ import org.testng.asserts.SoftAssert;
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.*;
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.util.Navigation;
+import com.crm.qa.util.RetailUserdetails;
 
 public class Opportunities extends TestBase{
 
@@ -210,7 +210,35 @@ public class Opportunities extends TestBase{
 	
 //-------------------------------------------------------------	
 	
+	@FindBy(xpath = "//label[contains (@for, ('closeOpportunityChoice'))]//span[contains (@class, ('slds-radio--faux'))]")
+	WebElement closeOpptyasLostRadioBtn ;
 	
+	@FindBy(xpath = "//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")
+	WebElement closeOpptyasLostNextBtn ;
+	
+	@FindBy(xpath = "//select[ contains (@id, ('dropdownInput1:'))]")
+	WebElement lossReasonDropDown ;
+	
+	@FindBy(xpath = "(//textarea[contains (@id, ('longInput'))])[1]")
+	WebElement lossReasonNotes ;
+	
+	@FindBy(xpath = "//div[contains (@class, ('actionsRight'))]//button[contains (@title,'Previous')]/following-sibling::button")
+	WebElement CloseOpptyRightNextBtn ;
+	
+	@FindBy(xpath = "//label[contains (@for, ('scheduleAnAppointmentChoice'))]//span[contains (@class, ('slds-radio--faux'))]")
+	WebElement scheduleanApptRadioBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Edit')]")
+	WebElement opptyPgEdit;
+	
+	@FindBy(xpath = "//div[contains(@class,'col main-col slds-size--6-of-12')]//*[contains(text(),'Close Opportunity as Lost')]")
+	WebElement closeOpttyLostDetailsPage;
+	
+	@FindBy(xpath = "//div[@class='row region-subheader']//*[contains(text(),'Close Opportunity as Lost')]")
+	WebElement closeOpttyLostOpttyPage;
+	
+	@FindBy(xpath = "((//div[contains(@class,'stacked slds-is-editing')])[2]//a[contains (@class,'select')])[2]")
+	WebElement stageStatus ;
 	
 	
 	@FindBy(xpath = "//span[contains(text(),'Mark Stage as Complete')]")
@@ -227,7 +255,7 @@ public class Opportunities extends TestBase{
 	
 	
 	SoftAssert softAssertion = new SoftAssert();
-//	String timeStamp = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+
 
 	String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
 	String commentsToEnter = "TestingPurpose " + timeStamp;
@@ -240,217 +268,152 @@ public class Opportunities extends TestBase{
 	
 	
 	
-public void createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
-		
+	public void createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
+				
 		enterCommentsfor("WorkplaceOptty", 1);
-		
+				
 		Thread.sleep(2000);
 		oppField1.sendKeys("2");
 		oppField2.sendKeys("50000");
-	
+			
 		nextButton2.click();	
 		Thread.sleep(5000);	
-		
+				
 	}
 
 
-
-
-public void createBranchOpportunity() throws InterruptedException, ParseException, IOException {
+	public void createBranchOpportunity() throws InterruptedException, ParseException, IOException {
 	
 		enterCommentsfor("BranchOptty", 1);
 		
 		tMAssets.sendKeys("250000");
 		details.clickNextButton();
-		
 		Thread.sleep(10000);	
 	
-}
+	}
 	
 
 
-public void opportunityClosedLost() throws InterruptedException, AWTException {
+	public void opportunityClosedLost() throws InterruptedException, AWTException {
 
-	Thread.sleep(2000);
+		Thread.sleep(2000);
+		closeOpptyasLostRadioBtn.click();
 	
+		closeOpptyasLostNextBtn.click();
+		
+		lossReasonDropDown.click();
+		
+		TestUtil.SelectDropDownOption(lossReasonDropDown, "Duplicate");
 	
-	//Click Close Opportunity as Lost Radio button - Add the PageFactory element
-	driver.findElement(By.xpath("//label[contains (@for, ('closeOpportunityChoice'))]//span[contains (@class, ('slds-radio--faux'))]")).click();
+		lossReasonDropDown.click();
 	
-	//Click Close Opportunity as Lost Next button - Add the PageFactory element
-	driver.findElement(By.xpath("//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")).click();
+		lossReasonNotes.sendKeys("Automation Testing - Dont bother");
+		Thread.sleep(2000);
 
-	//Loss Reason DropDown - Add the PageFactory element
-	driver.findElement(By.xpath("//select[ contains (@id, ('dropdownInput1:'))]")).click();
+		CloseOpptyRightNextBtn.click();
 	
-	TestUtil.SelectDropDownOption(driver.findElement(By.xpath("//select[ contains (@id, ('dropdownInput1:'))]")), "Duplicate");
-	
-	driver.findElement(By.xpath("//select[ contains (@id, ('dropdownInput1:'))]")).click();
-	
-	//Loss Reason Notes - Add the PageFactory element
-	driver.findElement(By.xpath("(//textarea[contains (@id, ('longInput'))])[1]")).sendKeys("Automation Testing - Dont bother");
-	Thread.sleep(2000);
-
-	//Click Close Opportunity as Lost Next button - Add the PageFactory element
-	driver.findElement(By.xpath("//div[contains (@class, ('actionsRight'))]//button[contains (@title,'Previous')]/following-sibling::button")).click();
-
-	Thread.sleep(5000);
-	oppLink.click();
-	
-	//validateOpportunityDetails();
-	//validateOpttyforStageStatus("Closed Lost");
+		Thread.sleep(5000);
+		oppLink.click();
 	
 
-}
+	}
 
 
-public void moveOpttyStageManually() throws InterruptedException, AWTException {
+	public void moveOpttyStageManually() throws InterruptedException, AWTException {
 
-	Thread.sleep(2000);
+		Thread.sleep(2000);
+		oppLink.click();
+		
+		markStageasComplete.click();
+		
+		Thread.sleep(2000);
+		softAssertion.assertEquals(validationMessage.getText(), "You are not allowed to change the status manually.", "Validation Message is incorrect or didnt appear");
 	
-	oppLink.click();
-	
-	markStageasComplete.click();
-	
-	Thread.sleep(2000);
-	
-	//String errorMessage = validationMessage.getText();
-	
-	softAssertion.assertEquals(validationMessage.getText(), "You are not allowed to change the status manually.", "Validation Message is incorrect or didnt appear");
-	 
-
-}
+	}
 
 
 
-public  void logacall_NotReached() throws InterruptedException, AWTException, IOException, ParseException {
+	public  void logacall_NotReached() throws InterruptedException, AWTException, IOException, ParseException {
 	
-	Thread.sleep(2000);
-	
-	enterComments(0);
-	
-	Thread.sleep(2000);
-	oppLink.click();
-	
-	//driver.navigate().refresh();
-	
-	/*
-	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	
-	validateLeadSource("NAC Outbound");
-	validateStageStatus("New");
-	validateExpectedAmount("$125,000.00");
-	*/
-	//validateOpttyforStageStatus("Attempting");
-	
-}
-
-public  void logacall_Reached() throws InterruptedException, AWTException, IOException, ParseException {
-	
-	Thread.sleep(2000);
-	
-	enterComments(1);
-	
-	Thread.sleep(2000);
-	oppLink.click();
-	
-	
-	driver.navigate().refresh();
-	Thread.sleep(5000);
-	
-	//validateOpttyforStageStatus("Attempting");
-	
-	/*
-	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	
-	validateLeadSource("NAC Outbound");
-	validateStageStatus("Attempting");
-	validateExpectedAmount("$125,000.00");
-	*/
-}
+		Thread.sleep(2000);
+		
+		enterComments(0);
+		
+		Thread.sleep(2000);
+		oppLink.click();
+		
+		
+	}
 
 
-public  void logacall_Reached_StageClosedLost() throws InterruptedException, AWTException, IOException, ParseException {
+	public  void logacall_Reached() throws InterruptedException, AWTException, IOException, ParseException {
+	
+		Thread.sleep(2000);
+		enterComments(1);
+		
+		Thread.sleep(2000);
+		oppLink.click();
+		
+		driver.navigate().refresh();
+		Thread.sleep(5000);
+		
+	}
+
+
+	
+	public  void logacall_Reached_StageClosedLost() throws InterruptedException, AWTException, IOException, ParseException {
   
-	Thread.sleep(2000);
-	enterComments(1);
+		Thread.sleep(2000);
+		enterComments(1);
+		
+		opportunityClosedLost();
 	
-	opportunityClosedLost();
-	
-	
-	
-}
-
-public  void scheduleandCloseMeeting() throws InterruptedException, AWTException, IOException, ParseException {
-
-	unplannedAppointment();
-	
-	Thread.sleep(2000);
-	oppLink.click();
-	
-	Thread.sleep(2000);
-	
-	//validateOpttyforStageStatus("Initial Appointment");
-	
-	/*
-	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	validateLeadSource("NAC Outbound");
-	validateStageStatus("Initial Appointment");
-	validateExpectedAmount("$125,000.00");
-*/
-}
+	}
 
 
-public  void scheduleMeetingusingNextAction() throws InterruptedException, AWTException, IOException, ParseException {
-	
-	Thread.sleep(2000);
-	unplannedAppointment();
-	
-	//Thread.sleep(2000);
-	driver.navigate().refresh();
-	
-	Thread.sleep(3000);
-	TestUtil.closeAllOpenTabs(driver);
-	
+	public  void scheduleandCloseMeeting() throws InterruptedException, AWTException, IOException, ParseException {
 
-	
-	Thread.sleep(3000);
-	//Click Schedule an Appointment Radio button - Add the PageFactory element
-	driver.findElement(By.xpath("//label[contains (@for, ('scheduleAnAppointmentChoice'))]//span[contains (@class, ('slds-radio--faux'))]")).click();
-	
-	Thread.sleep(3000);
-	//Click Close Opportunity as Lost Next button - Add the PageFactory element
-	driver.findElement(By.xpath("//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")).click();
-	
-	//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView()", NextBtn);
-	
-	Thread.sleep(2000);
-	details.createFutureAppointment();
-	
-	Thread.sleep(2000);
-	oppLink.click();
-	
-	Thread.sleep(2000);
-	
-	//validateOpttyforStageStatus("Initial Appointment");
-	
-/*	
-	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	
-	validateLeadSource("NAC Outbound");
-	validateStageStatus("Initial Appointment");
-	validateExpectedAmount("$125,000.00");
+		unplannedAppointment();
+		
+		Thread.sleep(2000);
+		oppLink.click();
+		
+		Thread.sleep(2000);
+		
+	}
 
-	softAssertion.assertAll();
-*/
+
+
+	public  void scheduleMeetingusingNextAction() throws InterruptedException, AWTException, IOException, ParseException {
 	
+		Thread.sleep(2000);
+		unplannedAppointment();
+		
+		driver.navigate().refresh();
+		
+		Thread.sleep(3000);
+		TestUtil.closeAllOpenTabs(driver);
+		
+		Thread.sleep(3000);
+		scheduleanApptRadioBtn.click();
+		
+		Thread.sleep(3000);
+		closeOpptyasLostNextBtn.click();
 	
-}
+		Thread.sleep(2000);
+		details.createFutureAppointment();
+		
+		Thread.sleep(2000);
+		oppLink.click();
+		
+		Thread.sleep(2000);
+		
+			
+	}
 
 	
 
-
-public void enterCommentsfor(String opttyType, int Outcome) throws InterruptedException, ParseException, IOException {
+	public void enterCommentsfor(String opttyType, int Outcome) throws InterruptedException, ParseException, IOException {
 	
 		Thread.sleep(5000);
 	
@@ -462,212 +425,185 @@ public void enterCommentsfor(String opttyType, int Outcome) throws InterruptedEx
 		if (opttyType =="WorkplaceOptty"){createWorkplaceOpportunity.click();details.clickNextButton();}
 		else if (opttyType =="BranchOptty"){createBranchOpportunity.click();details.clickNextButton();}
 	
-}
-
-
-
-
-
-
-public void validateOpttyforStageStatus(String stageStatus) throws InterruptedException, AWTException {
-	
-	Thread.sleep(2000);
-	
-	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	
-	validateLeadSource("NAC Outbound");
-	validateStageStatus(stageStatus);
-	validateExpectedAmount("$125,000.00");
-	
-	if (stageStatus == "Closed Lost") {validateLeadReason("Duplicate");}
-
-	softAssertion.assertAll();
-	
-	
-	//ALTERNATE METHOD TO VALIDATE DATA
-	
-	/*
-	TestUtil.closeAllOpenTabs(driver);
-	oppLink.click(); 
-	
-	driver.findElement(By.xpath("(//button[contains (@title, ('Retail'))])[1]")).click();
-	driver.findElement(By.xpath("//span[contains(text(),'Set As Workspace Tab')]")).click();
-	driver.findElement(By.xpath("//a[contains (@class, ('label-action'))][contains (@href, ('Opportunity'))]")).click();
-	  
-	*/
-	
-	/*
-	try{
-	driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[13]")).click();}
-	catch (Exception e)	{}
-	*/
-
-	
-	/*
-	String closeDate = driver.findElement(By.xpath("//button[contains (@title, ('Edit Close Date'))]/../span")).getText();
-	String lossReason = driver.findElement(By.xpath("//button[contains (@title, ('Edit Loss Reason'))]/../span")).getText();
-	String stageStatus = driver.findElement(By.xpath("//button[contains (@title, ('Edit Stage'))]/../span")).getText();
-	String lossReasonNotes = driver.findElement(By.xpath("//button[contains (@title, ('Edit Other Loss Reason Notes'))]/../span")).getText();
-	*/
-	
-}
-
-
-
-public void verifyBranchOppty() throws InterruptedException, AWTException {
-
-	String status = "Closed Lost";
-	
-	Thread.sleep(2000);
-	String stage = driver.findElement(By.xpath("//div[contains (@class, ('recordCell'))]//span[contains(text(),'" +status+ "')]")).getText();
-	softAssertion.assertEquals(stage, status, "Stage doesnot match");
-	
-	//Add Page Factory element
-	String closeOpttyasLostonDetailsPage = driver.findElement(By.xpath("//div[contains(@class,'col main-col slds-size--6-of-12')]//*[contains(text(),'Close Opportunity as Lost')]")).getText();
-	softAssertion.assertEquals(closeOpttyasLostonDetailsPage, "Close Opportunity as Lost", "Action doesnot exist on Detail Page");
-	
-	oppLink.click();
-	
-	Thread.sleep(2000);
-	//Add Page Factory element
-	String closeOpttyasLostonOpttyPage = driver.findElement(By.xpath("//div[@class='row region-subheader']//*[contains(text(),'Close Opportunity as Lost')]")).getText();
-	softAssertion.assertEquals(closeOpttyasLostonOpttyPage, "Close Opportunity as Lost", "Action doesnot exist opportunity Page");
-
-	softAssertion.assertAll();
-	
-	
-}
-
-
-
-
-public String markStageStatus() throws InterruptedException, AWTException {
-	
-	driver.findElement(By.xpath("//span[contains(text(),'Mark Stage as Complete')]")).click();
-	driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	String stageStatus = driver.findElement(By.xpath("((//div[contains(@class,'stacked slds-is-editing')])[2]//a[contains (@class,'select')])[2]")).getText();
-	
-	return stageStatus;
-	
-}
-
+	}
 
 
 
 	
+	public void validateOpttyforStageStatus(String stageStatus) throws InterruptedException, AWTException {
 	
-
-
-
-
-
-public void validateLeadSource(String expectedleadSource) throws InterruptedException, AWTException {
+		Thread.sleep(2000);
+		opptyPgEdit.click();
+		
+		validateLeadSource("NAC Outbound");
+		validateStageStatus(stageStatus);
+		validateExpectedAmount("$125,000.00");
+		
+		if (stageStatus == "Closed Lost") {validateLeadReason("Duplicate");}
 	
-	String leadSource = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[1]//a[contains (@class,'select')]")).getText();
-	softAssertion.assertEquals(leadSource, expectedleadSource, "Lead Source is not correct");
-}
-
-public void validateLeadReason(String expectedlossReason) throws InterruptedException, AWTException {
-	String lossReason = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[2]/div[1]//a[contains (@class,'select')]")).getText();
-	softAssertion.assertEquals(lossReason, expectedlossReason, "Loss Reason is not correct");
-}
-
-public void validateStageStatus(String expectedstageStatus) throws InterruptedException, AWTException {
-	String stageStatus = driver.findElement(By.xpath("((//div[contains(@class,'stacked slds-is-editing')])[2]//a[contains (@class,'select')])[2]")).getText();
-	softAssertion.assertEquals(stageStatus, expectedstageStatus, "Stage is not Closed Lost");
-}
-
-
-public void validateExpectedAmount(String expectedAmount) throws InterruptedException, AWTException {
-	String Amount = driver.findElement(By.xpath("((//div[contains(@class,'stacked slds-is-editing')])[5]//span[contains (@class, ('Currency'))])[4]")).getText();
-	softAssertion.assertEquals(Amount, expectedAmount, "Expected Amount is not correct");
-}
-
-public void validateOpttyCounter(int expectedcounter) throws InterruptedException, AWTException {
+		softAssertion.assertAll();
+		
+		
+		//ALTERNATE METHOD TO VALIDATE DATA
+		
+		/*
+		TestUtil.closeAllOpenTabs(driver);
+		oppLink.click(); 
+		
+		driver.findElement(By.xpath("(//button[contains (@title, ('Retail'))])[1]")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Set As Workspace Tab')]")).click();
+		driver.findElement(By.xpath("//a[contains (@class, ('label-action'))][contains (@href, ('Opportunity'))]")).click();
+		  
+		*/
+		
+		/*
+		try{
+		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[13]")).click();}
+		catch (Exception e)	{}
+		*/
 	
-	String counter = driver.findElement(By.xpath("//span[contains(text(),'("+expectedcounter+")')]")).getText();
-	softAssertion.assertEquals(counter, "("+expectedcounter+")", "Counter mismatched"); 
-}
+		
+		/*
+		String closeDate = driver.findElement(By.xpath("//button[contains (@title, ('Edit Close Date'))]/../span")).getText();
+		String lossReason = driver.findElement(By.xpath("//button[contains (@title, ('Edit Loss Reason'))]/../span")).getText();
+		String stageStatus = driver.findElement(By.xpath("//button[contains (@title, ('Edit Stage'))]/../span")).getText();
+		String lossReasonNotes = driver.findElement(By.xpath("//button[contains (@title, ('Edit Other Loss Reason Notes'))]/../span")).getText();
+		*/
+	
+	}
 
 
-public void navigateTouser(String User) throws InterruptedException{
+
+	public void verifyBranchOppty() throws InterruptedException, AWTException {
+
+		String status = "Closed Lost";
+		
+		Thread.sleep(2000);
+		String stage = driver.findElement(By.xpath("//div[contains (@class, ('recordCell'))]//span[contains(text(),'" +status+ "')]")).getText();
+		softAssertion.assertEquals(stage, status, "Stage doesnot match");
+		
+		String closeOpttyasLostonDetailsPage = closeOpttyLostDetailsPage.getText();
+		softAssertion.assertEquals(closeOpttyasLostonDetailsPage, "Close Opportunity as Lost", "Action doesnot exist on Detail Page");
+			
+		oppLink.click();
+		Thread.sleep(2000);
+	
+		String closeOpttyasLostonOpttyPage = closeOpttyLostOpttyPage.getText();
+		softAssertion.assertEquals(closeOpttyasLostonOpttyPage, "Close Opportunity as Lost", "Action doesnot exist opportunity Page");
+		
+		softAssertion.assertAll();
+	
+	}
+
+
+
+	public String markStageStatus() throws InterruptedException, AWTException {
+	
+		markStageasComplete.click();
+		opptyPgEdit.click();
+		String stageStatusTxt = stageStatus.getText();
+			
+		return stageStatusTxt;
+		
+	}
+
+
+
+
+	public void validateLeadSource(String expectedleadSource) throws InterruptedException, AWTException {
+	
+		String leadSource = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[1]//a[contains (@class,'select')]")).getText();
+		softAssertion.assertEquals(leadSource, expectedleadSource, "Lead Source is not correct");
+	}
+
+	public void validateLeadReason(String expectedlossReason) throws InterruptedException, AWTException {
+		String lossReason = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[2]/div[1]//a[contains (@class,'select')]")).getText();
+		softAssertion.assertEquals(lossReason, expectedlossReason, "Loss Reason is not correct");
+	}
+
+	public void validateStageStatus(String expectedstageStatus) throws InterruptedException, AWTException {
+		String stageStatus = driver.findElement(By.xpath("((//div[contains(@class,'stacked slds-is-editing')])[2]//a[contains (@class,'select')])[2]")).getText();
+		softAssertion.assertEquals(stageStatus, expectedstageStatus, "Stage is not Closed Lost");
+	}
+
+
+	public void validateExpectedAmount(String expectedAmount) throws InterruptedException, AWTException {
+		String Amount = driver.findElement(By.xpath("((//div[contains(@class,'stacked slds-is-editing')])[5]//span[contains (@class, ('Currency'))])[4]")).getText();
+		softAssertion.assertEquals(Amount, expectedAmount, "Expected Amount is not correct");
+	}
+
+	public void validateOpttyCounter(int expectedcounter) throws InterruptedException, AWTException {
+		
+		String counter = driver.findElement(By.xpath("//span[contains(text(),'("+expectedcounter+")')]")).getText();
+		softAssertion.assertEquals(counter, "("+expectedcounter+")", "Counter mismatched"); 
+	}
+
+
+	
+	public void navigateTouser(String User) throws InterruptedException{
 	
 	
 	
-	if (User == "primary"){
-	//String userId = prop.getProperty(SalesforceRestAPI.getHashMapData()[0]);
-	//String userId = SalesforceRestAPI.getHashMapData()[0];
-	String userId = Navigation.get_sfdcID();
-	String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+userId+"/view";
-	System.out.println(url);
-  	
-	driver.navigate().to(url);}
-	
-	else if (User == "spouse"){
-		String userId = prop.getProperty(User);
+		if (User == "primary"){
+		
+		String userId = RetailUserdetails.get_sfdcID();
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+userId+"/view";
 		System.out.println(url);
 	  	
 		driver.navigate().to(url);}
 		
-	
-	
-}
-
-
-public void enterComments(int i) throws InterruptedException, IOException, ParseException {
-	
-	Thread.sleep(2000);	
-	
-	commentsTextarea.sendKeys(commentsToEnter);
-
-	solutionsDiscussed.click();
-	
-	details.selectOutcome(i);
-	
-	
-	//scrolltofooter.click();
-	
-	//scrolltoOpttyfooter.click();
-	
-	//createBranchOpportunity.click();
-
-	details.clickNextButton();
-	
-}
-
-
-public void unplannedAppointment() throws InterruptedException, ParseException {
-	
-	Thread.sleep(2000);
-	details.commentsTextarea.sendKeys(commentsToEnter);
-	
-	Thread.sleep(2000);
-	TestUtil.SelectDropDownOption(outcome, "Meeting");
-	solutionsDiscussed.click();
-
-	details.clickNextButton();
-	
-	Thread.sleep(2000);
-	details.subjectArea.sendKeys(commentsToEnter);
-	
-	details.meetingEndDate1.sendKeys(details.unplannedDate);
-	details.meetingEndTime1.click();
-	details.meetingEndTime1.clear();
-	details.meetingEndTime1.sendKeys("8:00 PM");
-	details.subjectArea.click();
-	details.nextButton1.click();
-	
-	Thread.sleep(2000);
-	TestUtil.SelectDropDownOption(details.meetwithClient, "In-Person");
-	
-	TestUtil.SelectDropDownOption(details.meetingOutcome, "Completed");
-	
-	details.nextButton1.click();
+		else if (User == "spouse"){
+			String userId = prop.getProperty(User);
+			String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+userId+"/view";
+			System.out.println(url);
+		  	
+			driver.navigate().to(url);}
 		
-}
+	}
 
 
+	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
+		
+		Thread.sleep(2000);	
+		commentsTextarea.sendKeys(commentsToEnter);
+		solutionsDiscussed.click();
+		details.selectOutcome(i);
+		details.clickNextButton();
+		
+	}
+
+
+	public void unplannedAppointment() throws InterruptedException, ParseException {
+		
+		Thread.sleep(2000);
+		details.commentsTextarea.sendKeys(commentsToEnter);
+		
+		Thread.sleep(2000);
+		TestUtil.SelectDropDownOption(outcome, "Meeting");
+		solutionsDiscussed.click();
+	
+		details.clickNextButton();
+		
+		Thread.sleep(2000);
+		details.subjectArea.sendKeys(commentsToEnter);
+		
+		details.meetingEndDate1.sendKeys(details.unplannedDate);
+		details.meetingEndTime1.click();
+		details.meetingEndTime1.clear();
+		details.meetingEndTime1.sendKeys("8:00 PM");
+		details.subjectArea.click();
+		details.nextButton1.click();
+		
+		Thread.sleep(2000);
+		TestUtil.SelectDropDownOption(details.meetwithClient, "In-Person Meeting");
+		
+		TestUtil.SelectDropDownOption(details.meetingOutcome, "Completed");
+		
+		details.nextButton1.click();
+			
+	}
+	
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -830,13 +766,6 @@ public void clickOpportunityLink() throws InterruptedException {
 	}
 	
 	
-/*	
-public void scrollIntoViewClick(WebElement element) { 
-    js.executeScript("arguments[0].scrollIntoView(true);", element);
-    js.executeScript("arguments[0].click();", element);
-}
-*/
-
 	
 	public boolean isLeadLinkVisible(){
 	    WebDriverWait zeroWait = new WebDriverWait(driver, 0);
@@ -854,60 +783,8 @@ public void scrollIntoViewClick(WebElement element) {
 
 public void test() throws InterruptedException, AWTException {
 	
-	/*
-	TestUtil.closeAllOpenTabs(driver);
-	oppLink.click(); 
-	
-	driver.findElement(By.xpath("(//button[contains (@title, ('Retail'))])[1]")).click();
-	driver.findElement(By.xpath("//span[contains(text(),'Set As Workspace Tab')]")).click();
-	driver.findElement(By.xpath("//a[contains (@class, ('label-action'))][contains (@href, ('Opportunity'))]")).click();
-	  
-	*/
-	
-	/*
-	try{
-	driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[13]")).click();}
-	catch (Exception e)	{}
-	*/
-	
-	//driver.findElement(By.xpath("//div[contains(text(),'Edit')]")).click();
-	
-	/*
-	//driver.findElement(By.xpath("//button[contains(@class,'split-view')]//*[contains(@class,'slds-button')]")).click();
-	//driver.findElement(By.xpath("//button[contains (@title, ('Edit Self Reported Asset'))]")).click();
-	String leadSource = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[1]//a[contains (@class,'select')]")).getText();
-	String lossReason = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[2]/div[1]//a[contains (@class,'select')]")).getText();
-	String stage = driver.findElement(By.xpath("((//div[contains(@class,'stacked slds-is-editing')])[2]//a[contains (@class,'select')])[2]")).getText();
-	String reasonNotes = driver.findElement(By.xpath("(//div[contains(@class,'stacked slds-is-editing')])[2]//textarea")).getText();
-*/
-	
-//	String stageStatus = driver.findElement(By.xpath("//div[contains (@title,('Stage'))]/..//span")).getText();	
-	
-	
-	/*
-	WebElement elem1 = driver.findElement(By.xpath("//button[contains (@title, ('Edit Self Reported'))]"));
-	
-	WebElement elem = driver.findElement(By.xpath("//div[contains(@class,'row row-main')]//div[3]//h3[1]//button[1]//lightning-icon[1]"));
-	
-	String closeDate = driver.findElement(By.xpath("//button[contains (@title, ('Edit Close Date'))]/../span")).getText();
-	String lossReason = driver.findElement(By.xpath("//button[contains (@title, ('Edit Loss Reason'))]/../span")).getText();
-	String stageStatus = driver.findElement(By.xpath("//button[contains (@title, ('Edit Stage'))]/../span")).getText();
-	String lossReasonNotes = driver.findElement(By.xpath("//button[contains (@title, ('Edit Other Loss Reason Notes'))]/../span")).getText();
-	*/
-
-	//softAssertion.assertEquals(stageStatus, "Closed Lost", "Stage status is not Closed Lost");
-	//softAssertion.assertAll();
-
 	
 }
-
-
-
-
-
-
-
-
 
 
 

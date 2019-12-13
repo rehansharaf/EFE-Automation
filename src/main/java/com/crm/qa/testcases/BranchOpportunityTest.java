@@ -3,7 +3,10 @@ package com.crm.qa.testcases;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -15,20 +18,24 @@ import com.aventstack.extentreports.Status;
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactsPage;
 import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
+import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.createLead;
 import com.crm.qa.pages.verifyLead;
-import com.crm.qa.pages.RetailAccount;
+import com.crm.qa.pages.RetailAccount__exp2;
 import com.crm.qa.pages.SalesforceRestAPI;
+import com.crm.qa.pages.SalesforceRestAPI_exp2;
+import com.crm.qa.util.Log;
+import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.util.TestUtil;
+import com.qa.ExtentReport.*;
 import com.crm.qa.testcases.LogActivityTest;
-
-import com.qa.ExtentReportListener.*;
 
 public class BranchOpportunityTest extends TestBase {
 	
@@ -41,7 +48,7 @@ public class BranchOpportunityTest extends TestBase {
 	verifyLead verifylead;
 	Opportunities opp;
 	ReferralAppointment ref;
-	RetailAccount retailAccount;
+	RetailAccount__exp2 retailAccount;
 	
 	
 	SoftAssert softAssertion = new SoftAssert();
@@ -52,18 +59,45 @@ public class BranchOpportunityTest extends TestBase {
 		testUtil = new TestUtil();
 		detailsPage = new DetailsPage();
 		loginPage = new LoginPage();
-		retailAccount = new RetailAccount();
+		retailAccount = new RetailAccount__exp2();
 		opp = new Opportunities();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
 	
 
+	public static void Initialize() throws InterruptedException, ParseException, IOException, InvalidFormatException{
+		
+		Map<String, String> Data = new HashMap<String, String>();
+		Data = RetailUserdetails.getDetailPageData();
+		String uid = Data.get("uniqueid");
+		SalesforceRestAPI.uid = RetailAccount.uid = DetailsPage.uid = uid;
+		
+		SalesforceRestAPI.fname = "Testf"+ uid;
+		SalesforceRestAPI.lname = "Testl"+ uid;
+		SalesforceRestAPI.bname = "Testb"+ uid;
+		
+		String aname = SalesforceRestAPI.fname+" "+SalesforceRestAPI.lname;
+		RetailAccount.aname = aname;
+		
+		DetailsPage.enteredDate = Data.get("enteredDate");
+		DetailsPage.verifyDate = Data.get("verifyDate");
+		DetailsPage.meetingDate = Data.get("meetingDate");
+		DetailsPage.meetingformattedDate = Data.get("meetingformattedDate");
+		DetailsPage.unplannedDate = Data.get("unplannedDate");
+		
+		
+		
+	}	
+	
+	
 	
 	@Test()
 
 	public void createBranchOptty_viaAPI() throws Exception {
 		
+		
+		Initialize();
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
 		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.getFirstName(), SalesforceRestAPI.getLastName());
@@ -77,6 +111,7 @@ public class BranchOpportunityTest extends TestBase {
 	public void opttyClosedLost_viaAPI() throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
+		
 		
 		createBranchOptty_viaAPI();
 		opp.opportunityClosedLost();
@@ -93,6 +128,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Move Stage Status Manually ");
 		
+		
 		createBranchOptty_viaAPI();
 		opp.moveOpttyStageManually();
 		
@@ -103,6 +139,7 @@ public class BranchOpportunityTest extends TestBase {
 	public void logacall_notReached_Optty() throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Not Reached ");
+		
 		
 		createBranchOptty_viaAPI();
 		opp.logacall_NotReached();
@@ -117,6 +154,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached  ");
 		
+		
 		createBranchOptty_viaAPI();
 		opp.logacall_Reached();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
@@ -129,6 +167,7 @@ public class BranchOpportunityTest extends TestBase {
 	public void logacall_Reached_StageClosedLost() throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached - Move Stage to Closed ");
+		
 		
 		createBranchOptty_viaAPI();
 		opp.logacall_Reached_StageClosedLost();
@@ -143,6 +182,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting and then Close Meeting ");
 		
+	
 		createBranchOptty_viaAPI();
 		opp.scheduleandCloseMeeting();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -156,6 +196,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
 		
+		
 		createBranchOptty_viaAPI();
 		opp.scheduleMeetingusingNextAction();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -166,9 +207,22 @@ public class BranchOpportunityTest extends TestBase {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Test(description = "Experiment 1 - Test Case.")
 	public void exp(Method method) throws Exception {
-		
+		Log.info("Test is Starting.....");
 		/*
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
@@ -182,8 +236,11 @@ public class BranchOpportunityTest extends TestBase {
 		
 		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000uzeBZQAY/view");
 		//logger.log(Status.INFO, "Navigate to SFDC Account");
+		Log.info("Navigate to the URL");
 		driver.findElement(By.xpath("//label[contains (@for, ('scheduleAnAppointmentChoice'))]//span[contains (@class, ('slds-radio--faux'))]")).click();
+		Log.info("Find Element1");
 		driver.findElement(By.xpath("//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")).click();
+		Log.info("Find Button");
 		
 		
 		

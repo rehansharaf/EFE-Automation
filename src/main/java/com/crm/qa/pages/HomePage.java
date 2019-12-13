@@ -22,8 +22,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 
-import com.crm.qa.util.TestUtil;
-import com.crm.qa.pages.RetailAccount;
+import com.crm.qa.pages.RetailAccount__exp2;
+import com.crm.qa.util.*;
 
 
 import com.crm.qa.base.TestBase;
@@ -92,19 +92,24 @@ public class HomePage extends TestBase {
 //		return new ContactsPage();
 //	} 
 	
-	SalesforceRestAPI restapi = new SalesforceRestAPI();
+	SalesforceRestAPI_exp2 restapi = new SalesforceRestAPI_exp2();
 	
 	
 	
 	public void navigateToRetailuser() throws InterruptedException{
-		
+	
+		/*
 		//GEt the value of sfdcId via Hash map
 		String sfdcId = SalesforceRestAPI.objMap.get("sfdcId");
 		
 		prop.setProperty("primarysfdcId", sfdcId);
 		SalesforceRestAPI.objMap.put("primarysfdcId", sfdcId);
+		*/
 		
 		
+		//String sfdcId = RetailUserdetails.get_sfdcID();
+		
+		String sfdcId = RetailUserdetails.get_sfdcID();
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
 		AccountURL = url;
 		

@@ -31,8 +31,8 @@ import org.testng.asserts.SoftAssert;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.crm.qa.pages.DetailsPage;
-import com.crm.qa.pages.SalesforceRestAPI;
+import com.crm.qa.pages.DetailsPage__exp2;
+import com.crm.qa.pages.SalesforceRestAPI_exp2;
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.util.WebEventListener;
 
