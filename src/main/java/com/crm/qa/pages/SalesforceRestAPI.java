@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Random;
 
 import org.apache.http.Header;
@@ -37,8 +38,11 @@ import com.crm.qa.util.RetailUserdetails;
  
 public class SalesforceRestAPI extends TestBase {
  
-    static final String USERNAME     = "isharaf@fe.com.fscfull";
-    static final String PASSWORD     = "Capricon25!";
+
+	
+	
+	static final String USERNAME     = "isharaf@fe.com.fscfull";
+    static final String PASSWORD     = "Capricon26!";
     static final String LOGINURL     = "https://test.salesforce.com";
     static final String GRANTSERVICE = "/services/oauth2/token?grant_type=password";
     static final String CLIENTID     = "3MVG9qbIpUScOGtYABP3g246J0TP_jQjzSMgl8SMHmxFFTNtZamxl_LVwYt1GLG4r6YJI.cjj.yrc9iTSsa6W";

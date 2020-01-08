@@ -219,15 +219,15 @@ public class SalesforceTestRestAPI extends TestBase {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			taskId = task.getJSONObject(0).getString("Id");
 			taskName = task.getJSONObject(0).getString("AccountId");
-			taskCreatedDate = task.getJSONObject(0).getString("Call_Start_Time__c");
+			//taskCreatedDate = task.getJSONObject(0).getString("Call_Start_Time__c");
 			taskDescription = (String) task.getJSONObject(0).get("Description");
 			taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
 			taskCallType = task.getJSONObject(0).getString("Call_Type__c");
 			taskStatus = task.getJSONObject(0).getString("Status");
 			taskSolutionsDiscussed = task.getJSONObject(0).getString("Solutions_Discussed__c");
 
-			boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
-			softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
+			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
+			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
 			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
 			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
 			softAssertion.assertEquals(taskCallOutcome, "Reached", "Call Outcome mismatch");
@@ -246,6 +246,49 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
+	
+	public static void validateTaskData2(int i) throws InterruptedException {
+
+		Thread.sleep(5000);	
+		callTime = prop.getProperty("Call Start Time");
+		description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
+
+		try {
+			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
+			taskId = task.getJSONObject(1).getString("Id");
+			taskName = task.getJSONObject(1).getString("AccountId");
+			//taskCreatedDate = task.getJSONObject(0).getString("Call_Start_Time__c");
+			taskDescription = (String) task.getJSONObject(1).get("Description");
+			taskCallOutcome = task.getJSONObject(1).getString("Call_Outcome__c");
+			taskCallType = task.getJSONObject(1).getString("Call_Type__c");
+			taskStatus = task.getJSONObject(1).getString("Status");
+			taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
+
+			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
+			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
+			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
+			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
+			softAssertion.assertEquals(taskCallOutcome, "Reached", "Call Outcome mismatch");
+			softAssertion.assertEquals(taskCallType, "Call", "Call Type mismatch");
+			softAssertion.assertEquals(taskStatus, "Completed", "Call Status mismatch");
+
+			System.out.println(taskDescription);
+			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
+					+ taskSolutionsDiscussed);
+			// softAssertion.assertAll();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	
+	
+	
+	
 	public static void validateTaskScheduleData(int i) throws InterruptedException {
 
 		Thread.sleep(5000);	
@@ -254,13 +297,13 @@ public class SalesforceTestRestAPI extends TestBase {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			taskId = task.getJSONObject(1).getString("Id");
 			taskName = task.getJSONObject(1).getString("AccountId");
-			// taskCreatedDate = task.getJSONObject(1).getString("Call_Start_Time__c");
-			taskDescription = (String) task.getJSONObject(0).get("Description");
-			// taskCallOutcome = task.getJSONObject(1).getString("Call_Outcome__c");
-			taskType = task.getJSONObject(1).getString("Type");
+			taskCreatedDate = task.getJSONObject(1).getString("Call_Start_Time__c");
+			taskDescription = (String) task.getJSONObject(1).get("Description");
+			// taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
+			taskType = task.getJSONObject(0).getString("Type");
 			taskStatus = task.getJSONObject(1).getString("Status");
-			// taskSolutionsDiscussed =
-			// task.getJSONObject(1).getString("Solutions_Discussed__c");
+			taskSolutionsDiscussed =
+			task.getJSONObject(1).getString("Solutions_Discussed__c");
 			taskActivityDate = task.getJSONObject(1).getString("ActivityDate");
 
 			// softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start
@@ -285,6 +328,44 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
+	public static void validateTaskScheduleData_original(int i) throws InterruptedException {
+
+		Thread.sleep(5000);	
+		
+		try {
+			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
+			taskId = task.getJSONObject(1).getString("Id");
+			taskName = task.getJSONObject(1).getString("AccountId");
+			// taskCreatedDate = task.getJSONObject(1).getString("Call_Start_Time__c");
+			taskDescription = (String) task.getJSONObject(0).get("Description");
+			 taskCallOutcome = task.getJSONObject(1).getString("Call_Outcome__c");
+			taskType = task.getJSONObject(1).getString("Type");
+			taskStatus = task.getJSONObject(1).getString("Status");
+			taskSolutionsDiscussed =
+			task.getJSONObject(1).getString("Solutions_Discussed__c");
+			taskActivityDate = task.getJSONObject(1).getString("ActivityDate");
+
+			// softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start
+			// Time"), "call date mismatch");
+			softAssertion.assertEquals(taskDescription, prop.getProperty("EnteredComments"),
+					"Task description mismatch");
+			// softAssertion.assertEquals(taskCallOutcome, "Follow Up", "Call Outcome
+			// mismatch");
+			softAssertion.assertEquals(taskType, "ToDo", "Call Type mismatch");
+			softAssertion.assertEquals(taskStatus, "Open", "Call Status mismatch");
+			softAssertion.assertEquals(taskActivityDate, "Open", "Call Status mismatch");
+
+			System.out.println(taskDescription);
+			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
+					+ taskSolutionsDiscussed);
+			// softAssertion.assertAll();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	
 	
 	
@@ -297,13 +378,13 @@ public class SalesforceTestRestAPI extends TestBase {
 			meetingId = task.getJSONObject(0).getString("Id");
 			meetingMedium = task.getJSONObject(0).getString("Meeting_Medium__c");
 
-			// meetingStatus = task.getJSONObject(0).get("Meeting_Status__c");
-
+			//meetingStatus = task.getJSONObject(0).get("Meeting_Status__c");
+			
 			meetingType = task.getJSONObject(0).getString("Type");
 			meetingSubType = task.getJSONObject(0).getString("Meeting_Sub_Type__c");
 			meetingStartDate = task.getJSONObject(0).getString("StartDateTime");
 			meetingEndDate = task.getJSONObject(0).getString("EndDateTime");
-			appointmentStartDateText = task.getJSONObject(0).getString("Appointment_Start_Date_Time_Text__c");
+			//appointmentStartDateText = task.getJSONObject(0).getString("Appointment_Start_Date_Time_Text__c");
 			if (j == 0) {
 			softAssertion.assertEquals(meetingType, "Prospect Meeting", "Meeting Type mismatch");
 			} else if (j == 1) {
@@ -314,10 +395,10 @@ public class SalesforceTestRestAPI extends TestBase {
 			softAssertion.assertEquals(meetingSubType, "Initial", "Meeting Sub Type mismatch");
 			softAssertion.assertEquals(meetingMedium, "On-Phone", "Meeting Medium mismatch");
 			//financial plan
-			System.out.println(taskDescription);
+			//System.out.println(taskDescription);
 			System.out.println("Event record is----------------------------------------------------- " + meetingId + " "
 					+ meetingMedium + " " + meetingType + meetingSubType);
-			// softAssertion.assertAll();
+			 //softAssertion.assertAll();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

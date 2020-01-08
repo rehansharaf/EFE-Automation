@@ -1,5 +1,7 @@
 package com.crm.qa.testcases;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -77,7 +79,7 @@ public class DebugTests extends TestBase {
 		
 	
 	@Test()
-	public void notReached() throws InterruptedException{
+	public void notReached() throws InterruptedException, IOException, ParseException{
 		
 		homePage.clickSearchInput();			
 		detailsPage.enterComments(0);

@@ -7,10 +7,15 @@
 package com.qa.ExtentReport;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -25,8 +30,12 @@ public class ExtentManager {
   private static ExtentReports extent;
   private static Platform platform;
   private static String reportFileName = "Test-Automaton-Report_"+timeStamp+".html" ;
+ 
+  private static String scrshotFileWinPath = System.getProperty("user.dir")+ "\\ScreenShot";
+  
   private static String macPath = System.getProperty("user.dir")+ "/TestReport";
   private static String windowsPath = System.getProperty("user.dir")+ "\\TestReport";
+  
   private static String macReportFileLoc = macPath + "/" + reportFileName;
   private static String winReportFileLoc = windowsPath + "\\" + reportFileName;
 
@@ -76,6 +85,10 @@ public class ExtentManager {
       return reportFileLocation;
   }
 
+
+  
+  
+  
   //Create the report path if it does not exist
   private static void createReportPath (String path) {
       File testDirectory = new File(path);
@@ -107,9 +120,13 @@ public class ExtentManager {
   }
 
   
+  
 
-
-
+  
+  
+  
+  
+  
 }
 
 

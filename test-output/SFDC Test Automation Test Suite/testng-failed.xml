@@ -9,10 +9,15 @@
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="meeting_CompleteFlow"/>
+          <include name="LogaCallwithSpouse_ValidateAtPrimary"/>
+          <include name="CreateRetail1Account_Spouse"/>
           <include name="tearDown"/>
+          <include name="OnlyCreateRetail_2_Account"/>
+          <include name="UpdatePrimaryAccountdetails"/>
+          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
           <include name="setUp"/>
-          <include name="meeting_CompleteFlowWithOptions"/>
+          <include name="UpdateSpouseAccountdetails"/>
+          <include name="LogACallSpouse"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

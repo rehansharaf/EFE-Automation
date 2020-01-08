@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [SFDC Test Automation Test Suite]" parallel="methods">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
-    <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Log a Call Test Scenarios(failed)" parallel="methods">
+  <test name="Free CRM App Test Cases(failed)">
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="meeting_CompleteFlow"/>
           <include name="tearDown"/>
+          <include name="notReached_multipleUsers" invocation-numbers="0 1 2"/>
           <include name="setUp"/>
-          <include name="meeting_CompleteFlowWithOptions"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
-  </test> <!-- Log a Call Test Scenarios(failed) -->
-</suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->
+  </test> <!-- Free CRM App Test Cases(failed) -->
+</suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

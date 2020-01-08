@@ -156,6 +156,44 @@ public static void navigateToUser(String role) throws InterruptedException{
 		
 }
 
+public static void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
+	
+	
+	if (role.equalsIgnoreCase("advisor")){
+	
+		//String advisorId = prop.getProperty("advisorsfdcId1");
+			
+		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/User/"+advisorId+"/view");
+		
+		advisorLink.click();
+		
+		Thread.sleep(5000);
+		
+		driver.switchTo().frame(0);
+		
+		advisorLogin.click();
+		
+		driver.switchTo().defaultContent();
+		
+		Thread.sleep(5000);
+		
+		//TestUtil.closeAllOpenTabs(driver);
+		
+		driver.navigate().refresh();
+		
+	
+		
+	}
+	
+	else if (role.equalsIgnoreCase("nonadvisor")){
+		
+		//String advisorId = prop.getProperty("advisorsfdcId1");
+	}
+	
+		
+}
+
+
 
 
 //This can be commented since it is covered in the above method ---navigateToUser(String role)

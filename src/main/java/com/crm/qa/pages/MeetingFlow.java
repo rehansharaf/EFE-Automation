@@ -269,7 +269,7 @@ public class MeetingFlow extends TestBase {
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
 		DetailsPage detailspage = new DetailsPage();
-		detailspage.clickNextButton();
+		detailspage.logCallNextButton.click();
 		
 		//TestUtil.ifButtonPresentclick("//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]");
 		
@@ -285,6 +285,10 @@ public class MeetingFlow extends TestBase {
 		
 		//financialPlan.click();
 		selectFinacialTopicscheckbox();
+		
+		nextButton1.click();
+		
+		selectTopics();
 		
 		nextButton1.click();	
 		
@@ -304,7 +308,7 @@ public void meetingCompleteFlowWithOptions() throws InterruptedException {
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
 		DetailsPage detailspage = new DetailsPage();
-		detailspage.clickNextButton();
+		detailspage.logCallNextButton.click();
 		
 		nextButton1.click();
 			
@@ -327,8 +331,9 @@ public void meetingCompleteFlowWithOptions() throws InterruptedException {
 
 public void selectTopics() {
 	
-		List<WebElement> selectTopics  = driver.findElements(By.xpath("//span[contains(text(),'Log Activity')]/../../../../following-sibling::div//select"));
-	
+		//List<WebElement> selectTopics  = driver.findElements(By.xpath("//span[contains(text(),'Log Activity')]/../../../../following-sibling::div//select"));
+		List<WebElement> selectTopics  = driver.findElements(By.xpath("//option[@value='Green']/../../select"));
+		
 		for(WebElement elem : selectTopics) { TestUtil.SelectDropDownOption(elem, "Green");	}
 	
 	}

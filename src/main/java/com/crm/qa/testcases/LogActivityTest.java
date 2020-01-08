@@ -44,6 +44,9 @@ import com.crm.qa.util.Validation;
 import com.crm.qa.util.ExcelWrite;
 import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.base.InitializeUserData;
+import org.testng.annotations.Test;
+import com.qa.DataProvider.*;
+
 
 public class LogActivityTest extends TestBase {
 	
@@ -122,6 +125,7 @@ public class LogActivityTest extends TestBase {
 		DetailsPage.meetingDate = Data.get("meetingDate");
 		DetailsPage.meetingformattedDate = Data.get("meetingformattedDate");
 		DetailsPage.unplannedDate = Data.get("unplannedDate");
+		DetailsPage.emailupdate = "testf"+uid+"@updateaccount.com";
 		
 		
 		
@@ -164,6 +168,23 @@ public class LogActivityTest extends TestBase {
 		
 	}
 
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void notReached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
+		
+		TestUtil.print("Not Reached Scenario for Multile Users");
+		
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_basic();
+		homePage.navigateToRetailuser();			
+		detailsPage.enterComments(0);
+		SalesforceTestRestAPI.validateTaskData(1);
+		softAssertion.assertAll();
+		
+	}
+
+	
 
 	
 	@Test()
@@ -277,7 +298,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "Phone Call");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
@@ -295,7 +316,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "ToDo");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
