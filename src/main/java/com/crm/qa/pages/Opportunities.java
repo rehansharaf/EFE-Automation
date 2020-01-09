@@ -96,15 +96,26 @@ public class Opportunities extends TestBase{
 	//@FindBy(xpath = "//div[contains(text(),'Create Workplace Opportunity')]")
 	//WebElement createWorkplaceOpportunity;
 	
-	@FindBy(xpath = "//input[contains (@name, ('Create_Opportunity'))]/../label/span[contains (@class, ('slds-checkbox'))]")
-	WebElement createWorkplaceOpportunity;
 	
+	@FindBy(xpath = "//label[contains (@for, ('Yes_Selected'))]")
+	WebElement yesOpttyRdBtn;
+	
+	
+	//@FindBy(xpath = "//input[contains (@name, ('Create_Opportunity'))]/../label/span[contains (@class, ('slds-checkbox'))]")
+	//WebElement createWorkplaceOpportunity;
+	
+	@FindBy(xpath = "//label[contains (@for, ('Create_Workplace_Opportunity'))]//span[contains (@class, ('radio'))]")
+	WebElement createWorkplaceOpportunity;
 	
 	//@FindBy(xpath = "//div[contains(text(),'Create Branch/PA Opportunity')]")
 	//WebElement createBranchOpportunity;
 	
-	@FindBy(xpath = "//input[contains (@name, ('Create_Referral_Opportunity'))]/../label/span[contains (@class, ('slds-checkbox'))]")
+	//@FindBy(xpath = "//input[contains (@name, ('Create_Referral_Opportunity'))]/../label/span[contains (@class, ('slds-checkbox'))]")
+	//WebElement createBranchOpportunity;
+	
+	@FindBy(xpath = "//label[contains (@for, ('Create_BM_PA_Opportunity'))]//span[contains (@class, ('radio'))]")
 	WebElement createBranchOpportunity;
+	
 	
 	@FindBy(xpath = "//div[contains(text(),'Please type the number of 401k Roll-In Accounts being transferred')]/../../../following-sibling::div/input")
 	WebElement oppField1;
@@ -287,8 +298,8 @@ public class Opportunities extends TestBase{
 		enterCommentsfor("BranchOptty", 1);
 		
 		tMAssets.sendKeys("250000");
-		details.clickNextButton();
-		Thread.sleep(10000);	
+		details.logCallNextButton.click();
+		Thread.sleep(5000);	
 	
 	}
 	
@@ -337,7 +348,9 @@ public class Opportunities extends TestBase{
 	
 		Thread.sleep(2000);
 		
-		enterComments(0);
+		//enterComments(0);
+		
+		enterCommentsfor("BranchOptty", 0);
 		
 		Thread.sleep(2000);
 		oppLink.click();
@@ -349,7 +362,9 @@ public class Opportunities extends TestBase{
 	public  void logacall_Reached() throws InterruptedException, AWTException, IOException, ParseException {
 	
 		Thread.sleep(2000);
-		enterComments(1);
+		//enterComments(1);
+		
+		enterCommentsfor("BranchOptty", 1);
 		
 		Thread.sleep(2000);
 		oppLink.click();
@@ -364,7 +379,8 @@ public class Opportunities extends TestBase{
 	public  void logacall_Reached_StageClosedLost() throws InterruptedException, AWTException, IOException, ParseException {
   
 		Thread.sleep(2000);
-		enterComments(1);
+		//enterComments(1);
+		enterCommentsfor("BranchOptty", 1);
 		
 		opportunityClosedLost();
 	
@@ -420,10 +436,16 @@ public class Opportunities extends TestBase{
 		commentsTextarea.sendKeys(commentsToEnter);
 		solutionsDiscussed.click();
 		details.selectOutcome(Outcome);
-		scrolltofooter.click();
+		details.logCallNextButton.click();
+		Thread.sleep(5000);
 		
-		if (opttyType =="WorkplaceOptty"){createWorkplaceOpportunity.click();details.clickNextButton();}
-		else if (opttyType =="BranchOptty"){createBranchOpportunity.click();details.clickNextButton();}
+		
+		yesOpttyRdBtn.click();
+		details.logCallNextButton.click();
+		Thread.sleep(3000);
+		
+		if (opttyType =="WorkplaceOptty"){createWorkplaceOpportunity.click();details.logCallNextButton.click();Thread.sleep(2000);}
+		else if (opttyType =="BranchOptty"){createBranchOpportunity.click();details.logCallNextButton.click();Thread.sleep(2000);}
 	
 	}
 
@@ -445,8 +467,8 @@ public class Opportunities extends TestBase{
 		
 		
 		//ALTERNATE METHOD TO VALIDATE DATA
-		
 		/*
+		**************************************************************************************************************
 		TestUtil.closeAllOpenTabs(driver);
 		oppLink.click(); 
 		
@@ -454,22 +476,17 @@ public class Opportunities extends TestBase{
 		driver.findElement(By.xpath("//span[contains(text(),'Set As Workspace Tab')]")).click();
 		driver.findElement(By.xpath("//a[contains (@class, ('label-action'))][contains (@href, ('Opportunity'))]")).click();
 		  
-		*/
-		
-		/*
 		try{
 		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[13]")).click();}
 		catch (Exception e)	{}
-		*/
-	
 		
-		/*
 		String closeDate = driver.findElement(By.xpath("//button[contains (@title, ('Edit Close Date'))]/../span")).getText();
 		String lossReason = driver.findElement(By.xpath("//button[contains (@title, ('Edit Loss Reason'))]/../span")).getText();
 		String stageStatus = driver.findElement(By.xpath("//button[contains (@title, ('Edit Stage'))]/../span")).getText();
 		String lossReasonNotes = driver.findElement(By.xpath("//button[contains (@title, ('Edit Other Loss Reason Notes'))]/../span")).getText();
+		
+		***************************************************************************************************************
 		*/
-	
 	}
 
 
@@ -568,7 +585,11 @@ public class Opportunities extends TestBase{
 		commentsTextarea.sendKeys(commentsToEnter);
 		solutionsDiscussed.click();
 		details.selectOutcome(i);
-		details.clickNextButton();
+		details.logCallNextButton.click();
+		
+		Thread.sleep(5000);
+		details.noOpttyRdBtn.click();
+		details.logCallNextButton.click();
 		
 	}
 

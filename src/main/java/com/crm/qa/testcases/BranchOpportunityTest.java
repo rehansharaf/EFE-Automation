@@ -48,7 +48,7 @@ public class BranchOpportunityTest extends TestBase {
 	verifyLead verifylead;
 	Opportunities opp;
 	ReferralAppointment ref;
-	RetailAccount__exp2 retailAccount;
+	RetailAccount retailAccount;
 	
 	
 	SoftAssert softAssertion = new SoftAssert();
@@ -59,7 +59,7 @@ public class BranchOpportunityTest extends TestBase {
 		testUtil = new TestUtil();
 		detailsPage = new DetailsPage();
 		loginPage = new LoginPage();
-		retailAccount = new RetailAccount__exp2();
+		retailAccount = new RetailAccount();
 		opp = new Opportunities();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	}
@@ -85,6 +85,7 @@ public class BranchOpportunityTest extends TestBase {
 		DetailsPage.meetingDate = Data.get("meetingDate");
 		DetailsPage.meetingformattedDate = Data.get("meetingformattedDate");
 		DetailsPage.unplannedDate = Data.get("unplannedDate");
+		DetailsPage.emailupdate = "testf"+uid+"@updateaccount.com";
 		
 		
 		

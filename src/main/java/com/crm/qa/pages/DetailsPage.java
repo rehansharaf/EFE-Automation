@@ -538,7 +538,7 @@ public class DetailsPage extends TestBase {
 		
 		solutionsDiscussed.click();
 		
-		if (i!=0){ CreateOpportunityLabel.click();}
+		//if (i!=0){ CreateOpportunityLabel.click();}
 		
 		//clickNextButton();
 		logCallNextButton.click();

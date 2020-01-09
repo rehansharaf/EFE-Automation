@@ -153,6 +153,105 @@ public class LogActivityTest extends TestBase {
 	
 
 	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void notReached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
+		
+		TestUtil.print("Not Reached Scenario for Multiple Users");
+		
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_basic();
+		homePage.navigateToRetailuser();			
+		detailsPage.enterComments(0);
+		SalesforceTestRestAPI.validateTaskData(1);
+		softAssertion.assertAll();
+		
+	}
+	
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
+		
+		TestUtil.print("Reached Scenario for Multiple Users");
+		
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.APIConnection();
+		homePage.navigateToRetailuser();			
+		detailsPage.enterComments(1);
+		SalesforceTestRestAPI.validateTaskData1(1);
+	
+	}
+	
+	
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		//SalesforceTestRestAPI.APIConnection();
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser();			
+		detailsPage.unplannedAppointment();
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void logaCall_Reached_Household_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Log a Call (Reached) through Household, Multiple Users");
+		
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.APIConnection();
+		homePage.navigateToRetailuser();
+		householdPage.enterComments(1);
+		SalesforceTestRestAPI.validateTaskData1(1);
+	
+	}
+	
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void logaCall_NotReached_Household_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
+		
+		TestUtil.print("Log a Call (Not Reached) through Household, Multiple Users");
+		
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_basic();
+		homePage.navigateToRetailuser();			
+		householdPage.enterComments(0);
+		SalesforceTestRestAPI.validateTaskData(1);
+		softAssertion.assertAll();
+		
+	}
+	
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void logaCall_UnplannedMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		Initialize();
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser();			
+		householdPage.unplannedAppointment();
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	
+	
+	
+	
+	
 	@Test()
 	public void notReached() throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
@@ -169,20 +268,6 @@ public class LogActivityTest extends TestBase {
 	}
 
 	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void notReached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
-		
-		TestUtil.print("Not Reached Scenario for Multile Users");
-		
-		Initialize();
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser();			
-		detailsPage.enterComments(0);
-		SalesforceTestRestAPI.validateTaskData(1);
-		softAssertion.assertAll();
-		
-	}
 
 	
 
@@ -212,7 +297,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "Phone Call");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
 	}
@@ -227,7 +312,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "ToDo");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
 	}
@@ -696,15 +781,18 @@ public class LogActivityTest extends TestBase {
 	
 	
 	@Test()
-	public void nolead_Reached_MultipleOpportunity() throws InterruptedException, ParseException, IOException {
+	public void nolead_Reached_MultipleOpportunity() throws InterruptedException, ParseException, IOException, InvalidFormatException {
 		
+		Initialize();
+		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();
 		Opportunities opp = new Opportunities();
 		opp.createBranchOpportunity();	
 		opp.createWorkplaceOpportunity();	
-		SalesforceTestRestAPI.validateTaskData(1);
+		//SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateBranchOpportunity(6);	
+		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);
 		//validate workplace opp
 				
 	}

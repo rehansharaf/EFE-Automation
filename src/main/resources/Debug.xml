@@ -4,7 +4,7 @@
 
 	<listeners>
 		<listener class-name="com.qa.EventListener.TestListener"/>
-	
+		
 	</listeners>
 
 
@@ -16,7 +16,14 @@
 			
 			<methods>
 			  
-			<!--
+		<!--  	
+					
+					<include name="reached_multipleUsers"></include>
+					<include name="notReached_multipleUsers"></include>
+					<include name="UnplannedMeeting_multipleUsers"></include>
+					<include name="logaCall_Reached_Household_multipleUsers"></include>
+					<include name="logaCall_NotReached_Household_multipleUsers"></include>
+					<include name="logaCall_UnplannedMeeting_multipleUsers"></include>
 					<include name="notReached"></include>
 					<include name="reached"></include>
 					<include name="UnplannedMeeting"></include>
@@ -37,15 +44,19 @@
 					<include name="meeting_CompleteFlow"></include>
 					<include name="meeting_CompleteFlowWithOptions"></include>	
 					<include name="nolead_Reached_createBranchOpportunity"></include>
+					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
+					<include name="nolead_Reached_MultipleOpportunity"></include>
 					<include name="UpdatePrimaryAccountdetails"></include>
 					<include name="UpdateSpouseAccountdetails"></include>
-		-->				
+					
 		 		 		
+			-->	
 				
-				
-					<include name="notReached_multipleUsers"></include>
+					<include name="logaCall_Reached_Household_multipleUsers"></include>
+					<include name="logaCall_NotReached_Household_multipleUsers"></include>
+					<include name="logaCall_UnplannedMeeting_multipleUsers"></include>
 						
-
+					
 				
 					
 		

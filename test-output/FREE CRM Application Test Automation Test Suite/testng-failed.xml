@@ -3,14 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
+    <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
   <test name="Free CRM App Test Cases(failed)">
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
+          <include name="CreateRetail1Account_Spouse"/>
           <include name="tearDown"/>
-          <include name="notReached_multipleUsers" invocation-numbers="0 1 2"/>
+          <include name="reached_Schedule_Phonecall"/>
           <include name="setUp"/>
+          <include name="reached_Schedule_ToDo"/>
+          <include name="OnlyCreateRetail_1_Account"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

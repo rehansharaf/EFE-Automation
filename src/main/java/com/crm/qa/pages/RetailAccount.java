@@ -374,12 +374,15 @@ public class RetailAccount extends TestBase {
 	
 	public void searchAccount() throws InterruptedException{
 	
-		String aname = prop.getProperty("retailuser");
 		
-		changeNavigationMenu("Accounts");
-		Thread.sleep(2000);
+		
+		String Text = driver.findElement(By.xpath("//div[contains (@class, ('slds-context-bar'))]/span[contains (@class, ('slds'))]")).getText();
+		
+		if (Text.contains("Advisor")){ changeNavigationMenu("Accounts"); Thread.sleep(2000);}
+		else if (Text.contains("Sales")){ driver.findElement(By.xpath("//a[contains(@href, ('Account'))]")).click(); Thread.sleep(2000);}
+		
+		
 		driver.findElement(By.xpath("(//a[contains (@title, ('" +aname+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
-		
 		Thread.sleep(2000);
 		String AccountName = username.getText();
 		String textInsideUserNumber = userId.getText();
