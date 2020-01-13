@@ -158,6 +158,7 @@ public class HouseholdPage extends TestBase {
 		
 		solutionsDiscussed.click();
 		
+		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		logCallNextButton.click();
 		
 		Thread.sleep(5000);
@@ -188,7 +189,7 @@ public void unplannedAppointment() throws InterruptedException, ParseException {
 		solutionsDiscussed.click();
 	
 		//clickNextButton();
-		
+		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		logCallNextButton.click();
 		
 		Thread.sleep(3000);
@@ -210,14 +211,6 @@ public void unplannedAppointment() throws InterruptedException, ParseException {
 		nextButton1.click();
 			
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

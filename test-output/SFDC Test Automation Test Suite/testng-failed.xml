@@ -9,15 +9,12 @@
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="LogaCallwithSpouse_ValidateAtPrimary"/>
-          <include name="CreateRetail1Account_Spouse"/>
           <include name="tearDown"/>
-          <include name="OnlyCreateRetail_2_Account"/>
-          <include name="UpdatePrimaryAccountdetails"/>
-          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
+          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="1 3"/>
+          <include name="notReached_multipleUsers" invocation-numbers="3"/>
+          <include name="reachedwithBusinessLead_UnplannedMeeting"/>
           <include name="setUp"/>
-          <include name="UpdateSpouseAccountdetails"/>
-          <include name="LogACallSpouse"/>
+          <include name="OnlyCreateRetail_1_Account"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

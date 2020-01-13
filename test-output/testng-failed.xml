@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [SFDC Test Automation Test Suite]" parallel="methods">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
     <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Free CRM App Test Cases(failed)">
+  <test name="Log a Call Test Scenarios(failed)" parallel="methods">
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="CreateRetail1Account_Spouse"/>
           <include name="tearDown"/>
-          <include name="reached_Schedule_Phonecall"/>
+          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="1 3"/>
+          <include name="notReached_multipleUsers" invocation-numbers="3"/>
+          <include name="reachedwithBusinessLead_UnplannedMeeting"/>
           <include name="setUp"/>
-          <include name="reached_Schedule_ToDo"/>
           <include name="OnlyCreateRetail_1_Account"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
-  </test> <!-- Free CRM App Test Cases(failed) -->
-</suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->
+  </test> <!-- Log a Call Test Scenarios(failed) -->
+</suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->

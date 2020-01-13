@@ -421,8 +421,8 @@ public class DetailsPage extends TestBase {
 	//@FindBy(xpath = "(//button[contains(text(),'Next')])[1]")
 	//WebElement houseHoldNextButton;
 	
-	//@FindBy(xpath = "(//button[contains(text(),'Next')])[1]")
-	//WebElement logCallNextButton;
+	@FindBy(xpath = "(//button[contains(text(),'Next')])[1]")
+	WebElement logCallNextButton1;
 	
 	@FindBy(xpath = "//div[@data-component-id = 'flowruntime_interview']//button[contains(text(),'Next')]")
 	WebElement logCallNextButton;
@@ -541,10 +541,11 @@ public class DetailsPage extends TestBase {
 		//if (i!=0){ CreateOpportunityLabel.click();}
 		
 		//clickNextButton();
-		logCallNextButton.click();
 		
+		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
+		logCallNextButton.click();  
+	
 		Thread.sleep(5000);
-		
 		noOpttyRdBtn.click();
 		
 		logCallNextButton.click();
@@ -650,7 +651,7 @@ public class DetailsPage extends TestBase {
 		System.out.println("index : " +i);
 		
 		//CreateOpportunityLabel.click();
-		
+		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		logCallNextButton.click();
 		
 		Thread.sleep(5000);
@@ -724,6 +725,7 @@ public class DetailsPage extends TestBase {
 		TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
 		solutionsDiscussed.click();
 		
+		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		logCallNextButton.click();
 		
 		Thread.sleep(3000);
@@ -766,6 +768,7 @@ public class DetailsPage extends TestBase {
 	
 		//clickNextButton();
 		
+		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		logCallNextButton.click();
 		
 		Thread.sleep(3000);

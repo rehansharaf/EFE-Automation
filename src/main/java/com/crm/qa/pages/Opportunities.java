@@ -379,9 +379,7 @@ public class Opportunities extends TestBase{
 	public  void logacall_Reached_StageClosedLost() throws InterruptedException, AWTException, IOException, ParseException {
   
 		Thread.sleep(2000);
-		//enterComments(1);
 		enterCommentsfor("BranchOptty", 1);
-		
 		opportunityClosedLost();
 	
 	}
@@ -603,7 +601,7 @@ public class Opportunities extends TestBase{
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		solutionsDiscussed.click();
 	
-		details.clickNextButton();
+		details.logCallNextButton.click();
 		
 		Thread.sleep(2000);
 		details.subjectArea.sendKeys(commentsToEnter);
@@ -612,7 +610,7 @@ public class Opportunities extends TestBase{
 		details.meetingEndTime1.click();
 		details.meetingEndTime1.clear();
 		details.meetingEndTime1.sendKeys("8:00 PM");
-		details.subjectArea.click();
+		details.meetingEndTime1.sendKeys(Keys.TAB);
 		details.nextButton1.click();
 		
 		Thread.sleep(2000);
