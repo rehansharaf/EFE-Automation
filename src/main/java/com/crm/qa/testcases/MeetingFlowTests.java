@@ -1,26 +1,15 @@
 package com.crm.qa.testcases;
 
-import java.io.IOException;
 
-import org.apache.log4j.PropertyConfigurator;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import org.testng.log4testng.Logger;
 
 import com.crm.qa.base.TestBase;
-import com.crm.qa.pages.ContactsPage;
-import com.crm.qa.pages.DetailsPage__exp2;
+import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.MeetingFlow;
@@ -31,7 +20,7 @@ import com.crm.qa.util.TestUtil;
 
 public class MeetingFlowTests extends TestBase{
 
-	DetailsPage__exp2 detailsPage;
+	DetailsPage detailsPage;
 	LoginPage loginPage;
 	HomePage homePage;
 	TestUtil testUtil;
@@ -51,7 +40,7 @@ public class MeetingFlowTests extends TestBase{
 	public void setUp() throws InterruptedException {
 		initialization();
 		testUtil = new TestUtil();
-		detailsPage = new DetailsPage__exp2();
+		detailsPage = new DetailsPage();
 		loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		homePage.clickSearchInput();

@@ -52,9 +52,8 @@
 		 		 		
 			-->	
 				
-					<include name="logaCall_Reached_Household_multipleUsers"></include>
-					<include name="logaCall_NotReached_Household_multipleUsers"></include>
-					<include name="logaCall_UnplannedMeeting_multipleUsers"></include>
+					<include name="notReached"></include>
+					<include name="reached"></include>
 						
 					
 				

@@ -1,58 +1,32 @@
 package com.crm.qa.pages;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+
 
 import java.awt.AWTException;
-import java.awt.Dimension;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.Format;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Properties;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.internal.Coordinates;
-import org.openqa.selenium.internal.Locatable;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
-
 import com.crm.qa.base.TestBase;
-import com.crm.qa.testcases.LogActivityTest;
-import com.crm.qa.util.Validation;
-import com.gargoylesoftware.htmlunit.ElementNotFoundException;
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
-import com.google.common.base.Function;
-import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.pages.SalesforceRestAPI_exp2;
+
 
 public class DetailsPage extends TestBase {
 	
@@ -479,13 +453,13 @@ public class DetailsPage extends TestBase {
 	    static String unplannedDate = ret[6];
 	    
 */
-		public static String enteredDate;
+		public static String  enteredDate;
 		public static String  verifyDate;
 		public static String  meetingDate;
 		public static String  meetingformattedDate;
-	    public static String uid ;
+	    public static String  uid ;
 	    public static String  unplannedDate;
-	    public static String emailupdate;
+	    public static String  emailupdate;
 	    
 	    
 	    String schedule1 = "Phone Call";
@@ -503,16 +477,10 @@ public class DetailsPage extends TestBase {
 		
 		}
 	
-	SoftAssert softAssertion = new SoftAssert();
-//	SoftAssert softAssertion2 = new SoftAssert();
-//	SoftAssert softAssertion3 = new SoftAssert();
-	
-	/*
-	String schedule1 = "Phone Call";
-	String schedule2 = "ToDo";
-	String schedule3 = "Appointment";
-	*/
+		SoftAssert softAssertion = new SoftAssert();
 
+	
+	
 	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
 		
 		//uid= SalesforceRestAPI.uid;
@@ -987,7 +955,7 @@ public class DetailsPage extends TestBase {
 	
 	
 	
-	
+//------------------------------------------------------------------------------------------------------------------------	
 	
 	
 	

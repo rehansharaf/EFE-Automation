@@ -4,35 +4,24 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.Format;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.crm.qa.pages.DetailsPage__exp2;
-import com.crm.qa.pages.SalesforceRestAPI_exp2;
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.util.WebEventListener;
 
@@ -170,26 +159,7 @@ public class TestBase {
 		
 	}
 	
-	
-	private static void sfdcdata() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	public static String generateRndmNum(String range) {
-	    
-		 int intrange = Integer.parseInt(range);
-		 Random rand = new Random(System.currentTimeMillis());
-		 int num = rand.nextInt(intrange);
-		 String snum = Integer.toString(num); 
-		 
-		  return snum;
-		
-		}
-	
-	
-	
+
 	
 
 }

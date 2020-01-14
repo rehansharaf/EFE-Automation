@@ -93,18 +93,13 @@ public class Enrollment extends TestBase {
 	
 	
 	
-	DetailsPage__exp2 detailspage = new DetailsPage__exp2();
+	DetailsPage detailspage = new DetailsPage();
 	String uid = DetailsPage.uid;
 	
 	String fname = "Testf"+ uid;
 	String lname = "Testl"+ uid;
 	String aname = fname+" "+lname;
 	
-
-	
-
-
-
 
 	
 	public void navigateToForms() throws InterruptedException {

@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 
-import com.crm.qa.pages.RetailAccount__exp2;
+import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.util.*;
 
 
@@ -92,7 +92,7 @@ public class HomePage extends TestBase {
 //		return new ContactsPage();
 //	} 
 	
-	SalesforceRestAPI_exp2 restapi = new SalesforceRestAPI_exp2();
+	SalesforceRestAPI restapi = new SalesforceRestAPI();
 	
 	
 	

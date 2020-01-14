@@ -13,14 +13,14 @@ import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactsPage;
-import com.crm.qa.pages.DetailsPage__exp2;
+import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.Enrollment;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
-import com.crm.qa.pages.RetailAccount__exp2;
-import com.crm.qa.pages.SalesforceRestAPI_exp2;
+import com.crm.qa.pages.RetailAccount;
+import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.VerifyTodo;
 import com.crm.qa.pages.createLead;
@@ -30,7 +30,7 @@ import com.crm.qa.util.TestUtil;
 
 public class LogActivityTests extends TestBase {
 	
-	DetailsPage__exp2 detailsPage;
+	DetailsPage detailsPage;
 	LoginPage loginPage;
 	HomePage homePage;
 	TestUtil testUtil;
@@ -38,7 +38,7 @@ public class LogActivityTests extends TestBase {
 	verifyLead verifylead;
 	Opportunities opp;
 	ReferralAppointment ref;
-	SalesforceRestAPI_exp2 sfdc;
+	SalesforceRestAPI sfdc;
 	
 	VerifyTodo verifyTodo = new VerifyTodo();
 	
@@ -49,7 +49,7 @@ public class LogActivityTests extends TestBase {
 	public void setUp() {
 		initialization();
 		testUtil = new TestUtil();
-		detailsPage = new DetailsPage__exp2();
+		detailsPage = new DetailsPage();
 		loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		try {
@@ -67,7 +67,7 @@ public class LogActivityTests extends TestBase {
 		}
 		
 		driver.findElement(By.xpath("(//a[@id='appTile'])[8]")).click();
-		SalesforceRestAPI_exp2.APIConnection();
+		SalesforceRestAPI.APIConnection();
 		
 	}
 	
@@ -124,7 +124,7 @@ public class LogActivityTests extends TestBase {
 		//old command
 		//SalesforceRestAPI.queryTaskObject(prop.getProperty("retailsfdcId"));
 		
-		SalesforceRestAPI_exp2.queryTaskObject(i);
+		SalesforceRestAPI.queryTaskObject(i);
 		
 //		detailsPage.verifyAll(0);
 //		softAssertion.assertAll();
@@ -196,7 +196,7 @@ public class LogActivityTests extends TestBase {
 	@Test()
 	public void debugTest1() throws InterruptedException {
 		
-		RetailAccount__exp2 ret = new RetailAccount__exp2();
+		RetailAccount ret = new RetailAccount();
 		//ret.createRetailuser();
 		ret.validRetailuser();
 	}
@@ -204,7 +204,7 @@ public class LogActivityTests extends TestBase {
 	@Test()
 	public void debugTest3() throws InterruptedException {
 		
-		RetailAccount__exp2 ret = new RetailAccount__exp2();
+		RetailAccount ret = new RetailAccount();
 	//	ret.createRetailuser();
 		//ret.addSpouse();
 	}
@@ -225,7 +225,7 @@ public class LogActivityTests extends TestBase {
 	@Test()
 	public void debugTest4() throws Exception {
 		
-		RetailAccount__exp2 ret = new RetailAccount__exp2();
+		RetailAccount ret = new RetailAccount();
 		ret.createRetailuser(1);
 		ret.validRetailuser();
 	}
@@ -265,6 +265,7 @@ public class LogActivityTests extends TestBase {
 		
 	}
 	
+	/*
 	@Test()
 	public void reachedWithLead_ScheduleToDo() throws InterruptedException, ParseException{
 		
@@ -298,7 +299,7 @@ public class LogActivityTests extends TestBase {
 		
 	}
 	
-	
+*/	
 	
 	@AfterMethod
 	public void tearDown(){

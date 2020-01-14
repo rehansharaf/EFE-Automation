@@ -9,9 +9,9 @@
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
           <include name="tearDown"/>
-          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="0"/>
+          <include name="notReached"/>
           <include name="setUp"/>
-          <include name="logaCall_UnplannedMeeting_multipleUsers" invocation-numbers="2"/>
+          <include name="reached"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

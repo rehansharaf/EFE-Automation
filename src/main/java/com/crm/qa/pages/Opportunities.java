@@ -261,6 +261,23 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")
 	WebElement NextBtn;
 	
+	@FindBy(xpath = "//span[@class='title'][contains(text(),'Financial Account')]")
+	WebElement financialAcctTab;
+	
+	@FindBy(xpath = "//a[@class='forceActionLink'][@title='New']")
+	WebElement newfinancialAcctBtn;
+	
+	@FindBy(xpath = "//span[contains(text(),'Financial Account Name')]/../..//input")
+	WebElement financialAcctNameInput;
+	
+	@FindBy(xpath = "//span[contains(text(),'Primary Owner')]/../..//input[@title='Search Accounts']")
+	WebElement searchPrimaryOwnerAcct;
+	
+	
+	
+	
+	
+	
 	
 	DetailsPage details = new DetailsPage();
 	
@@ -425,6 +442,32 @@ public class Opportunities extends TestBase{
 			
 	}
 
+	@SuppressWarnings("static-access")
+	public  void createFinancialAccount() throws InterruptedException, AWTException, IOException, ParseException {
+		
+		Thread.sleep(2000);
+		oppLink.click();
+		
+		Thread.sleep(2000);
+		
+		financialAcctTab.click();
+		newfinancialAcctBtn.click();
+		
+		Thread.sleep(2000);
+		financialAcctNameInput.sendKeys("FinanceAcct"+ details.uid);
+		
+		searchPrimaryOwnerAcct.sendKeys(RetailAccount.aname);
+		
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//ul[contains(@class,'visible')]")).click();
+		
+		driver.findElement(By.xpath("(//span[contains(text(),'Save')])[2]")).click();
+		Thread.sleep(2000);
+		
+	}
+	
+	
+	
 	
 
 	public void enterCommentsfor(String opttyType, int Outcome) throws InterruptedException, ParseException, IOException {

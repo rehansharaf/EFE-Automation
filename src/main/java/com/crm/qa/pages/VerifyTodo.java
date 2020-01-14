@@ -131,9 +131,9 @@ public class VerifyTodo extends TestBase {
 	
 	}
 	
-	DetailsPage__exp2 detailspage = new DetailsPage__exp2();
-	String comments = DetailsPage__exp2.commentsToEnter;
-	String timeStamp = DetailsPage__exp2.timeStamp;
+	DetailsPage detailspage = new DetailsPage();
+	String comments = DetailsPage.commentsToEnter;
+	String timeStamp = DetailsPage.timeStamp;
 	String taskDate = DetailsPage.verifyDate;
 	String meetingDate = DetailsPage.meetingformattedDate;
 	

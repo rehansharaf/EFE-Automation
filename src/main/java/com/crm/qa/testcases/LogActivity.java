@@ -13,14 +13,13 @@ import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactsPage;
-import com.crm.qa.pages.DetailsPage__exp2;
+
 import com.crm.qa.pages.Enrollment;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
-import com.crm.qa.pages.RetailAccount__exp2;
-import com.crm.qa.pages.SalesforceRestAPI_exp2;
+
 import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.VerifyTodo;
@@ -29,11 +28,12 @@ import com.crm.qa.pages.verifyLead;
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.util.ExcelWrite;
 import java.util.HashMap;
+import com.crm.qa.pages.*;
 
 
 public class LogActivity extends TestBase {
 	
-	DetailsPage__exp2 detailsPage;
+	DetailsPage detailsPage;
 	LoginPage loginPage;
 	HomePage homePage;
 	TestUtil testUtil;
@@ -54,7 +54,7 @@ public class LogActivity extends TestBase {
 	public void setUp() throws InterruptedException {
 		initialization();
 		testUtil = new TestUtil();
-		detailsPage = new DetailsPage__exp2();
+		detailsPage = new DetailsPage();
 		loginPage = new LoginPage();
 		excelWrite = new ExcelWrite();
 

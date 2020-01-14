@@ -15,9 +15,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.Status;
-import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactsPage;
-import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
@@ -28,14 +26,13 @@ import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.createLead;
 import com.crm.qa.pages.verifyLead;
-import com.crm.qa.pages.RetailAccount__exp2;
 import com.crm.qa.pages.SalesforceRestAPI;
-import com.crm.qa.pages.SalesforceRestAPI_exp2;
 import com.crm.qa.util.Log;
 import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.util.TestUtil;
 import com.qa.ExtentReport.*;
 import com.crm.qa.testcases.LogActivityTest;
+import com.crm.qa.base.*;
 
 public class BranchOpportunityTest extends TestBase {
 	
@@ -49,7 +46,7 @@ public class BranchOpportunityTest extends TestBase {
 	Opportunities opp;
 	ReferralAppointment ref;
 	RetailAccount retailAccount;
-	
+	InitializeUserData initializeData;
 	
 	SoftAssert softAssertion = new SoftAssert();
 	
@@ -61,47 +58,26 @@ public class BranchOpportunityTest extends TestBase {
 		loginPage = new LoginPage();
 		retailAccount = new RetailAccount();
 		opp = new Opportunities();
+		initializeData = new InitializeUserData();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	
+		initializeData.initialize();
+	
+	
 	}
 	
 	
 
-	public static void Initialize() throws InterruptedException, ParseException, IOException, InvalidFormatException{
-		
-		Map<String, String> Data = new HashMap<String, String>();
-		Data = RetailUserdetails.getDetailPageData();
-		String uid = Data.get("uniqueid");
-		SalesforceRestAPI.uid = RetailAccount.uid = DetailsPage.uid = uid;
-		
-		SalesforceRestAPI.fname = "Testf"+ uid;
-		SalesforceRestAPI.lname = "Testl"+ uid;
-		SalesforceRestAPI.bname = "Testb"+ uid;
-		
-		String aname = SalesforceRestAPI.fname+" "+SalesforceRestAPI.lname;
-		RetailAccount.aname = aname;
-		
-		DetailsPage.enteredDate = Data.get("enteredDate");
-		DetailsPage.verifyDate = Data.get("verifyDate");
-		DetailsPage.meetingDate = Data.get("meetingDate");
-		DetailsPage.meetingformattedDate = Data.get("meetingformattedDate");
-		DetailsPage.unplannedDate = Data.get("unplannedDate");
-		DetailsPage.emailupdate = "testf"+uid+"@updateaccount.com";
-		
-		
-		
-	}	
-	
-	
 	
 	@Test()
 
 	public void createBranchOptty_viaAPI() throws Exception {
 		
 		
-		Initialize();
+		//Initialize();
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
-		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.getFirstName(), SalesforceRestAPI.getLastName());
+		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.fname, SalesforceRestAPI.lname);
 		opp.navigateTouser("primary");
 		opp.validateOpttyCounter(1);
 		
@@ -205,12 +181,26 @@ public class BranchOpportunityTest extends TestBase {
 		
 	}
 	
+
+	//Work in Progress
+	@Test()
+	public void createFinancialAccount_BMOptty() throws Exception {
+		
+		TestUtil.print("BM Opportunity - Add a Financial Account ");
+		
+		
+		createBranchOptty_viaAPI();
+		opp.createFinancialAccount();
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		opp.validateOpttyforStageStatus("Initial Appointment");
+		
+	}
 	
 	
 	
 	
 	
-	
+//------------------------------------------------------------------------------------------------------------------------	
 	
 	
 	

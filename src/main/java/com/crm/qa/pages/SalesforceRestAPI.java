@@ -38,17 +38,14 @@ import com.crm.qa.util.RetailUserdetails;
  
 public class SalesforceRestAPI extends TestBase {
  
-
-	
-	
-	static final String USERNAME     = "isharaf@fe.com.fscfull";
-    static final String PASSWORD     = "Capricon26!";
-    static final String LOGINURL     = "https://test.salesforce.com";
-    static final String GRANTSERVICE = "/services/oauth2/token?grant_type=password";
-    static final String CLIENTID     = "3MVG9qbIpUScOGtYABP3g246J0TP_jQjzSMgl8SMHmxFFTNtZamxl_LVwYt1GLG4r6YJI.cjj.yrc9iTSsa6W";
-    static final String CLIENTSECRET = "BEFB05E7596B2FCF9FDB131F4D9C5E3F4B1188BC71C0748601E828E71F5CBC59";
+	static final String USERNAME     	= prop.getProperty("username");
+	static final String PASSWORD     	= prop.getProperty("password");
+	static final String LOGINURL     	= prop.getProperty("url");
+	static final String GRANTSERVICE 	= "/services/oauth2/token?grant_type=password";
+    static final String CLIENTID     	= prop.getProperty("SFDC_API_ClientID");
+    static final String CLIENTSECRET 	= prop.getProperty("SFDC_API_ClientSecret");
     private static String REST_ENDPOINT = "/services/data" ;
-    private static String API_VERSION = "/v45.0" ;
+    private static String API_VERSION 	= "/v45.0" ;
     private static String baseUri;
     private static Header oauthHeader;
     private static Header prettyPrintHeader = new BasicHeader("X-PrettyPrint", "1");
@@ -73,17 +70,6 @@ public class SalesforceRestAPI extends TestBase {
     
     private static LocalDate futureDate = LocalDate.now().plusDays(15);
    
-    /*
-    static String uid = DetailsPage.uniqueid;
-    
-    static String fname = "Testf"+ uid;
-	static String lname = "Testl"+ uid;
-	static String bname = "Testb"+ uid;
-	
-	*/
-   
-    //public static String uid = RetailUserdetails.getUniqueID();
-    
     public static String uid;
     public static String fname ;
     public static String lname ;
@@ -199,8 +185,6 @@ public class SalesforceRestAPI extends TestBase {
 	   
    }
   
-   
-   
     
     public void releaseConnection() {
     	
@@ -224,13 +208,10 @@ public class SalesforceRestAPI extends TestBase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        
     	
     }
     
-    
-    
- 
+   
     // Query Leads using REST HttpGet
     public static JSONArray queryTaskObject(int i) {
     	
@@ -238,23 +219,13 @@ public class SalesforceRestAPI extends TestBase {
     	String sfdcid = objMap.get("sfdcId");
     	String leadid = objMap.get("businessLeadId");
     	
-    	
-        String taskUri = baseUri + "/query?q=select+Id+,+AccountId+,+Call_Start_Time__c+,+Description+,+Call_Outcome__c+,+Call_Type__c+,+Status+,+Solutions_Discussed__c+from+Task+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
-       
-        String scheduleUri = baseUri + "/query?q=select+Id+,+AccountId+,+Type+,+Call_Start_Time__c+,+Description+,+Call_Outcome__c+,+Status+,+Solutions_Discussed__c,+ActivityDate+from+Task+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
-       
-
-        String meetingUri = baseUri + "/query?q=select+Id+,+Meeting_Medium__c+,+Meeting_Status__c+,+StartDateTime+,+EndDateTime+,+Type+,+Meeting_Sub_Type__c+,+Appointment_Start_Date_Time_Text__c+from+Event+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
-       
-        String lead1Uri = baseUri + "/query?q=select+Id+,+Call_attempts_made__c+,+Status+from+Lead+where+Id+='" +leadid+"'+ORDER+BY+CreatedDate+Desc";
-        
-        String lead2Uri = baseUri + "/query?q=select+Id+,+Call_attempts_made__c+,+Status+,+Customer_Contact__C+,+IsConverted+,+LastActivityDate+from+Lead+where+Id+='" +leadid+"'+ORDER+BY+CreatedDate+Desc";
-        
-        
+        String taskUri 		= baseUri + "/query?q=select+Id+,+AccountId+,+Call_Start_Time__c+,+Description+,+Call_Outcome__c+,+Call_Type__c+,+Status+,+Solutions_Discussed__c+from+Task+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
+        String scheduleUri 	= baseUri + "/query?q=select+Id+,+AccountId+,+Type+,+Call_Start_Time__c+,+Description+,+Call_Outcome__c+,+Status+,+Solutions_Discussed__c,+ActivityDate+from+Task+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
+        String meetingUri 	= baseUri + "/query?q=select+Id+,+Meeting_Medium__c+,+Meeting_Status__c+,+StartDateTime+,+EndDateTime+,+Type+,+Meeting_Sub_Type__c+,+Appointment_Start_Date_Time_Text__c+from+Event+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
+        String lead1Uri 	= baseUri + "/query?q=select+Id+,+Call_attempts_made__c+,+Status+from+Lead+where+Id+='" +leadid+"'+ORDER+BY+CreatedDate+Desc";
+        String lead2Uri 	= baseUri + "/query?q=select+Id+,+Call_attempts_made__c+,+Status+,+Customer_Contact__C+,+IsConverted+,+LastActivityDate+from+Lead+where+Id+='" +leadid+"'+ORDER+BY+CreatedDate+Desc";
         String branchoppUri = baseUri + "/query?q=select+Id+,+Total_Expected_Amount__c+,+CreatedDate+,+LeadSource+,+StageName+from+opportunity+where+AccountId+='" +sfdcid+"'+ORDER+BY+CreatedDate+Desc";
-        
-        String finAccUri = baseUri + "/query?q=select+Id+,+Deactivated__c+,+Finserv__FinancialAccountType__c+from+FinServ__FinancialAccount__c+where+FinServ__PrimaryOwner__c+='" +sfdcid+"'+ORDER+BY+Deactivated__c+Desc";
-        
+        String finAccUri 	= baseUri + "/query?q=select+Id+,+Deactivated__c+,+Finserv__FinancialAccountType__c+from+FinServ__FinancialAccount__c+where+FinServ__PrimaryOwner__c+='" +sfdcid+"'+ORDER+BY+Deactivated__c+Desc";
         		
     	JSONArray j = null;
     	
@@ -264,50 +235,24 @@ public class SalesforceRestAPI extends TestBase {
             //Set up the HTTP objects needed to make the request.
             HttpClient httpClient = HttpClientBuilder.create().build();
             
-            //'0010R00000UlPkFQAV'
- 
            // String uri = baseUri + "/query?q=select+Id+,+AccountId+,+Call_Start_Time__c+,+Description+,+Call_Outcome__c+,+Call_Type__c+,+Status+,+Solutions_Discussed__c+from+Task+where+AccountId+='" +sfdcId+"'+ORDER+BY+CreatedDate+Desc";
           //  System.out.println("Query URL: " + taskUri);
             
-            if (i == 1) {
-            	Uri = taskUri;
-            		
-            		
-    		} else if (i == 2) {
-    			
-    			Uri = scheduleUri;
-    				
-    		} else if (i == 3) {
-    			
-    			Uri = meetingUri;
-    				
-    		} else if (i == 4) {
-    			
-    			Uri = lead1Uri;
-    				
-    		} else if (i == 5) {
-    			
-    			Uri = lead2Uri;
-    				
-    		} else if (i == 6) {
-    			
-    			Uri = branchoppUri;
-    			
-    		} else if (i == 7) {
-    			
-    			Uri = finAccUri;
-    		}
+            if 		(i == 1) {Uri = taskUri;} 
+            else if (i == 2) {Uri = scheduleUri;} 
+            else if (i == 3) {Uri = meetingUri;} 
+            else if (i == 4) {Uri = lead1Uri;} 
+            else if (i == 5) {Uri = lead2Uri;} 
+            else if (i == 6) {Uri = branchoppUri;} 
+            else if (i == 7) {Uri = finAccUri;}
             
             
             HttpGet httpGet = new HttpGet(Uri);
     		System.out.println("Query URL: " + Uri);
-    		 System.out.println("oauthHeader2: " + oauthHeader);
-             httpGet.addHeader(oauthHeader);
-             httpGet.addHeader(prettyPrintHeader);
+    		System.out.println("oauthHeader2: " + oauthHeader);
+            httpGet.addHeader(oauthHeader);
+            httpGet.addHeader(prettyPrintHeader);
             
-            
-           
- 
             // Make the request.
             HttpResponse response = httpClient.execute(httpGet);
  
@@ -319,8 +264,6 @@ public class SalesforceRestAPI extends TestBase {
                     JSONObject json = new JSONObject(response_string);
                     System.out.println("JSON result of Query:\n" + json.toString(1));
                     j = json.getJSONArray("records");
-                    
-                       
                   
                 } catch (JSONException je) {
                     je.printStackTrace();
@@ -383,8 +326,7 @@ public class SalesforceRestAPI extends TestBase {
 	String uri = baseUri + "/quickActions/Create_Retail_Account";
 	
     try {
-    	 
-
+    
         //create the JSON object containing the new lead details.
         JSONObject retail = new JSONObject();
         retail.put("FirstName", fname);
@@ -759,8 +701,6 @@ public static void updateRetailRecord1() {
 	  
 	 }   
  
-
- 
  
  
  public static void createBusinessLead() {
@@ -989,13 +929,7 @@ public static void createBranchOpp(String fname1, String lname1) {
         branchopp.put("OwnerId", "0050R000000XRFmQAO");
         branchopp.put("QMM_Disclosure__c","QMM Disclosure Not Required");
         
-     
-       
-        
-   
-        
-        
-        
+          
         System.out.println("JSON for Branch Lead record to be inserted:\n" +branchopp.toString(1));
 
         //Construct the objects needed for the request
@@ -1347,7 +1281,7 @@ public static void createRegularAccount() {
   
  }   
 
-
+/*
 public void set_uid(String userid) {this.uid = userid;}
 public void set_fname(String firstname) {this.fname = firstname;}
 public void set_lname(String lastname) {this.lname = lastname;}
@@ -1369,7 +1303,7 @@ public static String generateRndmNum(String range) {
 	
 	}	
 
-
+*/
 
  
 }
