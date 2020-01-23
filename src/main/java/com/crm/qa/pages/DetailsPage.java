@@ -1,21 +1,13 @@
 package com.crm.qa.pages;
 
-
-
 import java.awt.AWTException;
-
 import java.io.IOException;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import java.util.Date;
 import java.util.List;
-
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -112,12 +104,8 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//span[contains(text(),'Subject')])[2]/../following-sibling::div/span/span")
 	WebElement taskSubject;	
 	
-//	@FindBy(xpath = "(//span[contains(text(),'Harshal Sakpal')])[5]")
-//	WebElement navigateUser;	
-
 	@FindBy(xpath = "//span[contains(text(),'Call Outcome')]/../following-sibling::div/span/span")
 	WebElement calloutcomeText;	
-	
 	
 	@FindBy(xpath = "//span[contains(text(),'Call Type')]/../following-sibling::div/span/span")
 	WebElement callType;	
@@ -127,9 +115,6 @@ public class DetailsPage extends TestBase {
 	
 	@FindBy(xpath = "(//a[@data-refid='recordId'])[1]")
 	WebElement oppLink;
-	
-//	@FindBy(xpath = "(//a[contains(text(),'Harshal Sakpal')])[1]")
-//	WebElement accountLink;
 	
 	@FindBy(xpath = "(//a[contains(text(),'Ford-401K Roll-in')])")
 	WebElement oppLink1;
@@ -144,30 +129,25 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//span[contains(text(),'Stage')])[2]/../following-sibling::div/span/span")
 	WebElement stage;
 	
-	//@FindBy(xpath = "//div[contains(text(),'Schedule a Phone Call')]")
-	//WebElement scheduleType;
-	
-	
 	@FindBy(xpath = "//div[contains(text(),'Schedule a Phone Call')]")
 	WebElement scheduleType;
 	
-	//@FindBy(xpath = "//div[contains(text(),'Schedule Appointment')]")
+	//@FindBy(xpath = "//div[contains(text(),'Schedule/Close a Meeting')]")
 	//WebElement scheduleApp;
-	
-	//@FindBy(xpath = "//input[@name='Create_Appointment' and @type='checkbox']//..")
-	//WebElement scheduleApp;
-	
-	
-	@FindBy(xpath = "//div[contains(text(),'Schedule/Close a Meeting')]")
+	@FindBy(xpath = "//div[contains(text(),'Schedule Meeting')]")
 	WebElement scheduleApp;
 
-	
 	@FindBy(xpath = "//div[contains(text(),'Schedule a To-Do')]")
 	WebElement toDo;
-
 	
 	@FindBy(xpath = "//div[contains(text(),'Future Phone Call')]")
 	WebElement futurePhoneCall;
+	
+	@FindBy(xpath = "//div[contains(text(),'Personal Advisor')]")
+	WebElement futureToDo;
+	
+	@FindBy(xpath = "//div[contains(text(),'Personal Advisor')]")
+	WebElement scheduleTeamMeetingScroll;
 	
 	@FindBy(xpath = "//span[contains(text(),'Due Date')]")
 	WebElement dueDate;
@@ -188,16 +168,15 @@ public class DetailsPage extends TestBase {
 	WebElement meetingStartTime;
 	
 	
-	@FindBy(xpath = "//input[@name='Meeting_End_Date_And_Time' and @type='text' and @class = 'slds-input']")
-	WebElement meetingEndDate;
+	//@FindBy(xpath = "//input[@name='Meeting_End_Date_And_Time' and @type='text' and @class = 'slds-input']")
+	//WebElement meetingEndDate;
 	
 	
-	@FindBy(xpath = "//input[@name='Meeting_End_Date_And_Time' and @type='text' and @class = 'slds-input slds-combobox__input']")
-	WebElement meetingEndTime;
+	//@FindBy(xpath = "//input[@name='Meeting_End_Date_And_Time' and @type='text' and @class = 'slds-input slds-combobox__input']")
+	//WebElement meetingEndTime;
 	
-	@FindBy(xpath = "//div[contains(@class,'col right-col slds-size')]//div[3]//select[contains(@class, 'select uiInput uiInputSelect')]")
+	@FindBy(xpath = "//div[contains(text(),'Meeting Duration (Minutes)')]//ancestor::div[@class='bBody']//div//select")
 	WebElement meetingDuration;
-	
 	
 	
 	@FindBy(xpath = "//label[contains(text(),'Assigned To')]/following-sibling::div//input")
@@ -216,12 +195,11 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//div[contains(text(),'Due Date')]/../../following-sibling::div/div/input")
 	WebElement enterDate2;
 	
-	@FindBy(xpath = "//button[contains(text(),'Previous')]/..//following-sibling::button")
+	@FindBy(xpath = "(//button[contains(text(),'Previous')]/..//following-sibling::button)[last()]")
 	WebElement nextButton1;
 	
 	//@FindBy(xpath = "(//button[contains(text(),'Next')])[2]")
 	//WebElement nextButton1;
-	
 	
 	
 	@FindBy(xpath = "//span[contains(text(),'Last Modified By')]/../following-sibling::div/span/span")
@@ -250,6 +228,9 @@ public class DetailsPage extends TestBase {
 	
 	@FindBy(xpath = "//div[contains(text(),'How do you intend to meet with the client?')]/../../../following-sibling::div/select")
 	WebElement meetingClient;
+	
+	@FindBy(xpath = "//b[contains(text(),'Schedule a Meeting with yourself or the team')]")
+	WebElement scheduleteammeetingLbl;
 	
 	@FindBy(xpath = "//span[contains(text(),'Call Outcome')]/../following-sibling::div/span/span")
 	WebElement taskStatus;	
@@ -359,9 +340,6 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//*[contains (@class, ('datePicker'))])[1]/..")
 	WebElement dobEditInput;
 	
-	//@FindBy(xpath = "//span[contains(text(),'Today')]")
-	//WebElement dobAsToday;
-	
 	@FindBy(xpath = "(//a[contains (@class, 'datePicker')]/..//input[contains (@class, ('input'))])[1]")
 	WebElement dobInput;
 	
@@ -395,42 +373,53 @@ public class DetailsPage extends TestBase {
 	//@FindBy(xpath = "(//button[contains(text(),'Next')])[1]")
 	//WebElement houseHoldNextButton;
 	
-	@FindBy(xpath = "(//button[contains(text(),'Next')])[1]")
-	WebElement logCallNextButton1;
+	//@FindBy(xpath = "(//button[contains(text(),'Next')])[1]")
+	//WebElement logCallNextButton1;
 	
-	@FindBy(xpath = "//div[@data-component-id = 'flowruntime_interview']//button[contains(text(),'Next')]")
+	//@FindBy(xpath = "//div[@data-component-id = 'flowruntime_interview']//button[contains(text(),'Next')]")
+	//WebElement logCallNextButton;
+	
+	@FindBy(xpath = "//div[contains(text(),'Personal Advisor')]/ancestor::div[contains (@class, ('slds-tabs_card'))]//button[contains(text(),'Next')]")
 	WebElement logCallNextButton;
 	
 	//@FindBy(xpath = "(//button[contains(text(),'Next')])[2]")
 	//WebElement futureActivityNextButton;
 	
-	@FindBy(xpath = "//div[@data-component-id = 'flowruntime_interview4']//button[contains(text(),'Next')]")
+	//@FindBy(xpath = "//div[@data-component-id = 'flowruntime_interview3']//button[contains(text(),'Next')]")
+	//WebElement futureActivityNextButton;
+	
+	@FindBy(xpath = "//span[contains(text(),'Schedule a Future Activity')]/ancestor::div[@class ='content']//button[contains(text(),'Next')]")
 	WebElement futureActivityNextButton;
 	
+	//@FindBy(xpath = "//div[contains(text(),'Comments')]/ancestor::div[@class ='content']//button[contains(text(),'Next')]")
+	//WebElement futuretodoNextButton;
 	
-	//@FindBy(xpath = "(//button[contains(text(),'Next')])[3]")
+	//@FindBy(xpath ="//div[@data-component-id = 'flowruntime_interview4']//button[contains(text(),'Next')]")
 	//WebElement opttyNextButton;
 	
-	@FindBy(xpath ="//div[@data-component-id = 'flowruntime_interview5']//button[contains(text(),'Next')]")
+	@FindBy(xpath ="//span[contains(text(),'Create Opportunity')]/ancestor::div[@class= 'content']//button[contains(text(),'Next')]")
 	WebElement opttyNextButton;
+	
 	
 	@FindBy(xpath = "//label[contains (@for, ('No_Selected'))]")
 	WebElement noOpttyRdBtn;
 	
+	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='content']//button[contains(text(),'Next')]")
+	WebElement noOpttyNxtBtn;
 	
-	//***********************
+	@FindBy(xpath = "//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]")
+	WebElement scheduleMeetingNextButton;
+	
+	@FindBy(xpath = "//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Finish')]")
+	WebElement scheduleMeetingFinishButton;
+	
+	
+	
+	
+	
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 
-
-//	String timeStamp1 = "AUG 31, 2018";
-	
-	
-
-	// article[@class='slds-card
-	// cCurrentPhoneCommunication']//tbody//tr[1]//lightning-formatted-url[1]
-	// article[@class='slds-card cCallDetails']
-	//yyMMddhhmmssMs
 
 		static SimpleDateFormat timestamp = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
 		static String timeStamp = timestamp.format(new Date());
@@ -443,16 +432,7 @@ public class DetailsPage extends TestBase {
 		String timeStamp11 = timestamp11.format(new Date());
 		String[] dateStr12 = timeStamp11.split("\\s+");
 		
-/*
-		static String[] ret = addDaysToCurrentTime(7);
-	    String enteredDate = ret[0];
-	    static String verifyDate = ret[1];
-	    static String meetingDate = ret[2];
-	    static String meetingformattedDate = ret[3];
-	    public static String uid = ret[4];
-	    static String unplannedDate = ret[6];
-	    
-*/
+
 		public static String  enteredDate;
 		public static String  verifyDate;
 		public static String  meetingDate;
@@ -466,58 +446,44 @@ public class DetailsPage extends TestBase {
 		String schedule2 = "ToDo";
 		String schedule3 = "Appointment";
 		
-		//static String commentsToEnter = "TestingPurpose " + uid;
 		static String commentsToEnter;
 		static String[] splitStr1 = timeStamp.split("\\s+");
 
 		
 		
-		public DetailsPage() {
-		PageFactory.initElements(driver, this);
-		
-		}
+		public DetailsPage() {PageFactory.initElements(driver, this);}
 	
+		
 		SoftAssert softAssertion = new SoftAssert();
 
 	
 	
 	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
 		
-		//uid= SalesforceRestAPI.uid;
-		 
 		String commentsToEnter = "TestingPurpose " + uid;
 		
-		TestUtil.waitForElement("Comments", comments);
-	
-		System.out.println("TimeStamp......................" + timeStamp );
 		prop.setProperty("Call Start Time", timeStamp);
-	
 		
 		Thread.sleep(2000);
 		commentsTextarea.sendKeys(commentsToEnter);
-		
-		//Thread.sleep(5000);
 		prop.setProperty("EnteredComments", commentsToEnter);
 		
 		Thread.sleep(2000);
 		selectOutcome(i);
 		
-		//TestUtil.waitForElement("Management", solutionsDiscussed );
-		
 		solutionsDiscussed.click();
 		
-		//if (i!=0){ CreateOpportunityLabel.click();}
-		
-		//clickNextButton();
-		
-		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		logCallNextButton.click();  
+		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
+		//logCallNextButton.click();  
 	
+		jse2.executeScript("arguments[0].click()", logCallNextButton);
+		
+		
 		Thread.sleep(5000);
 		noOpttyRdBtn.click();
 		
-		logCallNextButton.click();
-		
+		//logCallNextButton.click();
+		noOpttyNxtBtn.click();
 		
 	}
 		 
@@ -529,16 +495,15 @@ public class DetailsPage extends TestBase {
 		
 		String commentsToEnter = "TestingPurpose " + uid;
 		
-		//String LoggedinUser = LoggedUser.getText().substring(11);
-		
 		if (schedule.equals(schedule1)) {
 			
 			
 			TestUtil.waitForElement("Future Phone Call", futurePhoneCall);
 
 			
-		/*		
-			String getdrop = driver.findElement(By.xpath("(//input[contains (@placeholder, ('Select an Option'))])[1]")).getText();
+		/*-------------Keep this part of the code, might need it in future----------------------
+		 	
+		 	String getdrop = driver.findElement(By.xpath("(//input[contains (@placeholder, ('Select an Option'))])[1]")).getText();
 			String getdrop1 = driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText().substring(4).trim();
 			
 			if (driver.findElement(By.xpath("//*[contains (@href , ('/lightning/r/User'))][contains(@title, ('" + LoggedinUser + "'))]")).getText() != null){
@@ -546,27 +511,33 @@ public class DetailsPage extends TestBase {
 			assignedtoDropDown.sendKeys(LoggedinUser);
 			driver.findElement(By.xpath("(//*[contains (@title, '" +LoggedinUser+ "')])[5]")).click();			
 			}
-		*/
+		--------------------------------------------------------------------------------------------*/
 	
 			enterDate1.sendKeys(enteredDate);
 			enterSubject_Phone.sendKeys(commentsToEnter);
-			nextButton1.click();
+			jse2.executeScript("arguments[0].scrollIntoView()", futurePhoneCall);
+			
+			//nextButton1.click();
+			futureActivityNextButton.click();
 					
 		} else if (schedule.equals(schedule2)) {
 			
 			//Thread.sleep(2000);	
-			TestUtil.waitForElement("Due Date", dueDate);
+			//TestUtil.waitForElement("Due Date", dueDate);
 			enterDate1.sendKeys(enteredDate);
 			enterSubject_ToDo.sendKeys(commentsToEnter);
-			nextButton1.click();
-			
+			jse2.executeScript("arguments[0].scrollIntoView()", futureToDo);
+			//nextButton1.click();
+			futureActivityNextButton.click();
+			//futuretodoNextButton.click();
 		} else {
 				//Thread.sleep(2000);	
 				createFutureMeeting();
 				nextButton1.click();
 		}
 	
-	/*		
+	/*-------------Keep this part of the code, might need it in future----------------------
+	
 		if(driver.findElements(By.xpath("(//*[contains(@class,'slds-form slds-form_stacked')]/div[2]/div[2]/div[1]/div[2]/span[1])[3]")).isEmpty()){	
 		
 			String advisorsfdcId1 = prop.getProperty("advisorsfdcId1");
@@ -586,7 +557,8 @@ public class DetailsPage extends TestBase {
 			Reload.click();
 		
 		}
-	*/
+	
+	--------------------------------------------------------------------------------------------*/
 
 	
 	}
@@ -601,48 +573,49 @@ public class DetailsPage extends TestBase {
 		
 		String commentsToEnter = "TestingPurpose " + uid;
 		
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		commentsTextarea.sendKeys(commentsToEnter);
-		
-		//Thread.sleep(5000);
 		
 		prop.setProperty("EnteredComments", commentsToEnter);
 		
 		Thread.sleep(5000);
 		prop.setProperty("Call Start Time", timeStamp);
 		
-		//Thread.sleep(5000);
 		solutionsDiscussed.click();
-		System.out.println(i);
+		//System.out.println(i);
 		
 		selectOutcome(i);
-		System.out.println("index : " +i);
+		//System.out.println("index : " +i);
 		
-		//CreateOpportunityLabel.click();
-		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		logCallNextButton.click();
+		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
+		//logCallNextButton.click();
+		jse2.executeScript("arguments[0].click()", logCallNextButton);
 		
 		Thread.sleep(5000);
 		
 		noOpttyRdBtn.click();
 		
-		logCallNextButton.click();
+		//logCallNextButton.click();
+		noOpttyNxtBtn.click();
+		Thread.sleep(2000);
 	
-		//driver.findElement(By.xpath("//span[contains(text(),'Create Opportunity')]")).click();
 		
 		if      (sched.equals(schedule3)) {CreateOpportunityLabel.click(); 	scheduleApp.click();} 
 		else if (sched.equals(schedule2)) {CreateOpportunityLabel.click();	toDo.click();} 
 		else if (sched.equals(schedule1)) {CreateOpportunityLabel.click();	scheduleType.click();}
 		
+		
+		
 		Thread.sleep(2000);
-		//clickNextButton();
 		futureActivityNextButton.click();
 		
-		/*
+		/*-------------Keep this part of the code, might need it in future----------------------
+		
 		if (driver.findElements(By.xpath("//div[contains(text(),'Open Tasks')]")).size() > 0){
 			 NextBtn.getSize();	{ clickNextButton();}
 		}
-		*/
+		---------------------------------------------------------------------------------------*/
+		
 		
 		scheduleworkflow(sched);
 		
@@ -654,21 +627,17 @@ public class DetailsPage extends TestBase {
 	
 		String commentsToEnter = "TestingPurpose " + uid;
 		
-		TestUtil.waitForElement("Comments", comments);
+		//TestUtil.waitForElement("Comments", comments);
 		
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		commentsTextarea.sendKeys(commentsToEnter);
 		
 		TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
-		
 		solutionsDiscussed.click();
 		
 		scheduleApp.click();
 		
-		//clickNextButton();
-		
 		futureActivityNextButton.click();
-		
 		Thread.sleep(5000);
 		
 		
@@ -680,12 +649,7 @@ public class DetailsPage extends TestBase {
 
 	public void reached_scheduleAppointment1() throws InterruptedException, ParseException, AWTException {
 	
-	
-		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		
 		String commentsToEnter = "TestingPurpose " + uid;
-		
-		//TestUtil.waitForElement("Comments", comments);
 		
 		Thread.sleep(3000);
 		commentsTextarea.sendKeys(commentsToEnter);
@@ -699,27 +663,29 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(3000);
 		
 		noOpttyRdBtn.click();
-		logCallNextButton.click();
+		//logCallNextButton.click();
+		noOpttyNxtBtn.click();
+		
 		
 		Thread.sleep(2000);
-		
 		CreateOpportunityLabel.click();
 		scheduleApp.click();
 
 		Thread.sleep(2000);
-		//clickNextButton();
 		futureActivityNextButton.click();
 		
+		
+	
+		/*-------------Keep this part of the code, might need it in future----------------------
+			
+			If Next Button is present on the screen then click Next Button 
+	    	NextBtn.getSize();{ clickNextButton(); }
+	
+		---------------------------------------------------------------------------------------*/		
+	
 		Thread.sleep(5000);
-	
-	/*	
-		//If Next Button is present on the screen then click Next Button 
-	    NextBtn.getSize();{ clickNextButton(); }
-	
-	*/		
 		createFutureAppointment();
 		
-		//NextBtn.getSize();{clickNextButton();}
 		
 	}
 
@@ -734,8 +700,6 @@ public class DetailsPage extends TestBase {
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		solutionsDiscussed.click();
 	
-		//clickNextButton();
-		
 		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		logCallNextButton.click();
 		
@@ -761,24 +725,25 @@ public class DetailsPage extends TestBase {
 
 	public void createFutureAppointment() throws InterruptedException {
 		
-		jse2.executeScript("arguments[0].scrollIntoView()", meetingClient);
+		jse2.executeScript("arguments[0].scrollIntoView()", scheduleTeamMeetingScroll);
 	
 		TestUtil.SelectDropDownOption(meetingClient, "On-Phone Meeting");
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
+		
 		meetingStartDate.sendKeys(enteredDate);
 		meetingStartTime.click();
 		meetingStartTime.clear();
 		meetingStartTime.sendKeys("12:00 PM");
-		
+		meetingStartTime.sendKeys(Keys.TAB);
 		meetingDuration.sendKeys("60");
 		
-		//nextButton1.click();
+		//futureActivityNextButton.click();
+		//Thread.sleep(3000);
 		
-		futureActivityNextButton.click();
-		Thread.sleep(3000);
+		jse2.executeScript("arguments[0].click()", scheduleMeetingNextButton);
+		Thread.sleep(2000);
+		jse2.executeScript("arguments[0].click()", scheduleMeetingFinishButton);
 		
-		jse2.executeScript("arguments[0].click()", nextButton1);
-		//nextButton1.click();
 		
 	}
 	
@@ -788,13 +753,8 @@ public class DetailsPage extends TestBase {
 		
 		Thread.sleep(10000);
 		emailEditBtn.click();
-
-		//Thread.sleep(3000);
 		emailEditInput.clear();
-		
 		emailEditInput.sendKeys(emailupdate);
-		
-		//Thread.sleep(3000);
 		workphoneEditInput.clear();
 		workphoneEditInput.sendKeys("9998887777");
 		
@@ -810,7 +770,6 @@ public class DetailsPage extends TestBase {
 		genderMale.click();
 	
 		dobEditInput.click();
-		//dobAsToday.click();
 		dobInput.clear();
 		dobInput.sendKeys("12/11/1972");
 		
@@ -819,7 +778,6 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(5000);
 		scrolltoAddressInformation.click();
 		
-		//Thread.sleep(3000);
 		addressEditBtn.click();
 		Thread.sleep(3000);
 		textMailingStreet.clear();
@@ -841,8 +799,6 @@ public class DetailsPage extends TestBase {
 		
 		Thread.sleep(5000);
 		
-		//scrolltoClientInformation.click();
-		
 		String clientEmail = getFieldData("Edit Client Provided Email");
 		//clientEmail = clientEmail.substring(clientEmail.indexOf("@")+ 1);
 		softAssertion.assertEquals(clientEmail, cEmail, "Email not matched.....");
@@ -855,11 +811,8 @@ public class DetailsPage extends TestBase {
 		
 		Thread.sleep(3000);
 		
-		//scrolltoGenderInformation.click();
-		
 		String gender = getFieldData("Edit Gender");
 		softAssertion.assertEquals(gender, cGender, "Gender not matched....");
-		
 		
 		String dateOfBirth = getFieldData("Edit Date of Birth");
 		softAssertion.assertEquals(dateOfBirth, cDateofBirth, "DOB not matched.....");

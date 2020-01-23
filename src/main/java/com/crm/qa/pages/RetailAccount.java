@@ -220,7 +220,6 @@ public class RetailAccount extends TestBase {
 		
 		Thread.sleep(15000);
 		globalButton.click(); 
-		//TestUtil.waitForElement("Create Retail Account", createRetail);
 		
 		Thread.sleep(5000);
 		createRetail.click();
@@ -238,11 +237,8 @@ public class RetailAccount extends TestBase {
 		firstName.sendKeys(SalesforceRestAPI.fname);
 		lastName.sendKeys(SalesforceRestAPI.lname);
 		
-		
-		
 		genderdropdown.click();
 		gender.click();
-	
 		
 		phone.sendKeys("5554564564");
 		email.sendKeys("test123@test123.com");
@@ -283,13 +279,10 @@ public class RetailAccount extends TestBase {
 	//Method to search for an Account using global Search. 
 	public void validRetailuser() throws InterruptedException {
 		
-		//String username1 = prop.getProperty("retailuser");
-
 		Thread.sleep(3000);
 		searchInput.sendKeys(aname);
 		
 		Thread.sleep(5000);
-		//searchInput.sendKeys(Keys.ENTER);
 		searchInput.sendKeys(Keys.RETURN);
 		
 		Thread.sleep(10000);

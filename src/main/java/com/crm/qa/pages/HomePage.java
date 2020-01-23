@@ -97,17 +97,6 @@ public class HomePage extends TestBase {
 	
 	
 	public void navigateToRetailuser() throws InterruptedException{
-	
-		/*
-		//GEt the value of sfdcId via Hash map
-		String sfdcId = SalesforceRestAPI.objMap.get("sfdcId");
-		
-		prop.setProperty("primarysfdcId", sfdcId);
-		SalesforceRestAPI.objMap.put("primarysfdcId", sfdcId);
-		*/
-		
-		
-		//String sfdcId = RetailUserdetails.get_sfdcID();
 		
 		String sfdcId = RetailUserdetails.get_sfdcID();
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
@@ -126,12 +115,12 @@ public static void navigateToUser(String role) throws InterruptedException{
 	
 		String advisorId = prop.getProperty("advisorsfdcId1");
 			
-		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/User/"+advisorId+"/view");
+		//driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/User/"+advisorId+"/view");
+		driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
 		
 		advisorLink.click();
 		
 		Thread.sleep(5000);
-		
 		driver.switchTo().frame(0);
 		
 		advisorLogin.click();
@@ -139,9 +128,6 @@ public static void navigateToUser(String role) throws InterruptedException{
 		driver.switchTo().defaultContent();
 		
 		Thread.sleep(5000);
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
 		driver.navigate().refresh();
 		
 	
@@ -161,27 +147,18 @@ public static void navigateToMultipleUser(String role, String advisorId) throws 
 	
 	if (role.equalsIgnoreCase("advisor")){
 	
-		//String advisorId = prop.getProperty("advisorsfdcId1");
-			
-		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/User/"+advisorId+"/view");
+		driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
 		
 		advisorLink.click();
 		
 		Thread.sleep(5000);
-		
 		driver.switchTo().frame(0);
 		
 		advisorLogin.click();
-		
 		driver.switchTo().defaultContent();
 		
 		Thread.sleep(5000);
-		
-		//TestUtil.closeAllOpenTabs(driver);
-		
 		driver.navigate().refresh();
-		
-	
 		
 	}
 	

@@ -1,21 +1,11 @@
 package com.crm.qa.testcases;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
-import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
-import com.aventstack.extentreports.Status;
-import com.crm.qa.pages.ContactsPage;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
@@ -23,58 +13,51 @@ import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
 import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.pages.SalesforceTestRestAPI;
-import com.crm.qa.pages.VerifyAccount;
 import com.crm.qa.pages.createLead;
 import com.crm.qa.pages.verifyLead;
 import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.Log;
-import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.util.TestUtil;
 import com.qa.ExtentReport.*;
-import com.crm.qa.testcases.LogActivityTest;
 import com.crm.qa.base.*;
+
+
 
 public class BranchOpportunityTest extends TestBase {
 	
-
-	DetailsPage detailsPage;
-	LoginPage loginPage;
-	HomePage homePage;
-	TestUtil testUtil;
-	createLead createlead;
-	verifyLead verifylead;
-	Opportunities opp;
-	ReferralAppointment ref;
-	RetailAccount retailAccount;
-	InitializeUserData initializeData;
+		DetailsPage 		detailsPage;
+		LoginPage 			loginPage;
+		HomePage 			homePage;
+		TestUtil 			testUtil;
+		createLead 			createlead;
+		verifyLead 			verifylead;
+		Opportunities 		opp;
+		ReferralAppointment ref;
+		RetailAccount 		retailAccount;
+		InitializeUserData 	initializeData;
+		
+		SoftAssert softAssertion = new SoftAssert();
 	
-	SoftAssert softAssertion = new SoftAssert();
 	
 	@BeforeMethod
 	public void setUp() {
 		initialization();
-		testUtil = new TestUtil();
-		detailsPage = new DetailsPage();
-		loginPage = new LoginPage();
-		retailAccount = new RetailAccount();
-		opp = new Opportunities();
-		initializeData = new InitializeUserData();
+		testUtil 		= new TestUtil();
+		detailsPage 	= new DetailsPage();
+		loginPage 		= new LoginPage();
+		retailAccount 	= new RetailAccount();
+		opp 			= new Opportunities();
+		initializeData 	= new InitializeUserData();
+		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 	
 		initializeData.initialize();
-	
-	
 	}
-	
-	
 
 	
 	@Test()
-
 	public void createBranchOptty_viaAPI() throws Exception {
-		
-		
-		//Initialize();
+
 		HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
 		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.fname, SalesforceRestAPI.lname);
@@ -88,7 +71,6 @@ public class BranchOpportunityTest extends TestBase {
 	public void opttyClosedLost_viaAPI() throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
-		
 		
 		createBranchOptty_viaAPI();
 		opp.opportunityClosedLost();
@@ -105,7 +87,6 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Move Stage Status Manually ");
 		
-		
 		createBranchOptty_viaAPI();
 		opp.moveOpttyStageManually();
 		
@@ -116,7 +97,6 @@ public class BranchOpportunityTest extends TestBase {
 	public void logacall_notReached_Optty() throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Not Reached ");
-		
 		
 		createBranchOptty_viaAPI();
 		opp.logacall_NotReached();
@@ -131,7 +111,6 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached  ");
 		
-		
 		createBranchOptty_viaAPI();
 		opp.logacall_Reached();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
@@ -144,7 +123,6 @@ public class BranchOpportunityTest extends TestBase {
 	public void logacall_Reached_StageClosedLost() throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached - Move Stage to Closed ");
-		
 		
 		createBranchOptty_viaAPI();
 		opp.logacall_Reached_StageClosedLost();
@@ -159,7 +137,6 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting and then Close Meeting ");
 		
-	
 		createBranchOptty_viaAPI();
 		opp.scheduleandCloseMeeting();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -173,7 +150,6 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
 		
-		
 		createBranchOptty_viaAPI();
 		opp.scheduleMeetingusingNextAction();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -182,12 +158,35 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 
+	@Test()
+	public void enrollment_BM() throws Exception {
+		
+		TestUtil.print("BM Opportunity - Add a Financial Account ");
+		
+		//createBranchOptty_viaAPI();
+		 
+		//HomePage.navigateToUser("advisor");
+		//retailAccount.createRetailuser(1);
+		//retailAccount.searchAccount();
+		
+		createBranchOptty_viaAPI();
+		opp.scheduleMeetingusingNextAction();
+		opp.enrollinBM();
+		opp.addFinancialAccount();
+		opp.validateFinancialAccount();
+		
+		//SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		//opp.validateOpttyforStageStatus("Client Setup");
+		
+	}
+	
+	
+	
 	//Work in Progress
 	@Test()
 	public void createFinancialAccount_BMOptty() throws Exception {
 		
 		TestUtil.print("BM Opportunity - Add a Financial Account ");
-		
 		
 		createBranchOptty_viaAPI();
 		opp.createFinancialAccount();

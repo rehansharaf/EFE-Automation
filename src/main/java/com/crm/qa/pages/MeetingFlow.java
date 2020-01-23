@@ -20,7 +20,7 @@ import com.crm.qa.base.TestBase;
 
 public class MeetingFlow extends TestBase {
 	
-	DetailsPage detailspage;
+	DetailsPage details = new DetailsPage();
 	
 	
 	public MeetingFlow()  {
@@ -31,16 +31,11 @@ public class MeetingFlow extends TestBase {
 	@FindBy(xpath = "//div[contains(text(),'Comments')]/../../../following-sibling::div/div/textarea")
 	WebElement commentsTextarea;
 	
-
-	//@FindBy(xpath = "(//span[contains(text(),'Next')])[6]")
 	@FindBy(xpath = "(//span[contains(text(),'Next')])[6]")
 	WebElement nextButton;
 	
 	@FindBy(xpath = "//button[contains(text(),'Previous')]/..//following-sibling::button")
 	WebElement nextButton1;
-	
-	//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]
-	
 	
 	@FindBy(xpath = "//div[contains(text(),'Management')]")
 	WebElement solutionsDiscussed;
@@ -56,7 +51,6 @@ public class MeetingFlow extends TestBase {
 	
 	@FindBy(xpath = "//div[contains(text(),'Schedule a To-Do')]")
 	WebElement toDo;
-	
 	
 	@FindBy(xpath = "//div[contains(text(),'Create A New Meeting')]")
 	WebElement activityType;
@@ -87,39 +81,22 @@ public class MeetingFlow extends TestBase {
 	@FindBy(xpath = "//div[contains(text(),'Due Date')]/../../following-sibling::div/div/input")
 	WebElement enterDate2;
 	
-	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
-	// jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
-	
-	
-	//div[contains(text(),'Client Portfolio Review')]
-	//div[contains(text(),'Financial Plan')]
-	//div[contains(text(),'Financial Checkup Topics')]
-	//div[contains(text(),'General Client Meeting')]
-	
 	@FindBy(xpath = "//div[contains(text(),'Financial Plan')]")
 	WebElement financialPlan;
 	
 	@FindBy(xpath = "//div[contains(text(),'Financial Checkup Topics')]")
 	WebElement financialCheckupTopics;
-	
-	//div[contains(text(),'Budget Planning')]/../../following-sibling::div/select
-	//div[contains(text(),'Employee Sponsored Retirement')]/../../following-sibling::div/select
-	//div[contains(text(),'Life Insurance')]/../../following-sibling::div/select
-	//div[contains(text(),'Education & College Planning')]/../../following-sibling::div/select
-	//div[contains(text(),'Estate Planning')]/../../following-sibling::div/select
-	//div[contains(text(),'Tax Planning')]/../../following-sibling::div/select
-	//div[contains(text(),'Health Care')]/../../following-sibling::div/select
-	//div[contains(text(),'Long Term Care')]/../../following-sibling::div/select
-	//div[contains(text(),'Social Security Optimization')]/../../following-sibling::div/select
-	//div[contains(text(),'Retirement Distribution')]/../../following-sibling::div/select
-	
 
 	@FindBy(xpath = "//span[contains(text(),'Log Activity')]/../../../../following-sibling::div//select")
 	WebElement CheckupTopics;
 	
 	
+	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	
+	
+	
 	String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
-	String commentsToEnter = "TestingPurpose " + timeStamp;
+	//String commentsToEnter = "TestingPurpose " + timeStamp;
 	
 //	String timeStamp1 = new SimpleDateFormat("MMM dd, YYYY").format(new Date());
 	String timeStamp1 = "SEP 25, 2018";
@@ -257,33 +234,26 @@ public class MeetingFlow extends TestBase {
 	
 	}
 	
+	@SuppressWarnings("static-access")
 	public void meetingCompletedFlow() throws InterruptedException {
 		
-		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
+		String commentsToEnter = "TestingPurpose " + details.uid;
 		
-		String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
-		commentsTextarea.sendKeys("TestingPurpose" + timeStamp);
-		
-		solutionsDiscussed.click();
+		commentsTextarea.sendKeys("CompleteWF " + commentsToEnter);
 		
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
-		DetailsPage detailspage = new DetailsPage();
-		detailspage.logCallNextButton.click();
+		solutionsDiscussed.click();
 		
-		//TestUtil.ifButtonPresentclick("//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]");
+		details.logCallNextButton.click();
 		
 		nextButton1.click();
 		
 		TestUtil.SelectDropDownOption(meetClient2, "In-Person Meeting");
-		
 		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
-		
-		//TestUtil.ifButtonPresentclick("//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]");
 		
 		nextButton1.click();
 		
-		//financialPlan.click();
 		selectFinacialTopicscheckbox();
 		
 		nextButton1.click();
@@ -295,30 +265,26 @@ public class MeetingFlow extends TestBase {
 		
 	}
 	
+	@SuppressWarnings("static-access")
+	public void meetingCompleteFlowWithOptions() throws InterruptedException {
 	
-public void meetingCompleteFlowWithOptions() throws InterruptedException {
-	
-		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea); 
+		String commentsToEnter = "TestingPurpose " + details.uid;
 		
-		String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
-		commentsTextarea.sendKeys("TestingPurpose" + timeStamp);
-		
-		solutionsDiscussed.click();
+		commentsTextarea.sendKeys("CompleteWFwithOptions " + commentsToEnter);
 		
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
-		DetailsPage detailspage = new DetailsPage();
-		detailspage.logCallNextButton.click();
+		solutionsDiscussed.click();
+		
+		details.logCallNextButton.click();
 		
 		nextButton1.click();
 			
 		TestUtil.SelectDropDownOption(meetClient2, "In-Person Meeting");
-		
 		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
 		
 		nextButton1.click();
 	
-		//financialCheckupTopics.click();
 		selectFinacialTopicscheckbox();
 		
 		nextButton1.click();

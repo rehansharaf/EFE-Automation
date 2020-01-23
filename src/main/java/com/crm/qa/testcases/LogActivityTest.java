@@ -75,26 +75,20 @@ public class LogActivityTest extends TestBase {
 		initialization();
 		
 		
-		testUtil = new TestUtil();
-		detailsPage = new DetailsPage();
-		loginPage = new LoginPage();
-		excelWrite = new ExcelWrite();
-		sfdcTestRestAPI = new SalesforceTestRestAPI();
-		sfdcRestAPI = new SalesforceRestAPI();
-		retailAccount = new RetailAccount();
-		householdPage = new HouseholdPage();
-		communicationPage = new CommunicationPage();
-		initializeData = new InitializeUserData();
+		testUtil 			= new TestUtil();
+		detailsPage 		= new DetailsPage();
+		loginPage 			= new LoginPage();
+		excelWrite 			= new ExcelWrite();
+		sfdcTestRestAPI 	= new SalesforceTestRestAPI();
+		sfdcRestAPI 		= new SalesforceRestAPI();
+		retailAccount 		= new RetailAccount();
+		householdPage 		= new HouseholdPage();
+		communicationPage 	= new CommunicationPage();
+		initializeData 		= new InitializeUserData();
 		
-		
-		//homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		String uname = sfdcData.get("sfdcUsername");
-		String upwd = sfdcData.get("sfdcUserpassword");
-		homePage = loginPage.login(uname, upwd);
+		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
 		initializeData.initialize();
-		
-		//driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 		
 		try {Thread.sleep(2000);} 
 		catch (InterruptedException e) {e.printStackTrace();}
@@ -230,12 +224,12 @@ public class LogActivityTest extends TestBase {
 	}
 
 	
-	@Test()
-	public void reached_Schedule_Phonecall() throws Exception{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reached_Schedule_Phonecall(String advisorId) throws Exception{
 		
 		TestUtil.print("Schedule Phone Call");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "Phone Call");
@@ -245,12 +239,12 @@ public class LogActivityTest extends TestBase {
 	}
 
 		
-	@Test()
-	public void reached_Schedule_ToDo() throws Exception{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reached_Schedule_ToDo(String advisorId) throws Exception{
 		
 		TestUtil.print("Schedule To Do");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "ToDo");
@@ -260,12 +254,12 @@ public class LogActivityTest extends TestBase {
 	}
 	
 
-	@Test()
-	public void reached_Schedule_Appointment() throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reached_Schedule_Appointment(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
 		
 		TestUtil.print("Schedule Appointment");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();				
 		detailsPage.reached_scheduleAppointment1();
@@ -285,12 +279,12 @@ public class LogActivityTest extends TestBase {
 
 
 	
-	@Test()
-	public void notReachedwithBusinessLead() throws InterruptedException, ParseException, IOException, InvalidFormatException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void notReachedwithBusinessLead(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
 		TestUtil.print("Not Reached with Business Lead");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.enterComments(0);
@@ -300,12 +294,12 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void reachedwithBusinessLead() throws InterruptedException, ParseException, IOException, InvalidFormatException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reachedwithBusinessLead(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
 		TestUtil.print("Reached with Business Lead");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.enterComments(1);
@@ -315,12 +309,12 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void reachedwithBusinessLead_SchedulePhoneCall() throws Exception{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reachedwithBusinessLead_SchedulePhoneCall(String advisorId) throws Exception{
 		
 		TestUtil.print("Reached with Business Lead, Schedule Phone Call");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "Phone Call");
@@ -331,12 +325,12 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void reachedwithBusinessLead_ScheduleTodo() throws Exception{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reachedwithBusinessLead_ScheduleTodo(String advisorId) throws Exception{
 		
 		TestUtil.print("Reached with Business Lead, Schedule To Do");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_schedule(1, "ToDo");
@@ -346,13 +340,13 @@ public class LogActivityTest extends TestBase {
 								
 	}
 	
-	@Test()
-	public void reachedwithBusinessLead_ScheduleMeeting() throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reachedwithBusinessLead_ScheduleMeeting(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
 		
 		
 		TestUtil.print("Reached with Business Lead, Schedule Meeting");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.reached_scheduleAppointment1();
@@ -362,12 +356,12 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void reachedwithBusinessLead_UnplannedMeeting() throws InterruptedException, ParseException, InvalidFormatException, IOException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void reachedwithBusinessLead_UnplannedMeeting(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
 		detailsPage.unplannedAppointment();
@@ -391,12 +385,12 @@ public class LogActivityTest extends TestBase {
 	
 	
 
-	@Test()
-	public void meeting_CompleteFlow() throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void meeting_CompleteFlow(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
 		
 		TestUtil.print("Meeting Complete Flow");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation1();
 	
 		homePage.navigateToRetailuser();
@@ -410,12 +404,12 @@ public class LogActivityTest extends TestBase {
 	}
 
 	
-	@Test()
-	public void meeting_CompleteFlowWithOptions() throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void meeting_CompleteFlowWithOptions(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
 		
 		TestUtil.print("Meeting Complete Flow with Options");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation1();
 		
 		homePage.navigateToRetailuser();
@@ -430,12 +424,12 @@ public class LogActivityTest extends TestBase {
 	
 	
 	
-	@Test()
-	public void nolead_Reached_createBranchOpportunity() throws InterruptedException, ParseException, IOException, InvalidFormatException {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void nolead_Reached_createBranchOpportunity(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
 		
 		TestUtil.print("create Branch Opportunity with no Lead and Reached Option");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser();
@@ -449,12 +443,12 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void nolead_Reached_createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException, InvalidFormatException {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void nolead_Reached_createWorkplaceOpportunity(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
 		
 		TestUtil.print("Create WorkPlace Opportunity with no Lead and Reached Option");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser();

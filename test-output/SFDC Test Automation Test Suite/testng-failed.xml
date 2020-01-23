@@ -10,9 +10,15 @@
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
           <include name="tearDown"/>
+          <include name="OnlyCreateRetail_2_Account"/>
+          <include name="UpdatePrimaryAccountdetails"/>
+          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="3"/>
+          <include name="nolead_Reached_createBranchOpportunity"/>
+          <include name="reachedwithBusinessLead_UnplannedMeeting"/>
           <include name="setUp"/>
-          <include name="logaCall_Reached_Household_multipleUsers" invocation-numbers="3"/>
-          <include name="meeting_CompleteFlowWithOptions"/>
+          <include name="UpdateSpouseAccountdetails"/>
+          <include name="nolead_Reached_MultipleOpportunity"/>
+          <include name="logaCall_UnplannedMeeting_multipleUsers" invocation-numbers="3"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

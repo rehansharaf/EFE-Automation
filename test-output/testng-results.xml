@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="8" total="10" passed="2">
+<testng-results skipped="0" failed="0" ignored="44" total="45" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="143120" started-at="2020-01-14T21:06:03Z" finished-at="2020-01-14T21:08:26Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="875071" started-at="2020-01-22T22:49:53Z" finished-at="2020-01-22T23:04:29Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="143120" started-at="2020-01-14T21:06:03Z" finished-at="2020-01-14T21:08:26Z">
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4f51b3e0]" name="setUp" is-config="true" duration-ms="6700" started-at="2020-01-14T14:06:03Z" finished-at="2020-01-14T14:06:10Z">
+    <test name="Free CRM App Test Cases" duration-ms="875071" started-at="2020-01-22T22:49:53Z" finished-at="2020-01-22T23:04:29Z">
+      <class name="com.crm.qa.testcases.LogActivityTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@53ce1329]" name="setUp" is-config="true" duration-ms="8996" started-at="2020-01-22T15:49:53Z" finished-at="2020-01-22T15:50:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logacall_notReached_Optty()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4f51b3e0]" name="logacall_notReached_Optty" duration-ms="60890" started-at="2020-01-14T14:06:10Z" finished-at="2020-01-14T14:07:11Z">
+        <test-method status="PASS" signature="nolead_Reached_createWorkplaceOpportunity(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@53ce1329]" name="nolead_Reached_createWorkplaceOpportunity" duration-ms="865295" started-at="2020-01-22T15:50:02Z" data-provider="multipleUsers" finished-at="2020-01-22T16:04:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0050R000000kTdBQAU]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logacall_notReached_Optty -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4f51b3e0]" name="tearDown" is-config="true" duration-ms="736" started-at="2020-01-14T14:07:11Z" finished-at="2020-01-14T14:07:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4f51b3e0]" name="setUp" is-config="true" duration-ms="5589" started-at="2020-01-14T14:07:12Z" finished-at="2020-01-14T14:07:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logacall_Reached_StageClosedLost()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4f51b3e0]" name="logacall_Reached_StageClosedLost" duration-ms="68444" started-at="2020-01-14T14:07:17Z" finished-at="2020-01-14T14:08:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logacall_Reached_StageClosedLost -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4f51b3e0]" name="tearDown" is-config="true" duration-ms="737" started-at="2020-01-14T14:08:26Z" finished-at="2020-01-14T14:08:26Z">
+        </test-method> <!-- nolead_Reached_createWorkplaceOpportunity -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@53ce1329]" name="tearDown" is-config="true" duration-ms="743" started-at="2020-01-22T16:04:28Z" finished-at="2020-01-22T16:04:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </test> <!-- Free CRM App Test Cases -->
   </suite> <!-- FREE CRM Application Test Automation Test Suite -->
 </testng-results>
