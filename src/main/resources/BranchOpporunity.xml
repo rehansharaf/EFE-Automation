@@ -20,20 +20,29 @@
 			<methods>
 			<!-- 		
 				
-				<include name="createBranchOptty_viaAPI"></include>
+				
 				<include name="moveStageStatusManually"></include>	
 				<include name="opttyClosedLost_viaAPI"></include>
 				<include name="logacall_notReached_Optty"></include>
 				<include name="logacall_Reached_StageClosedLost"></include>	
 				<include name="scheduleMeetingandthenCloseMeeting"></include>
 				<include name="scheduleMeetingviaNextAction"></include>	
-				
-				<include name="exp"></include>	
+				<include name="enrollment_BM"></include>
 				<include name="createFinancialAccount_BMOptty"></include>	
 			-->
 					
+
 				
+				<include name="moveStageStatusManually"></include>	
+				<include name="opttyClosedLost_viaAPI"></include>
+				<include name="logacall_notReached_Optty"></include>
+				<include name="logacall_Reached_StageClosedLost"></include>	
+				<include name="scheduleMeetingandthenCloseMeeting"></include>
+				<include name="scheduleMeetingviaNextAction"></include>	
 				<include name="enrollment_BM"></include>	
+
+
+	
 				
 				
 				

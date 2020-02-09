@@ -71,6 +71,7 @@ public class SalesforceRestAPI extends TestBase {
     private static LocalDate futureDate = LocalDate.now().plusDays(15);
    
     public static String uid;
+    public static String accountId;
     public static String fname ;
     public static String lname ;
     public static String bname ;
@@ -332,13 +333,13 @@ public class SalesforceRestAPI extends TestBase {
         retail.put("FirstName", fname);
         retail.put("LastName", lname);
         retail.put("Gender__c", "Female");
-        retail.put("DOB__c", "1967-06-03");
+        retail.put("DOB__c", "1980-12-11");
         retail.put("Email__c", fname+"@testaccount.com");
         retail.put("Phone", "408-555-1234");
-        retail.put("BillingStreet", "1050 Enterprise Way");
-        retail.put("BillingCity", "Sunnyvale");
-        retail.put("BillingState", "CA");
-        retail.put("BillingPostalCode", "94089");
+        retail.put("BillingStreet", "116 Batman Rd");
+        retail.put("BillingCity", "Charlotte");
+        retail.put("BillingState", "NC");
+        retail.put("BillingPostalCode", "28219");
         retail.put("BillingCountry", "USA");
         retail.put("Type", "Branch Retail");
  
@@ -905,8 +906,10 @@ public static void hashmapdata() {
 }
 
 
-public static void createBranchOpp(String fname1, String lname1) {
+public static void createBranchOpp(String fname1, String lname1) throws InterruptedException {
 	 
+	Thread.sleep(5000);
+	
 	System.out.println("\n_______________ Creating Branch Opportunity_______________");
 	
 	String uri = baseUri + "/sobjects/Opportunity";
@@ -947,8 +950,15 @@ public static void createBranchOpp(String fname1, String lname1) {
         //Make the request
         HttpResponse response = httpClient.execute(httpPost);
 
+        Thread.sleep(5000);
+        
+        System.out.println("Response: " +response);
+        
+        
         //Process the results
         int statusCode = response.getStatusLine().getStatusCode();
+        System.out.println("status code: " +statusCode);
+        
         if (statusCode == 201) {
             String response_string = EntityUtils.toString(response.getEntity());
             JSONObject json = new JSONObject(response_string);
@@ -1094,6 +1104,8 @@ public static void createRPAccount( String id) {
 
         //Make the request
         HttpResponse response = httpClient.execute(httpPost);
+        
+        
 
         //Process the results
         int statusCode = response.getStatusLine().getStatusCode();

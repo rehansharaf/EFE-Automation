@@ -9,9 +9,17 @@
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="meeting_CompleteFlow" invocation-numbers="0 0"/>
+          <include name="LogaCallwithSpouse_ValidateAtPrimary" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="reachedwithBusinessLead" invocation-numbers="0 0"/>
+          <include name="UpdatePrimaryAccountdetails" invocation-numbers="0"/>
+          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="1"/>
+          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="0 0"/>
+          <include name="reachedwithBusinessLead_UnplannedMeeting" invocation-numbers="0"/>
+          <include name="reachedwithBusinessLead_ScheduleMeeting" invocation-numbers="0 0"/>
           <include name="setUp"/>
+          <include name="logaCall_Reached_Household_multipleUsers" invocation-numbers="0"/>
+          <include name="reachedwithBusinessLead_SchedulePhoneCall" invocation-numbers="0 0"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

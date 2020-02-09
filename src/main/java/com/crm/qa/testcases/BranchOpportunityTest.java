@@ -18,6 +18,7 @@ import com.crm.qa.pages.verifyLead;
 import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.Log;
 import com.crm.qa.util.TestUtil;
+import com.qa.DataProvider.LogaCallDataProvider;
 import com.qa.ExtentReport.*;
 import com.crm.qa.base.*;
 
@@ -42,6 +43,7 @@ public class BranchOpportunityTest extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		initialization();
+	
 		testUtil 		= new TestUtil();
 		detailsPage 	= new DetailsPage();
 		loginPage 		= new LoginPage();
@@ -58,7 +60,7 @@ public class BranchOpportunityTest extends TestBase {
 	@Test()
 	public void createBranchOptty_viaAPI() throws Exception {
 
-		HomePage.navigateToUser("advisor");
+		//HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
 		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.fname, SalesforceRestAPI.lname);
 		opp.navigateTouser("primary");
@@ -67,11 +69,13 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void opttyClosedLost_viaAPI() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void opttyClosedLost_viaAPI(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
 		
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.opportunityClosedLost();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
@@ -82,22 +86,24 @@ public class BranchOpportunityTest extends TestBase {
 	
 	
 	
-	@Test()
-	public void moveStageStatusManually() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void moveStageStatusManually(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Move Stage Status Manually ");
 		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.moveOpttyStageManually();
 		
 	}
 	
 	
-	@Test()
-	public void logacall_notReached_Optty() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void logacall_notReached_Optty(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Not Reached ");
 		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.logacall_NotReached();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
@@ -106,11 +112,12 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void logacall_Reached_Optty() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void logacall_Reached_Optty(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached  ");
 		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.logacall_Reached();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
@@ -119,11 +126,12 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 
-	@Test()
-	public void logacall_Reached_StageClosedLost() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void logacall_Reached_StageClosedLost(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached - Move Stage to Closed ");
 		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.logacall_Reached_StageClosedLost();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
@@ -132,11 +140,12 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void scheduleMeetingandthenCloseMeeting() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void scheduleMeetingandthenCloseMeeting(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting and then Close Meeting ");
 		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.scheduleandCloseMeeting();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -145,11 +154,12 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	
-	@Test()
-	public void scheduleMeetingviaNextAction() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void scheduleMeetingviaNextAction(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
 		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.scheduleMeetingusingNextAction();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -158,25 +168,17 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 
-	@Test()
-	public void enrollment_BM() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void enrollment_BM(String advisorId) throws Exception {
 		
 		TestUtil.print("BM Opportunity - Add a Financial Account ");
 		
-		//createBranchOptty_viaAPI();
-		 
-		//HomePage.navigateToUser("advisor");
-		//retailAccount.createRetailuser(1);
-		//retailAccount.searchAccount();
-		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		opp.scheduleMeetingusingNextAction();
 		opp.enrollinBM();
 		opp.addFinancialAccount();
 		opp.validateFinancialAccount();
-		
-		//SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
-		//opp.validateOpttyforStageStatus("Client Setup");
 		
 	}
 	

@@ -159,7 +159,7 @@ public class LogActivityTests extends TestBase {
 	public void reached_Schedule_Appointment() throws InterruptedException, ParseException, AWTException{
 		
 		homePage.clickSearchInput();			
-		detailsPage.reached_scheduleAppointment1();
+		detailsPage.reached_scheduleAppointment1(1);
 		VerifyTodo verifyTodo = new VerifyTodo();
 		verifyTodo.verifyFutureMeetingTask();
 											

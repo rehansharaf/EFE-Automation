@@ -2,18 +2,17 @@ package com.crm.qa.pages;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
+
 import com.crm.qa.util.TestUtil;
 
 import com.crm.qa.base.TestBase;
@@ -102,7 +101,7 @@ public class MeetingFlow extends TestBase {
 	String timeStamp1 = "SEP 25, 2018";
 
 	
-	
+
 	public void meetingWorkflow(String ActivityType, String Meetclient, String Meetingoutcome) throws InterruptedException {
 		
 		Thread.sleep(5000);
@@ -233,6 +232,8 @@ public class MeetingFlow extends TestBase {
 	
 	
 	}
+
+	
 	
 	@SuppressWarnings("static-access")
 	public void meetingCompletedFlow() throws InterruptedException {
@@ -245,7 +246,7 @@ public class MeetingFlow extends TestBase {
 		
 		solutionsDiscussed.click();
 		
-		details.logCallNextButton.click();
+		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
 		
 		nextButton1.click();
 		
@@ -253,6 +254,7 @@ public class MeetingFlow extends TestBase {
 		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
 		
 		nextButton1.click();
+		
 		
 		selectFinacialTopicscheckbox();
 		
@@ -276,7 +278,7 @@ public class MeetingFlow extends TestBase {
 		
 		solutionsDiscussed.click();
 		
-		details.logCallNextButton.click();
+		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
 		
 		nextButton1.click();
 			
@@ -297,9 +299,7 @@ public class MeetingFlow extends TestBase {
 
 public void selectTopics() {
 	
-		//List<WebElement> selectTopics  = driver.findElements(By.xpath("//span[contains(text(),'Log Activity')]/../../../../following-sibling::div//select"));
 		List<WebElement> selectTopics  = driver.findElements(By.xpath("//option[@value='Green']/../../select"));
-		
 		for(WebElement elem : selectTopics) { TestUtil.SelectDropDownOption(elem, "Green");	}
 	
 	}
@@ -315,7 +315,7 @@ public void selectFinacialTopicscheckbox() {
 public void verifymeetingInformation() {
 	
 	DetailsPage detailspage = new DetailsPage();
-	//detailspage.verifyMeeting();
+	
 		
 	}
 

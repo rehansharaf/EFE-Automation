@@ -42,9 +42,8 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//span[contains(text(),'Create Opportunity')]")
 	WebElement CreateOpportunityLabel;
 
-	//check if this element is used anywhere in any scripts if not..delete it
-	@FindBy(xpath = "(//b[contains(text(),'Create Opportunity')])[2]")
-	WebElement CreateOpportunityLabel1;
+	//@FindBy(xpath = "//span[contains(text(),'Create Opportunity')]")
+	//WebElement CreateOpportunityLabel;
 	
 	@FindBy(xpath = "//span[@class='title'][contains(text(),'Communications')]")
 	WebElement Communications;
@@ -198,9 +197,6 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//button[contains(text(),'Previous')]/..//following-sibling::button)[last()]")
 	WebElement nextButton1;
 	
-	//@FindBy(xpath = "(//button[contains(text(),'Next')])[2]")
-	//WebElement nextButton1;
-	
 	
 	@FindBy(xpath = "//span[contains(text(),'Last Modified By')]/../following-sibling::div/span/span")
 	WebElement taskLastModifiedDate;
@@ -238,48 +234,35 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//li[@title='To-Do']")
 	WebElement todoTab;
 	
-	//@FindBy(xpath = "//div[contains(text(),'Subject')]/../../../following-sibling::div//input")
-	//WebElement subjectArea;
-	
 	@FindBy(xpath = "//input[contains (@name ,'Subject')]")
 	WebElement subjectArea;
-	
-	
-	//@FindBy(xpath = "(//div[contains(text(),'End Date and Time')]/../../../following-sibling::div//input)[1]")
-	//WebElement meetingEndDate1;
 	
 	@FindBy(xpath = "(//input[contains (@name ,'Start_Date_and_Time')])[1]")
 	WebElement meetingStartDate1;
 	
-	//@FindBy(xpath = "(//div[contains(text(),'End Date and Time')]/../../../following-sibling::div//input)[2]")
-	//WebElement meetingEndTime1;
-	
 	@FindBy(xpath = "(//input[contains (@name ,'Start_Date_and_Time')])[2]")
 	WebElement meetingStartTime1;
-
 	
-	@FindBy(xpath = "(//input[contains (@name ,'End_Date_and_Time')])[1]")
+	//@FindBy(xpath = "(//input[contains (@name ,'End_Date_and_Time')])[1]")
+	//WebElement meetingEndDate1;
+	
+	@FindBy(xpath = "(//span[contains(text(),'Start Date and Time')]/../../..//input)[1]")
 	WebElement meetingEndDate1;
+	
 
-	@FindBy(xpath = "(//input[contains (@name ,'End_Date_and_Time')])[2]")
+		
+	//@FindBy(xpath = "(//input[contains (@name ,'End_Date_and_Time')])[2]")
+	//WebElement meetingEndTime1;
+	
+	@FindBy(xpath = "(//span[contains(text(),'Start Date and Time')]/../../..//input)[2]")
 	WebElement meetingEndTime1;
 	
 	
-		
 	@FindBy(xpath = "//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select")
 	WebElement meetwithClient;
 	
-	
-	//@FindBy(xpath = "(//select[contains(@class,'select uiInput')])[2]")
-	//WebElement meetwithClient;
-	
-	
-	
 	@FindBy(xpath = "//div[contains(text(),'Select Meeting Outcome')]/../../../following-sibling::div/select")
 	WebElement meetingOutcome;
-	
-	//@FindBy(xpath = "(//select[contains(@class,'select uiInput')])[3]")
-	//WebElement meetingOutcome;
 	
 	
 	@FindBy(xpath = "//button[contains(text(),'Next')]")
@@ -313,8 +296,10 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[5]")
 	WebElement scrolltoClientInformation;
 	
-	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[20]")
+	
+	@FindBy(xpath = "//span[contains(text(),'Account Details')]")
 	WebElement scrolltoAccountDetails;
+	
 	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Client Provided Email'))]")
 	WebElement emailEditBtn;
@@ -346,10 +331,12 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//span[contains (text(), ('Work Phone'))]/../..//input)[1]")
 	WebElement workphoneEditInput;
 	
-	@FindBy(xpath = "(//a[contains(@class,'select')][contains(@role,'button')])[5]")
+	
+	@FindBy(xpath = "//span[text()= 'Gender'] /../../..//a[contains (@role, ('button'))]")
 	WebElement genderDropDown;
 	
-	@FindBy(xpath = "(//div[contains (@class,('forcePageBlockSectionRow'))])[30]")
+	
+	@FindBy(xpath = "//span[contains(text(),'Address & Other Contact Information')]")
 	WebElement scrolltoAddressInformation;
 	
 	@FindBy(xpath = "//*[contains (@placeholder, ('Mailing Street'))]")
@@ -416,8 +403,6 @@ public class DetailsPage extends TestBase {
 	
 	
 	
-	
-	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 
 
@@ -446,7 +431,7 @@ public class DetailsPage extends TestBase {
 		String schedule2 = "ToDo";
 		String schedule3 = "Appointment";
 		
-		static String commentsToEnter;
+		public static String commentsToEnter;
 		static String[] splitStr1 = timeStamp.split("\\s+");
 
 		
@@ -471,8 +456,9 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(2000);
 		selectOutcome(i);
 		
-		solutionsDiscussed.click();
+		//solutionsDiscussed.click();
 		
+		jse2.executeScript("arguments[0].click()", solutionsDiscussed);
 		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
 		//logCallNextButton.click();  
 	
@@ -498,7 +484,7 @@ public class DetailsPage extends TestBase {
 		if (schedule.equals(schedule1)) {
 			
 			
-			TestUtil.waitForElement("Future Phone Call", futurePhoneCall);
+			//TestUtil.waitForElement("Future Phone Call", futurePhoneCall);
 
 			
 		/*-------------Keep this part of the code, might need it in future----------------------
@@ -517,21 +503,16 @@ public class DetailsPage extends TestBase {
 			enterSubject_Phone.sendKeys(commentsToEnter);
 			jse2.executeScript("arguments[0].scrollIntoView()", futurePhoneCall);
 			
-			//nextButton1.click();
 			futureActivityNextButton.click();
 					
 		} else if (schedule.equals(schedule2)) {
 			
-			//Thread.sleep(2000);	
-			//TestUtil.waitForElement("Due Date", dueDate);
 			enterDate1.sendKeys(enteredDate);
 			enterSubject_ToDo.sendKeys(commentsToEnter);
-			jse2.executeScript("arguments[0].scrollIntoView()", futureToDo);
-			//nextButton1.click();
-			futureActivityNextButton.click();
-			//futuretodoNextButton.click();
+			//jse2.executeScript("arguments[0].scrollIntoView()", futureToDo);
+			jse2.executeScript("arguments[0].click()", futureActivityNextButton);
+			
 		} else {
-				//Thread.sleep(2000);	
 				createFutureMeeting();
 				nextButton1.click();
 		}
@@ -553,7 +534,6 @@ public class DetailsPage extends TestBase {
 		
 			Thread.sleep(3000);
 			saveBtnAssignedPlanner.click();
-			
 			Reload.click();
 		
 		}
@@ -581,29 +561,29 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(5000);
 		prop.setProperty("Call Start Time", timeStamp);
 		
-		solutionsDiscussed.click();
-		//System.out.println(i);
+		jse2.executeScript("arguments[0].click()", solutionsDiscussed);
 		
 		selectOutcome(i);
-		//System.out.println("index : " +i);
 		
-		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		//logCallNextButton.click();
 		jse2.executeScript("arguments[0].click()", logCallNextButton);
 		
 		Thread.sleep(5000);
-		
 		noOpttyRdBtn.click();
 		
-		//logCallNextButton.click();
 		noOpttyNxtBtn.click();
 		Thread.sleep(2000);
-	
 		
-		if      (sched.equals(schedule3)) {CreateOpportunityLabel.click(); 	scheduleApp.click();} 
-		else if (sched.equals(schedule2)) {CreateOpportunityLabel.click();	toDo.click();} 
-		else if (sched.equals(schedule1)) {CreateOpportunityLabel.click();	scheduleType.click();}
+		if (sched.equals(schedule3)) {
+			jse2.executeScript("arguments[0].scrollIntoView()", CreateOpportunityLabel);	
+			jse2.executeScript("arguments[0].click()", scheduleApp);} 
 		
+		else if (sched.equals(schedule2)) {
+			jse2.executeScript("arguments[0].scrollIntoView()", CreateOpportunityLabel);	
+			jse2.executeScript("arguments[0].click()",toDo);}
+		
+		else if (sched.equals(schedule1)) {
+			jse2.executeScript("arguments[0].scrollIntoView()", CreateOpportunityLabel);	
+			jse2.executeScript("arguments[0].click()", scheduleType);}
 		
 		
 		Thread.sleep(2000);
@@ -623,7 +603,7 @@ public class DetailsPage extends TestBase {
 
 	
 
-	public String[] reached_scheduleAppointment() throws InterruptedException, ParseException {
+	public String[] reached_scheduleAppointment(int i) throws InterruptedException, ParseException {
 	
 		String commentsToEnter = "TestingPurpose " + uid;
 		
@@ -632,7 +612,8 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(3000);
 		commentsTextarea.sendKeys(commentsToEnter);
 		
-		TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
+		//TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
+		selectOutcome(i);
 		solutionsDiscussed.click();
 		
 		scheduleApp.click();
@@ -647,33 +628,38 @@ public class DetailsPage extends TestBase {
 	}
 
 
-	public void reached_scheduleAppointment1() throws InterruptedException, ParseException, AWTException {
+	public void reached_scheduleAppointment1(int i) throws InterruptedException, ParseException, AWTException {
 	
 		String commentsToEnter = "TestingPurpose " + uid;
 		
 		Thread.sleep(3000);
 		commentsTextarea.sendKeys(commentsToEnter);
 		
-		TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
-		solutionsDiscussed.click();
+		//TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");
+		
+		//solutionsDiscussed.click();
+		jse2.executeScript("arguments[0].click()", solutionsDiscussed);
+		
+		selectOutcome(i);
 		
 		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		logCallNextButton.click();
+		//logCallNextButton.click();
+		jse2.executeScript("arguments[0].click()", logCallNextButton);
 		
 		Thread.sleep(3000);
 		
 		noOpttyRdBtn.click();
-		//logCallNextButton.click();
 		noOpttyNxtBtn.click();
 		
+		Thread.sleep(2000);
+		jse2.executeScript("arguments[0].scrollIntoView()", CreateOpportunityLabel);
+		//CreateOpportunityLabel.click();
+		//scheduleApp.click();
+		jse2.executeScript("arguments[0].click()", scheduleApp);
 		
 		Thread.sleep(2000);
-		CreateOpportunityLabel.click();
-		scheduleApp.click();
-
-		Thread.sleep(2000);
-		futureActivityNextButton.click();
-		
+		//futureActivityNextButton.click();
+		jse2.executeScript("arguments[0].click()", futureActivityNextButton);
 		
 	
 		/*-------------Keep this part of the code, might need it in future----------------------
@@ -698,14 +684,17 @@ public class DetailsPage extends TestBase {
 		
 		Thread.sleep(3000);
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
-		solutionsDiscussed.click();
+		
+		jse2.executeScript("arguments[0].click()", solutionsDiscussed);
+		//solutionsDiscussed.click();
 	
 		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		logCallNextButton.click();
+		jse2.executeScript("arguments[0].click()", logCallNextButton);
 		
 		Thread.sleep(3000);
 		subjectArea.sendKeys(commentsToEnter);
 		
+		meetingEndDate1.clear();
 		meetingEndDate1.sendKeys(unplannedDate);
 		meetingEndTime1.click();
 		meetingEndTime1.clear();
@@ -728,7 +717,11 @@ public class DetailsPage extends TestBase {
 		jse2.executeScript("arguments[0].scrollIntoView()", scheduleTeamMeetingScroll);
 	
 		TestUtil.SelectDropDownOption(meetingClient, "On-Phone Meeting");
-		//Thread.sleep(2000);
+		
+		String LoggedinUser;
+		
+		try{LoggedinUser = LoggedUser.getText().substring(11);}
+		catch (Exception e){LoggedinUser = "Aaron Rich";}
 		
 		meetingStartDate.sendKeys(enteredDate);
 		meetingStartTime.click();
@@ -736,9 +729,9 @@ public class DetailsPage extends TestBase {
 		meetingStartTime.sendKeys("12:00 PM");
 		meetingStartTime.sendKeys(Keys.TAB);
 		meetingDuration.sendKeys("60");
-		
-		//futureActivityNextButton.click();
-		//Thread.sleep(3000);
+		jse2.executeScript("arguments[0].click()", assignedTo);
+		//assignedTo.click();
+		assignedTo.sendKeys(LoggedinUser, Keys.ENTER);
 		
 		jse2.executeScript("arguments[0].click()", scheduleMeetingNextButton);
 		Thread.sleep(2000);
@@ -751,20 +744,25 @@ public class DetailsPage extends TestBase {
 
 	public void updateAccountDetails() throws InterruptedException {
 		
-		Thread.sleep(10000);
-		emailEditBtn.click();
+		Thread.sleep(5000);
+		jse2.executeScript("arguments[0].click()",emailEditBtn);
 		emailEditInput.clear();
+		Thread.sleep(2000);
 		emailEditInput.sendKeys(emailupdate);
+		Thread.sleep(3000);
 		workphoneEditInput.clear();
 		workphoneEditInput.sendKeys("9998887777");
-		
-		Thread.sleep(3000);
-		updateSaveBtn.click();
+		workphoneEditInput.sendKeys(Keys.TAB);
 		
 		Thread.sleep(5000);
-		scrolltoAccountDetails.click();
+		jse2.executeScript("arguments[0].click()",updateSaveBtn);
 		
-		genderEditBtn.click();
+		Thread.sleep(8000);
+		jse2.executeScript("arguments[0].scrollIntoView()", scrolltoAccountDetails);
+		
+		
+		Thread.sleep(3000);
+		jse2.executeScript("arguments[0].click()",genderEditBtn);
 		Thread.sleep(3000);
 		genderDropDown.click();
 		genderMale.click();
@@ -772,13 +770,14 @@ public class DetailsPage extends TestBase {
 		dobEditInput.click();
 		dobInput.clear();
 		dobInput.sendKeys("12/11/1972");
+		dobInput.sendKeys(Keys.TAB);
 		
-		updateSaveBtn.click();
 		
+		jse2.executeScript("arguments[0].click()",updateSaveBtn);
 		Thread.sleep(5000);
-		scrolltoAddressInformation.click();
-		
-		addressEditBtn.click();
+		jse2.executeScript("arguments[0].scrollIntoView()", scrolltoAddressInformation);
+		Thread.sleep(3000);
+		jse2.executeScript("arguments[0].click()",addressEditBtn);
 		Thread.sleep(3000);
 		textMailingStreet.clear();
 		textMailingStreet.sendKeys("1234 Test Street");
@@ -789,7 +788,7 @@ public class DetailsPage extends TestBase {
 		textMailingZipCode.clear();
 		textMailingZipCode.sendKeys("85254");
 		
-		updateSaveBtn.click();
+		jse2.executeScript("arguments[0].click()",updateSaveBtn);
 		Thread.sleep(10000);
 		driver.navigate().refresh();
 	}
@@ -800,15 +799,14 @@ public class DetailsPage extends TestBase {
 		Thread.sleep(5000);
 		
 		String clientEmail = getFieldData("Edit Client Provided Email");
-		//clientEmail = clientEmail.substring(clientEmail.indexOf("@")+ 1);
 		softAssertion.assertEquals(clientEmail, cEmail, "Email not matched.....");
 		
 		
 		String workPhone = getFieldData("Edit Work Phone");
-		softAssertion.assertEquals(workPhone, wPhone, "Workphone not matched.....");
+		softAssertion.assertTrue(workPhone.contains(wPhone), "Workphone not matched.....");
 		
-		scrolltoAccountDetails.click();
 		
+		jse2.executeScript("arguments[0].scrollIntoView()", scrolltoAccountDetails);
 		Thread.sleep(3000);
 		
 		String gender = getFieldData("Edit Gender");
@@ -816,51 +814,58 @@ public class DetailsPage extends TestBase {
 		
 		String dateOfBirth = getFieldData("Edit Date of Birth");
 		softAssertion.assertEquals(dateOfBirth, cDateofBirth, "DOB not matched.....");
-		
-		scrolltoAddressInformation.click();
-		
 		Thread.sleep(3000);
+
+		jse2.executeScript("arguments[0].scrollIntoView()", scrolltoAddressInformation);
+		Thread.sleep(2000);
 		
-		String mailingAddress = getFieldData("Edit Mailing Address").substring(0,37).trim();
+		String mailingAddress = getFieldData("Edit Mailing Address").substring(0,42).trim();
 		mailingAddress = mailingAddress.replace("\n", "").replace("\r", "");
-		softAssertion.assertEquals(mailingAddress, mAddress, "Mailing Address not matched.....");
+		softAssertion.assertTrue(mailingAddress.contains(mAddress),  "Mailing Address not matched.....");
 		
 		softAssertion.assertAll();
 		
 	}
 	
 	
+/*	
 	
-	public String getFieldData(String field) throws InterruptedException {
-		
-		String fielddata = driver.findElement(By.xpath("//button[contains (@title, ('" +field+ "'))]/..//span[contains (@class, ('test-id'))]")).getText();
-		
-		return fielddata;
+	public void selectOutcome(int i) throws InterruptedException, ParseException {
+			
+		if (i==0){TestUtil.SelectDropDownOption(outcome, "Phone Call - Not Reached");}
+		else if(i==1){TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");}
+		else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
+			
+	}
+*/	
+	
+	
+	public void selectOutcome(int i) throws InterruptedException, ParseException {
+				
+		if (i==0){TestUtil.SelectDropDownOption(outcome, "Not Reached");}
+		else if(i==1){TestUtil.SelectDropDownOption(outcome, "Reached");}
+		else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
+				
 	}
 	
 	
 	
-	public void clickNextButton() throws InterruptedException {
-		List<WebElement> nextButtonCount = driver.findElements(By.xpath("//button[contains(text(),'Next')]"));
-	    int nextButtonSize = nextButtonCount.size();
-	    //WebElement nextButton = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
-	   // Thread.sleep(5000);
-	    WebElement myelement = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
-	    JavascriptExecutor jse2 = (JavascriptExecutor)driver;
-	    jse2.executeScript("arguments[0].scrollIntoView()", myelement); 
-		//nextButton.click();
-		//Thread.sleep(5000);
-	    myelement.click();
-	    Thread.sleep(10000);
+	
+	public String getFieldData(String field) throws InterruptedException {
+		
+		//String fielddata = driver.findElement(By.xpath("//button[contains (@title, ('" +field+ "'))]/..//span[contains (@class, ('test-id'))]")).getText();
+		String fielddata = driver.findElement(By.xpath("//span[contains(text(),('" +field+ "'))]/../..//span[contains(@class,'field-value')]")).getText();
+		
+		
+		//span[contains(text(),'Date of Birth')]/../..//span[contains(@class,'field-value')]
+		return fielddata;
 	}
 	
 	
 	
 	public void closeExistingTask(int i) throws InterruptedException {
 		
-		for(int j=0; j<10; j++){		
-			driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.ADD));		
-		}
+		for(int j=0; j<10; j++){driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.COMMAND,Keys.ADD));	}
 		
 			String commentsToEnter = "TestingPurpose " + uid;
 			
@@ -894,9 +899,73 @@ public class DetailsPage extends TestBase {
 		    
 		    softAssertion.assertAll();
 		    	    
-		}
+	}
 	
+	
+	
+	public String emailupdate() throws InterruptedException {return emailupdate;}
 
+	
+	
+	
+	private String verifyTaskDetails(String taskName) throws InterruptedException {
+			// TODO Auto-generated method stub
+		Communications.click();
+		Thread.sleep(2000);
+			
+		todoTab.click();
+		Thread.sleep(5000);
+			
+		driver.findElement(By.xpath("(//lightning-formatted-text[contains(text(),'"+taskName+"')])[1]/ancestor::td/preceding-sibling::th//a")).click();
+			
+		String oldTab = driver.getWindowHandle();
+	   	ArrayList tabs = new ArrayList (driver.getWindowHandles());
+		System.out.println(tabs.size());
+		String newTab = (String) tabs.get(1);
+		driver.switchTo().window(newTab);
+			 
+		String tStatus = taskStatus.getText();
+		return tStatus;
+		
+	}
+
+	
+	
+	private String[] createBDAppointment(String meetingDate) throws InterruptedException, ParseException {
+		
+		bdAppointment.click();
+		
+		String oldTab = driver.getWindowHandle();
+		Thread.sleep(3000);
+		
+		ArrayList tabs = new ArrayList (driver.getWindowHandles());
+		System.out.println(tabs.size());
+		String newTab = (String) tabs.get(1);
+		driver.switchTo().window(newTab);
+		Thread.sleep(2000);	
+
+		ReferralAppointment ref = new ReferralAppointment();
+		String meetingLinks[] = ref.selectDate1(meetingDate);
+			 
+		driver.close();
+		driver.switchTo().window(oldTab);
+		return meetingLinks;
+			 
+		
+	}
+
+	
+	
+	public void clickNextButton() throws InterruptedException {
+		List<WebElement> nextButtonCount = driver.findElements(By.xpath("//button[contains(text(),'Next')]"));
+	    int nextButtonSize = nextButtonCount.size();
+
+	    WebElement myelement = driver.findElement(By.xpath("(//button[contains(text(),'Next')])[" + nextButtonSize+ "]"));
+	    JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	    jse2.executeScript("arguments[0].scrollIntoView()", myelement); 
+	    myelement.click();
+	    Thread.sleep(10000);
+	}
 	
 	
 	public void exp() throws InterruptedException {
@@ -908,45 +977,17 @@ public class DetailsPage extends TestBase {
 	
 	
 	
-//------------------------------------------------------------------------------------------------------------------------	
+/*	======================================================================================================================	
+	========================================================================================================================	
+ 	****OLD SCRIPTS  - Need to keep so they can be used in the future
+  	========================================================================================================================	
+  	========================================================================================================================*/	
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	private String verifyTaskDetails(String taskName) throws InterruptedException {
-		// TODO Auto-generated method stub
-		Communications.click();
-		Thread.sleep(2000);
-		
-		todoTab.click();
-		Thread.sleep(5000);
-		
-		driver.findElement(By.xpath("(//lightning-formatted-text[contains(text(),'"+taskName+"')])[1]/ancestor::td/preceding-sibling::th//a")).click();
-		
-		
-		String oldTab = driver.getWindowHandle();
-   	 	ArrayList tabs = new ArrayList (driver.getWindowHandles());
-		 System.out.println(tabs.size());
-		 String newTab = (String) tabs.get(1);
-		 driver.switchTo().window(newTab);
-		 
-		 String tStatus = taskStatus.getText();
-		 
-		 return tStatus;
-		
-	}
 
+	
+	
 	public void verifyCommunications(int i, String schedule) throws InterruptedException, ParseException {		
 		
 		Thread.sleep(5000);
@@ -1236,34 +1277,6 @@ public void verifyMeeting_All(int i, String meetingDate) throws InterruptedExcep
 
 	
 	
-private String[] createBDAppointment(String meetingDate) throws InterruptedException, ParseException {
-	
-	bdAppointment.click();
-	
-	String oldTab = driver.getWindowHandle();
-	Thread.sleep(3000);
-	
-	ArrayList tabs = new ArrayList (driver.getWindowHandles());
-		 System.out.println(tabs.size());
-		 String newTab = (String) tabs.get(1);
-		 driver.switchTo().window(newTab);
-		 Thread.sleep(2000);	
-		 
-//		 randomAdvisor.click();
-//		 continueButton.click();
-		 
-		 ReferralAppointment ref = new ReferralAppointment();
-		 String meetingLinks[] = ref.selectDate1(meetingDate);
-		  
-		 
-		 driver.close();
-		 driver.switchTo().window(oldTab);
-		return meetingLinks;
-		 
-		 
-		 
-	
-}
 
 public void VerifyMeetings(String meetingLink) throws InterruptedException {
 	
@@ -1344,14 +1357,7 @@ public String commentsArray(String commentText) throws InterruptedException, Par
 	return commentsData;	
 }
 
-//index didnt work so i replaced this with se by text
-public void selectOutcome(int i) throws InterruptedException, ParseException {
-	
-	if (i==0){TestUtil.SelectDropDownOption(outcome, "Phone Call - Not Reached");}
-	else if(i==1){TestUtil.SelectDropDownOption(outcome, "Phone Call - Reached");}
-	else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
-	
-	}
+
 
 public void verifyExistingTasks() throws InterruptedException {
 	
@@ -1367,12 +1373,7 @@ public void verifyExistingTasks() throws InterruptedException {
 }
 	
 
-public String emailupdate() throws InterruptedException {
-	
-	 return emailupdate;	
-	
-	
-}
+
 
 
 

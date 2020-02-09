@@ -56,12 +56,18 @@ public class HouseholdPage extends TestBase {
 	WebElement meetingStartTime1;
 
 	
-	@FindBy(xpath = "((//input[contains (@name ,'End_Date_and_Time')])[1])[last()]")
-	WebElement meetingEndDate1;
+	//@FindBy(xpath = "((//input[contains (@name ,'End_Date_and_Time')])[1])[last()]")
+	//WebElement meetingEndDate1;
 
-	@FindBy(xpath = "((//input[contains (@name ,'End_Date_and_Time')])[2])[last()]")
+	@FindBy(xpath = "(//span[contains(text(),'Start Date and Time')]/../../..//input)[1]")
+	WebElement meetingEndDate1;
+	
+	//@FindBy(xpath = "((//input[contains (@name ,'End_Date_and_Time')])[2])[last()]")
+	//WebElement meetingEndTime1;
+	
+	@FindBy(xpath = "(//span[contains(text(),'Start Date and Time')]/../../..//input)[2]")
 	WebElement meetingEndTime1;
-		
+	
 	@FindBy(xpath = "(//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select)[last()]")
 	WebElement meetwithClient;
 	
@@ -76,6 +82,10 @@ public class HouseholdPage extends TestBase {
 	
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	
+	DetailsPage details = new DetailsPage();
+	
+	
 	
 	public HouseholdPage() {
 		 
@@ -169,7 +179,7 @@ public void unplannedAppointment() throws InterruptedException, ParseException {
 	}
 	
 	
-	
+	/*
 	public void selectOutcome(int i) throws InterruptedException, ParseException {
 		
 		if (i==0){TestUtil.SelectDropDownOption(outcome, "Phone Call - Not Reached");}
@@ -177,6 +187,14 @@ public void unplannedAppointment() throws InterruptedException, ParseException {
 		else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
 		
 		}	
+	*/
+	public void selectOutcome(int i) throws InterruptedException, ParseException {
+		
+		if (i==0){TestUtil.SelectDropDownOption(outcome, "Not Reached");}
+		else if(i==1){TestUtil.SelectDropDownOption(outcome, "Reached");}
+		else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
+		
+		}		
 	
 	
 }

@@ -3,43 +3,28 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.LogActivityTest">
+      <class name="com.crm.qa.testcases.LogActivityTests">
         <methods>
-          <include name="reachedwithBusinessLead"/>
-          <include name="createRegularAccount"/>
-          <include name="reachedwithBusinessLead_UnplannedMeeting"/>
-          <include name="createFalconAccount"/>
-          <include name="nolead_Reached_createWorkplaceOpportunity"/>
-          <include name="meeting_CompleteFlow"/>
-          <include name="createDemoUsers"/>
-          <include name="CreateAccount_Spouse"/>
-          <include name="demoTest"/>
-          <include name="reached_Schedule_Appointment"/>
-          <include name="reachedwithBusinessLead_ScheduleTodo"/>
-          <include name="createRPAccount"/>
-          <include name="createCTAccount"/>
-          <include name="notReached"/>
-          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
-          <include name="setUp"/>
-          <include name="createCTAccount1"/>
-          <include name="Unenrollment_TerminateAll"/>
-          <include name="navigateToRetailUser"/>
-          <include name="tearDown"/>
-          <include name="CreateRetail1Account"/>
-          <include name="nolead_Reached_createBranchOpportunity"/>
-          <include name="CreateRetail2Account"/>
-          <include name="notReachedwithBusinessLead"/>
+          <include name="reachedWithLead"/>
+          <include name="reachedCloseExistingTask"/>
+          <include name="debugTest4"/>
+          <include name="debugTest3"/>
+          <include name="debugTest2"/>
+          <include name="debugTest1"/>
+          <include name="notReached1"/>
           <include name="reached_Schedule_Phonecall"/>
-          <include name="debug"/>
-          <include name="LogACallSpouse"/>
-          <include name="Unenrollment_delinkAccount"/>
-          <include name="meeting_CompleteFlowWithOptions"/>
-          <include name="nolead_Reached_MultipleOpportunity"/>
+          <include name="tearDown"/>
+          <include name="debugTest"/>
           <include name="reached"/>
           <include name="reached_Schedule_ToDo"/>
-          <include name="reachedwithBusinessLead_SchedulePhoneCall"/>
+          <include name="notReachedWithLead"/>
+          <include name="reachedWithLead_SchedulePhonecall"/>
+          <include name="notReached"/>
+          <include name="notReachedCloseExistingTask"/>
+          <include name="reached_Schedule_Appointment"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

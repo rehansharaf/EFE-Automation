@@ -262,7 +262,7 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();				
-		detailsPage.reached_scheduleAppointment1();
+		detailsPage.reached_scheduleAppointment1(1);
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
 	
 	}
@@ -349,7 +349,7 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser();			
-		detailsPage.reached_scheduleAppointment1();
+		detailsPage.reached_scheduleAppointment1(1);
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
@@ -394,7 +394,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation1();
 	
 		homePage.navigateToRetailuser();
-		detailsPage.reached_scheduleAppointment1();
+		detailsPage.reached_scheduleAppointment1(1);
 	
 		MeetingFlow meetingflow = new MeetingFlow();
 		meetingflow.meetingCompletedFlow();
@@ -413,7 +413,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation1();
 		
 		homePage.navigateToRetailuser();
-		detailsPage.reached_scheduleAppointment1();
+		detailsPage.reached_scheduleAppointment1(1);
 		
 		MeetingFlow meetingflow = new MeetingFlow();
 		meetingflow.meetingCompleteFlowWithOptions();
@@ -464,80 +464,57 @@ public class LogActivityTest extends TestBase {
 	
 	
 	
-	@Test()
-	public void LogACallSpouse() throws InterruptedException, IOException, ParseException, InvalidFormatException {
+	@SuppressWarnings("static-access")
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void LogACallSpouse(String advisorId) throws InterruptedException, IOException, ParseException, InvalidFormatException {
 		
 		TestUtil.print("Log a Call Spouse");
 		
-		System.out.println("Running HomePage.navigatetoUser..................... ");
-		HomePage.navigateToUser("advisor");
-	
-		System.out.println("Running SalesforceTestRestAPI.APIConnection()..................... ");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
-		System.out.println("Running homePage.navigateToRetailuser..................... ");
 		homePage.navigateToRetailuser();
-		
-		System.out.println("Running acc.addSpouse..................... ");
-		RetailAccount acc = new RetailAccount();
-		acc.addSpouse(RetailUserdetails.getSpouseFirstName(), RetailUserdetails.getSpouseLastName());
-		
-		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
+		retailAccount.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		homePage.navigateToSpouseuser();
 		
-		System.out.println("Running detailsPage.enterComments(1)..................... ");
 		detailsPage.enterComments(1);
-		
+	
 		SalesforceTestRestAPI.validateTaskData1(1);
 		
 	}
 	
 	
-	@Test()
-	public void LogaCallwithSpouse_ValidateAtPrimary() throws Exception {
+	@SuppressWarnings("static-access")
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void LogaCallwithSpouse_ValidateAtPrimary(String advisorId) throws Exception {
 		
 		TestUtil.print("Log a Call with Spouse and Validate at Primary");
 		
-		System.out.println("Running HomePage.navigatetoUser..................... ");
-		HomePage.navigateToUser("advisor");
-		
-		System.out.println("Running SalesforceTestRestAPI.APIConnection()..................... ");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
-		System.out.println("Running homePage.navigateToRetailuser..................... ");
 		homePage.navigateToRetailuser();
-		
-		System.out.println("Running acc.addSpouse..................... ");
-		RetailAccount acc = new RetailAccount();
-		acc.addSpouse(RetailUserdetails.getSpouseFirstName(), RetailUserdetails.getSpouseLastName());
-		
-		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
+		retailAccount.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		homePage.navigateToSpouseuser();
 		
-		System.out.println("Running detailsPage.enterComments(1)..................... ");
 		detailsPage.enterComments(1);
-		
-		//System.out.println("Running Salesforce API validateTaskData1(1)..................... ");
-		//SalesforceTestRestAPI.validateTaskData1(1);
 		
 		communicationPage.validateCallonCommunication();
 		
 	}
 	
 	
-	
-	@Test()
-	public void CreateAccount_Spouse() throws InterruptedException, InvalidFormatException, ParseException, IOException {
+	@SuppressWarnings("static-access")
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void CreateAccount_Spouse(String advisorId) throws InterruptedException, InvalidFormatException, ParseException, IOException {
 		
 		TestUtil.print("Create a Account Spouse");
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser();
-		
-		RetailAccount acc = new RetailAccount();
-		acc.addSpouse(RetailUserdetails.getSpouseFirstName(), RetailUserdetails.getSpouseLastName());
+		retailAccount.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		
 		homePage.navigateToSpouseuser();
 		
@@ -546,7 +523,7 @@ public class LogActivityTest extends TestBase {
 	}
 	
 	
-	
+	@SuppressWarnings("static-access")
 	@Test()
 	public void CreateRetail1Account_Spouse() throws Exception {
 		
@@ -554,8 +531,7 @@ public class LogActivityTest extends TestBase {
 		
 		CreateRetail1Account();
 		
-		RetailAccount acc = new RetailAccount();
-		acc.addSpouse(RetailUserdetails.getSpouseFirstName(), RetailUserdetails.getSpouseLastName());
+		retailAccount.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		
 		homePage.navigateToSpouseuser();
 		detailsPage.enterComments(1);
@@ -564,13 +540,12 @@ public class LogActivityTest extends TestBase {
 	
 	
 	@Test()
-	public static void  OnlyCreateRetail_1_Account() throws Exception {
+	public  void  OnlyCreateRetail_1_Account() throws Exception {
 		
 		System.out.println("Creating Retail 1 Account.........................");
-		
-		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(1);
-		acc.searchAccount();
+		retailAccount.createRetailuser(1);
+		retailAccount.searchAccount();
+	
 		
 		
 	}
@@ -578,13 +553,11 @@ public class LogActivityTest extends TestBase {
 	
 	
 	@Test()
-	public static void  CreateRetail1Account() throws Exception {
+	public void  CreateRetail1Account() throws Exception {
 		
 		System.out.println("Creating Retail 1 Account.........................");
-		
-		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(1);
-		acc.searchAccount();
+		retailAccount.createRetailuser(1);
+		retailAccount.searchAccount();
 		
 		
 	}
@@ -596,10 +569,8 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Creating Retail 2 Account.........................");
 		
 		HomePage.navigateToUser("advisor");
-		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(2);
-		acc.searchAccount();
-		
+		retailAccount.createRetailuser(2);
+		retailAccount.searchAccount();
 		
 	}
 	
@@ -612,76 +583,57 @@ public class LogActivityTest extends TestBase {
 		System.out.println("Creating Retail 2 Account.........................");
 		
 		HomePage.navigateToUser("advisor");
-		RetailAccount acc = new RetailAccount();
-		acc.createRetailuser(2);
-		acc.searchAccount();
-		
-		
+		retailAccount.createRetailuser(2);
+		retailAccount.searchAccount();
 	}
 	
 
 	
-	@Test()
-	public void UpdatePrimaryAccountdetails() throws Exception {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UpdatePrimaryAccountdetails(String advisorId) throws Exception {
 		
 		TestUtil.print("UpdatePrimaryAccountdetails");
 		
-		System.out.println("Running HomePage.navigatetoUser..................... ");
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
-		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
 		homePage.navigateToRetailuser();
+		//retailAccount.clickAccountviaAccountScreen();
 		
-		System.out.println("Running retailAccount.clickAccountAccountScreen..................... ");
-		retailAccount.clickAccountviaAccountScreen();
-		
-		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
 		detailsPage.updateAccountDetails();
-		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
-		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale, AZ 85254");	
-		
-		//TestUtil.closeAllOpenTabs(driver);
+		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");	
 		
 	}
 	
-	@Test()
-	public void UpdateSpouseAccountdetails() throws Exception {
+	
+	
+	@SuppressWarnings("static-access")
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UpdateSpouseAccountdetails(String advisorId) throws Exception {
 		
 		TestUtil.print("UpdateSpouseAccountdetails");
-		
-		System.out.println("Running HomePage.navigatetoUser..................... ");
-		HomePage.navigateToUser("advisor");
+	
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		
-		System.out.println("Running HomePage.navigatetoRetailUser..................... ");
 		homePage.navigateToRetailuser();
+		//retailAccount.clickAccountviaAccountScreen();
+		retailAccount.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
 		
-		System.out.println("Running retailAccount.clickAccountAccountScreen..................... ");
-		retailAccount.clickAccountviaAccountScreen();
-		
-		System.out.println("Running acc.addSpouse..................... ");
-		RetailAccount acc = new RetailAccount();
-		acc.addSpouse(RetailUserdetails.getSpouseFirstName(), RetailUserdetails.getSpouseLastName());
-		
-		System.out.println("Running homePage.navigateToSpouseuser()..................... ");
 		homePage.navigateToSpouseuser();
-		
-		System.out.println("Running detailsPage.updateAccountDetails();..................... ");
 		detailsPage.updateAccountDetails();
 		
-		System.out.println("Running detailsPage.verifyAccountDetails();..................... ");
-		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale, AZ 85254");		
+		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");		
 
 	
 	}
 	
 	
 	
-	@Test()
-	public void nolead_Reached_MultipleOpportunity() throws InterruptedException, ParseException, IOException, InvalidFormatException {
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void nolead_Reached_MultipleOpportunity(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
 		
-		HomePage.navigateToUser("advisor");
+		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser();
 		Opportunities opp = new Opportunities();
@@ -695,7 +647,10 @@ public class LogActivityTest extends TestBase {
 	
 	
 	
-//-----------------------------------------------------------------------------------------------------------------------	
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	***************** OLD SCRIPTS. Keeping it for future Use***************************************************
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/	
+	
 	
 	
 	@Test()

@@ -65,8 +65,13 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "(//span[contains(text(),'Home')])[1]")
 	WebElement homeLink;
 	
-	
+	//static
+	//@FindBy(xpath="//table[contains (@class,('detailList'))]//td[contains (@class, ('dataCol'))]//a[contains (@href,('/one/one'))]")
+	//WebElement usrProfile;
 
+	static
+	@FindBy(xpath="//span[(text()= 'Profile')]/../..//a[contains(@href,'/lightning/r/')]")
+	WebElement usrProfile;
 	
 	
 	
@@ -95,6 +100,8 @@ public class HomePage extends TestBase {
 	SalesforceRestAPI restapi = new SalesforceRestAPI();
 	
 	
+	public static String userProfile;
+	
 	
 	public void navigateToRetailuser() throws InterruptedException{
 		
@@ -108,27 +115,33 @@ public class HomePage extends TestBase {
 		
 	}
 	
-public static void navigateToUser(String role) throws InterruptedException{
+
+	public static void navigateToUser(String role) throws InterruptedException{
 	
 	
-	if (role.equalsIgnoreCase("advisor")){
+		if (role.equalsIgnoreCase("advisor")){
 	
 		String advisorId = prop.getProperty("advisorsfdcId1");
 			
-		//driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/User/"+advisorId+"/view");
 		driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+		
+		userProfile  = RetailAccount.userProfile = usrProfile.getText();
+		
 		
 		advisorLink.click();
 		
 		Thread.sleep(5000);
 		driver.switchTo().frame(0);
 		
+		Thread.sleep(2000);
 		advisorLogin.click();
 		
+		Thread.sleep(3000);
 		driver.switchTo().defaultContent();
 		
 		Thread.sleep(5000);
 		driver.navigate().refresh();
+		Thread.sleep(3000);
 		
 	
 		
@@ -148,6 +161,8 @@ public static void navigateToMultipleUser(String role, String advisorId) throws 
 	if (role.equalsIgnoreCase("advisor")){
 	
 		driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+		
+		userProfile  = RetailAccount.userProfile = usrProfile.getText();
 		
 		advisorLink.click();
 		
@@ -170,9 +185,6 @@ public static void navigateToMultipleUser(String role, String advisorId) throws 
 		
 }
 
-
-
-
 //This can be commented since it is covered in the above method ---navigateToUser(String role)
 
 public static void navigateTo_nonAdvisor() throws InterruptedException{
@@ -193,9 +205,7 @@ public void navigateToSpouseuser() throws InterruptedException{
 	}
 
 
-
-
-	public void clickSearchInput() throws InterruptedException{
+public void clickSearchInput() throws InterruptedException{
 		
 		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/page/home");
 
@@ -262,24 +272,13 @@ public boolean validateCallDate(String taskCreatedDate, String enteredDate) {
 			//	System.out.print("Call Data matched " );
 				timecomp= true;
 				
-			} else {
-				
-				timecomp = false;
-			}
+			} else {timecomp = false;}
 				
 			System.out.print(diffSeconds + " seconds.");
 
-	}
+	}	catch (Exception e) {e.printStackTrace();}
 	
-	
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	
-} 
-	
-	return timecomp;
+	}	return timecomp;
 	
 }
 

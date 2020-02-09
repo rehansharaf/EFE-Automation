@@ -18,7 +18,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.util.TestUtil;
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
+import com.crm.qa.pages.DetailsPage;;
 
 
 public class RetailAccount extends TestBase {
@@ -34,9 +34,6 @@ public class RetailAccount extends TestBase {
 			
 	@FindBy(xpath = "//div[contains(text(),'Comments')]")
 	WebElement comments;
-	
-	//@FindBy(xpath="(//a/div/lightning-icon/lightning-primitive-icon)[1]")
-	//WebElement globalButton;
 	
 	@FindBy(xpath="//lightning-icon[contains (@class, ('globalCreateButton'))]//*[contains(@class,'slds-icon slds-icon_x-small')]")
 	WebElement globalButton;
@@ -93,14 +90,25 @@ public class RetailAccount extends TestBase {
 	@FindBy(xpath = "//div[contains (text() , 'give up yet')]")
 	WebElement msgDontGiveUpYet;
 	
-	@FindBy(xpath = "//*[@id='primaryField']")
+	//@FindBy(xpath = "//*[@id='primaryField']")
+	//WebElement username;
+	
+	@FindBy(xpath = "//span[contains(text(),'Preferred Name')]/../..//div//span[contains(@class,('OutputText'))]")
 	WebElement username;
 	
 	@FindBy(xpath="//span [text () = 'Plan Sponsor Name']/parent::div/following-sibling::div/child::span")
 	WebElement retailText;
 	
+	@FindBy(xpath="//span[contains(text(),'Plan Sponsor')]/..//a")
+	WebElement retailText_inbAdvs;
+	
+	
 	@FindBy(xpath="//span [text () = 'User Number']/parent::div/following-sibling::div/child::span/span")
 	WebElement userId;
+	
+	@FindBy(xpath="(//span[contains(text(),'User Number')]/..//div[contains (@class,('slds-truncate'))]/span)[last()]")
+	WebElement userId_inbdAdvsr;
+	
 	
 	@FindBy(xpath="//span[contains (@class, 'test-id')][contains(text(),'User Number')]")
 	WebElement userNumberTitle;
@@ -172,7 +180,7 @@ public class RetailAccount extends TestBase {
 	@FindBy(xpath="(//a[contains(@class,'forceOutputLookup')])[1]")
 	WebElement plannerAdvisor;
 	
-	@FindBy(xpath="//div[contains (@class, 'slds-lookup__result-meta')]")
+	@FindBy(xpath="//div[contains (@class, 'slds-lookup__result-text')]")
 	WebElement assignedPlannerdropdown;
 	
 	@FindBy(xpath="//input[contains (@placeholder, 'Search People...')]")
@@ -181,9 +189,12 @@ public class RetailAccount extends TestBase {
 	@FindBy(xpath="//span[contains(@title, 'My Open Opportunities')]")
 	WebElement myOpenOptty;
 	
+
 	
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	
+	//DetailsPage details = new DetailsPage();
 	
 	/*
 	DetailsPage detailspage = new DetailsPage();
@@ -201,9 +212,19 @@ public class RetailAccount extends TestBase {
 	String Accountfor;
 	
 	public static String uid;
+	public static String accountId;
 	public static String aname;
-	public static String fname = "Testf"+ uid;
-	public static String lname = "Testl"+ uid;
+	public static String fname; 
+	public static String lname ;
+	public static String spousefname;
+	public static String spouselname;
+	public static String userProfile;
+	
+	
+	
+	String textInsideUserNumber;
+	String planSponsor;
+	
 	
 //	Properties prop = new Properties();
 	
@@ -250,7 +271,11 @@ public class RetailAccount extends TestBase {
 		country.sendKeys("USA");
 	
 		
-		if (i==2)      {assignedPlanner.sendKeys(LoggedinUser);assignedPlannerdropdown.click();}
+		
+		if (i==2)      {assignedPlanner.sendKeys(LoggedinUser);
+						//assignedPlannerdropdown.click();
+		jse2.executeScript("arguments[0].click()", assignedPlannerdropdown);
+		}
 		else if (i==1) {searchpeopleDropDown.click();assignedPlannerOption.click();}
 		
 	 	//If you logged in as Advisor, Type will be automatically selected for you
@@ -300,18 +325,27 @@ public class RetailAccount extends TestBase {
 		driver.navigate().refresh();
 		
 		Thread.sleep(5000);
-		String textInsideUserNumber = userId.getText();
+		
+		
+		
+		if (userProfile.contains("Inbound Advisor")){textInsideUserNumber = userId_inbdAdvsr.getText(); }
+		else {textInsideUserNumber = userId.getText();}
+		
 		
 		// Check whether input field is blank
 		if(textInsideUserNumber.isEmpty()){System.out.println("User Number is empty");}
 					
-		System.out.println(textInsideUserNumber);
+		//System.out.println(textInsideUserNumber);
 		
-		System.out.println(prop.getProperty("retailuser"));
+		//System.out.println(prop.getProperty("retailuser"));
 		//System.out.println(RetailUserdetails.getaccountName("primary"));
 		
+		
+		
 		softAssertion.assertEquals(AccountName, prop.getProperty("retailuser"), "Account Name mismatch in open task");
-		softAssertion.assertEquals(retailText.getText(), "");
+		
+		if (userProfile.contains("Inbound Advisor")){softAssertion.assertEquals(retailText_inbAdvs.getText(), "Retail");}
+		else {softAssertion.assertEquals(retailText.getText(), "");}
 	
 	}
 	
@@ -377,8 +411,13 @@ public class RetailAccount extends TestBase {
 		
 		driver.findElement(By.xpath("(//a[contains (@title, ('" +aname+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
 		Thread.sleep(2000);
-		String AccountName = username.getText();
-		String textInsideUserNumber = userId.getText();
+		
+		
+		if (userProfile.contains("Inbound Advisor")){textInsideUserNumber = userId_inbdAdvsr.getText();}
+		else {textInsideUserNumber = userId.getText();}
+		
+		//String AccountName = username.getText();
+		//String textInsideUserNumber = userId.getText();
 		
 		// Check whether input field is blank
 		if(textInsideUserNumber.isEmpty()){System.out.println("User Number is empty");}
@@ -386,7 +425,10 @@ public class RetailAccount extends TestBase {
 		System.out.println(textInsideUserNumber);
 		System.out.println(prop.getProperty("retailuser"));
 		softAssertion.assertEquals(AccountName, prop.getProperty("retailuser"), "Account Name mismatch in open task");
-		softAssertion.assertEquals(retailText.getText(), "");
+		//softAssertion.assertEquals(retailText.getText(), "");
+		
+		if (userProfile.contains("Inbound Advisor")){softAssertion.assertEquals(retailText_inbAdvs.getText(), "Retail");}
+		else {softAssertion.assertEquals(retailText.getText(), "");}
 		
 		Thread.sleep(2000);
 		
@@ -412,12 +454,12 @@ public class RetailAccount extends TestBase {
 		
 		Thread.sleep(2000);
 		changeNavigationMenu("Accounts");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		TestUtil.closeAllOpenTabs(driver);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("(//a[contains (@title, ('" +aname+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 	}
 	

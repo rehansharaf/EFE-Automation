@@ -46,11 +46,13 @@ public class CommunicationPage extends TestBase {
 			 	Thread.sleep(2000);
 			 }
 		
-		communicationTab.click();
+		jse2.executeScript("arguments[0].click()", communicationTab);
 		Thread.sleep(2000);
-		allTab.click();
+		jse2.executeScript("arguments[0].click()", allTab);
 		Thread.sleep(2000);
-		if (loggedCall.getText() == "Call"){
+		
+		
+		if ((loggedCall.getText()).contains("Call") ){
 			
 			System.out.println( "Passed.................");
 		}

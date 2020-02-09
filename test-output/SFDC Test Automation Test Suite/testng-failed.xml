@@ -9,18 +9,29 @@
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
+          <include name="meeting_CompleteFlow" invocation-numbers="0 0"/>
           <include name="tearDown"/>
-          <include name="OnlyCreateRetail_2_Account"/>
-          <include name="UpdatePrimaryAccountdetails"/>
-          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="3"/>
-          <include name="nolead_Reached_createBranchOpportunity"/>
-          <include name="reachedwithBusinessLead_UnplannedMeeting"/>
+          <include name="UpdatePrimaryAccountdetails" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="UpdateSpouseAccountdetails"/>
-          <include name="nolead_Reached_MultipleOpportunity"/>
-          <include name="logaCall_UnplannedMeeting_multipleUsers" invocation-numbers="3"/>
+          <include name="UpdateSpouseAccountdetails" invocation-numbers="0 0"/>
+          <include name="meeting_CompleteFlowWithOptions" invocation-numbers="0 0"/>
+          <include name="LogACallSpouse" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
   </test> <!-- Log a Call Test Scenarios(failed) -->
+  <test name="Branch Opportunity Test Scenarios(failed)" parallel="methods">
+    <classes>
+      <class name="com.crm.qa.testcases.BranchOpportunityTest">
+        <methods>
+          <include name="logacall_Reached_StageClosedLost"/>
+          <include name="scheduleMeetingviaNextAction"/>
+          <include name="logacall_notReached_Optty" invocation-numbers="0 0"/>
+          <include name="setUp"/>
+          <include name="scheduleMeetingandthenCloseMeeting"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
+    </classes>
+  </test> <!-- Branch Opportunity Test Scenarios(failed) -->
 </suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->

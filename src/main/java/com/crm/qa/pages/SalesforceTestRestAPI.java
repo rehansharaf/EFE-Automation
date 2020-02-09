@@ -73,15 +73,8 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	public static void APIConnection() {
 
-		try {
-			//output = new FileOutputStream("C:\\Users\\ISharaf\\workspace\\POM_Updated\\QAconfig.properties");
-			output = new FileOutputStream(prop.getProperty("QAconfig_path"));
-			
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		try {output = new FileOutputStream(prop.getProperty("QAconfig_path"));} 
+		catch (FileNotFoundException e) {e.printStackTrace();}
 
 		dataCreation_basic();
 
@@ -132,7 +125,7 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 	
-	public static void dataCreation4(String firstName, String lastName) {
+	public static void dataCreation4(String firstName, String lastName) throws InterruptedException {
 
 	
 		
