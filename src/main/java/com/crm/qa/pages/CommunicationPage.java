@@ -14,8 +14,12 @@ import com.crm.qa.base.TestBase;
 
 public class CommunicationPage extends TestBase {
 
-	@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab8'))]")
+	//@FindBy(xpath="//a[contains (@class, ('tabHeader'))][contains (@data-tab-name, ('customTab8'))]")
+	//WebElement communicationTab;
+	
+	@FindBy(xpath="(//a[contains (@data-label ,'Communications')])[last()]")
 	WebElement communicationTab;
+	
 	
 	@FindBy(xpath="//a[contains (@data-label, ('All'))]")
 	WebElement allTab;

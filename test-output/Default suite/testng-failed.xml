@@ -3,28 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.LogActivityTests">
+      <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="reachedWithLead"/>
-          <include name="reachedCloseExistingTask"/>
-          <include name="debugTest4"/>
-          <include name="debugTest3"/>
-          <include name="debugTest2"/>
-          <include name="debugTest1"/>
-          <include name="notReached1"/>
-          <include name="reached_Schedule_Phonecall"/>
           <include name="tearDown"/>
-          <include name="debugTest"/>
-          <include name="reached"/>
-          <include name="reached_Schedule_ToDo"/>
-          <include name="notReachedWithLead"/>
-          <include name="reachedWithLead_SchedulePhonecall"/>
-          <include name="notReached"/>
-          <include name="notReachedCloseExistingTask"/>
-          <include name="reached_Schedule_Appointment"/>
           <include name="setUp"/>
+          <include name="logaCall_Reached_Household_multipleUsers" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.LogActivityTests -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

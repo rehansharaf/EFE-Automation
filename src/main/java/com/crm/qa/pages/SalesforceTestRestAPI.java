@@ -204,7 +204,7 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	public static void validateTaskData1(int i) throws InterruptedException {
 
-		Thread.sleep(5000);	
+		Thread.sleep(10000);	
 		callTime = prop.getProperty("Call Start Time");
 		description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
 
@@ -217,7 +217,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
 			taskCallType = task.getJSONObject(0).getString("Call_Type__c");
 			taskStatus = task.getJSONObject(0).getString("Status");
-			taskSolutionsDiscussed = task.getJSONObject(0).getString("Solutions_Discussed__c");
+			//taskSolutionsDiscussed = task.getJSONObject(0).getString("Solutions_Discussed__c");
 
 			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
 			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
@@ -242,7 +242,7 @@ public class SalesforceTestRestAPI extends TestBase {
 	
 	public static void validateTaskData2(int i) throws InterruptedException {
 
-		Thread.sleep(5000);	
+		Thread.sleep(10000);	
 		callTime = prop.getProperty("Call Start Time");
 		description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
 
@@ -255,7 +255,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			taskCallOutcome = task.getJSONObject(1).getString("Call_Outcome__c");
 			taskCallType = task.getJSONObject(1).getString("Call_Type__c");
 			taskStatus = task.getJSONObject(1).getString("Status");
-			taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
+			//taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
 
 			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
 			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
@@ -295,8 +295,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			// taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
 			taskType = task.getJSONObject(0).getString("Type");
 			taskStatus = task.getJSONObject(1).getString("Status");
-			taskSolutionsDiscussed =
-			task.getJSONObject(1).getString("Solutions_Discussed__c");
+			//taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
 			taskActivityDate = task.getJSONObject(1).getString("ActivityDate");
 
 			// softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start
@@ -401,10 +400,12 @@ public class SalesforceTestRestAPI extends TestBase {
 	
 	public static void validateUnplannedMeetingData(int i) throws InterruptedException {
 
-		Thread.sleep(5000);	
+		Thread.sleep(10000);	
 		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
+			Thread.sleep(3000);
+			
 			meetingId = task.getJSONObject(0).getString("Id");
 			meetingMedium = task.getJSONObject(0).getString("Meeting_Medium__c");
 
@@ -424,7 +425,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			System.out.println(taskDescription);
 			System.out.println("Event record is----------------------------------------------------- " + meetingId + " "
 					+ meetingMedium + " " + meetingType + meetingSubType);
-			// softAssertion.assertAll();
+			//softAssertion.assertAll();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

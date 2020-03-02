@@ -237,6 +237,7 @@ public class MeetingFlow extends TestBase {
 	
 	@SuppressWarnings("static-access")
 	public void meetingCompletedFlow() throws InterruptedException {
+	
 		
 		String commentsToEnter = "TestingPurpose " + details.uid;
 		
@@ -244,7 +245,7 @@ public class MeetingFlow extends TestBase {
 		
 		TestUtil.SelectDropDownOption(outcome, "Meeting");
 		
-		solutionsDiscussed.click();
+		//solutionsDiscussed.click();
 		
 		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
 		

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [FREE CRM Application Test Automation Test Suite]]">
+  <listeners>
+    <listener class-name="com.qa.EventListener.TestListener"/>
+    <listener class-name="com.qa.EventListener.FailureRetryListener"/>
+  </listeners>
+  <test name="Free CRM App Test Cases(failed)(failed)">
+    <classes>
+      <class name="com.crm.qa.testcases.LogActivityTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="0 1 1"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+    </classes>
+  </test> <!-- Free CRM App Test Cases(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [FREE CRM Application Test Automation Test Suite]] -->

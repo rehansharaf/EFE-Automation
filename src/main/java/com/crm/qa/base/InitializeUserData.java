@@ -7,7 +7,6 @@ import java.util.Map;
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.SalesforceRestAPI;
-import com.crm.qa.util.RetailUserdetails;
 import com.crm.qa.pages.RetailAccount;
 
 
@@ -22,6 +21,7 @@ public class InitializeUserData extends TestBase{
 	
 	
 	public void initialize(){
+		
 		
 		Map<String, String> Data = new HashMap<String, String>();
 		//Data = RetailUserdetails.getDetailPageData();
@@ -51,6 +51,11 @@ public class InitializeUserData extends TestBase{
 		SalesforceRestAPI.accountId = RetailAccount.accountId = SalesforceRestAPI.getHashMapData()[0];
 		
 		
+
+		
+		
+		
+		
 	}
 	
 	public static Map<String, String> getDetailPageData(){
@@ -69,7 +74,5 @@ public class InitializeUserData extends TestBase{
 		return detailPageData;
 	
 		}
-		
-	 
-	
+
 }

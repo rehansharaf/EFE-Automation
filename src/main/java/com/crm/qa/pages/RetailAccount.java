@@ -18,7 +18,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.pages.DetailsPage;;
+import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.pages.HouseholdPage;
 
 
 public class RetailAccount extends TestBase {
@@ -194,7 +195,8 @@ public class RetailAccount extends TestBase {
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 	
-	//DetailsPage details = new DetailsPage();
+	DetailsPage detailsPage = new DetailsPage();
+	HouseholdPage householdPage = new HouseholdPage();
 	
 	/*
 	DetailsPage detailspage = new DetailsPage();
@@ -350,53 +352,6 @@ public class RetailAccount extends TestBase {
 	}
 	
 	
-	public void addSpouse(String SpouseFirstName, String SpouseLastName) throws InterruptedException {
-	
-		Thread.sleep(10000);
-		householdTab.click();
-		
-		Thread.sleep(3000);
-		addCoclient.click();
-		
-		Thread.sleep(3000);
-		createNewAccount.click();
-		
-		nextButton.click();
-		
-		Thread.sleep(3000);
-		spouseFirstName.sendKeys(SpouseFirstName);
-		spouseLastName.sendKeys(SpouseLastName);
-		spouseDOB.sendKeys("10/16/1958");
-		genderSelection.click();
-		relationshipSelection.click();
-		nextButton1.click();
-		Thread.sleep(3000);
-		
-		driver.navigate().refresh();
-	
-		Thread.sleep(10000);
-		householdTab.click();
-		
-		/*if(!coClientButton.isDisplayed()){ System.out.println("Co-Client Exists");}*/
-		
-		Thread.sleep(2000);
-		
-		if(!coClientButton.isEnabled()){System.out.println("Co-Client Exists");}
-		
-		coClientButton.click();
-		
-		Thread.sleep(3000);
-		String spouseUrl = driver.getCurrentUrl();
-		String []url = spouseUrl.split("/");
-		String spousesfdcId = url[6];
-		
-		prop.setProperty("spousesfdcId", spousesfdcId);
-		SalesforceRestAPI.objMap.put("spousesfdcId", spousesfdcId);
-		
-		//prop.setProperty("sfdcId", spousesfdcId);
-		SalesforceRestAPI.objMap.put("sfdcId", spousesfdcId);
-		
-	}
 	
 	
 	public void searchAccount() throws InterruptedException{

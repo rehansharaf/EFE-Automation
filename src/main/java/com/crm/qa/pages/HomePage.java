@@ -74,120 +74,119 @@ public class HomePage extends TestBase {
 	WebElement usrProfile;
 	
 	
+	//@FindBy(xpath="//iframe[contains (@name,('vfFrameId'))]")
+	//WebElement iframe;
 	
-	// Initializing the Page Objects:
-	public HomePage() {
-		PageFactory.initElements(driver, this);
-	}
-	
-	
-	
-	public String verifyHomePageTitle(){
-		return driver.getTitle();
-	}
-	
-	
-	
-//	public boolean verifyCorrectUserName(){
-//		return userNameLabel.isDisplayed();
-//	}
-	
-//	public ContactsPage clickOnContactsLink(){
-//		contactsLink.click();
-//		return new ContactsPage();
-//	} 
-	
-	SalesforceRestAPI restapi = new SalesforceRestAPI();
 	
 	
 	public static String userProfile;
+	SalesforceRestAPI restapi = new SalesforceRestAPI();
 	
 	
-	public void navigateToRetailuser() throws InterruptedException{
-		
-		String sfdcId = RetailUserdetails.get_sfdcID();
-		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
-		AccountURL = url;
-		
-		driver.navigate().to(url);
-		
-		Thread.sleep(5000);
-		
-	}
+	// Initializing the Page Objects:
+	public HomePage() {	PageFactory.initElements(driver, this);	}
 	
+	public String verifyHomePageTitle(){return driver.getTitle();}
+		
 
+	
 	public static void navigateToUser(String role) throws InterruptedException{
 	
 	
 		if (role.equalsIgnoreCase("advisor")){
 	
-		String advisorId = prop.getProperty("advisorsfdcId1");
+			String advisorId = prop.getProperty("advisorsfdcId1");
+				
+			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+			userProfile  = RetailAccount.userProfile = usrProfile.getText();
+			advisorLink.click();Thread.sleep(5000);
 			
-		driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
-		
-		userProfile  = RetailAccount.userProfile = usrProfile.getText();
-		
-		
-		advisorLink.click();
-		
-		Thread.sleep(5000);
-		driver.switchTo().frame(0);
-		
-		Thread.sleep(2000);
-		advisorLogin.click();
-		
-		Thread.sleep(3000);
-		driver.switchTo().defaultContent();
-		
-		Thread.sleep(5000);
-		driver.navigate().refresh();
-		Thread.sleep(3000);
-		
+			
+			WebElement iframe = driver.findElement(By.xpath("//iframe[contains (@name,('vfFrameId'))]"));Thread.sleep(2000);
+			driver.switchTo().frame(iframe);
+			
+			advisorLogin.click();Thread.sleep(3000);
+			
+			driver.switchTo().defaultContent();Thread.sleep(5000);
+			
+			driver.navigate().refresh();Thread.sleep(3000);}
 	
+		else if (role.equalsIgnoreCase("nonadvisor")){String advisorId = prop.getProperty("advisorsfdcId1");}
 		
 	}
-	
-	else if (role.equalsIgnoreCase("nonadvisor")){
-		
-		String advisorId = prop.getProperty("advisorsfdcId1");
-	}
-	
-		
-}
 
-public static void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
 	
 	
-	if (role.equalsIgnoreCase("advisor")){
+	public static void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
 	
-		driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+	
+		if (role.equalsIgnoreCase("advisor")){
 		
-		userProfile  = RetailAccount.userProfile = usrProfile.getText();
+			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+			
+			userProfile  = RetailAccount.userProfile = usrProfile.getText();
+			
+			Thread.sleep(5000);
+			advisorLink.click();
+			
+			Thread.sleep(5000);
+			WebElement iframe = driver.findElement(By.xpath("//iframe[contains (@name,('vfFrameId'))]"));
+			driver.switchTo().frame(iframe);
 		
-		advisorLink.click();
+			Thread.sleep(5000);
+			advisorLogin.click();
+			driver.switchTo().defaultContent();
+			
+			Thread.sleep(5000);
+			driver.navigate().refresh();
+			
+		} else if (role.equalsIgnoreCase("nonadvisor")){}
+
+	
+	}
+
+	
+	public void navigateToRetailuser(String userType) throws InterruptedException{
 		
+		String sfdcId = new String();
+		
+		if (userType.toLowerCase().equals(("primary"))){sfdcId = SalesforceRestAPI.getHashMapData()[0];}
+		else if (userType.toLowerCase().equals(("household")))
+			{
+			sfdcId = SalesforceRestAPI.getHashMapData()[0]; 
+			sfdcId = sfdcId.replace(sfdcId.charAt(14), (char)(sfdcId.charAt(14) + 1));
+			}
+		
+		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
+		AccountURL = url;
+		driver.navigate().to(url);
 		Thread.sleep(5000);
-		driver.switchTo().frame(0);
+	
+		/*
+		 * String userId = SalesforceRestAPI.getHashMapData()[0];
+			String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+userId+"/view";
+			System.out.println(url);
+		  	
+			driver.navigate().to(url);
+		 * 
+		 */
 		
-		advisorLogin.click();
-		driver.switchTo().defaultContent();
 		
-		Thread.sleep(5000);
-		driver.navigate().refresh();
 		
 	}
-	
-	else if (role.equalsIgnoreCase("nonadvisor")){
 		
-		//String advisorId = prop.getProperty("advisorsfdcId1");
+	
+	public void navigateToSponsoredClient(String sfdcId) throws InterruptedException{
+		
+		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+sfdcId+"/view";
+		driver.navigate().to(url);
+		Thread.sleep(5000);
 	}
 	
-		
-}
 
 //This can be commented since it is covered in the above method ---navigateToUser(String role)
 
-public static void navigateTo_nonAdvisor() throws InterruptedException{
+	public static void navigateTo_nonAdvisor() throws InterruptedException{
 	
 	String advisorId = prop.getProperty("advisorsfdcId1");
 	

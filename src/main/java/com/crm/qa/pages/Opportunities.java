@@ -93,11 +93,24 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//b[contains(text(),'Create Opportunity')]")
 	WebElement CreateOpportunityLabel;
 	
-	@FindBy(xpath = "//label[contains (@for, ('Yes_Selected'))]")
+	//@FindBy(xpath = "//label[contains (@for, ('Yes_Selected'))]")
+	//WebElement yesOpttyRdBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='bBody']//label[contains (@for, ('Yes_Selected'))]")
 	WebElement yesOpttyRdBtn;
 	
-	@FindBy(xpath = "//label[contains (@for, ('No_Selected'))]")
+	//@FindBy(xpath = "(//label[contains (@for, ('No_Selected'))])[last()]")
+	//WebElement noOpttyRdBtn;
+	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='bBody']//label[contains (@for, ('No_Selected'))]")
 	WebElement noOpttyRdBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Do you want to schedule a future activity')]/ancestor::div[@class ='bBody']//label[contains (@for, ('No_Selected'))]")
+	WebElement noScheduleFutureActivityRdBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Do you want to schedule a future activity')]/ancestor::div[@class ='bBody']//label[contains (@for, ('Yes_Selected'))]")
+	WebElement yesScheduleFutureActivityRdBtn;
+	
+	
 	
 	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='content']//button[contains(text(),'Next')]")
 	WebElement opttyNextBtn;
@@ -108,27 +121,20 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath ="//span[contains(text(),'Interaction')]/ancestor::div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button")
 	WebElement logacallOpttyNextButton;
 	
-	//@FindBy(xpath ="//b[contains(text(),'Create a Branch Opportunity')]/ancestor::div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button")
-	//WebElement logacallCreateBranchopttyNextButton;
-	
 	@FindBy(xpath ="//div[contains(text(),'Total Unmanaged Assets')]//ancestor::div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button")
 	WebElement logacallCreateBranchopttyNextButton;
-	
-	@FindBy(xpath = "//label[contains (@for, ('Create_Workplace_Opportunity'))]//span[contains (@class, ('radio'))]")
+			
+	@FindBy(xpath = "(//span[(text()='Log an Interaction')]/ancestor::div[contains (@class, ('content'))])[last()]//label[contains (@for,'Workplace')]")
 	WebElement createWorkplaceOpportunity;
 	
-	@FindBy(xpath = "(//label[contains (@for, ('Create_Workplace_Opportunity'))]//span[contains (@class, ('radio'))])[1]")
-	WebElement logacallCreateWorkplaceOpportunity;
+	@FindBy(xpath = "(//span[(text()='Log an Interaction')]/ancestor::div[contains (@class, ('content'))])[last()]//button[(text()='Next')]")
+	WebElement createOpportunityNextBtn;
 	
 	@FindBy(xpath = "//b[contains(text(),'401k Roll')]/ancestor::div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button")
 	WebElement logacallWorkplaceOppttyNextBtn;
 	
-	@FindBy(xpath = "(//label[contains (@for, ('Create_BM_PA_Opportunity'))]//span[contains (@class, ('radio'))])[last()]")
+	@FindBy(xpath = "(//span[(text()='Log an Interaction')]/ancestor::div[contains (@class, ('content'))])[last()]//label[contains (@for,'BM')]")
 	WebElement createBranchOpportunity;
-	
-	@FindBy(xpath = "(//label[contains (@for, ('Create_BM_PA_Opportunity'))]//span[contains (@class, ('radio'))])[1]")
-	WebElement logacallCreateBranchOpportunity;
-	
 	
 	@FindBy(xpath = "//div[contains(text(),'Please type the number of 401k Roll-In Accounts being transferred')]/../../../following-sibling::div/input")
 	WebElement oppField1;
@@ -191,9 +197,6 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//div[@class= 'uiVirtualDataTable indicator']/following-sibling::table/tbody/tr")
 	WebElement noOpportunities;
 	
-//	@FindBy(xpath = "(//div[@class= 'uiVirtualDataTable indicator'])[2]/following-sibling::table/tbody/tr/td[5]")
-//	WebElement dropdownActions;
-	
 	@FindBy(xpath = "//a[@title='Delete']")
 	WebElement deleteOpportunity;
 	
@@ -233,22 +236,19 @@ public class Opportunities extends TestBase{
 	
 //-------------------------------------------------------------	
 	
-	@FindBy(xpath = "//label[contains (@for, ('closeOpportunityChoice'))]//span[contains (@class, ('slds-radio--faux'))]")
+	@FindBy(xpath = "(//label[contains (@for, ('closeOpportunityChoice'))]//span[contains (@class, ('slds-radio--faux'))])[last()]")
 	WebElement closeOpptyasLostRadioBtn ;
 	
-	@FindBy(xpath = "//div[contains (@class,('slds-box'))]//footer//button[contains (@title,'Next')]")
+	@FindBy(xpath = "(//div[contains(text(),'Close Opportunity as Lost')]/ancestor::div[@class ='content']//button)[last()]")
 	WebElement closeOpptyasLostNextBtn ;
 	
 	@FindBy(xpath = "//select[ contains (@id, ('dropdownInput1:'))]")
 	WebElement lossReasonDropDown ;
 	
-	//@FindBy(xpath = "(//textarea[contains (@id, ('longInput'))])[1]")
-	//WebElement lossReasonNotes ;
 	@FindBy(xpath = "//font[contains(text(),'Loss Notes')]/ancestor::div[@class='bBody']//textarea[@aria-required = 'true']")
 	WebElement lossReasonNotes ;
 	
-	
-	@FindBy(xpath = "//div[contains (@class, ('actionsRight'))]//button[contains (@title,'Previous')]/following-sibling::button")
+	@FindBy(xpath = "(//div[contains (@class, ('actionsRight'))]//button[contains (@title,'Previous')]/following-sibling::button)[last()]")
 	WebElement CloseOpptyRightNextBtn ;
 	
 	@FindBy(xpath = "//label[contains (@for, ('scheduleAnAppointmentChoice'))]//span[contains (@class, ('slds-radio--faux'))]")
@@ -256,10 +256,6 @@ public class Opportunities extends TestBase{
 	
 	@FindBy(xpath = "//span[contains(@class,'test-id')][contains(text(),'Lead Source')]/../..//button")
 	WebElement opptyPgEdit;
-	
-	//@FindBy(xpath = "//div[contains(text(),'Edit')]/..")
-	//WebElement opptyPgEdit;
-	
 	
 	@FindBy(xpath = "//div[contains(@class,'col main-col slds-size--6-of-12')]//*[contains(text(),'Close Opportunity as Lost')]")
 	WebElement closeOpttyLostDetailsPage;
@@ -297,21 +293,25 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "(//span[contains(text(),'Mark as Current Stage')])[last()]")
 	WebElement markascurrentstageBtn;
 	
-	
-	
 	@FindBy(xpath = "(//label[contains (@for, ('clientSetupChoice'))]//span[contains (@class,('radio'))])[last()]")
 	WebElement clientsetupRdBtn;
-					
 			
 	@FindBy(xpath = "(//a[contains (@class,('tabHeader'))][@title ='Client Setup'])[last()]")
 	WebElement clientsetupTab;
 	
 	@FindBy(xpath = "//label[contains (@for, ('PrimaryBM'))]/..//span[contains(@class, ('checkbox'))]")
 	WebElement enrollBranchMgmntCheckbox;
-	
 
 	@FindBy(xpath = "//div[@class='row region-subheader']//button[contains(text(),'Next')]")
 	WebElement nextBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Branch Management')]/ancestor::div[@class='content']//button")
+	WebElement branchMngmntNextBtn;
+	
+	@FindBy(xpath = "//p[contains(text(),'Please click next button')]/ancestor::div[@class='content']//button")
+	WebElement addFinancialAcctNextBtn;
+	
+	
 	
 	//-------------------------------------------------------
 	@FindBy(xpath = "//label[contains (@for, ('AccountOwnerRecordChoice'))]//span[contains (@class, ('radio'))]")
@@ -329,6 +329,9 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//div[contains(text(),'Program')]/ancestor::div[@class='bBody']//select")
 	WebElement programDrpDwn;
 
+	@FindBy(xpath = "//div[contains(text(),'Primary Owner')]/ancestor::div[@class='content']//button[text()='Next']")
+	WebElement primaryOwnerNextBtn;
+	
 	@FindBy(xpath = "//span[contains (text(), ('Account Registration'))]")
 	WebElement accountregisterationlbl;
 	
@@ -344,17 +347,28 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//input[@name ='Trade_Hold']/..//label//span")
 	WebElement tradeholdkChkBx;
 	
+	@FindBy(xpath = "//span[contains(text(),'Trade Hold')]/ancestor::div[@class='content']//button[text()='Next']")
+	WebElement tradeholdNextBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Add Another Financial Account?')]/ancestor::div[@class='content']//button")
+	WebElement addanotherFinancialAcctNextBtn;
+	
+	
 	@FindBy(xpath = "//span[contains(text(),'Add Financial Account')]")
 	WebElement addfinancialaccountTitle;
 	
-	@FindBy(xpath = "//span[@class='title'][contains(text(),'Financial Account')]")
+	@FindBy(xpath = "(//a[text()='Financial Account'])[last()]")
 	WebElement financialaccountTab;
 	
 	@FindBy(xpath = "//a[contains(text(), ('Individual'))]")
 	WebElement financialaccountLink;
 	
-	@FindBy(xpath = "//span[text() = 'Custodian']/../following-sibling::div/span/span")
+	@FindBy(xpath = "//span[(text()='Custodian')]/../..//lightning-formatted-text")
 	WebElement custodianField;
+	
+	@FindBy(xpath = "//span[(text()='Account Registration Type')]/../..//lightning-formatted-text")
+	WebElement accountRegistrationTypeField;
+	
 	
 	@FindBy(xpath = "//span[contains (@class,('test-id'))][contains(text(),'Primary Owner')]/../following-sibling::div//a")
 	WebElement primaryownerField;
@@ -366,6 +380,9 @@ public class Opportunities extends TestBase{
 	
 	@FindBy(xpath = "//a[@class='forceActionLink']")
 	WebElement upcomingMeetingEditBtn;
+	
+	@FindBy(xpath = "//span[contains(text(),'Meeting Information')]")
+	WebElement meetingInfo;
 	
 	@FindBy(xpath = "(//span[text()='Meeting Status'])[last()]/../..//a")
 	WebElement meetingStatusUpdtDrpDwn;
@@ -386,7 +403,7 @@ public class Opportunities extends TestBase{
 	
 	
 	
-	DetailsPage details = new DetailsPage();
+	DetailsPage detailsPage = new DetailsPage();
 	RetailAccount retailaccount = new RetailAccount();
 	InitializeUserData initialize = new InitializeUserData();
 	
@@ -397,7 +414,7 @@ public class Opportunities extends TestBase{
 
 	String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
 	@SuppressWarnings("static-access")
-	String commentsToEnter = details.commentsToEnter;
+	String commentsToEnter = detailsPage.commentsToEnter;
 	
 	String schedule1 = "Phone Call";
 	String schedule2 = "ToDo";
@@ -407,68 +424,55 @@ public class Opportunities extends TestBase{
 	
 	public void createWorkplaceOpportunity() throws InterruptedException, ParseException, IOException {
 				
-		
-		enterCommentsfor("WorkplaceOptty", 1);
-				
-		Thread.sleep(2000);
-		oppField1.sendKeys("2");
-		oppField2.sendKeys("50000");
+		jse2.executeScript("arguments[0].click()",createWorkplaceOpportunity);
+		jse2.executeScript("arguments[0].click()",createOpportunityNextBtn);Thread.sleep(2000);
+		oppField1.sendKeys("2");Thread.sleep(2000);
+		oppField2.sendKeys("50000", Keys.TAB);Thread.sleep(2000);
 			
-		logacallWorkplaceOppttyNextBtn.click();	
-		Thread.sleep(8000);	
-				
+		jse2.executeScript("arguments[0].click()",logacallWorkplaceOppttyNextBtn);Thread.sleep(8000);	
 	}
 
 
 	public void createBranchOpportunity() throws InterruptedException, ParseException, IOException {
 	
-		enterCommentsfor("BranchOptty", 1);
+		jse2.executeScript("arguments[0].click()",createBranchOpportunity);
+		jse2.executeScript("arguments[0].click()",createOpportunityNextBtn);Thread.sleep(2000);
+		tMAssets.sendKeys("250000", Keys.TAB);Thread.sleep(2000);
 		
-		tMAssets.sendKeys("250000", Keys.TAB);
-		
-		jse2.executeScript("arguments[0].click()",logacallCreateBranchopttyNextButton);
-		Thread.sleep(5000);	
-	
+		jse2.executeScript("arguments[0].click()",logacallCreateBranchopttyNextButton);Thread.sleep(8000);
 	}
 	
 
 	
-
 	public void opportunityClosedLost() throws InterruptedException, AWTException {
 
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {clickOpttyforOutbound2Advisor();}
+		if ((RetailAccount.userProfile.contains("Inbound Advisor")) ||(RetailAccount.userProfile.contains("Field CSM"))){clickOpttyforOutbound2Advisor();}
 		
 		Thread.sleep(2000);
-		closeOpptyasLostRadioBtn.click();
-	
-		closeOpptyasLostNextBtn.click();
-		
-		lossReasonDropDown.click();
-		
+		jse2.executeScript("arguments[0].click()",closeOpptyasLostRadioBtn);
+		jse2.executeScript("arguments[0].click()",closeOpptyasLostNextBtn);
+		jse2.executeScript("arguments[0].click()",lossReasonDropDown);
 		TestUtil.SelectDropDownOption(lossReasonDropDown, "Duplicate");
-	
-		lossReasonDropDown.click();
-	
-		lossReasonNotes.sendKeys("Automation Testing - Dont bother");
-		Thread.sleep(2000);
+		jse2.executeScript("arguments[0].click()",lossReasonDropDown);
+		lossReasonNotes.sendKeys("Automation Testing - Dont bother", Keys.TAB);
 
-		CloseOpptyRightNextBtn.click();
+		Thread.sleep(2000);
+		jse2.executeScript("arguments[0].click()", CloseOpptyRightNextBtn);
+		Thread.sleep(8000); 
+		
+		if ((RetailAccount.userProfile.contains("Inbound Advisor")) ||(RetailAccount.userProfile.contains("Field CSM"))){jse2.executeScript("arguments[0].click()", oppLink);}
 	
-		Thread.sleep(8000);
-		
-		if (RetailAccount.userProfile.contains("Field Advisor")) {oppLink.click();}
-		
 	}
 
 
 	public void moveOpttyStageManually() throws InterruptedException, AWTException {
 
 		Thread.sleep(2000);
-		//oppLink.click();
 		
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {clickOpttyforOutbound2Advisor();} else{oppLink.click();}
+		clickOpportunity();
 		
-		markStageasComplete.click();
+		Thread.sleep(3000);
+		jse2.executeScript("arguments[0].click()",markStageasComplete);
 		
 		Thread.sleep(2000);
 		softAssertion.assertEquals(validationMessage.getText(), "You are not allowed to change the status manually.", "Validation Message is incorrect or didnt appear");
@@ -476,136 +480,43 @@ public class Opportunities extends TestBase{
 	}
 
 
-
-	public  void logacall_NotReached() throws InterruptedException, AWTException, IOException, ParseException {
-	
-		Thread.sleep(2000);
-		enterCommentsforOptty("BranchOptty", 0); Thread.sleep(2000);
-		
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {clickOpttyforOutbound2Advisor();} else{oppLink.click();}
-		
-		//oppLink.click();
-		
-		
-	}
-
-
-	public  void logacall_Reached() throws InterruptedException, AWTException, IOException, ParseException {
-	
-		Thread.sleep(2000);
-		enterCommentsforOptty("BranchOptty", 1); Thread.sleep(2000);
-		
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {clickOpttyforOutbound2Advisor();} else{oppLink.click();}
-		
-		//Thread.sleep(2000);
-		//oppLink.click();
-		
-		Thread.sleep(2000);
-		driver.navigate().refresh();
-		Thread.sleep(5000);
-		
-	}
-
-
-	
-	public  void logacall_Reached_StageClosedLost() throws InterruptedException, AWTException, IOException, ParseException {
-  
-		Thread.sleep(2000);
-		enterCommentsforOptty("BranchOptty", 1);
-		
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {clickOpttyforOutbound2Advisor();} 
-		
-		opportunityClosedLost();
-	
-	}
-
-
-	public  void scheduleandCloseMeeting() throws InterruptedException, AWTException, IOException, ParseException {
-
-		Thread.sleep(2000);
-		unplannedAppointment();
-		
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {clickOpttyforOutbound2Advisor();} else{oppLink.click();}
-		
-		//Thread.sleep(2000);
-		//oppLink.click();
-		
-		Thread.sleep(2000);
-		
-	}
-
-
-
 	public  void scheduleMeetingusingNextAction() throws InterruptedException, AWTException, IOException, ParseException {
 	
-		
-		
-		Thread.sleep(2000);
-		enterCommentsforOptty("BranchOptty", 1);
-			
-		Thread.sleep(3000);
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")) {
-		
-			jse2.executeScript("arguments[0].click()", oppLinkSection_Advsr2);	Thread.sleep(2000);
-			jse2.executeScript("arguments[0].click()", oppLink_Advsr2);
-			
-		} else{oppLink.click();}
-		
-		
-		if (RetailAccount.userProfile.contains("Field Advisor")) {
-			
 		Thread.sleep(2000);
 		
-		scheduleanApptRadioBtn.click();  Thread.sleep(2000);
+		jse2.executeScript("arguments[0].click()",scheduleanApptRadioBtn);  Thread.sleep(2000);
+		jse2.executeScript("arguments[0].click()", closeOpptyasLostNextBtn); Thread.sleep(2000);
+		detailsPage.createFutureAppointment(); Thread.sleep(2000);
 		
-		jse2.executeScript("arguments[0].click()", nextBtn); Thread.sleep(2000);
-		
-		details.createFutureAppointment(); Thread.sleep(2000);
-		
-		driver.navigate().refresh();
+		driver.navigate().refresh(); Thread.sleep(5000);
 		
 		jse2.executeScript("arguments[0].click()", upcomingMeetingLink);  Thread.sleep(2000);
-		
+		jse2.executeScript("arguments[0].scrollIntoView()",meetingInfo);
 		jse2.executeScript("arguments[0].click()", meetingStatusEditBtn); Thread.sleep(2000);
-		
 		jse2.executeScript("arguments[0].click()", meetingStatusUpdtDrpDwn);
-		
 		meetingStatusUpdtDrpDwn.sendKeys("Completed", Keys.ENTER); Thread.sleep(2000);
-		
 		jse2.executeScript("arguments[0].click()", saveBtn); Thread.sleep(5000);
-		
 		jse2.executeScript("arguments[0].click()", OpttyLink); Thread.sleep(2000);
 		
-		}
+		driver.navigate().refresh(); Thread.sleep(5000);
 		
-		
-			
 	}
-
 
 	
 	public  void enrollinBM() throws InterruptedException, AWTException, IOException, ParseException {
 		
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		jse2.executeScript("arguments[0].click()", clientsetupRdBtn);
 		
 		Thread.sleep(2000);
-		jse2.executeScript("arguments[0].click()", nextBtn);
-		
-		/*
-		if (RetailAccount.userProfile.contains("Field Advisor")) {
-		Thread.sleep(2000); jse2.executeScript("arguments[0].click()", clientsetupTab);
-		Thread.sleep(2000); jse2.executeScript("arguments[0].click()", markascurrentstageBtn);
-		}
-		*/
-		
+		jse2.executeScript("arguments[0].click()", closeOpptyasLostNextBtn);
 		
 		Thread.sleep(5000);
 		jse2.executeScript("arguments[0].click()", enrollBranchMgmntCheckbox);
 		
 		Thread.sleep(2000);
-		jse2.executeScript("arguments[0].click()", nextBtn);
+		jse2.executeScript("arguments[0].click()", branchMngmntNextBtn);
 
 	
 	}
@@ -619,139 +530,55 @@ public class Opportunities extends TestBase{
 		//driver.navigate().refresh();
 		
 		Thread.sleep(15000);
-		nextBtn.click();
-		
-		/*
-		Thread.sleep(3000);
-		//List<WebElement> nxtBtn = driver.findElements(By.xpath("//div[@class='row region-subheader']//button[contains(text(),'Next')]")); 
-		List<WebElement> addfinTitle = driver.findElements(By.xpath("//span[contains(text(),'Add Financial Account')]")); 
-		
-		if (addfinTitle.size() == 0){nextBtn.click();}
-		*/
-		
+		jse2.executeScript("arguments[0].click()",addFinancialAcctNextBtn);
+	
 		Thread.sleep(2000);
-		primaryownerIdRdBtn.click();
-		
-		
+		jse2.executeScript("arguments[0].click()",primaryownerIdRdBtn);
 		
 		TestUtil.SelectDropDownOption(custodianDrpDwn, "Fidelity");
 		TestUtil.SelectDropDownOption(accountregisterationDrpDwn, "Individual");
 		TestUtil.SelectDropDownOption(programDrpDwn, "Falcon");
 		TestUtil.SelectDropDownOption(buslinedetailsDrpDwn, "Branch Management");
 	
-		//List<WebElement> dynamicElement = driver.findElements(By.xpath("//span[contains (text(), ('Account Registration'))]"));
-		//if(dynamicElement.size() != 0){	TestUtil.SelectDropDownOption(accountregisterationDrpDwn, "Individual");}
-		
-		
-		jse2.executeScript("arguments[0].scrollIntoView()", custodianDrpDwn);
 		Thread.sleep(3000);
-		nextButton2.click();
-		
+		jse2.executeScript("arguments[0].click()",primaryOwnerNextBtn);
 		
 		Thread.sleep(2000);
 		TestUtil.SelectDropDownOption(investmentobjectiveDrpDwn, "Growth");
 		TestUtil.SelectDropDownOption(portfolioriskDrpDwn, "Moderate");
-		tradeholdkChkBx.click();
-		
-		//Thread.sleep(2000);
-		//tradeholdkChkBx.click();
+		jse2.executeScript("arguments[0].click()",tradeholdkChkBx);
 		
 		Thread.sleep(3000);
-		jse2.executeScript("arguments[0].click()", nextButton2);
+		jse2.executeScript("arguments[0].click()", tradeholdNextBtn);
 		
 		Thread.sleep(3000);
-		jse2.executeScript("arguments[0].click()", nextBtn);
+		jse2.executeScript("arguments[0].click()", addanotherFinancialAcctNextBtn);
 		Thread.sleep(2000);
 	
 	
 	}
 	
 	
-	@SuppressWarnings("static-access")
-	public void validateFinancialAccount() throws InterruptedException {
+	
+	public void validateFinancialAccount() throws InterruptedException, AWTException {
 		
 		Thread.sleep(2000);
 		jse2.executeScript("arguments[0].click()", financialaccountTab);
 		
 		Thread.sleep(2000);
-		financialaccountLink.click();
+		jse2.executeScript("arguments[0].click()",financialaccountLink);
 		
 		Thread.sleep(3000);
-		softAssertion.assertEquals(custodianField.getText(), "Fidelity");
-		softAssertion.assertEquals(primaryownerField.getText(), retailaccount.aname);
-		
+		validateField("Custodian", "Fidelity", "Custodian Value is not correct");
+		validateField("Account Registration Type", "Individual", "Account Registration Type Value is not correct");
+		validateField("Business Line Details", "Branch Management", "Business Line Details Value is not correct");
+		validateField("Program", "Falcon", "Program Value is not correct");
+				
 		//softAssertion.assertAll();
 	
-	
-	}
-	
-	
-	
-	public static void selectDrpDwnOptionViaClick(WebElement dropdown, WebElement Option ) {
-		
-		dropdown.click();
-		Option.click();
-		
-		}
-	
-
-	@SuppressWarnings("static-access")
-	public void enterCommentsfor(String opttyType, int Outcome) throws InterruptedException, ParseException, IOException {
-	
-		String commentsToEnter = details.commentsToEnter;
-		
-		Thread.sleep(2000);
-	
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		jse2.executeScript("arguments[0].click()", solutionsDiscussed);
-		//solutionsDiscussed.click();
-		details.selectOutcome(Outcome);
-		
-		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		
-		
-		//details.logCallNextButton.click();
-		
-		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
-		Thread.sleep(5000);
-		
-		
-		yesOpttyRdBtn.click();
-		//details.logCallNextButton.click();
-		//opttyNextBtn.click();
-		jse2.executeScript("arguments[0].click()", opttyNextBtn);
-		Thread.sleep(2000);
-		
-		if (opttyType =="WorkplaceOptty"){logacallCreateWorkplaceOpportunity.click();logacallOpttyNextButton.click();Thread.sleep(2000);}
-		//else if (opttyType =="BranchOptty"){createBranchOpportunity.click();logacallOpttyNextButton.click();Thread.sleep(2000);}
-		else if (opttyType =="BranchOptty"){logacallCreateBranchOpportunity.click();logacallOpttyNextButton.click();Thread.sleep(2000);}
-	
 	}
 
-	@SuppressWarnings("static-access")
-	public void enterCommentsforOptty(String opttyType, int Outcome) throws InterruptedException, ParseException, IOException {
 	
-		String commentsToEnter = details.commentsToEnter;
-		
-		Thread.sleep(2000);
-	
-		commentsTextarea.sendKeys(commentsToEnter);
-		solutionsDiscussed.click();
-		details.selectOutcome(Outcome);
-		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
-		//details.logCallNextButton.click();
-		
-		Thread.sleep(5000);
-		
-		noOpttyRdBtn.click();
-		opttyNextBtn.click();
-		Thread.sleep(2000);
-		
-	}
-
-
-
 	@SuppressWarnings("static-access")
 	public  void createFinancialAccount() throws InterruptedException, AWTException, IOException, ParseException {
 		
@@ -764,7 +591,7 @@ public class Opportunities extends TestBase{
 		newfinancialAcctBtn.click();
 		
 		Thread.sleep(2000);
-		financialAcctNameInput.sendKeys("FinanceAcct"+ details.uid);
+		financialAcctNameInput.sendKeys("FinanceAcct"+ detailsPage.uid);
 		
 		searchPrimaryOwnerAcct.sendKeys(RetailAccount.aname);
 		
@@ -775,60 +602,21 @@ public class Opportunities extends TestBase{
 		Thread.sleep(2000);
 		
 	}
-	
-	
-	
-	
-	
+
 	
 	public void validateOpttyforStageStatus(String stageStatus) throws InterruptedException, AWTException {
 	
-		//Thread.sleep(5000);
-		//opptyPgEdit.click();
-		//driver.navigate().refresh();
-		
-		
-		
-		
-		
 		Thread.sleep(5000);
-		jse2.executeScript("arguments[0].click()", opptyPgEdit);
 		
-		//driver.findElement(By.xpath("//span[contains(@class,'test-id')][contains(text(),'Lead Source')]/../..//button")).click();
+		validateField("Lead Source", "NAC Outbound", "Lead Source Value is not correct");
+		validateField("Stage", stageStatus, "Stage Status Value is not correct");
+		validateField("Estimated Expected Amount", "$125,000", "Expected Amount Value is not correct");
 		
-		
-		
-		Thread.sleep(3000);
-		validateLeadSource("NAC Outbound");
-		validateStageStatus(stageStatus);
-		validateExpectedAmount("$125,000.00");
-		
-		if (stageStatus == "Closed Lost") {validateLeadReason("Duplicate");}
+		if (stageStatus == "Closed Lost") {validateField("Loss Reason", "Duplicate", "Loss Reason Value is not correct");}
 	
 		softAssertion.assertAll();
 		
 		
-		//ALTERNATE METHOD TO VALIDATE DATA
-		/*
-		**************************************************************************************************************
-		TestUtil.closeAllOpenTabs(driver);
-		oppLink.click(); 
-		
-		driver.findElement(By.xpath("(//button[contains (@title, ('Retail'))])[1]")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'Set As Workspace Tab')]")).click();
-		driver.findElement(By.xpath("//a[contains (@class, ('label-action'))][contains (@href, ('Opportunity'))]")).click();
-		  
-		try{
-		driver.findElement(By.xpath("(//div[contains (@class,('forcePageBlockSectionRow'))])[13]")).click();}
-		catch (Exception e)	{}
-		
-		String closeDate = driver.findElement(By.xpath("//button[contains (@title, ('Edit Close Date'))]/../span")).getText();
-		String lossReason = driver.findElement(By.xpath("//button[contains (@title, ('Edit Loss Reason'))]/../span")).getText();
-		String stageStatus = driver.findElement(By.xpath("//button[contains (@title, ('Edit Stage'))]/../span")).getText();
-		String lossReasonNotes = driver.findElement(By.xpath("//button[contains (@title, ('Edit Other Loss Reason Notes'))]/../span")).getText();
-		
-		***************************************************************************************************************
-		*/
 	}
 
 
@@ -866,39 +654,27 @@ public class Opportunities extends TestBase{
 		
 	}
 
-
-
-
-	public void validateLeadSource(String expectedleadSource) throws InterruptedException, AWTException {
-		String leadSource = driver.findElement(By.xpath("(//span[text()='Lead Source'])[last()]/../..//a")).getText();
-		softAssertion.assertEquals(leadSource, expectedleadSource, "Lead Source is not correct");
+		
+	public void validateField(String fieldName, String expectedValue, String errorMessage) throws InterruptedException, AWTException {
+		String actualValue = driver.findElement(By.xpath("//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text")).getText();
+		softAssertion.assertEquals(actualValue, expectedValue, errorMessage);
+		
 	}
-
-	public void validateLeadReason(String expectedlossReason) throws InterruptedException, AWTException {
-		String lossReason = driver.findElement(By.xpath("(//span[text()='Loss Reason'])[last()]/../..//a")).getText();
-		softAssertion.assertEquals(lossReason, expectedlossReason, "Loss Reason is not correct");
+	
+	
+	public static void selectDrpDwnOptionViaClick(WebElement dropdown, WebElement Option ) {
+		
+		dropdown.click();	Option.click();
+		
 	}
-
-	public void validateStageStatus(String expectedstageStatus) throws InterruptedException, AWTException {
-		String stageStatus = driver.findElement(By.xpath("(//span[text()='Stage'])[last()]/../..//a")).getText();
-		softAssertion.assertEquals(stageStatus, expectedstageStatus, "Stage is not Closed Lost");
-	}
-
-
-	public void validateExpectedAmount(String expectedAmount) throws InterruptedException, AWTException {
-		String Amount = driver.findElement(By.xpath("(//span[(text()='Total Expected Amount')]/../..//span)[last()]")).getText();
-		softAssertion.assertEquals(Amount, expectedAmount, "Expected Amount is not correct");
-	}
-
+	
+	
 	public void validateOpttyCounter(int expectedcounter) throws InterruptedException, AWTException {
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		String counter = driver.findElement(By.xpath("//span[contains(text(),'("+expectedcounter+")')]")).getText();
 		
-		System.out.println(RetailAccount.userProfile);
-		
-		if (RetailAccount.userProfile.contains("Outbound 2 Advisor")){softAssertion.assertTrue(counter.contains(Integer.toString(expectedcounter))); } 
-		else {softAssertion.assertEquals(counter, "("+expectedcounter+")", "Counter mismatched");}
+		softAssertion.assertTrue(counter.contains(Integer.toString(expectedcounter)));
 		
 	}
 
@@ -907,9 +683,6 @@ public class Opportunities extends TestBase{
 	public void navigateTouser(String User) throws InterruptedException{
 	
 		if (User == "primary"){
-			//String userId = RetailUserdetails.get_sfdcID();
-			
-			//String userId = RetailAccount.accountId;
 			
 			String userId = SalesforceRestAPI.getHashMapData()[0];
 			String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+userId+"/view";
@@ -929,56 +702,6 @@ public class Opportunities extends TestBase{
 	}
 
 
-	public void enterComments(int i) throws InterruptedException, IOException, ParseException {
-		
-		String commentsToEnter = "TestingPurpose " + details.uid;
-		Thread.sleep(2000);	
-		commentsTextarea.sendKeys(commentsToEnter);
-		solutionsDiscussed.click();
-		details.selectOutcome(i);
-		details.logCallNextButton.click();
-		
-		Thread.sleep(5000);
-		details.noOpttyRdBtn.click();
-		//details.logCallNextButton.click();
-		opttyNextBtn.click();
-	}
-
-
-	@SuppressWarnings("static-access")
-	public void unplannedAppointment() throws InterruptedException, ParseException {
-		
-		String commentsToEnter = "TestingPurpose " + details.uid;
-		
-		Thread.sleep(2000);
-		details.commentsTextarea.sendKeys(commentsToEnter);
-		
-		Thread.sleep(2000);
-		TestUtil.SelectDropDownOption(outcome, "Meeting");
-		solutionsDiscussed.click();
-	
-		//details.logCallNextButton.click();
-		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
-		
-		Thread.sleep(2000);
-		details.subjectArea.sendKeys(commentsToEnter);
-		
-		details.meetingEndDate1.sendKeys(details.unplannedDate);
-		details.meetingEndTime1.click();
-		details.meetingEndTime1.clear();
-		details.meetingEndTime1.sendKeys("8:00 PM");
-		details.meetingEndTime1.sendKeys(Keys.TAB);
-		details.nextButton1.click();
-		
-		Thread.sleep(2000);
-		TestUtil.SelectDropDownOption(details.meetwithClient, "In-Person Meeting");
-		
-		TestUtil.SelectDropDownOption(details.meetingOutcome, "Completed");
-		
-		details.nextButton1.click();
-			
-	}
-	
 	public void clickOpttyforOutbound2Advisor() throws InterruptedException, AWTException {
 		
 		jse2.executeScript("arguments[0].click()", oppLinkSection_Advsr2);	Thread.sleep(2000);
@@ -987,9 +710,18 @@ public class Opportunities extends TestBase{
 	}
 	
 	
+	public void clickOpportunity() throws InterruptedException, AWTException {
+		
+		Thread.sleep(3000);
+		
+		if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")|| (RetailAccount.userProfile.equals("Outbound 1 Advisor"))){
+		
+			jse2.executeScript("arguments[0].click()",oppLink);
+		}
+		
+		else {clickOpttyforOutbound2Advisor();}
 	
-	
-	
+	}
 	
 	
 //----------------------------------------------------------------------------------------------------------------------------------------------------

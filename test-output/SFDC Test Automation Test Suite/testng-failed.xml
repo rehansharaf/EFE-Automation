@@ -9,13 +9,12 @@
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="meeting_CompleteFlow" invocation-numbers="0 0"/>
+          <include name="CreateRetail1Account_Spouse"/>
           <include name="tearDown"/>
-          <include name="UpdatePrimaryAccountdetails" invocation-numbers="0"/>
+          <include name="OnlyCreateRetail_2_Account"/>
           <include name="setUp"/>
-          <include name="UpdateSpouseAccountdetails" invocation-numbers="0 0"/>
-          <include name="meeting_CompleteFlowWithOptions" invocation-numbers="0 0"/>
-          <include name="LogACallSpouse" invocation-numbers="0"/>
+          <include name="logaCall_UnplannedMeeting_multipleUsers" invocation-numbers="0 0"/>
+          <include name="OnlyCreateRetail_1_Account"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
@@ -24,11 +23,10 @@
     <classes>
       <class name="com.crm.qa.testcases.BranchOpportunityTest">
         <methods>
-          <include name="logacall_Reached_StageClosedLost"/>
-          <include name="scheduleMeetingviaNextAction"/>
-          <include name="logacall_notReached_Optty" invocation-numbers="0 0"/>
+          <include name="logacall_Reached_StageClosedLost" invocation-numbers="0"/>
+          <include name="moveStageStatusManually" invocation-numbers="0"/>
+          <include name="opttyClosedLost_viaAPI" invocation-numbers="0 0"/>
           <include name="setUp"/>
-          <include name="scheduleMeetingandthenCloseMeeting"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->

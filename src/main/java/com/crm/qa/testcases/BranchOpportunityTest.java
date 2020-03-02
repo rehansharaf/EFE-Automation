@@ -63,7 +63,8 @@ public class BranchOpportunityTest extends TestBase {
 		//HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
 		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.fname, SalesforceRestAPI.lname);
-		opp.navigateTouser("primary");
+		//opp.navigateTouser("primary");
+		homePage.navigateToRetailuser("Primary");
 		opp.validateOpttyCounter(1);
 		
 	}
@@ -105,8 +106,9 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		opp.logacall_NotReached();
+		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
+		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Attempting");
 		
 	}
@@ -119,8 +121,9 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		opp.logacall_Reached();
+		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
+		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Attempting");
 		
 	}
@@ -133,7 +136,10 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		opp.logacall_Reached_StageClosedLost();
+		//opp.logacall_Reached_StageClosedLost();
+		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		opp.clickOpportunity();
+		opp.opportunityClosedLost();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
 		opp.validateOpttyforStageStatus("Closed Lost");
 		
@@ -147,8 +153,9 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		opp.scheduleandCloseMeeting();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Initial Appointment");
 		
 	}
@@ -161,6 +168,8 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
+		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		opp.clickOpportunity();
 		opp.scheduleMeetingusingNextAction();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
 		opp.validateOpttyforStageStatus("Initial Appointment");
@@ -175,7 +184,9 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		opp.scheduleMeetingusingNextAction();
+		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		opp.clickOpportunity();
+		//opp.scheduleMeetingusingNextAction();
 		opp.enrollinBM();
 		opp.addFinancialAccount();
 		opp.validateFinancialAccount();
