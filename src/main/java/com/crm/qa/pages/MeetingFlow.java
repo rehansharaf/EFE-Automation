@@ -93,7 +93,7 @@ public class MeetingFlow extends TestBase {
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 	
 	
-	
+	/*	
 	String timeStamp = new SimpleDateFormat("MM/dd/yyyy HH:mm a").format(new Date());
 	//String commentsToEnter = "TestingPurpose " + timeStamp;
 	
@@ -233,37 +233,18 @@ public class MeetingFlow extends TestBase {
 	
 	}
 
+*/	
 	
 	
-	@SuppressWarnings("static-access")
 	public void meetingCompletedFlow() throws InterruptedException {
 	
-		
-		String commentsToEnter = "TestingPurpose " + details.uid;
-		
-		commentsTextarea.sendKeys("CompleteWF " + commentsToEnter);
-		
-		TestUtil.SelectDropDownOption(outcome, "Meeting");
-		
-		//solutionsDiscussed.click();
-		
-		jse2.executeScript("arguments[0].click()", details.logCallNextButton);
-		
-		nextButton1.click();
-		
-		TestUtil.SelectDropDownOption(meetClient2, "In-Person Meeting");
-		TestUtil.SelectDropDownOption(meetingOutcome2, "Completed");
-		
-		nextButton1.click();
-		
-		
 		selectFinacialTopicscheckbox();
 		
-		nextButton1.click();
+		TestUtil.clickElement(nextButton1);
 		
 		selectTopics();
 		
-		nextButton1.click();	
+		TestUtil.clickElement(nextButton1);	
 		
 		
 	}
@@ -305,11 +286,11 @@ public void selectTopics() {
 	
 	}
 
-public void selectFinacialTopicscheckbox() {
+public void selectFinacialTopicscheckbox() throws InterruptedException {
 	
 	List<WebElement> selectFinTopicsChkbx  = driver.findElements(By.xpath("//span[contains (@class, ('checkbox--faux'))]"));
 
-	for(WebElement elem : selectFinTopicsChkbx) { elem.click();	}
+	for(WebElement elem : selectFinTopicsChkbx) { TestUtil.clickElement(elem);	}
 
 }
 

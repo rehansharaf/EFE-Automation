@@ -42,7 +42,7 @@ public class LogActivityTests extends TestBase {
 	
 	VerifyTodo verifyTodo = new VerifyTodo();
 	
-	
+/*	
 //	SoftAssert softAssertion = new SoftAssert();
 	
 	@BeforeMethod
@@ -175,10 +175,10 @@ public class LogActivityTests extends TestBase {
 		createLead createlead = new createLead();
 		//createlead.createnewlead();
 		homePage.clickSearchInput();
-		detailsPage.enterComments(0);
+//		detailsPage.enterComments(0);
 		verifylead.navigateLeadNotReached();
 		homePage.clickSearchInput();
-		detailsPage.verifyCommunications(0, "Schedule");
+//		detailsPage.verifyCommunications(0, "Schedule");
 		softAssertion.assertAll();
 	
 	}
@@ -241,10 +241,10 @@ public class LogActivityTests extends TestBase {
 		//createlead.createnewlead();
 		homePage.clickSearchInput();
 		verifylead.clickLeadLink();
-		detailsPage.enterComments(1);
+//		detailsPage.enterComments(1);
 		verifylead.navigateLeadReached(1);
 		homePage.clickSearchInput();
-		detailsPage.verifyCommunications(1, "Schedule");
+//		detailsPage.verifyCommunications(1, "Schedule");
 		
 	}
 	
@@ -258,13 +258,13 @@ public class LogActivityTests extends TestBase {
 		//createlead.createnewlead();
 		homePage.clickSearchInput();
 		verifylead.clickLeadLink();
-		detailsPage.reached_schedule(1, "Phone Call");
+//		detailsPage.reached_schedule(1, "Phone Call");
 		verifylead.navigateLeadReached(1);
 		homePage.clickSearchInput();
-		detailsPage.verifyCommunications(1, "Phone Call");
+//		detailsPage.verifyCommunications(1, "Phone Call");
 		
 	}
-	
+*/	
 	/*
 	@Test()
 	public void reachedWithLead_ScheduleToDo() throws InterruptedException, ParseException{

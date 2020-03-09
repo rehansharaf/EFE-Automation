@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="26" total="32" passed="6">
+<testng-results skipped="0" failed="0" ignored="11" total="13" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="697061" started-at="2020-03-02T16:52:05Z" finished-at="2020-03-02T17:03:42Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="232393" started-at="2020-03-09T20:32:53Z" finished-at="2020-03-09T20:36:46Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="697061" started-at="2020-03-02T16:52:05Z" finished-at="2020-03-02T17:03:42Z">
-      <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="setUp" is-config="true" duration-ms="9921" started-at="2020-03-02T09:52:05Z" finished-at="2020-03-02T09:52:15Z">
+    <test name="Free CRM App Test Cases" duration-ms="232393" started-at="2020-03-09T20:32:53Z" finished-at="2020-03-09T20:36:46Z">
+      <class name="com.crm.qa.testcases.BranchOpportunityTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="setUp" is-config="true" duration-ms="6562" started-at="2020-03-09T13:32:53Z" finished-at="2020-03-09T13:33:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_SchedulePhoneCall(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="reachedwithBusinessLead_SchedulePhoneCall" duration-ms="100566" started-at="2020-03-02T09:52:15Z" data-provider="multipleUsers" finished-at="2020-03-02T09:53:56Z">
+        <test-method status="PASS" signature="enrollment_BM(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="enrollment_BM" duration-ms="105896" started-at="2020-03-09T13:33:00Z" data-provider="multipleUsers" finished-at="2020-03-09T13:34:46Z">
           <params>
             <param index="0">
               <value>
@@ -21,16 +21,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_SchedulePhoneCall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="tearDown" is-config="true" duration-ms="736" started-at="2020-03-02T09:53:56Z" finished-at="2020-03-02T09:53:56Z">
+        </test-method> <!-- enrollment_BM -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="tearDown" is-config="true" duration-ms="738" started-at="2020-03-09T13:34:46Z" finished-at="2020-03-09T13:34:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="setUp" is-config="true" duration-ms="9490" started-at="2020-03-02T09:53:56Z" finished-at="2020-03-02T09:54:06Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="setUp" is-config="true" duration-ms="5331" started-at="2020-03-09T13:34:46Z" finished-at="2020-03-09T13:34:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_SchedulePhoneCall(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="reachedwithBusinessLead_SchedulePhoneCall" duration-ms="111063" started-at="2020-03-02T09:54:06Z" data-provider="multipleUsers" finished-at="2020-03-02T09:55:57Z">
+        <test-method status="PASS" signature="enrollment_BM(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="enrollment_BM" duration-ms="113029" started-at="2020-03-09T13:34:52Z" data-provider="multipleUsers" finished-at="2020-03-09T13:36:45Z">
           <params>
             <param index="0">
               <value>
@@ -40,88 +40,12 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_SchedulePhoneCall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="tearDown" is-config="true" duration-ms="743" started-at="2020-03-02T09:55:57Z" finished-at="2020-03-02T09:55:58Z">
+        </test-method> <!-- enrollment_BM -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="tearDown" is-config="true" duration-ms="805" started-at="2020-03-09T13:36:45Z" finished-at="2020-03-09T13:36:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="setUp" is-config="true" duration-ms="8667" started-at="2020-03-02T09:55:58Z" finished-at="2020-03-02T09:56:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleTodo(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="reachedwithBusinessLead_ScheduleTodo" duration-ms="102036" started-at="2020-03-02T09:56:06Z" data-provider="multipleUsers" finished-at="2020-03-02T09:57:48Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleTodo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="tearDown" is-config="true" duration-ms="754" started-at="2020-03-02T09:57:48Z" finished-at="2020-03-02T09:57:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="setUp" is-config="true" duration-ms="8457" started-at="2020-03-02T09:57:49Z" finished-at="2020-03-02T09:57:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleTodo(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="reachedwithBusinessLead_ScheduleTodo" duration-ms="115126" started-at="2020-03-02T09:57:58Z" data-provider="multipleUsers" finished-at="2020-03-02T09:59:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleTodo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="tearDown" is-config="true" duration-ms="732" started-at="2020-03-02T09:59:53Z" finished-at="2020-03-02T09:59:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="setUp" is-config="true" duration-ms="8354" started-at="2020-03-02T09:59:53Z" finished-at="2020-03-02T10:00:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="reachedwithBusinessLead_ScheduleMeeting" duration-ms="97854" started-at="2020-03-02T10:00:02Z" data-provider="multipleUsers" finished-at="2020-03-02T10:01:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="tearDown" is-config="true" duration-ms="741" started-at="2020-03-02T10:01:40Z" finished-at="2020-03-02T10:01:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="setUp" is-config="true" duration-ms="8951" started-at="2020-03-02T10:01:40Z" finished-at="2020-03-02T10:01:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="reachedwithBusinessLead_ScheduleMeeting" duration-ms="112088" started-at="2020-03-02T10:01:49Z" data-provider="multipleUsers" finished-at="2020-03-02T10:03:41Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@50de0926]" name="tearDown" is-config="true" duration-ms="738" started-at="2020-03-02T10:03:41Z" finished-at="2020-03-02T10:03:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
     </test> <!-- Free CRM App Test Cases -->
   </suite> <!-- FREE CRM Application Test Automation Test Suite -->
 </testng-results>

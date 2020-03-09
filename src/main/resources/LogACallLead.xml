@@ -57,25 +57,10 @@
 				-->
 					
 			
-					<include name="reached_multipleUsers"></include>
-					<include name="notReached_multipleUsers"></include>
-					<include name="UnplannedMeeting_multipleUsers"></include>
-					<include name="logaCall_Reached_Household_multipleUsers"></include>
-					<include name="logaCall_NotReached_Household_multipleUsers"></include>
-					<include name="logaCall_UnplannedMeeting_multipleUsers"></include>
-					<include name="reached_Schedule_ToDo"></include>
-					<include name="reached_Schedule_Phonecall"></include>
-					<include name="reached_Schedule_Appointment"></include>
+					
 
-					<include name="notReachedwithBusinessLead"></include>
-					<include name="reachedwithBusinessLead"></include>
-					<include name="reachedwithBusinessLead_SchedulePhoneCall"></include>
-					<include name="reachedwithBusinessLead_ScheduleTodo"></include>
-					<include name="reachedwithBusinessLead_UnplannedMeeting"></include>
-					<include name="reachedwithBusinessLead_ScheduleMeeting"></include>
-					
-					
-					
+					<include name="UpdatePrimaryAccountdetails"></include>
+
 				
 					
 				

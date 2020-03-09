@@ -46,6 +46,10 @@ public class HomePage extends TestBase {
 	static
 	WebElement advisorDetails;
 	
+	@FindBy(xpath = "//iframe[contains (@name,('vfFrameId'))]")
+	static
+	WebElement iframe;
+	
 	
 	@FindBy(xpath = "//input[@placeholder= 'Search Salesforce']")
 	WebElement searchInput;
@@ -126,21 +130,25 @@ public class HomePage extends TestBase {
 			
 			userProfile  = RetailAccount.userProfile = usrProfile.getText();
 			
-			Thread.sleep(5000);
-			advisorLink.click();
+			TestUtil.clickElement(advisorLink);
 			
-			Thread.sleep(5000);
-			WebElement iframe = driver.findElement(By.xpath("//iframe[contains (@name,('vfFrameId'))]"));
+			//Thread.sleep(5000);
+			TestUtil.waitUntilElementVisible(iframe);
+			//WebElement iframe = driver.findElement(By.xpath("//iframe[contains (@name,('vfFrameId'))]"));
 			driver.switchTo().frame(iframe);
-		
-			Thread.sleep(5000);
-			advisorLogin.click();
+
+			TestUtil.clickElement(advisorLogin);
 			driver.switchTo().defaultContent();
 			
 			Thread.sleep(5000);
 			driver.navigate().refresh();
 			
-		} else if (role.equalsIgnoreCase("nonadvisor")){}
+		} else if (role.equalsIgnoreCase("admin")){
+			
+			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+			userProfile  = RetailAccount.userProfile = usrProfile.getText();
+			
+		}
 
 	
 	}
@@ -151,6 +159,7 @@ public class HomePage extends TestBase {
 		String sfdcId = new String();
 		
 		if (userType.toLowerCase().equals(("primary"))){sfdcId = SalesforceRestAPI.getHashMapData()[0];}
+		
 		else if (userType.toLowerCase().equals(("household")))
 			{
 			sfdcId = SalesforceRestAPI.getHashMapData()[0]; 
@@ -162,18 +171,7 @@ public class HomePage extends TestBase {
 		driver.navigate().to(url);
 		Thread.sleep(5000);
 	
-		/*
-		 * String userId = SalesforceRestAPI.getHashMapData()[0];
-			String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+userId+"/view";
-			System.out.println(url);
-		  	
-			driver.navigate().to(url);
-		 * 
-		 */
-		
-		
-		
-	}
+		}
 		
 	
 	public void navigateToSponsoredClient(String sfdcId) throws InterruptedException{

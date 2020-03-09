@@ -206,7 +206,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached,  "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo");
+		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
@@ -222,7 +222,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo",  "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall");
+		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
@@ -239,7 +239,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");				
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
 	
 	}
@@ -295,7 +295,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall");
+		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -312,7 +312,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo");
+		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -329,7 +329,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
@@ -346,52 +346,37 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Primary");			
-		detailsPage.scheduleFutureActivity("Meeting");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
 	
 	}
 	
 	
-//Need to work on it
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+
+	@SuppressWarnings("static-access")
+	@Test(dataProvider = "Imran", dataProviderClass = LogaCallDataProvider.class)
 	public void meeting_CompleteFlow(String advisorId) throws Exception{
 		
 		TestUtil.print("Meeting Complete Flow");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
+		homePage.navigateToMultipleUser("Admin", advisorId);
 		SalesforceTestRestAPI.dataCreation1();
 	
 		homePage.navigateToRetailuser("Primary");
-		//detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYes");
-		//detailsPage.scheduleFutureActivity("Meeting");
-	
-		detailsPage.reached_scheduleAppointment1(1);
-		
-		MeetingFlow meetingflow = new MeetingFlow();
-		meetingflow.meetingCompletedFlow();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistNo");
+
+		detailsPage.meetingCompletedFlow();
 		
 		SalesforceTestRestAPI.validateMeetingData(3, 1);
 	
 	}
 
 //Need to work on it	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	@Test(dataProvider = "Imran", dataProviderClass = LogaCallDataProvider.class)
 	public void meeting_CompleteFlowWithOptions(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
 		
-		TestUtil.print("Meeting Complete Flow with Options");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation1();
-		
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.reached_scheduleAppointment1(1);
-		
-		MeetingFlow meetingflow = new MeetingFlow();
-		meetingflow.meetingCompleteFlowWithOptions();
-		
-		SalesforceTestRestAPI.validateMeetingData(3, 1);
-	
+			
 	}
 	
 	
@@ -506,7 +491,7 @@ public class LogActivityTest extends TestBase {
 		
 		homePage.navigateToRetailuser("Primary");
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
-		opp.createBranchOpportunity();	
+		opp.createBranchOpportunity("viaLogaCall");	
 				
 		SalesforceTestRestAPI.validateTaskData(1);
 		SalesforceTestRestAPI.validateBranchOpportunity(6);	
@@ -539,9 +524,12 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");
-		Opportunities opp = new Opportunities();
-		opp.createBranchOpportunity();	
-		opp.createWorkplaceOpportunity();	
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
+		opp.createWorkplaceOpportunity();
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
+		opp.createBranchOpportunity("vialogaCall");
+		//opp.createOpttyviaOpportunitySection("BranchOptty");
+		//opp.createBranchOpportunity("viaCreateOpportunitySection");
 		SalesforceTestRestAPI.validateBranchOpportunity(6);	
 		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);
 		

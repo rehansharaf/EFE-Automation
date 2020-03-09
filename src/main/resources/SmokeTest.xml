@@ -15,8 +15,8 @@
 					<include name="reached_multipleUsers"></include>
 					<include name="notReached_multipleUsers"></include>
 					<include name="UnplannedMeeting_multipleUsers"></include>
-					<include name="logaCall_Reached_Household_multipleUsers"></include>
-					<include name="logaCall_NotReached_Household_multipleUsers"></include>
+				<!--<include name="logaCall_Reached_Household_multipleUsers"></include>  -->
+				<!--<include name="logaCall_NotReached_Household_multipleUsers"></include>-->
 					<include name="logaCall_UnplannedMeeting_multipleUsers"></include>
 					<include name="notReached"></include>
 					<include name="reached"></include>
@@ -24,24 +24,24 @@
 					<include name="reached_Schedule_ToDo"></include>
 					<include name="reached_Schedule_Phonecall"></include>
 					<include name="reached_Schedule_Appointment"></include>
-					<include name="LogACallSpouse"></include>
-					<include name="LogaCallwithSpouse_ValidateAtPrimary"></include>
-					<include name="OnlyCreateRetail_1_Account"></include>
-					<include name="OnlyCreateRetail_2_Account"></include>
-					<include name="CreateRetail1Account_Spouse"></include>
+				<!--<include name="LogACallSpouse"></include>-->
+				<!--<include name="LogaCallwithSpouse_ValidateAtPrimary"></include>-->
+				<!--<include name="OnlyCreateRetail_1_Account"></include>-->
+				<!--<include name="OnlyCreateRetail_2_Account"></include>-->
+				<!--<include name="CreateRetail1Account_Spouse"></include>-->
 					<include name="notReachedwithBusinessLead"></include>
 					<include name="reachedwithBusinessLead"></include>
 					<include name="reachedwithBusinessLead_SchedulePhoneCall"></include>
 					<include name="reachedwithBusinessLead_ScheduleTodo"></include>
 					<include name="reachedwithBusinessLead_UnplannedMeeting"></include>
 					<include name="reachedwithBusinessLead_ScheduleMeeting"></include>
-					<include name="meeting_CompleteFlow"></include>
-					<include name="meeting_CompleteFlowWithOptions"></include>	
+				<!--<include name="meeting_CompleteFlow"></include>-->
+				<!--<include name="meeting_CompleteFlowWithOptions"></include>-->	
 					<include name="nolead_Reached_createBranchOpportunity"></include>
 					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
-					<include name="nolead_Reached_MultipleOpportunity"></include>
-					<include name="UpdatePrimaryAccountdetails"></include>
-					<include name="UpdateSpouseAccountdetails"></include>
+					<!--<include name="nolead_Reached_MultipleOpportunity"></include>-->
+					<!--<include name="UpdatePrimaryAccountdetails"></include>-->
+				<!--<include name="UpdateSpouseAccountdetails"></include>-->
 			</methods>
 			</class>
 			</classes>
@@ -53,13 +53,14 @@
 			<class name="com.crm.qa.testcases.BranchOpportunityTest">
 			<methods>
 	
-				<include name="createBranchOptty_viaAPI"></include>
+			<!--<include name="createBranchOptty_viaAPI"></include>-->
 				<include name="moveStageStatusManually"></include>	
 				<include name="opttyClosedLost_viaAPI"></include>
 				<include name="logacall_notReached_Optty"></include>
 				<include name="logacall_Reached_StageClosedLost"></include>	
 				<include name="scheduleMeetingandthenCloseMeeting"></include>
 				<include name="scheduleMeetingviaNextAction"></include>	
+				<include name="enrollment_BM"></include>
 		
 			</methods>
 			</class>

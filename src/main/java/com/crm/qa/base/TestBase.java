@@ -13,6 +13,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -121,9 +122,11 @@ public class TestBase {
 			options.addArguments("–disable-web-security");
 			options.addArguments("–allow-running-insecure-content");
 			options.addArguments("--disable-extensions");
-			options.addArguments("disable-gpu");
-			options.addArguments("incognito");
+			options.addArguments("--disable-gpu");
+			//options.addArguments("--incognito");
+			options.addArguments("--no-sandbox");
 			options.setExperimentalOption("prefs", prefs);
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT );
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			

@@ -141,11 +141,11 @@ public class HouseholdPage extends TestBase {
 	
 	public void switchtoCoClient() throws InterruptedException{
 	
-		TestUtil.waitForElement("Household", householdTab);
+		TestUtil.waitUntilElementVisible(householdTab);
 		Thread.sleep(3000);
 		householdTab.click();
 		
-		TestUtil.waitForElement("Co-Client", co_clientlink);
+		TestUtil.waitUntilElementVisible(co_clientlink);
 		Thread.sleep(3000);
 		co_clientlink.click();
 		

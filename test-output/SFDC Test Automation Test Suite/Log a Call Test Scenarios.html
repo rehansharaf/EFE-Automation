@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Log a Call Test Scenarios</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>28/2/4</td>
+<td>Tests passed/Failed/Skipped:</td><td>26/2/3</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 11 08:46:04 MST 2020</td>
+<td>Started on:</td><td>Thu Mar 05 09:24:23 MST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>3068 seconds (3068705 ms)</td>
+<tr><td>Total time:</td><td>3360 seconds (3360534 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,72 +75,37 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_1_Account()'><b>OnlyCreateRetail_1_Account</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Create Retail Account&apos;)]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir30940_423949311}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55309}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 97eb5c79a94966efb3506959269f6e69
-*** Element info: {Using=xpath, value=//span[contains(text(),&apos;Create Retail Account&apos;)]}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+<td title='com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers()'><b>UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.RetailAccount.createRetailuser(RetailAccount.java:246)
-	at com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_1_Account(LogActivityTest.java:546)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteractionforMeeting(DetailsPage.java:574)
+	at com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers(LogActivityTest.java:148)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1775093181", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1775093181'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Create Retail Account&apos;)]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir30940_423949311}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55309}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 97eb5c79a94966efb3506959269f6e69
-*** Element info: {Using=xpath, value=//span[contains(text(),&apos;Create Retail Account&apos;)]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1455423036", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1455423036'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.RetailAccount.createRetailuser(RetailAccount.java:246)
-	at com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_1_Account(LogActivityTest.java:546)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteractionforMeeting(DetailsPage.java:574)
+	at com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers(LogActivityTest.java:148)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -155,68 +120,40 @@ Session ID: 97eb5c79a94966efb3506959269f6e69
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>70</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>75</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers()'><b>logaCall_UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;span class=&quot;title&quot; data-aura-rendered-by=&quot;11840:0&quot;&gt;...&lt;/span&gt; is not clickable at point (580, 164). Other element would receive the click: &lt;lightning-spinner data-data-rendering-service-uid=&quot;727&quot; data-aura-rendered-by=&quot;11704:0&quot; class=&quot;slds-spinner_container cGriffinButtons&quot; data-aura-class=&quot;cGriffinButtons&quot;&gt;&lt;/lightning-spinner&gt;
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir23756_2016675531}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53308}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 2d85e595f37ce731a88ca00445b2fb1c
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.HouseholdPage.unplannedAppointment(HouseholdPage.java:147)
-	at com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers(LogActivityTest.java:191)
+<td title='com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers()'><b>notReached_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteraction(DetailsPage.java:498)
+	at com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers(LogActivityTest.java:117)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2137629131", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2137629131'><pre>org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;span class=&quot;title&quot; data-aura-rendered-by=&quot;11840:0&quot;&gt;...&lt;/span&gt; is not clickable at point (580, 164). Other element would receive the click: &lt;lightning-spinner data-data-rendering-service-uid=&quot;727&quot; data-aura-rendered-by=&quot;11704:0&quot; class=&quot;slds-spinner_container cGriffinButtons&quot; data-aura-class=&quot;cGriffinButtons&quot;&gt;&lt;/lightning-spinner&gt;
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir23756_2016675531}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53308}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 2d85e595f37ce731a88ca00445b2fb1c
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.HouseholdPage.unplannedAppointment(HouseholdPage.java:147)
-	at com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers(LogActivityTest.java:191)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1393073355", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1393073355'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteraction(DetailsPage.java:498)
+	at com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers(LogActivityTest.java:117)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -231,8 +168,8 @@ Session ID: 2d85e595f37ce731a88ca00445b2fb1c
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>49</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>76</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -242,145 +179,135 @@ Session ID: 2d85e595f37ce731a88ca00445b2fb1c
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse()'><b>CreateRetail1Account_Spouse</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td></td>
-<td>102</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.LogACallSpouse()'><b>LogACallSpouse</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>106</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.LogaCallwithSpouse_ValidateAtPrimary()'><b>LogaCallwithSpouse_ValidateAtPrimary</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>60</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_2_Account()'><b>OnlyCreateRetail_2_Account</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td></td>
-<td>72</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.UnplannedMeeting()'><b>UnplannedMeeting</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td></td>
-<td>69</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
 <td title='com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers()'><b>UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>71</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>135</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.UpdatePrimaryAccountdetails()'><b>UpdatePrimaryAccountdetails</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td title='com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers()'><b>logaCall_UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>112</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>124</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.UpdateSpouseAccountdetails()'><b>UpdateSpouseAccountdetails</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td title='com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers()'><b>logaCall_UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
 <td></td>
-<td>153</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.logaCall_NotReached_Household_multipleUsers()'><b>logaCall_NotReached_Household_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>67</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.logaCall_Reached_Household_multipleUsers()'><b>logaCall_Reached_Household_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>73</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.meeting_CompleteFlow()'><b>meeting_CompleteFlow</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>79</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.meeting_CompleteFlowWithOptions()'><b>meeting_CompleteFlowWithOptions</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>78</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.nolead_Reached_MultipleOpportunity()'><b>nolead_Reached_MultipleOpportunity</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>98</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>101</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.nolead_Reached_createBranchOpportunity()'><b>nolead_Reached_createBranchOpportunity</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>70</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>93</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.nolead_Reached_createBranchOpportunity()'><b>nolead_Reached_createBranchOpportunity</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>94</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.nolead_Reached_createWorkplaceOpportunity()'><b>nolead_Reached_createWorkplaceOpportunity</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>79</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>99</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.notReached()'><b>notReached</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
+<td title='com.crm.qa.testcases.LogActivityTest.nolead_Reached_createWorkplaceOpportunity()'><b>nolead_Reached_createWorkplaceOpportunity</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
 <td></td>
-<td>65</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>100</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers()'><b>notReached_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>66</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>86</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.notReachedwithBusinessLead()'><b>notReachedwithBusinessLead</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>70</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>80</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.reached()'><b>reached</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
+<td title='com.crm.qa.testcases.LogActivityTest.notReachedwithBusinessLead()'><b>notReachedwithBusinessLead</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
 <td></td>
-<td>67</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>90</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reached_Schedule_Appointment()'><b>reached_Schedule_Appointment</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>72</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>86</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reached_Schedule_Appointment()'><b>reached_Schedule_Appointment</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>90</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reached_Schedule_Phonecall()'><b>reached_Schedule_Phonecall</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>76</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>90</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reached_Schedule_Phonecall()'><b>reached_Schedule_Phonecall</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>100</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reached_Schedule_ToDo()'><b>reached_Schedule_ToDo</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>77</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>96</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reached_Schedule_ToDo()'><b>reached_Schedule_ToDo</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>97</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reached_multipleUsers()'><b>reached_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>75</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>107</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reached_multipleUsers()'><b>reached_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>127</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead()'><b>reachedwithBusinessLead</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>81</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>85</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead()'><b>reachedwithBusinessLead</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>99</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_ScheduleMeeting()'><b>reachedwithBusinessLead_ScheduleMeeting</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>85</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>98</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_ScheduleMeeting()'><b>reachedwithBusinessLead_ScheduleMeeting</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>109</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_SchedulePhoneCall()'><b>reachedwithBusinessLead_SchedulePhoneCall</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>95</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>100</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_SchedulePhoneCall()'><b>reachedwithBusinessLead_SchedulePhoneCall</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>113</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
 <td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_ScheduleTodo()'><b>reachedwithBusinessLead_ScheduleTodo</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
 <td></td>
-<td>91</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>104</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_UnplannedMeeting()'><b>reachedwithBusinessLead_UnplannedMeeting</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td title='com.crm.qa.testcases.LogActivityTest.reachedwithBusinessLead_ScheduleTodo()'><b>reachedwithBusinessLead_ScheduleTodo</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
 <td></td>
-<td>61</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>109</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
@@ -390,74 +317,37 @@ Session ID: 2d85e595f37ce731a88ca00445b2fb1c
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse()'><b>CreateRetail1Account_Spouse</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Create Retail Account&apos;)]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir41360_1528199852}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55854}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 872538f6275fd454a2d658e8d184d707
-*** Element info: {Using=xpath, value=//span[contains(text(),&apos;Create Retail Account&apos;)]}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+<td title='com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers()'><b>UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.RetailAccount.createRetailuser(RetailAccount.java:246)
-	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account(LogActivityTest.java:559)
-	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse(LogActivityTest.java:532)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteractionforMeeting(DetailsPage.java:574)
+	at com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers(LogActivityTest.java:148)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2051421893", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2051421893'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Create Retail Account&apos;)]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir41360_1528199852}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55854}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 872538f6275fd454a2d658e8d184d707
-*** Element info: {Using=xpath, value=//span[contains(text(),&apos;Create Retail Account&apos;)]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace802272324", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace802272324'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.RetailAccount.createRetailuser(RetailAccount.java:246)
-	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account(LogActivityTest.java:559)
-	at com.crm.qa.testcases.LogActivityTest.CreateRetail1Account_Spouse(LogActivityTest.java:532)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteractionforMeeting(DetailsPage.java:574)
+	at com.crm.qa.testcases.LogActivityTest.UnplannedMeeting_multipleUsers(LogActivityTest.java:148)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -472,75 +362,40 @@ Session ID: 872538f6275fd454a2d658e8d184d707
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>70</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>81</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_1_Account()'><b>OnlyCreateRetail_1_Account</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Create Retail Account&apos;)]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir24752_1266658912}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55171}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 2f4d18e8cf163ecfcf4205b95fc66164
-*** Element info: {Using=xpath, value=//span[contains(text(),&apos;Create Retail Account&apos;)]}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+<td title='com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers()'><b>notReached_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.RetailAccount.createRetailuser(RetailAccount.java:246)
-	at com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_1_Account(LogActivityTest.java:546)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteraction(DetailsPage.java:498)
+	at com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers(LogActivityTest.java:117)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1077278520", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1077278520'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Create Retail Account&apos;)]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir24752_1266658912}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55171}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 2f4d18e8cf163ecfcf4205b95fc66164
-*** Element info: {Using=xpath, value=//span[contains(text(),&apos;Create Retail Account&apos;)]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace160512810", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace160512810'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.RetailAccount.createRetailuser(RetailAccount.java:246)
-	at com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_1_Account(LogActivityTest.java:546)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteraction(DetailsPage.java:498)
+	at com.crm.qa.testcases.LogActivityTest.notReached_multipleUsers(LogActivityTest.java:117)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -555,69 +410,40 @@ Session ID: 2f4d18e8cf163ecfcf4205b95fc66164
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>70</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>64</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_2_Account()'><b>OnlyCreateRetail_2_Account</b><br>Test class: com.crm.qa.testcases.LogActivityTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//a[contains (@title, (&apos;Testf218908 Testl218908&apos;))][contains (@class, (&apos;slds-truncate&apos;))])[1]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir45572_2039826539}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55452}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 1ac5d2caea5840fe066523880783332b
-*** Element info: {Using=xpath, value=(//a[contains (@title, (&apos;Testf218908 Testl218908&apos;))][contains (@class, (&apos;slds-truncate&apos;))])[1]}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
-	at com.crm.qa.pages.RetailAccount.searchAccount(RetailAccount.java:412)
-	at com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_2_Account(LogActivityTest.java:573)
+<td title='com.crm.qa.testcases.LogActivityTest.reached_multipleUsers()'><b>reached_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteraction(DetailsPage.java:498)
+	at com.crm.qa.testcases.LogActivityTest.reached_multipleUsers(LogActivityTest.java:133)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2084382495", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2084382495'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//a[contains (@title, (&apos;Testf218908 Testl218908&apos;))][contains (@class, (&apos;slds-truncate&apos;))])[1]&quot;}
-  (Session info: chrome=79.0.3945.130)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir45572_2039826539}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:55452}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 1ac5d2caea5840fe066523880783332b
-*** Element info: {Using=xpath, value=(//a[contains (@title, (&apos;Testf218908 Testl218908&apos;))][contains (@class, (&apos;slds-truncate&apos;))])[1]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
-	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
-	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
-	at com.crm.qa.pages.RetailAccount.searchAccount(RetailAccount.java:412)
-	at com.crm.qa.testcases.LogActivityTest.OnlyCreateRetail_2_Account(LogActivityTest.java:573)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1118813983", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1118813983'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.sendKeys(Unknown Source)
+	at com.crm.qa.pages.DetailsPage.enterComments(DetailsPage.java:545)
+	at com.crm.qa.pages.DetailsPage.logacallInteraction(DetailsPage.java:498)
+	at com.crm.qa.testcases.LogActivityTest.reached_multipleUsers(LogActivityTest.java:133)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -632,84 +458,8 @@ Session ID: 1ac5d2caea5840fe066523880783332b
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>120</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers()'><b>logaCall_UnplannedMeeting_multipleUsers</b><br>Test class: com.crm.qa.testcases.LogActivityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;span class=&quot;title&quot; data-aura-rendered-by=&quot;11840:0&quot;&gt;...&lt;/span&gt; is not clickable at point (580, 164). Other element would receive the click: &lt;lightning-spinner data-data-rendering-service-uid=&quot;727&quot; data-aura-rendered-by=&quot;11704:0&quot; class=&quot;slds-spinner_container cGriffinButtons&quot; data-aura-class=&quot;cGriffinButtons&quot;&gt;&lt;/lightning-spinner&gt;
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir7604_1482373542}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53110}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 6f8959c131a7517918cdf538557818e0
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.HouseholdPage.unplannedAppointment(HouseholdPage.java:147)
-	at com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers(LogActivityTest.java:191)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace889789012", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace889789012'><pre>org.openqa.selenium.WebDriverException: element click intercepted: Element &lt;span class=&quot;title&quot; data-aura-rendered-by=&quot;11840:0&quot;&gt;...&lt;/span&gt; is not clickable at point (580, 164). Other element would receive the click: &lt;lightning-spinner data-data-rendering-service-uid=&quot;727&quot; data-aura-rendered-by=&quot;11704:0&quot; class=&quot;slds-spinner_container cGriffinButtons&quot; data-aura-class=&quot;cGriffinButtons&quot;&gt;&lt;/lightning-spinner&gt;
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir7604_1482373542}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53110}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 6f8959c131a7517918cdf538557818e0
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.HouseholdPage.unplannedAppointment(HouseholdPage.java:147)
-	at com.crm.qa.testcases.LogActivityTest.logaCall_UnplannedMeeting_multipleUsers(LogActivityTest.java:191)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</pre></div></td>
-<td>48</td>
-<td>com.crm.qa.testcases.LogActivityTest@60438a68</td></tr>
+<td>129</td>
+<td>com.crm.qa.testcases.LogActivityTest@50de0926</td></tr>
 </table><p>
 </body>
 </html>

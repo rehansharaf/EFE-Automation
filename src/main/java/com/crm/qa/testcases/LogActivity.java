@@ -96,8 +96,8 @@ public class LogActivity extends TestBase {
 	public void reached() throws InterruptedException, ParseException, IOException{
 		
 		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser();			
-		detailsPage.enterComments(1);
+		//homePage.navigateToRetailuser();			
+		//detailsPage.enterComments(1);
 		SalesforceTestRestAPI.validateTaskData1(1);
 									
 	}

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Branch Opportunity Test Scenarios</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>6/1/3</td>
+<td>Tests passed/Failed/Skipped:</td><td>11/4/2</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 11 09:37:13 MST 2020</td>
+<td>Started on:</td><td>Thu Mar 05 10:20:24 MST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>1008 seconds (1008609 ms)</td>
+<tr><td>Total time:</td><td>2341 seconds (2341040 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,93 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI()'><b>opttyClosedLost_viaAPI</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir42844_987929945}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:54171}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 7ab5c54ae1002a5f1d800d04c6a15bf1
+*** Element info: {Using=xpath, value=(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at com.crm.qa.pages.Opportunities.validateField(Opportunities.java:678)
+	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:608)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:85)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1523617668", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1523617668'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir42844_987929945}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:54171}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 7ab5c54ae1002a5f1d800d04c6a15bf1
+*** Element info: {Using=xpath, value=(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at com.crm.qa.pages.Opportunities.validateField(Opportunities.java:678)
+	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:608)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:85)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1014)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1215)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>159</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI()'><b>opttyClosedLost_viaAPI</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
 <td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]&quot;}
   (Session info: chrome=79.0.3945.130)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir14804_1275734409}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:56628}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: e8329d26f0d82cf56b5fb3ac9dea067b
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir16832_2005464743}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:54369}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: ed8ad70b522a0e3cfd560e4fd4242d79
 *** Element info: {Using=xpath, value=(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
@@ -111,20 +190,20 @@ Session ID: e8329d26f0d82cf56b5fb3ac9dea067b
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
 	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
-	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:873)
-	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:82)
+	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:454)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:83)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace435391524", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace435391524'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]&quot;}
+... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2030460524", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2030460524'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]&quot;}
   (Session info: chrome=79.0.3945.130)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir14804_1275734409}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:56628}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: e8329d26f0d82cf56b5fb3ac9dea067b
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir16832_2005464743}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:54369}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: ed8ad70b522a0e3cfd560e4fd4242d79
 *** Element info: {Using=xpath, value=(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -156,138 +235,14 @@ Session ID: e8329d26f0d82cf56b5fb3ac9dea067b
 	at com.google.common.collect.Lists.newArrayList(Lists.java:165)
 	at com.google.common.collect.Lists.newArrayList(Lists.java:150)
 	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:580)
-	at sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
 	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
-	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:873)
-	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:82)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.retryFailed(Invoker.java:1014)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1215)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</pre></div></td>
-<td>142</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.createBranchOptty_viaAPI()'><b>createBranchOptty_viaAPI</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest</td>
-<td></td>
-<td>35</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_Reached_StageClosedLost()'><b>logacall_Reached_StageClosedLost</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>98</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_notReached_Optty()'><b>logacall_notReached_Optty</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>88</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.moveStageStatusManually()'><b>moveStageStatusManually</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>67</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingandthenCloseMeeting()'><b>scheduleMeetingandthenCloseMeeting</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>88</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction()'><b>scheduleMeetingviaNextAction</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td></td>
-<td>128</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_Reached_StageClosedLost()'><b>logacall_Reached_StageClosedLost</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td><div><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir12228_400308624}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:57032}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 7ae4f1baf7f891bb052e832025cff5a6
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:452)
-	at com.crm.qa.pages.Opportunities.logacall_Reached_StageClosedLost(Opportunities.java:567)
-	at com.crm.qa.testcases.BranchOpportunityTest.logacall_Reached_StageClosedLost(BranchOpportunityTest.java:136)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace153253099", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace153253099'><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir12228_400308624}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:57032}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 7ae4f1baf7f891bb052e832025cff5a6
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:350)
-	at com.sun.proxy.$Proxy13.click(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:363)
-	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:452)
-	at com.crm.qa.pages.Opportunities.logacall_Reached_StageClosedLost(Opportunities.java:567)
-	at com.crm.qa.testcases.BranchOpportunityTest.logacall_Reached_StageClosedLost(BranchOpportunityTest.java:136)
+	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:454)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:83)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -303,77 +258,17 @@ Session ID: 7ae4f1baf7f891bb052e832025cff5a6
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
 <td>126</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
 <tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.moveStageStatusManually()'><b>moveStageStatusManually</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
-<td><div><pre>org.openqa.selenium.NoSuchFrameException: no such frame
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir43460_487303654}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:56131}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: bd86f90c05b5cc50b55cf689df70f875
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:969)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringTargetLocator.frame(EventFiringWebDriver.java:602)
-	at com.crm.qa.pages.HomePage.navigateToMultipleUser(HomePage.java:170)
-	at com.crm.qa.testcases.BranchOpportunityTest.moveStageStatusManually(BranchOpportunityTest.java:94)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-... Removed 14 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace266879074", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace266879074'><pre>org.openqa.selenium.NoSuchFrameException: no such frame
-  (Session info: chrome=79.0.3945.130)
-Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir43460_487303654}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:56131}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: bd86f90c05b5cc50b55cf689df70f875
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:969)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringTargetLocator.frame(EventFiringWebDriver.java:602)
-	at com.crm.qa.pages.HomePage.navigateToMultipleUser(HomePage.java:170)
-	at com.crm.qa.testcases.BranchOpportunityTest.moveStageStatusManually(BranchOpportunityTest.java:94)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</pre></div></td>
-<td>19</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
-<tr>
-<td title='com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI()'><b>opttyClosedLost_viaAPI</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI()'><b>opttyClosedLost_viaAPI</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
 <td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]&quot;}
   (Session info: chrome=79.0.3945.130)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir26892_834652379}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:56447}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: aaf56f2bd86558818ffc57fbd8e9ce99
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir20688_1579473348}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:54612}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: f72e4e02940840e111ec1345b239049c
 *** Element info: {Using=xpath, value=(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
@@ -401,20 +296,20 @@ Session ID: aaf56f2bd86558818ffc57fbd8e9ce99
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
 	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
-	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:873)
-	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:82)
+	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:454)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:83)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
-... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace898651369", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace898651369'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]&quot;}
+... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1278011188", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1278011188'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]&quot;}
   (Session info: chrome=79.0.3945.130)
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
-System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;10.8.100.176&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir26892_834652379}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:56447}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: aaf56f2bd86558818ffc57fbd8e9ce99
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir20688_1579473348}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:54612}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: f72e4e02940840e111ec1345b239049c
 *** Element info: {Using=xpath, value=(//label[contains (@for, (&apos;closeOpportunityChoice&apos;))]//span[contains (@class, (&apos;slds-radio--faux&apos;))])[last()]}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -446,14 +341,233 @@ Session ID: aaf56f2bd86558818ffc57fbd8e9ce99
 	at com.google.common.collect.Lists.newArrayList(Lists.java:165)
 	at com.google.common.collect.Lists.newArrayList(Lists.java:150)
 	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:580)
-	at sun.reflect.GeneratedMethodAccessor16.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
 	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
-	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:873)
-	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:82)
+	at com.crm.qa.pages.Opportunities.opportunityClosedLost(Opportunities.java:454)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1014)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1215)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>125</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction()'><b>scheduleMeetingviaNextAction</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.getWrappedElement(Unknown Source)
+	at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:51)
+	at com.google.common.collect.Iterators$6.transform(Iterators.java:820)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:373)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:165)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:150)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:580)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
+	at com.crm.qa.pages.Opportunities.scheduleMeetingusingNextAction(Opportunities.java:490)
+	at com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction(BranchOpportunityTest.java:177)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 13 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace266752498", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace266752498'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.getWrappedElement(Unknown Source)
+	at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:51)
+	at com.google.common.collect.Iterators$6.transform(Iterators.java:820)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:373)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:165)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:150)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:580)
+	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
+	at com.crm.qa.pages.Opportunities.scheduleMeetingusingNextAction(Opportunities.java:490)
+	at com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction(BranchOpportunityTest.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1014)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1215)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>132</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.enrollment_BM()'><b>enrollment_BM</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td></td>
+<td>143</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.enrollment_BM()'><b>enrollment_BM</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>165</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_Reached_StageClosedLost()'><b>logacall_Reached_StageClosedLost</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td></td>
+<td>125</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_Reached_StageClosedLost()'><b>logacall_Reached_StageClosedLost</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>140</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_notReached_Optty()'><b>logacall_notReached_Optty</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td></td>
+<td>103</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.logacall_notReached_Optty()'><b>logacall_notReached_Optty</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>116</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.moveStageStatusManually()'><b>moveStageStatusManually</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td></td>
+<td>87</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.moveStageStatusManually()'><b>moveStageStatusManually</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>94</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingandthenCloseMeeting()'><b>scheduleMeetingandthenCloseMeeting</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td></td>
+<td>127</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingandthenCloseMeeting()'><b>scheduleMeetingandthenCloseMeeting</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td></td>
+<td>135</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction()'><b>scheduleMeetingviaNextAction</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td></td>
+<td>150</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI()'><b>opttyClosedLost_viaAPI</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRFmQAO</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir41400_1156536683}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53979}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 4e7ccb44ff08c57f4ac43df01a3f6961
+*** Element info: {Using=xpath, value=(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at com.crm.qa.pages.Opportunities.validateField(Opportunities.java:678)
+	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:608)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:85)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 17 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace11630229", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace11630229'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;PHX-ISHARAF&apos;, ip: &apos;192.168.125.187&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_221&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=79.0.3945.16 (93fcc21110c10dbbd49bbff8f472335360e31d05-refs/branch-heads/3945@{#262}), userDataDir=C:\Users\ISharaf\AppData\Local\Temp\scoped_dir41400_1156536683}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=accept, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:53979}, acceptInsecureCerts=false, browserVersion=79.0.3945.130, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 4e7ccb44ff08c57f4ac43df01a3f6961
+*** Element info: {Using=xpath, value=(//span[(text()=&apos;Lead Source&apos;)]/../..//lightning-formatted-text)[last()]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:185)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:120)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at com.crm.qa.pages.Opportunities.validateField(Opportunities.java:678)
+	at com.crm.qa.pages.Opportunities.validateOpttyforStageStatus(Opportunities.java:608)
+	at com.crm.qa.testcases.BranchOpportunityTest.opttyClosedLost_viaAPI(BranchOpportunityTest.java:85)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -468,8 +582,77 @@ Session ID: aaf56f2bd86558818ffc57fbd8e9ce99
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at java.lang.Thread.run(Unknown Source)
 </pre></div></td>
-<td>133</td>
-<td>com.crm.qa.testcases.BranchOpportunityTest@1efee8e7</td></tr>
+<td>158</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
+<tr>
+<td title='com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction()'><b>scheduleMeetingviaNextAction</b><br>Test class: com.crm.qa.testcases.BranchOpportunityTest<br>Parameters: 0050R000000XRHYQA4</td>
+<td><div><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.getWrappedElement(Unknown Source)
+	at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:51)
+	at com.google.common.collect.Iterators$6.transform(Iterators.java:820)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:373)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:165)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:150)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:580)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
+	at com.crm.qa.pages.Opportunities.scheduleMeetingusingNextAction(Opportunities.java:490)
+	at com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction(BranchOpportunityTest.java:177)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 13 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace658987802", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace658987802'><pre>java.lang.NullPointerException
+	at org.openqa.selenium.support.events.EventFiringWebDriver.extractInterfaces(EventFiringWebDriver.java:121)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.access$500(EventFiringWebDriver.java:67)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:343)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.&lt;init&gt;(EventFiringWebDriver.java:335)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.createWebElement(EventFiringWebDriver.java:308)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:191)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.getWrappedElement(Unknown Source)
+	at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:51)
+	at com.google.common.collect.Iterators$6.transform(Iterators.java:820)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:48)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:373)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:165)
+	at com.google.common.collect.Lists.newArrayList(Lists.java:150)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:580)
+	at sun.reflect.GeneratedMethodAccessor8.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:218)
+	at com.crm.qa.pages.Opportunities.scheduleMeetingusingNextAction(Opportunities.java:490)
+	at com.crm.qa.testcases.BranchOpportunityTest.scheduleMeetingviaNextAction(BranchOpportunityTest.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>127</td>
+<td>com.crm.qa.testcases.BranchOpportunityTest@4e4aea35</td></tr>
 </table><p>
 </body>
 </html>

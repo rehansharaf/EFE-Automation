@@ -67,6 +67,7 @@ public class BranchOpportunityTest extends TestBase {
 		homePage.navigateToRetailuser("Primary");
 		opp.validateOpttyCounter(1);
 		
+		
 	}
 	
 	
@@ -78,6 +79,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
+		opp.clickOpportunity();
 		opp.opportunityClosedLost();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
 		opp.validateOpttyforStageStatus("Closed Lost");
@@ -121,7 +123,8 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
 		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Attempting");
@@ -137,7 +140,7 @@ public class BranchOpportunityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		//opp.logacall_Reached_StageClosedLost();
-		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
 		opp.opportunityClosedLost();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
@@ -168,7 +171,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
 		opp.scheduleMeetingusingNextAction();
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
@@ -184,7 +187,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		detailsPage.logacallInteractionforOptty(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
 		//opp.scheduleMeetingusingNextAction();
 		opp.enrollinBM();
@@ -192,6 +195,25 @@ public class BranchOpportunityTest extends TestBase {
 		opp.validateFinancialAccount();
 		
 	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void changeStageStatus(String advisorId) throws Exception {
+		
+		TestUtil.print("Change Opportunity Stage Stauses ");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		createBranchOptty_viaAPI();
+		opp.clickOpportunity();
+		opp.changeStatusTo("Stage", "Attempting");
+		opp.changeStatusTo("Stage", "Initial Appointment");
+		opp.changeStatusTo("Stage", "Follow-Up Appointment");
+		opp.changeStatusTo("Stage", "Client Setup");
+		opp.changeStatusTo("Stage", "Transfers Pending");
+		opp.changeStatusTo("Stage", "Closed");
+		
+	}
+	
+	
 	
 	
 	

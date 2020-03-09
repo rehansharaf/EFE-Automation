@@ -78,13 +78,20 @@ public class DebugTests extends TestBase {
 	public void notReached() throws InterruptedException, IOException, ParseException{
 		
 		homePage.clickSearchInput();			
-		detailsPage.enterComments(0);
+		//detailsPage.enterComments(0);
 		//detailsPage.verifyCommunications(0);
 		softAssertion.assertAll();
 				
 	}
 	
+	public void test() throws InterruptedException, IOException, ParseException{
 		
+		
+		
+	}
+	
+	
+	
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();

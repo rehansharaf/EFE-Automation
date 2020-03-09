@@ -25,6 +25,8 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.*;
+import static org.testng.Assert.assertFalse;
+
 import com.crm.qa.base.TestBase;
 import com.google.common.base.Predicate;
 
@@ -45,6 +47,7 @@ public class TestUtil extends TestBase{
 		driver.switchTo().frame("mainpanel");
 	}
 	
+
 	public static Object[][] getTestData(String sheetName) {
 		FileInputStream file = null;
 		try {
@@ -101,6 +104,8 @@ public class TestUtil extends TestBase{
 		}
 		return data;
 	}
+	
+	
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
@@ -114,115 +119,66 @@ public class TestUtil extends TestBase{
 		Select dropdownoption = new Select(dropdown);
 		dropdownoption.selectByVisibleText(Option);
 		
-		}
+	}
     
     
-    public static void jsClick(WebElement element) { 
+    public static void clickElement(WebElement element) throws InterruptedException { 
     	
+    	waitUntilElementVisible(element);
     	((JavascriptExecutor) driver).executeScript("arguments[0].click();", element); 
     	    
-    	}
+    }
 		
     public static void scrollintoView(WebElement element) { 
     	
-    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element); 
-    	    
-    	}
+    	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element); 
+    }
       
+
+    public static void waitUntilElementVisible(WebElement element) throws InterruptedException { 
+	   	 
+    	WebDriverWait wait = new WebDriverWait(driver, 15);
+	   	wait.until(ExpectedConditions.visibilityOf(element));
+    }
     
-     public static void elementVisible(String element) {
      
-    	 if(driver.findElements(By.xpath(element)).size() != 0){
-    		 System.out.println("Element is Present");
-    		 }else{
-    		 System.out.println("Element is Absent");
-    		 }
-     
-     }
+    public static void waitUntilPageLoad(WebDriver driver) throws InterruptedException { 
+    	new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->
+        ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
+
+    	
+    }
+    
+    
    
-     
-     
-     public static void waitForElementToBeDisplayed(WebElement element,  int specifiedTimeout) {
-    	 WebDriverWait wait = new WebDriverWait(driver, specifiedTimeout);
-    	 ExpectedCondition<Boolean> elementIsDisplayed = arg0 -> element.isDisplayed();
-    	 wait.until(elementIsDisplayed);
-    	 }
-     
     
-     public static void print(String TestCaseName) {
+    
+    
+    public static void print(String TestCaseName) {
     	 
     	 System.out.println();
     	 System.out.println("***************************** Executing Test Case: "+TestCaseName+" ******************************");
     	 System.out.println();
      }
      
-     
-     
-     
-     public static void waitForElement(String element, WebElement item) throws InterruptedException { 
-   	  
-   	  
-   	  for (int second = 0;; second++) {
-   		     if (second >= 20) fail("timeout");
-   		    
-   		     try { 
-   		    	 	Thread.sleep(1000);
-   		    	 	String xpathText = item.getText();
-   		    	 	//System.out.println("g1 is "+xpathText);
-   				 
-   		    	 	element = element.trim();
-   		    	 	xpathText = xpathText.trim();
-   				 
-   		    	 if (element.equals(xpathText))
-   		    	 
-   				    //System.out.println("g1 is "+g1);
-   		    		 break;
-   		    	 
-   		     } 
-   		     
-   		     catch (Exception e){}
-   		     Thread.sleep(1000);
-   	  	
-   	  		}
-   	  
-     	}
-
-
-     public static void ifButtonPresentclick(String element){
-     
-     List<WebElement> ele = driver.findElements(By.xpath(element));
-      if (ele.size() > 0){ ele.get(0).click();}
-      else {System.out.println("Button not found....");}
-     
-     }
-     
-     
-     public static boolean isElementPresent(WebElement element) {
-    	  try {element.isDisplayed(); return true;}
-    	  catch (org.openqa.selenium.NoSuchElementException e) {return false;}
-    	}
-
-     
+      
      public static void closeAllOpenTabs(WebDriver driver) throws InterruptedException {
-    	 	
-    	 	
     	 
-    	 	WebElement openTabgrid= driver.findElement(By.xpath("//*[contains (@class, ('tabBarItems slds-grid'))]")); 
+    	WebElement openTabgrid= driver.findElement(By.xpath("//*[contains (@class, ('tabBarItems slds-grid'))]")); Thread.sleep(2000);
     	 	
-    	 	Thread.sleep(2000);
-    	 	
-    	 	List<WebElement> listoftabs = openTabgrid.findElements(By.xpath("//a[contains (@class, ('slds-context-bar'))][contains (@href, ('/lightning/'))]"));
+    	 List<WebElement> listoftabs = openTabgrid.findElements(By.xpath("//a[contains (@class, ('slds-context-bar'))][contains (@href, ('/lightning/'))]"));
     	 	
     	 	int i = listoftabs.size();
     	 	
     	 	if (listoftabs.size()>1){
     	 		for (int j=0; j<i-1; j++)
     	 			{driver.findElement(By.xpath("//div[2]//button[1][contains (@title, ('Close'))]")).click(); }
-    	 		}
+    	 	}
      	 	
     	 	clickAccountLink();
      }
  
+     
      public static void clickAccountLink() throws InterruptedException {
     	 
     	 String accountId = RetailUserdetails.get_sfdcID();
@@ -253,21 +209,6 @@ public class TestUtil extends TestBase{
  	}
  	
      
-     
-     /*   
-     public static void waitforPageLoad(WebDriver driver, int timeout) {
-    	 Wait<WebDriver> wait = new WebDriverWait(driver, timeout);
-    	    wait.until(new Function<WebDriver, Boolean>() {
-    	        public Boolean apply(WebDriver driver) {
-    	            System.out.println("Current Window State       : "
-    	                + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
-    	            return String
-    	                .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
-    	                .equals("complete");
-    	        }
-    	    });
-   	}
-   */ 
      
      public boolean isLeadLinkVisible(){
  	    WebDriverWait zeroWait = new WebDriverWait(driver, 0);

@@ -13,6 +13,7 @@ import org.testng.Assert;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.DetailsPage;
+import com.crm.qa.util.TestUtil;
 
 
 public class FinancialPage extends TestBase {
@@ -38,13 +39,13 @@ public class FinancialPage extends TestBase {
 	}
 	
 
-	public void clickFinancialTab() {jse2.executeScript("arguments[0].click()", financialsTab);}
-	public void clickWorkplaceDetailsTab(){jse2.executeScript("arguments[0].click()", workplaceDetailsTab);}
+	public void clickFinancialTab() throws InterruptedException {TestUtil.clickElement(financialsTab);}
+	public void clickWorkplaceDetailsTab() throws InterruptedException{TestUtil.clickElement(workplaceDetailsTab);}
 
 	public void validateWorkplaceDetailsScreen() throws InterruptedException{
 		
-		Thread.sleep(3000);
-		clickFinancialTab();Thread.sleep(2000);
+		
+		clickFinancialTab();
 		clickWorkplaceDetailsTab();
 		
 		List<WebElement> dynamicElement = driver.findElements(By.xpath("(//b[contains(text(),'Retirement Snapshot')])[1]"));
