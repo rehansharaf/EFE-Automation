@@ -419,6 +419,22 @@ public class RetailAccount extends TestBase {
 	}
 	
 	
+
+	public void clickHouseholdviaAccountScreen() throws InterruptedException{ 
+		
+		Thread.sleep(2000);
+		changeNavigationMenu("Accounts");
+		Thread.sleep(3000);
+		TestUtil.closeAllOpenTabs(driver);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("(//a[contains (@title, ('" +aname+ "'))][contains (@class, ('slds-truncate'))])[1]")).click();
+		
+		Thread.sleep(3000);
+		
+	}
+	
+	
+	
 	
 	public static String getAccountId() throws InterruptedException{
 		

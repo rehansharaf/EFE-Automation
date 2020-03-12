@@ -196,6 +196,24 @@ public class BranchOpportunityTest extends TestBase {
 		
 	}
 	
+	
+	
+	//Work in Progress
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void createNewFinancialAccount(String advisorId) throws Exception {
+		
+		TestUtil.print("Create a New Financial Account ");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		createBranchOptty_viaAPI();
+		opp.clickOpportunity();
+		opp.createFinancialAccount();
+		SalesforceTestRestAPI.verifyFinancialAccount(7, "true", 1);
+		opp.validateOpttyforStageStatus("Initial Appointment");
+		
+	}
+	
+	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void changeStageStatus(String advisorId) throws Exception {
 		
@@ -210,23 +228,6 @@ public class BranchOpportunityTest extends TestBase {
 		opp.changeStatusTo("Stage", "Client Setup");
 		opp.changeStatusTo("Stage", "Transfers Pending");
 		opp.changeStatusTo("Stage", "Closed");
-		
-	}
-	
-	
-	
-	
-	
-	//Work in Progress
-	@Test()
-	public void createFinancialAccount_BMOptty() throws Exception {
-		
-		TestUtil.print("BM Opportunity - Add a Financial Account ");
-		
-		createBranchOptty_viaAPI();
-		opp.createFinancialAccount();
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
-		opp.validateOpttyforStageStatus("Initial Appointment");
 		
 	}
 	

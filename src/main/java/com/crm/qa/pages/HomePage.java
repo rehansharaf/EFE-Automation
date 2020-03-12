@@ -158,9 +158,9 @@ public class HomePage extends TestBase {
 		
 		String sfdcId = new String();
 		
-		if (userType.toLowerCase().equals(("primary"))){sfdcId = SalesforceRestAPI.getHashMapData()[0];}
+		if (userType.equalsIgnoreCase(("primary"))){sfdcId = SalesforceRestAPI.getHashMapData()[0];}
 		
-		else if (userType.toLowerCase().equals(("household")))
+		else if (userType.equalsIgnoreCase(("household")))
 			{
 			sfdcId = SalesforceRestAPI.getHashMapData()[0]; 
 			sfdcId = sfdcId.replace(sfdcId.charAt(14), (char)(sfdcId.charAt(14) + 1));

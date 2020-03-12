@@ -3,8 +3,8 @@ package com.crm.qa.testcases;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.text.ParseException;
-
-
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
@@ -65,6 +65,8 @@ public class LogActivityTest extends TestBase {
 	
 	String sheetName = "demo";
 	
+	//Variables to generate Specific name Accounts
+	//public static int i=-1, j= -1;
 	
 	SoftAssert softAssertion = new SoftAssert();
 	
@@ -88,7 +90,11 @@ public class LogActivityTest extends TestBase {
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
+		//Variables counters to generate Specific name Accounts
+		//i=i+1; j=j+1;
+		
 		initializeData.initialize();
+		
 		
 		try {Thread.sleep(2000);} 
 		catch (InterruptedException e) {e.printStackTrace();}
@@ -98,11 +104,7 @@ public class LogActivityTest extends TestBase {
 	
 	
 	@Test()
-	public void debug() throws InterruptedException, ParseException{
-		
-		SalesforceTestRestAPI.APIConnection();
-							
-	}
+	public void debug() throws InterruptedException, ParseException{SalesforceTestRestAPI.APIConnection();}
 	
 
 	
@@ -175,7 +177,8 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Household");			
-		householdPage.enterComments(0);
+		//householdPage.enterComments(0);
+		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData(1);
 		softAssertion.assertAll();
 		

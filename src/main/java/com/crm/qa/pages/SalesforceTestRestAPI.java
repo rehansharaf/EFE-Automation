@@ -572,7 +572,7 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void verifyFinancialAccount(int i, String j, Boolean Status) throws InterruptedException {
+	public static void verifyFinancialAccount(int i, String j, int Status) throws InterruptedException {
 		// TODO Auto-generated method stub
 		
 		Thread.sleep(5000);	

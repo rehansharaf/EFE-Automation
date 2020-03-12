@@ -10,7 +10,8 @@
 
 			<test name="Log a Call Test Scenarios">
 			<classes>
-			<class name="com.crm.qa.testcases.LogActivityTest">
+			 <class name="com.crm.qa.testcases.LogActivityTest"> 
+			
 			<methods>
 					<include name="reached_multipleUsers"></include>
 					<include name="notReached_multipleUsers"></include>
@@ -35,13 +36,15 @@
 					<include name="reachedwithBusinessLead_ScheduleTodo"></include>
 					<include name="reachedwithBusinessLead_UnplannedMeeting"></include>
 					<include name="reachedwithBusinessLead_ScheduleMeeting"></include>
-				<!--<include name="meeting_CompleteFlow"></include>-->
+					<include name="meeting_CompleteFlow"></include>
 				<!--<include name="meeting_CompleteFlowWithOptions"></include>-->	
 					<include name="nolead_Reached_createBranchOpportunity"></include>
 					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
-					<!--<include name="nolead_Reached_MultipleOpportunity"></include>-->
-					<!--<include name="UpdatePrimaryAccountdetails"></include>-->
+					<include name="nolead_Reached_MultipleOpportunity"></include>
+					<include name="UpdatePrimaryAccountdetails"></include>
 				<!--<include name="UpdateSpouseAccountdetails"></include>-->
+					<include name="validateFinancialDataForSponsoredClient"></include>
+					<include name="validateEmail"></include>
 			</methods>
 			</class>
 			</classes>

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]" parallel="methods">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
+    <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Free CRM App Test Cases(failed)" parallel="methods">
+  <test name="Free CRM App Test Cases(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
+      <class name="com.crm.qa.testcases.LogActivityTest_HouseHold">
         <methods>
-          <include name="logacall_Reached_StageClosedLost" invocation-numbers="0 1"/>
-          <include name="scheduleMeetingviaNextAction" invocation-numbers="0 1"/>
           <include name="setUp"/>
-          <include name="tearDown"/>
+          <include name="logaCall_NotReached_Household_multipleUsers" invocation-numbers="1 1"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest_HouseHold -->
     </classes>
   </test> <!-- Free CRM App Test Cases(failed) -->
 </suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

@@ -24,16 +24,16 @@ import com.crm.qa.pages.RetailAccount;
 public class DetailsPage extends TestBase {
 	
 	
-	@FindBy(xpath = "//div[contains(text(),'Comments')]/../../../following-sibling::div/div/textarea")
+	@FindBy(xpath = "(//div[contains(text(),'Comments')]/../../../following-sibling::div/div/textarea)[last()]")
 	WebElement commentsTextarea;
 
-	@FindBy(xpath = "//div[contains(text(),'Comments')]")
+	@FindBy(xpath = "(//div[contains(text(),'Comments')])[last()]")
 	WebElement comments;
 
-	@FindBy(xpath = "//div[contains(text(),'Management')]")
+	@FindBy(xpath = "(//div[contains(text(),'Management')])[last()]")
 	WebElement solutionsDiscussed;
 	
-	@FindBy(xpath = "//div[contains(text(),'GST$ Conversation')]/ancestor::div[@class='bBody']//select")
+	@FindBy(xpath = "(//div[contains(text(),'GST$ Conversation')]/ancestor::div[@class='bBody']//select)[last()]")
 	WebElement gtsConversionDrpDwn;
 	
 	@FindBy(xpath = "//div[contains(text(),'Create Workplace Opportunity')]")
@@ -43,14 +43,12 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//div[contains(text(),'Outcome')]")
 	WebElement outcomeLabel;
 	
-	@FindBy(xpath = "//div[contains(text(),'Outcome')]/../../../following-sibling::div/select")
+	@FindBy(xpath = "(//div[contains(text(),'Outcome')]/../../../following-sibling::div/select)[last()]")
 	WebElement outcome;
 
 	@FindBy(xpath = "//span[contains(text(),'Create Opportunity')]")
 	WebElement CreateOpportunityLabel;
 
-	//@FindBy(xpath = "//span[contains(text(),'Create Opportunity')]")
-	//WebElement CreateOpportunityLabel;
 	
 	@FindBy(xpath = "//span[@class='title'][contains(text(),'Communications')]")
 	WebElement Communications;
@@ -157,10 +155,6 @@ public class DetailsPage extends TestBase {
 	WebElement scheduleMeeting_LoganActivity;
 	
 	
-	
-	
-	
-	
 	@FindBy(xpath = "//div[contains(text(),'Future Phone Call')]")
 	WebElement futurePhoneCall;
 	
@@ -260,7 +254,7 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "//li[@title='To-Do']")
 	WebElement todoTab;
 	
-	@FindBy(xpath = "//input[contains (@name ,'Subject')]")
+	@FindBy(xpath = "(//input[contains (@name ,'Subject')])[last()]")
 	WebElement subjectArea;
 	
 	@FindBy(xpath = "(//input[contains (@name ,'Start_Date_and_Time')])[1]")
@@ -275,13 +269,13 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//span[contains(text(),'Start Date and Time')]/../../..//input)[2]")
 	WebElement meetingEndTime1;
 	
-	@FindBy(xpath = "//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select")
+	@FindBy(xpath = "(//div[contains(text(),'How Did You Meet With Client')]/../../../following-sibling::div/select)[last()]")
 	WebElement meetwithClient;
 	
-	@FindBy(xpath = "//div[contains(text(),'Select Meeting Outcome')]/../../../following-sibling::div/select")
+	@FindBy(xpath = "(//div[contains(text(),'Select Meeting Outcome')]/../../../following-sibling::div/select)[last()]")
 	WebElement meetingOutcome;
 	
-	@FindBy(xpath = "//button[contains(text(),'Next')]")
+	@FindBy(xpath = "(//button[contains(text(),'Next')])[last()]")
 	WebElement NextBtn;
 	
 	@FindBy(xpath = "//font[contains(text(),'Please select an Advisor')]")
@@ -329,9 +323,7 @@ public class DetailsPage extends TestBase {
 	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Date of Birth'))]")
 	WebElement dobEditBtn;
-	
-	//@FindBy(xpath = "(//*[contains (@class, ('datePicker'))])[1]/..")
-	//WebElement dobEditInput;
+
 	
 	@FindBy(xpath = "//label[text()='Date of Birth']/..//input")
 	WebElement dobEditInput;
@@ -342,19 +334,14 @@ public class DetailsPage extends TestBase {
 	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Gender'))]")
 	WebElement genderEditBtn;
-	
-	//@FindBy(xpath = "//span[text()= 'Gender'] /../../..//a[contains (@role, ('button'))]")
-	//WebElement genderDropDown;
+
 	
 	@FindBy(xpath = "//label[text()='Gender']/..//input")
 	WebElement genderDropDown;
-	
-	//@FindBy(xpath = "//a[contains(text(),'Male')]")
-	//WebElement genderMale;
+
 	
 	@FindBy(xpath = "//label[text()='Gender']/..//lightning-base-combobox-item[@data-value='Male']")
 	WebElement genderMale;
-	
 	
 	
 	@FindBy(xpath = "//button[contains (@title, ('Edit Mailing Address'))]")
@@ -381,37 +368,37 @@ public class DetailsPage extends TestBase {
 	
 	//**************************************
 	
-	@FindBy(xpath = "//div[contains(text(),'Outcome')]/ancestor::div[contains (@class, ('slds-tabs_card'))]//button[contains(text(),'Next')]")
+	@FindBy(xpath = "(//div[contains(text(),'Outcome')]/ancestor::div[contains (@class, ('slds-tabs_card'))]//button[contains(text(),'Next')])[last()]")
 	WebElement logCallNextButton;
 	
-	@FindBy(xpath = "//span[contains(text(),'Schedule a Future Activity')]/ancestor::div[@class ='content']//button[contains(text(),'Next')]")
+	@FindBy(xpath = "(//span[contains(text(),'Schedule a Future Activity')]/ancestor::div[@class ='content']//button[contains(text(),'Next')])[last()]")
 	WebElement futureActivityNextButton;
 	
-	@FindBy(xpath = "//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')]")
+	@FindBy(xpath = "(//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')])[last()]")
 	WebElement futureActivityNextButton1;
 
-	@FindBy(xpath ="//span[contains(text(),'Create Opportunity')]/ancestor::div[@class= 'content']//button[contains(text(),'Next')]")
+	@FindBy(xpath ="(//span[contains(text(),'Create Opportunity')]/ancestor::div[@class= 'content']//button[contains(text(),'Next')])[last()]")
 	WebElement opttyNextButton;
 	
-	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='bBody']//label[contains (@for, ('No_Selected'))]")
+	@FindBy(xpath = "(//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='bBody']//label[contains (@for, ('No_Selected'))])[last()]")
 	WebElement noOpttyRdBtn;
 	
-	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='bBody']//label[contains (@for, ('Yes_Selected'))]")
+	@FindBy(xpath = "(//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='bBody']//label[contains (@for, ('Yes_Selected'))])[last()]")
 	WebElement yesOpttyRdBtn;
 	
-	@FindBy(xpath = "//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='content']//button[contains(text(),'Next')]")
+	@FindBy(xpath = "(//div[contains(text(),'Do you want to create an Opportunity?')]/ancestor::div[@class ='content']//button[contains(text(),'Next')])[last()]")
 	WebElement noOpttyNxtBtn;
 	
-	@FindBy(xpath = "//div[contains(text(),'Do you want to schedule a future activity')]/ancestor::div[@class ='bBody']//label[contains (@for, ('No_Selected'))]")
+	@FindBy(xpath = "(//div[contains(text(),'Do you want to schedule a future activity')]/ancestor::div[@class ='bBody']//label[contains (@for, ('No_Selected'))])[last()]")
 	WebElement noScheduleFutureActivityRdBtn;
 	
-	@FindBy(xpath = "//div[contains(text(),'Do you want to schedule a future activity')]/ancestor::div[@class ='bBody']//label[contains (@for, ('Yes_Selected'))]")
+	@FindBy(xpath = "(//div[contains(text(),'Do you want to schedule a future activity')]/ancestor::div[@class ='bBody']//label[contains (@for, ('Yes_Selected'))])[last()]")
 	WebElement yesScheduleFutureActivityRdBtn;
 	
 	@FindBy(xpath = "(//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Next')])[last()]")
 	WebElement scheduleMeetingNextButton;
 	
-	@FindBy(xpath = "//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Finish')]")
+	@FindBy(xpath = "(//div[contains (@class, ('content'))]//button[contains(text(),'Previous')]/following-sibling::button[contains(text(),'Finish')])[last()]")
 	WebElement scheduleMeetingFinishButton;
 	
 	@FindBy(xpath = "(//button[@title = 'More Tabs'])[last()]")
@@ -528,7 +515,8 @@ public class DetailsPage extends TestBase {
 			else if (gtsConversion.toLowerCase().equals("gtsconversionyes")){ gtsConversion = "Yes";}
 		
 		
-			TestUtil.waitUntilElementVisible(commentsTextarea);
+			TestUtil.waitUntilElementVisible(commentsTextarea);//Thread.sleep(2000);
+			TestUtil.clickElement(commentsTextarea);
 			commentsTextarea.sendKeys(commentsToEnter);
 			TestUtil.waitUntilElementVisible(outcome);
 			TestUtil.SelectDropDownOption(outcome, Outcome);

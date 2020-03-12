@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="11" total="13" passed="2">
+<testng-results skipped="0" failed="0" ignored="28" total="30" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="232393" started-at="2020-03-09T20:32:53Z" finished-at="2020-03-09T20:36:46Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="182685" started-at="2020-03-11T22:38:39Z" finished-at="2020-03-11T22:41:42Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="232393" started-at="2020-03-09T20:32:53Z" finished-at="2020-03-09T20:36:46Z">
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="setUp" is-config="true" duration-ms="6562" started-at="2020-03-09T13:32:53Z" finished-at="2020-03-09T13:33:00Z">
+    <test name="Free CRM App Test Cases" duration-ms="182685" started-at="2020-03-11T22:38:39Z" finished-at="2020-03-11T22:41:42Z">
+      <class name="com.crm.qa.testcases.LogActivityTest_HouseHold">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest_HouseHold@76b10754]" name="setUp" is-config="true" duration-ms="9786" started-at="2020-03-11T15:38:39Z" finished-at="2020-03-11T15:38:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="enrollment_BM(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="enrollment_BM" duration-ms="105896" started-at="2020-03-09T13:33:00Z" data-provider="multipleUsers" finished-at="2020-03-09T13:34:46Z">
+        <test-method status="PASS" signature="logaCall_NotReached_Household_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest_HouseHold@76b10754]" name="logaCall_NotReached_Household_multipleUsers" duration-ms="79953" started-at="2020-03-11T15:38:49Z" data-provider="multipleUsers" finished-at="2020-03-11T15:40:09Z">
           <params>
             <param index="0">
               <value>
@@ -21,16 +21,12 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- enrollment_BM -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="tearDown" is-config="true" duration-ms="738" started-at="2020-03-09T13:34:46Z" finished-at="2020-03-09T13:34:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="setUp" is-config="true" duration-ms="5331" started-at="2020-03-09T13:34:46Z" finished-at="2020-03-09T13:34:52Z">
+        </test-method> <!-- logaCall_NotReached_Household_multipleUsers -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest_HouseHold@76b10754]" name="setUp" is-config="true" duration-ms="8422" started-at="2020-03-11T15:40:09Z" finished-at="2020-03-11T15:40:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="enrollment_BM(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="enrollment_BM" duration-ms="113029" started-at="2020-03-09T13:34:52Z" data-provider="multipleUsers" finished-at="2020-03-09T13:36:45Z">
+        <test-method status="PASS" signature="logaCall_NotReached_Household_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest_HouseHold@76b10754]" name="logaCall_NotReached_Household_multipleUsers" duration-ms="84490" started-at="2020-03-11T15:40:18Z" data-provider="multipleUsers" finished-at="2020-03-11T15:41:42Z">
           <params>
             <param index="0">
               <value>
@@ -40,12 +36,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- enrollment_BM -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@4b9e255]" name="tearDown" is-config="true" duration-ms="805" started-at="2020-03-09T13:36:45Z" finished-at="2020-03-09T13:36:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
+        </test-method> <!-- logaCall_NotReached_Household_multipleUsers -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest_HouseHold -->
     </test> <!-- Free CRM App Test Cases -->
   </suite> <!-- FREE CRM Application Test Automation Test Suite -->
 </testng-results>

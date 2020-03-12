@@ -3,6 +3,10 @@ package com.crm.qa.pages;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -123,6 +127,16 @@ public class HouseholdPage extends TestBase {
 	@FindBy(xpath="//button[contains(text(),'Finish')]")
 	WebElement coClientFinishButton;
 	
+	//------------------------------------------------------------------------
+	
+	@FindBy(xpath="//span[@class='test-id__field-label'][text()='User Number']/../..//lightning-formatted-text")
+	WebElement userNumber;
+	
+	@FindBy(xpath="//input[@placeholder='Search Salesforce']")
+	WebElement searchSalesForceInput;
+	
+	@FindBy(xpath="(//a[contains(text(),'Accounts')])[last()]")
+	WebElement accountSummaryHeader;
 	
 	
 	
@@ -139,55 +153,68 @@ public class HouseholdPage extends TestBase {
 		}
 	
 	
+
+	public void gotoHouseholdviaAcctScreen() throws InterruptedException, ParseException{
+		
+		TestUtil.waitUntilElementVisible(userNumber);
+		String usernumber = userNumber.getText();
+		
+		if (usernumber == null || usernumber.isEmpty()){ 
+			driver.navigate().refresh();
+			TestUtil.waitUntilElementVisible(userNumber);
+			usernumber = userNumber.getText();
+		}
+		
+		TestUtil.waitUntilElementVisible(searchSalesForceInput);
+		TestUtil.clickElement(searchSalesForceInput);
+		searchSalesForceInput.sendKeys(usernumber);Thread.sleep(5000);
+		searchSalesForceInput.sendKeys(Keys.ENTER);
+		
+		/*
+		for (int i=0; i<=4; i++){
+			List<WebElement> dynamicElement = driver.findElements(By.xpath("(//a[contains (@title, ('Household'))][@data-refid='recordId'])[last()]"));
+				if(dynamicElement.size() == 0){Thread.sleep(3000);driver.navigate().refresh();i++;}
+				else {break;}
+		}
+		*/
+		
+		for (int i=0; i<=4; i++){
+			
+			driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+			Boolean isPresent = driver.findElements(By.xpath("(//a[contains (@title, ('Household'))][@data-refid='recordId'])[last()]")).size()>0;
+			
+				if(isPresent.equals(false)){driver.navigate().refresh();i++;}
+				else {driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);break;}
+		}
+		
+		
+		
+		TestUtil.waitUntilElementVisible(accountSummaryHeader);
+		WebElement houseHoldAccount = driver.findElement(By.xpath("(//a[contains (@title, ('Household'))][@data-refid='recordId'])[last()]"));
+		TestUtil.clickElement(houseHoldAccount);
+	
+	}
+	
+	
 	public void switchtoCoClient() throws InterruptedException{
 	
 		TestUtil.waitUntilElementVisible(householdTab);
-		Thread.sleep(3000);
-		householdTab.click();
+		//Thread.sleep(3000);
+		TestUtil.clickElement(householdTab);
 		
 		TestUtil.waitUntilElementVisible(co_clientlink);
-		Thread.sleep(3000);
-		co_clientlink.click();
+		//Thread.sleep(3000);
+		TestUtil.clickElement(co_clientlink);
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	}
 	
-	public void enterComments(int i) throws InterruptedException, ParseException{
-		
-		@SuppressWarnings("static-access")
-		String commentsToEnter = "TestingPurpose " + detailsPage.uid;
-		
-		Thread.sleep(3000);
-		householdTab.click();
-		
-		Thread.sleep(2000);
-		householdBtn.click();
-		Thread.sleep(3000);
-		
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		Thread.sleep(2000);
-		selectOutcome(i);
-		
-		solutionsDiscussed.click();
-		
-		jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		logCallNextButton.click();
-		
-		Thread.sleep(5000);
-		
-		noOpttyRdBtn.click();
-		
-		logCallNextButton.click();
-		
-		
-	}
-	
+
 	
 	@SuppressWarnings("static-access")
 	public void unplannedAppointment() throws InterruptedException, ParseException, IOException {
 			
-		String commentsToEnter = "TestingPurpose " + detailsPage.uid;
+		//String commentsToEnter = "TestingPurpose " + detailsPage.uid;
 		
 		/*
 		Thread.sleep(3000);
@@ -243,36 +270,44 @@ public class HouseholdPage extends TestBase {
 	
 	
 	public void gotoHousehold() throws InterruptedException, ParseException{
-	
-		jse2.executeScript("arguments[0].click()",householdTab);Thread.sleep(2000);
-		householdBtn.click();Thread.sleep(2000);
+		TestUtil.waitUntilElementVisible(householdTab);
+		TestUtil.clickElement(householdTab);//Thread.sleep(2000);
+		TestUtil.clickElement(householdBtn);//Thread.sleep(2000);
 	
 	}
 
 
+
+	
+	
 	public void addSpouse(String SpouseFirstName, String SpouseLastName) throws InterruptedException {
 		
-		Thread.sleep(10000);
-		jse2.executeScript("arguments[0].click()",householdTab);Thread.sleep(3000);
+		//Thread.sleep(10000);
+		TestUtil.waitUntilElementVisible(householdTab);
 		
-		Thread.sleep(3000);
-		jse2.executeScript("arguments[0].click()", addCoclient);
+		TestUtil.clickElement(householdTab);//;Thread.sleep(3000);
 		
-		Thread.sleep(3000);
-		createNewAccount.click();
+		//Thread.sleep(3000);
+		TestUtil.waitUntilElementVisible(addCoclient);
+		TestUtil.clickElement(addCoclient);
 		
-		nextButton.click();
+		//Thread.sleep(3000);
+		TestUtil.clickElement(createNewAccount);
 		
-		Thread.sleep(3000);
+		TestUtil.clickElement(nextButton);
+		
+		//Thread.sleep(3000);
+		
+		TestUtil.waitUntilElementVisible(spouseFirstName);
 		spouseFirstName.sendKeys(SpouseFirstName);
 		spouseLastName.sendKeys(SpouseLastName);
 		spouseDOB.sendKeys("10/16/1958");
-		genderSelection.click();
-		relationshipSelection.click();
+		TestUtil.clickElement(genderSelection);
+		TestUtil.clickElement(relationshipSelection);
 		
-		nextButton1.click();
-		Thread.sleep(3000);
-		coClientFinishButton.click();
+		TestUtil.clickElement(nextButton1);
+		//Thread.sleep(3000);
+		TestUtil.clickElement(coClientFinishButton);
 		
 		driver.navigate().refresh();
 	
@@ -312,7 +347,7 @@ public class HouseholdPage extends TestBase {
 		else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
 		
 		}	
-	*/
+	
 	public void selectOutcome(int i) throws InterruptedException, ParseException {
 		
 		if (i==0){TestUtil.SelectDropDownOption(outcome, "Not Reached");}
@@ -320,6 +355,6 @@ public class HouseholdPage extends TestBase {
 		else if(i==2){TestUtil.SelectDropDownOption(outcome, "Meeting");}
 		
 		}		
-	
+*/	
 	
 }

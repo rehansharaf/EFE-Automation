@@ -35,7 +35,7 @@
 
 				
 				
-				<include name="enrollment_BM"></include>	
+				<include name="createNewFinancialAccount"></include>	
 					
 		
 					
