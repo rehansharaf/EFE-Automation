@@ -213,7 +213,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 	}
 	
-	
+/*	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void changeStageStatus(String advisorId) throws Exception {
 		
@@ -231,7 +231,7 @@ public class BranchOpportunityTest extends TestBase {
 		
 	}
 	
-	
+	*/
 	
 	
 	

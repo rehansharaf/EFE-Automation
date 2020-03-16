@@ -117,7 +117,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Primary");	
-		householdPage.gotoHouseholdviaAcctScreen();
+		//householdPage.gotoHouseholdviaAcctScreen();
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData1(1);
 		softAssertion.assertAll();
@@ -134,7 +135,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");
-		householdPage.gotoHouseholdviaAcctScreen();
+		//householdPage.gotoHouseholdviaAcctScreen();
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData1(1);
 	
@@ -150,59 +152,101 @@ public class LogActivityTest_HouseHold extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");	
-		householdPage.gotoHouseholdviaAcctScreen();
+		//householdPage.gotoHouseholdviaAcctScreen();
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "No-Show", "MeetingExistNO");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
 	
 	}
 	
 	
+
 	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void logaCall_Reached_Household_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
-		
-		TestUtil.print("Log a Call (Reached) through Household, Multiple Users");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		//householdPage.gotoHousehold();
-		householdPage.gotoHouseholdviaAcctScreen();
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData1(1);
-	
-	}
-	
-	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void logaCall_NotReached_Household_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
-		
-		TestUtil.print("Log a Call (Not Reached) through Household, Multiple Users");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser("Primary");			
-		//householdPage.enterComments(0);
-		householdPage.gotoHouseholdviaAcctScreen();
-		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData(1);
-		softAssertion.assertAll();
-		
-	}
-	
-	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void logaCall_UnplannedMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+	public void UnplannedMeeting_withOutcome_NoShow_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		householdPage.unplannedAppointment();
+		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "No-Show", "MeetingExistNO");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
 	
 	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withOutcome_Cancelled_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Cancelled", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withOutcome_Completed_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withMeeting_OnPhone_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Phone Meeting", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");		
+		householdPage.gotoHousehold();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Site Event", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");		
+		householdPage.gotoHousehold();
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "Virtual Meeting", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
 	
 	
 
@@ -213,7 +257,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached,  "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
@@ -229,7 +274,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo",  "CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
@@ -246,21 +292,12 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");				
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
 	
-	}
-
-
-	
-	@Test()
-	public void navigateToRetailUser() throws InterruptedException, ParseException{
-		
-		SalesforceRestAPI.dataCreation();
-		homePage.navigateToRetailuser("Primary");		
-								
 	}
 
 
@@ -272,7 +309,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.notReached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData(1);
 		SalesforceTestRestAPI.validateLeadData(4);	
@@ -287,7 +325,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData1(1);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -302,7 +341,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
@@ -319,7 +359,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall");
 		SalesforceTestRestAPI.validateTaskData2(1);
@@ -336,7 +377,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		SalesforceTestRestAPI.validateMeetingData(3, 0);
@@ -354,7 +396,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser("Primary");			
+		homePage.navigateToRetailuser("Primary");	
+		householdPage.gotoHousehold();
 		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
@@ -373,6 +416,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		SalesforceTestRestAPI.dataCreation1();
 	
 		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistNo");
 
 		detailsPage.meetingCompletedFlow();
@@ -381,78 +425,10 @@ public class LogActivityTest_HouseHold extends TestBase {
 	
 	}
 
-//Need to work on it	
-	@Test(dataProvider = "Imran", dataProviderClass = LogaCallDataProvider.class)
-	public void meeting_CompleteFlowWithOptions(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
-		
-			
-	}
-	
-	
-	
-	@SuppressWarnings("static-access")
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void LogACallSpouse(String advisorId) throws InterruptedException, IOException, ParseException, InvalidFormatException {
-		
-		TestUtil.print("Log a Call Spouse");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToSpouseuser();
-		
-		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-	
-		SalesforceTestRestAPI.validateTaskData1(1);
-		
-	}
-	
-	
-	@SuppressWarnings("static-access")
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void LogaCallwithSpouse_ValidateAtPrimary(String advisorId) throws Exception {
-		
-		TestUtil.print("Log a Call with Spouse and Validate at Primary");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToSpouseuser();
-		
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
-		
-		communicationPage.validateCallonCommunication();
-		
-	}
-	
-	
-	@SuppressWarnings("static-access")
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void CreateAccount_Spouse(String advisorId) throws InterruptedException, InvalidFormatException, ParseException, IOException {
-		
-		TestUtil.print("Create a Account Spouse");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		
-		homePage.navigateToSpouseuser();
-		
-		SalesforceRestAPI.createCTAccount();
-				
-	}
-	
-	
 
 	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void UpdatePrimaryAccountdetails(String advisorId) throws Exception {
+	public void UpdateHouseholdAccountdetails(String advisorId) throws Exception {
 		
 		TestUtil.print("UpdatePrimaryAccountdetails");
 		
@@ -460,35 +436,14 @@ public class LogActivityTest_HouseHold extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser("Primary");
-		//retailAccount.clickAccountviaAccountScreen();
-		
-		detailsPage.updateAccountDetails();
-		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");	
+		householdPage.gotoHousehold();
+		householdPage.updateAccountDetails();
+		householdPage.verifyAccountDetails(detailsPage.emailupdate(),"12/11/1972", "Male");	
 		
 	}
 	
 	
 	
-	@SuppressWarnings("static-access")
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void UpdateSpouseAccountdetails(String advisorId) throws Exception {
-		
-		TestUtil.print("UpdateSpouseAccountdetails");
-	
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		
-		homePage.navigateToRetailuser("Primary");
-		//retailAccount.clickAccountviaAccountScreen();
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		
-		homePage.navigateToSpouseuser();
-		detailsPage.updateAccountDetails();
-		
-		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");		
-
-	
-	}
 	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void nolead_Reached_createBranchOpportunity(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
@@ -499,6 +454,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
 		opp.createBranchOpportunity("viaLogaCall");	
 				
@@ -517,6 +473,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		
 		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
 		opp.createWorkplaceOpportunity();	
 		
@@ -533,12 +490,12 @@ public class LogActivityTest_HouseHold extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");
+		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
 		opp.createWorkplaceOpportunity();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
 		opp.createBranchOpportunity("vialogaCall");
-		//opp.createOpttyviaOpportunitySection("BranchOptty");
-		//opp.createBranchOpportunity("viaCreateOpportunitySection");
+
 		SalesforceTestRestAPI.validateBranchOpportunity(6);	
 		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);
 		
@@ -546,35 +503,16 @@ public class LogActivityTest_HouseHold extends TestBase {
 	}
 	
 
-	@Test(dataProvider = "Robert", dataProviderClass = LogaCallDataProvider.class)
-	public void validateFinancialDataForSponsoredClient(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
+	
+	
+
+	@AfterMethod
+	public void tearDown(){
+		driver.quit();
 		
-		TestUtil.print("Validate Financial Data for Sponsored Client");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		homePage.navigateToSponsoredClient("0010R00000CSdLHQA1");
-		financialPage.validateWorkplaceDetailsScreen();
-				
+		
 	}
-	
-	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void validateEmail(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
-		
-		TestUtil.print("Validate Email screen under Email Tab");
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.validateEmail();
-				
-	}
-	
-	
-	
-	
-	
-	
 	
 	
 	

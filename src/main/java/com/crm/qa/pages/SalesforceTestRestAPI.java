@@ -212,7 +212,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			taskId = task.getJSONObject(0).getString("Id");
 			taskName = task.getJSONObject(0).getString("AccountId");
-			//taskCreatedDate = task.getJSONObject(0).getString("Call_Start_Time__c");
+			taskCreatedDate = task.getJSONObject(0).getString("Call_Start_Time__c");
 			taskDescription = (String) task.getJSONObject(0).get("Description");
 			taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
 			taskCallType = task.getJSONObject(0).getString("Call_Type__c");

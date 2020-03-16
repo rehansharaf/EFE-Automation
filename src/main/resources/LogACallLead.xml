@@ -43,7 +43,7 @@
 				
 					<include name="meeting_CompleteFlow"></include>
 					<include name="meeting_CompleteFlowWithOptions"></include>	
-					<include name="LogACallSpouse"></include>
+					<include name="AddSpouseandLogaCallPrimary"></include>
 					<include name="LogaCallwithSpouse_ValidateAtPrimary"></include>						
 					<include name="nolead_Reached_createBranchOpportunity"></include>
 					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
@@ -59,11 +59,11 @@
 			
 					
 
-					<include name="notReached_multipleUsers"></include>
-
-				
 					
-				
+					<include name="UnplannedMeeting_withMeeting_OnPhone_multipleUsers"></include>
+					<include name="UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers"></include>
+					<include name="UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers"></include>
+
 				
 				</methods>
 			

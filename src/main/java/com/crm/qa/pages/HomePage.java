@@ -193,10 +193,11 @@ public class HomePage extends TestBase {
 	
 public void navigateToSpouseuser() throws InterruptedException{
 		
-		String spouseId = prop.getProperty("spousesfdcId");
+	
+		String spouseId = SalesforceRestAPI.objMap.get("spousesfdcId");
 		String url = "https://fei--fscfull.lightning.force.com/lightning/r/Account/"+spouseId+"/view";
-		System.out.println(url);
-      	
+		
+		SalesforceRestAPI.objMap.put("sfdcId", spouseId); 
 		driver.navigate().to(url);
 		
 	}

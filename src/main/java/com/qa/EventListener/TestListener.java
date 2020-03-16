@@ -1,7 +1,5 @@
 package com.qa.EventListener;
 
-import com.relevantcodes.extentreports.LogStatus;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -18,8 +16,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.crm.qa.base.TestBase;
 import com.qa.ExtentReport.ExtentManager;
-import com.qa.ExtentReport.ExtentTestManager;
-import java.util.GregorianCalendar;
 
 
 public class TestListener extends TestBase implements ITestListener {
@@ -27,7 +23,7 @@ public class TestListener extends TestBase implements ITestListener {
 	 //Extent Report Declarations
     private static ExtentReports extent = ExtentManager.createInstance();
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-    ;
+    
  
     @Override
     public synchronized void onStart(ITestContext context) {

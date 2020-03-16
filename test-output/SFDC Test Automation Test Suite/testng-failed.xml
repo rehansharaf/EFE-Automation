@@ -11,7 +11,10 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="reached_Schedule_ToDo" invocation-numbers="1"/>
+          <include name="UpdateSpouseAccountdetails" invocation-numbers="1"/>
+          <include name="nolead_Reached_MultipleOpportunity" invocation-numbers="0 0 1 1"/>
+          <include name="nolead_Reached_createWorkplaceOpportunity" invocation-numbers="0 0 1 1"/>
+          <include name="AddSpouseandLogaCallPrimary" invocation-numbers="1"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
@@ -20,11 +23,25 @@
     <classes>
       <class name="com.crm.qa.testcases.BranchOpportunityTest">
         <methods>
+          <include name="logacall_Reached_StageClosedLost" invocation-numbers="0 0 1 1"/>
           <include name="scheduleMeetingviaNextAction" invocation-numbers="1 1"/>
           <include name="setUp"/>
+          <include name="createNewFinancialAccount" invocation-numbers="0 0 1 1"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
     </classes>
   </test> <!-- Branch Opportunity Test Scenarios(failed) -->
+  <test name="Log a Call for Household Test Scenarios(failed)" parallel="methods">
+    <classes>
+      <class name="com.crm.qa.testcases.LogActivityTest_HouseHold">
+        <methods>
+          <include name="nolead_Reached_MultipleOpportunity" invocation-numbers="0 0 1 1"/>
+          <include name="nolead_Reached_createWorkplaceOpportunity" invocation-numbers="0 0 1 1"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.LogActivityTest_HouseHold -->
+    </classes>
+  </test> <!-- Log a Call for Household Test Scenarios(failed) -->
 </suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->

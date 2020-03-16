@@ -35,8 +35,8 @@
 
 				
 				
-				<include name="createNewFinancialAccount"></include>	
-					
+				<include name="logacall_Reached_StageClosedLost"></include>		
+				<include name="createFinancialAccount_BMOptty"></include>	
 		
 					
 			</methods>

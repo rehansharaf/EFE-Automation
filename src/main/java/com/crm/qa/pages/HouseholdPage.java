@@ -35,8 +35,6 @@ public class HouseholdPage extends TestBase {
 	@FindBy(xpath="//a[contains(text(),'Co-Client')]")
 	WebElement co_clientlink;
 	
-
-	
 	@FindBy(xpath = "(//div[contains(text(),'Comments')]/../../../following-sibling::div/div/textarea)[last()]")
 	WebElement commentsTextarea;
 	
@@ -138,6 +136,25 @@ public class HouseholdPage extends TestBase {
 	@FindBy(xpath="(//a[contains(text(),'Accounts')])[last()]")
 	WebElement accountSummaryHeader;
 	
+	//******************************Primary Account Details Update**********************************************************
+	@FindBy(xpath="(//span[contains(text(),'Client Provided Email')])[last()]/..//button")
+	WebElement emailEditBtn;
+	
+	@FindBy(xpath="//label[contains(text(),'Client Provided Email')]/..//input")
+	WebElement emailEditInput;
+
+	
+	@FindBy(xpath = "//button[@name='submit']")
+	WebElement updateSaveBtn;
+	
+	
+	
+	
+	
+	//------------------------------------------------------------------------
+	
+	
+	
 	
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
@@ -210,93 +227,39 @@ public class HouseholdPage extends TestBase {
 	}
 	
 
-	
+/*	
 	@SuppressWarnings("static-access")
 	public void unplannedAppointment() throws InterruptedException, ParseException, IOException {
 			
-		//String commentsToEnter = "TestingPurpose " + detailsPage.uid;
-		
-		/*
-		Thread.sleep(3000);
-		//jse2.executeScript("arguments[0].click()",householdTab);
-				
-		//Thread.sleep(2000);
-		//householdBtn.click();
-		
-		Thread.sleep(3000);
-		commentsTextarea.sendKeys(commentsToEnter);
-		
-		Thread.sleep(3000);
-		TestUtil.SelectDropDownOption(outcome, "Meeting");
-		jse2.executeScript("arguments[0].click()", solutionsDiscussed);
-	
-		//jse2.executeScript("arguments[0].scrollIntoView()", commentsTextarea);
-		jse2.executeScript("arguments[0].click()",gstNextBtn);
-	
-
-		
-		
-		
-		Thread.sleep(3000);
-		subjectArea.sendKeys(commentsToEnter);
-	
-	
-		//meetingEndDate1.sendKeys(detailsPage.unplannedDate);
-		//meetingEndTime1.click();
-		//meetingEndTime1.clear();
-		//meetingEndTime1.sendKeys("8:00 PM");
-		//meetingEndTime1.sendKeys(Keys.TAB);
-		//nextButton1.click();
-		
-		meetingEndDate1.clear();meetingEndDate1.sendKeys(detailsPage.unplannedDate);
-		jse2.executeScript("arguments[0].click()",meetingEndTime1);meetingEndTime1.clear();meetingEndTime1.sendKeys("8:00 PM");
-		subjectArea.click(); jse2.executeScript("arguments[0].click()", nextButton1);
-		
-		
-		Thread.sleep(3000);
-		TestUtil.SelectDropDownOption(meetwithClient, "In-Person Meeting");
-		
-		TestUtil.SelectDropDownOption(meetingOutcome, "No-Show");
-		
-		jse2.executeScript("arguments[0].click()",nextButton1);
-		
-	*/	
 		
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "No-Show", "MeetingExistNO");
 		
 		
 			
 	}
+	*/
 	
 	
 	public void gotoHousehold() throws InterruptedException, ParseException{
 		TestUtil.waitUntilElementVisible(householdTab);
-		TestUtil.clickElement(householdTab);//Thread.sleep(2000);
+		TestUtil.clickElement(householdTab);Thread.sleep(2000);
 		TestUtil.clickElement(householdBtn);//Thread.sleep(2000);
 	
 	}
-
-
 
 	
 	
 	public void addSpouse(String SpouseFirstName, String SpouseLastName) throws InterruptedException {
 		
-		//Thread.sleep(10000);
 		TestUtil.waitUntilElementVisible(householdTab);
+		TestUtil.clickElement(householdTab);
 		
-		TestUtil.clickElement(householdTab);//;Thread.sleep(3000);
-		
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 		TestUtil.waitUntilElementVisible(addCoclient);
 		TestUtil.clickElement(addCoclient);
 		
-		//Thread.sleep(3000);
 		TestUtil.clickElement(createNewAccount);
-		
 		TestUtil.clickElement(nextButton);
-		
-		//Thread.sleep(3000);
 		
 		TestUtil.waitUntilElementVisible(spouseFirstName);
 		spouseFirstName.sendKeys(SpouseFirstName);
@@ -306,38 +269,69 @@ public class HouseholdPage extends TestBase {
 		TestUtil.clickElement(relationshipSelection);
 		
 		TestUtil.clickElement(nextButton1);
-		//Thread.sleep(3000);
 		TestUtil.clickElement(coClientFinishButton);
 		
-		driver.navigate().refresh();
+		
+		TestUtil.waitUntilElementVisible(householdTab);	Thread.sleep(5000);
+		TestUtil.clickElement(householdTab);
+		TestUtil.clickElement(coClientButton);Thread.sleep(5000);
 	
-/*
-		Thread.sleep(10000);
-		householdTab.click();
-		
-		//if(!coClientButton.isDisplayed()){ System.out.println("Co-Client Exists");}
-		
-		Thread.sleep(2000);
-		
-		if(!coClientButton.isEnabled()){System.out.println("Co-Client Exists");}
-		
-		coClientButton.click();
-	
-*/		
-		Thread.sleep(3000);
 		String spouseUrl = driver.getCurrentUrl();
 		String []url = spouseUrl.split("/");
 		String spousesfdcId = url[6];
 		
-		prop.setProperty("spousesfdcId", spousesfdcId);
 		SalesforceRestAPI.objMap.put("spousesfdcId", spousesfdcId);
-		
-		//prop.setProperty("sfdcId", spousesfdcId);
-		SalesforceRestAPI.objMap.put("sfdcId", spousesfdcId);
 		
 	}
 	
 	
+
+	//******************************Primary Account Details Update**********************************************************
+		
+	@SuppressWarnings("static-access")
+	public void updateAccountDetails() throws InterruptedException {
+		
+		WebElement importantClientDates = driver.findElement(By.xpath("(//span[contains(text(),'Important Client Dates')])[last()]"));
+		TestUtil.scrollintoView(importantClientDates);
+				
+		TestUtil.waitUntilElementVisible(emailEditBtn);
+		TestUtil.clickElement(emailEditBtn);
+		TestUtil.waitUntilElementVisible(emailEditInput);
+		emailEditInput.clear();	Thread.sleep(2000);
+		emailEditInput.sendKeys(detailsPage.emailupdate);Thread.sleep(3000);
+		
+		TestUtil.waitUntilElementVisible(detailsPage.dobEditInput);
+		//detailsPage.dobEditInput.click();
+		detailsPage.dobEditInput.clear();
+		detailsPage.dobEditInput.sendKeys("12/11/1972");
+		detailsPage.dobEditInput.sendKeys(Keys.TAB);
+		
+		TestUtil.waitUntilElementVisible(detailsPage.genderDropDown);
+		detailsPage.genderDropDown.click();	detailsPage.genderMale.click();
+			
+		TestUtil.clickElement(updateSaveBtn);Thread.sleep(5000);
+		
+	}
+	
+		
+	public void verifyAccountDetails(String cEmail, String cDateofBirth, String cGender) throws InterruptedException {
+			
+		TestUtil.waitUntilElementVisible(emailEditBtn);
+			
+		String clientEmailUpdate = driver.findElement(By.xpath("(//span[contains(text(),'Client Provided Email')])[last()]/..//lightning-formatted-email")).getText();
+		softAssertion.assertEquals(clientEmailUpdate, cEmail, "Email not matched.....");
+			
+		String dateOfBirthUpdate = driver.findElement(By.xpath("(//span[contains(text(),'Date of Birth')])[last()]/..//lightning-formatted-text")).getText();
+		softAssertion.assertEquals(dateOfBirthUpdate, cDateofBirth, "DOB not matched.....");
+			
+		String genderUpdate = driver.findElement(By.xpath("(//span[contains(text(),'Gender')])[last()]/..//lightning-formatted-text")).getText();
+		softAssertion.assertEquals(genderUpdate, cGender, "Gender not matched....");
+			
+		//softAssertion.assertAll();
+			
+	}
+
+		
 
 /*
 	public void selectOutcome(int i) throws InterruptedException, ParseException {

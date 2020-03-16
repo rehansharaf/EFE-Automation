@@ -514,8 +514,8 @@ public class DetailsPage extends TestBase {
 			if (gtsConversion.toLowerCase().equals("gtsconversionno")){ gtsConversion = "No";}
 			else if (gtsConversion.toLowerCase().equals("gtsconversionyes")){ gtsConversion = "Yes";}
 		
-		
-			TestUtil.waitUntilElementVisible(commentsTextarea);//Thread.sleep(2000);
+			Thread.sleep(5000);
+			TestUtil.waitUntilElementVisible(commentsTextarea);Thread.sleep(2000);
 			TestUtil.clickElement(commentsTextarea);
 			commentsTextarea.sendKeys(commentsToEnter);
 			TestUtil.waitUntilElementVisible(outcome);
@@ -722,7 +722,7 @@ public class DetailsPage extends TestBase {
 
 	public void selectFinacialTopicscheckbox() throws InterruptedException {
 		
-		List<WebElement> selectFinTopicsChkbx  = driver.findElements(By.xpath("//span[contains (@class, ('checkbox--faux'))]"));
+		List<WebElement> selectFinTopicsChkbx  = driver.findElements(By.xpath("//label[contains(@for,'financialTopic')]//span[contains (@class, ('checkbox--faux'))]"));
 		for(WebElement elem : selectFinTopicsChkbx) { TestUtil.clickElement(elem);	}		
 		
 	}	

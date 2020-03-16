@@ -224,6 +224,7 @@ public class RetailAccount extends TestBase {
 	
 	
 	
+	
 	String textInsideUserNumber;
 	String planSponsor;
 	

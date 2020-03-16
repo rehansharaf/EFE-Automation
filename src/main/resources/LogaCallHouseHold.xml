@@ -33,37 +33,30 @@
 					<include name="reached_Schedule_ToDo"></include>
 					<include name="reached_Schedule_Phonecall"></include>
 					<include name="reached_Schedule_Appointment"></include>
-
 					<include name="notReachedwithBusinessLead"></include>
 					<include name="reachedwithBusinessLead"></include>
 					<include name="reachedwithBusinessLead_SchedulePhoneCall"></include>
 					<include name="reachedwithBusinessLead_ScheduleTodo"></include>
 					<include name="reachedwithBusinessLead_UnplannedMeeting"></include>
 					<include name="reachedwithBusinessLead_ScheduleMeeting"></include>
-				
 					<include name="meeting_CompleteFlow"></include>
-					<include name="meeting_CompleteFlowWithOptions"></include>	
-					<include name="LogACallSpouse"></include>
-					<include name="LogaCallwithSpouse_ValidateAtPrimary"></include>						
+					<include name="UpdateHouseholdAccountdetails"></include>
 					<include name="nolead_Reached_createBranchOpportunity"></include>
 					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
 					<include name="nolead_Reached_MultipleOpportunity"></include>
-					<include name="UpdatePrimaryAccountdetails"></include>
-					<include name="UpdateSpouseAccountdetails"></include>
-					<include name="validateFinancialDataForSponsoredClient"></include>
-					<include name="validateEmail"></include>
+					
 					
 					
 				-->
 					
-			
-					
 
-					<include name="logaCall_NotReached_Household_multipleUsers"></include>
-
+					<include name="UpdateHouseholdAccountdetails"></include>
 				
 					
-				
+					
+					
+
+
 				
 				</methods>
 			

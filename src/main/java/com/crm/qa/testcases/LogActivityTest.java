@@ -140,7 +140,7 @@ public class LogActivityTest extends TestBase {
 	
 	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void UnplannedMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+	public void UnplannedMeeting_withOutcome_NoShow_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
@@ -152,8 +152,74 @@ public class LogActivityTest extends TestBase {
 	
 	}
 	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withOutcome_Cancelled_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Cancelled", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
 	
 	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withOutcome_Completed_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withMeeting_OnPhone_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Phone Meeting", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Site Event", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	public void UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
+		
+		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);
+		SalesforceTestRestAPI.dataCreation_businesslead();
+		homePage.navigateToRetailuser("Primary");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "Virtual Meeting", "Completed", "MeetingExistNO");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+	
+	}
+	
+	
+/*	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void logaCall_Reached_Household_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
 		
@@ -184,7 +250,7 @@ public class LogActivityTest extends TestBase {
 		
 	}
 	
-	
+
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void logaCall_UnplannedMeeting_multipleUsers(String advisorId) throws InterruptedException, ParseException, InvalidFormatException, IOException{
 		
@@ -198,7 +264,7 @@ public class LogActivityTest extends TestBase {
 	
 	}
 	
-	
+*/	
 
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void reached_Schedule_ToDo(String advisorId) throws Exception{
@@ -386,7 +452,7 @@ public class LogActivityTest extends TestBase {
 	
 	@SuppressWarnings("static-access")
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void LogACallSpouse(String advisorId) throws InterruptedException, IOException, ParseException, InvalidFormatException {
+	public void AddSpouseandLogaCallPrimary(String advisorId) throws InterruptedException, IOException, ParseException, InvalidFormatException {
 		
 		TestUtil.print("Log a Call Spouse");
 		
@@ -395,7 +461,8 @@ public class LogActivityTest extends TestBase {
 		
 		homePage.navigateToRetailuser("Primary");
 		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToSpouseuser();
+		//homePage.navigateToSpouseuser();
+		homePage.navigateToRetailuser("Primary");
 		
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 	
@@ -420,6 +487,7 @@ public class LogActivityTest extends TestBase {
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
 		
 		communicationPage.validateCallonCommunication();
+		SalesforceTestRestAPI.validateTaskData1(1);
 		
 	}
 	

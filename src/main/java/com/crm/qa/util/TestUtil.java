@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,11 +24,16 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import org.testng.Assert;
+
 import static org.junit.Assert.*;
-import static org.testng.Assert.assertFalse;
+
 
 import com.crm.qa.base.TestBase;
+import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 
 
@@ -137,11 +143,40 @@ public class TestUtil extends TestBase{
 
     public static void waitUntilElementVisible(WebElement element) throws InterruptedException { 
 	   	 
-    	WebDriverWait wait = new WebDriverWait(driver, 15);
+    	WebDriverWait wait = new WebDriverWait(driver, 60);
 	   	wait.until(ExpectedConditions.visibilityOf(element));
     }
     
-     
+ /*   public static void waitUntilElementVisible(WebElement element) throws InterruptedException { 
+	   
+    	try{
+    		WebDriverWait wait = new WebDriverWait(driver, 15);
+    		wait.until(ExpectedConditions.visibilityOf(element));
+    	}catch(Exception e){
+    		Assert.fail("Cant locate Element: " + element);
+    	}
+    
+    } 
+ */   
+    
+ 
+    
+    public static void waitforPageLoad(WebElement element) throws InterruptedException { 
+ 			ExpectedCondition<Boolean> pageLoadCondition = new
+                ExpectedCondition<Boolean>() {
+                    public Boolean apply(WebDriver driver) {
+                        return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+                    }
+                };
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(pageLoadCondition);
+    }
+    
+   
+   
+    
+    
+    
     public static void waitUntilPageLoad(WebDriver driver) throws InterruptedException { 
     	new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->
         ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
@@ -150,6 +185,44 @@ public class TestUtil extends TestBase{
     }
     
     
+	private static By getByFromElement(WebElement element) {
+
+        By by = null;
+        String[] selectorWithValue= (element.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "")).split(":");
+
+        String selector = selectorWithValue[0].trim();
+        String value = selectorWithValue[1].trim();
+
+        switch (selector) {
+            case "id":
+                by = By.id(value);
+                break;
+            case "className":
+                by = By.className(value);
+                break;
+            case "tagName":
+                by = By.tagName(value);
+                break;
+            case "xpath":
+                by = By.xpath(value);
+                break;
+            case "cssSelector":
+                by = By.cssSelector(value);
+                break;
+            case "linkText":
+                by = By.linkText(value);
+                break;
+            case "name":
+                by = By.name(value);
+                break;
+            case "partialLinkText":
+                by = By.partialLinkText(value);
+                break;
+            default:
+                throw new IllegalStateException("locator : " + selector + " not found!!!");
+        }
+        return by;
+    }   
    
     
     
@@ -222,5 +295,13 @@ public class TestUtil extends TestBase{
  	}   
      
     
+  
+     
+     
+     
+     
+     
+     
+     
      
 }
