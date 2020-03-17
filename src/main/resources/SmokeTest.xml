@@ -50,14 +50,16 @@
 			<class name="com.crm.qa.testcases.BranchOpportunityTest">
 			<methods>
 	
-				<include name="moveStageStatusManually"></include>	
 				<include name="opttyClosedLost_viaAPI"></include>
+				<include name="moveStageStatusManually"></include>
 				<include name="logacall_notReached_Optty"></include>
+				<include name="logacall_Reached_Optty"></include>
 				<include name="logacall_Reached_StageClosedLost"></include>	
 				<include name="scheduleMeetingandthenCloseMeeting"></include>
 				<include name="scheduleMeetingviaNextAction"></include>	
 				<include name="enrollment_BM"></include>
-				<include name="createNewFinancialAccount"></include>
+				<include name="createNewFinancialAccount_BMOptty"></include>	
+
 		
 			</methods>
 			</class>

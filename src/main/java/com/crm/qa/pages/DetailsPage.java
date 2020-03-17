@@ -691,8 +691,8 @@ public class DetailsPage extends TestBase {
 			TestUtil.clickElement(assignedTo);
 			assignedTo.sendKeys(LoggedinUser, Keys.ENTER);
 			
-			TestUtil.scrollintoView(assignedTo);
-			TestUtil.clickElement(scheduleMeetingNextButton);
+			TestUtil.scrollintoView(assignedTo);Thread.sleep(2000);
+			TestUtil.clickElement(scheduleMeetingNextButton);Thread.sleep(2000);
 			
 			
 			TestUtil.clickElement(scheduleMeetingFinishButton);

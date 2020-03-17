@@ -418,6 +418,18 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//span[contains(text(),'Primary Owner')]/../..//input[@title='Search Accounts']")
 	WebElement searchPrimaryOwnerAcct;
 		
+	@FindBy(xpath = "//span[contains(@class,'PicklistLabel')]//span[contains(text(),'Stage')]/../..//div//a")
+	WebElement stageFinancial;
+	
+	@FindBy(xpath = "//span[contains(@class,'PicklistLabel')]//span[contains(text(),'Registration')]/../..//div//a")
+	WebElement registrationTypeFinancial;
+	
+	@FindBy(xpath = "//span[contains(@class,'PicklistLabel')]//span[text()='Type']/../..//div//a")
+	WebElement typeFinancial;
+	
+	@FindBy(xpath = "//span[contains(@class,'PicklistLabel')]//span[contains(text(),'Enrollment')]/../..//div//a")
+	WebElement currentEnrolFinancial;
+	
 	
 	
 	//-----------------------------------------------------------
@@ -493,14 +505,17 @@ public class Opportunities extends TestBase{
 	public void opportunityClosedLost() throws InterruptedException, AWTException {
 		
 		TestUtil.waitUntilElementVisible(closeOpptyasLostRadioBtn);
-		TestUtil.clickElement(closeOpptyasLostRadioBtn);
-		TestUtil.clickElement(closeOpptyasLostNextBtn);
+		TestUtil.clickElement(closeOpptyasLostRadioBtn);Thread.sleep(2000);
+		TestUtil.clickElement(closeOpptyasLostNextBtn);Thread.sleep(3000);
 		TestUtil.clickElement(lossReasonDropDown);
 		TestUtil.SelectDropDownOption(lossReasonDropDown, "Duplicate");
 		TestUtil.clickElement(lossReasonDropDown);
 		lossReasonNotes.sendKeys("Automation Testing - Dont bother", Keys.TAB);
 		
-		TestUtil.clickElement(CloseOpptyRightNextBtn);
+		TestUtil.clickElement(CloseOpptyRightNextBtn);Thread.sleep(3000);
+		
+		driver.navigate().refresh();//Thread.sleep(5000);
+		TestUtil.waitUntilPageLoad(driver);
 		
 	}
 
@@ -529,12 +544,12 @@ public class Opportunities extends TestBase{
 		TestUtil.clickElement(closeOpptyasLostNextBtn);
 		detailsPage.createFutureAppointment(); 
 		
-		driver.navigate().refresh(); Thread.sleep(5000);
+		driver.navigate().refresh(); Thread.sleep(8000);
 		
 		TestUtil.waitUntilElementVisible(upcomingMeetingLink);
 		TestUtil.clickElement(upcomingMeetingLink);  
 		TestUtil.scrollintoView(meetingInfo);
-		TestUtil.clickElement(meetingStatusEditBtn); 
+		TestUtil.clickElement(meetingStatusEditBtn);Thread.sleep(2000); 
 		TestUtil.clickElement(meetingStatusUpdtDrpDwn);
 		meetingStatusUpdtDrpDwn.sendKeys("Completed", Keys.ENTER); 
 		TestUtil.clickElement(saveBtn); 
@@ -604,7 +619,7 @@ public class Opportunities extends TestBase{
 	}
 
 
-//********************************************Create Financial Account***************************************************	
+//********************************************Create New Financial Account***************************************************	
 	
 	@SuppressWarnings("static-access")
 	public  void createFinancialAccount() throws InterruptedException, AWTException, IOException, ParseException {
@@ -616,19 +631,50 @@ public class Opportunities extends TestBase{
 		
 		//Thread.sleep(2000);
 		TestUtil.waitUntilElementVisible(financialAcctNameInput);
-		financialAcctNameInput.sendKeys("FinanceAcct"+ detailsPage.uid);
+		financialAcctNameInput.sendKeys("FinanceAcct"+ detailsPage.uid, Keys.ENTER);
 		
 		TestUtil.waitUntilElementVisible(searchPrimaryOwnerAcct);
-		searchPrimaryOwnerAcct.sendKeys(RetailAccount.aname);
+		searchPrimaryOwnerAcct.sendKeys(RetailAccount.aname);Thread.sleep(2000);
+		driver.findElement(By.xpath("//section[contains(@class,'tabContent active')]//li[1]//a[1]")).click();
+		
+		
+		TestUtil.waitUntilElementVisible(stageFinancial);
+		stageFinancial.sendKeys("Proposal", Keys.ENTER, Keys.TAB);
+		
+		
+		TestUtil.waitUntilElementVisible(registrationTypeFinancial);
+		registrationTypeFinancial.sendKeys("Individual", Keys.ENTER, Keys.TAB, Keys.TAB);
+		//TestUtil.SelectDropDownOption(registrationTypeFinancial, "Individual");
+		
+		TestUtil.waitUntilElementVisible(typeFinancial);
+		typeFinancial.sendKeys("Regular", Keys.ENTER, Keys.TAB);
+		//TestUtil.SelectDropDownOption(typeFinancial, "Regular");
+		
+		TestUtil.waitUntilElementVisible(currentEnrolFinancial);
+		currentEnrolFinancial.sendKeys("Personal Advisor", Keys.ENTER, Keys.TAB);
+		//TestUtil.SelectDropDownOption(currentEnrolFinancial, "Personal Advisor");
+		
 		
 		//Thread.sleep(2000);
-		driver.findElement(By.xpath("//ul[contains(@class,'visible')]")).click();
+		//driver.findElement(By.xpath("//ul[contains(@class,'visible')]")).click();
 		
 		driver.findElement(By.xpath("(//span[contains(text(),'Save')])[2]")).click();
 		Thread.sleep(2000);
 		
+		validateField("Financial Account Name", "FinanceAcct"+ detailsPage.uid, "Financial Account Name is not correct");
+		validateField("Custodian", "Charles Schwab", "Custodian Value is not correct");
+		validateField("Stage", "Proposal", "Stage Value is not correct");
+		validateField("Account Registration Type", "Individual", "Account Registration Type Value is not correct");
+		validateField("Type", "Regular", "Type Value is not correct");
+		validateField("Current Enrollment", "Personal Advisor", "Current Enrollment Value is not correct");
+	
+	
 	}
 
+	
+		
+	
+	
 	
 	
 //********************************************Click Optty Link based on Profile***************************************************	

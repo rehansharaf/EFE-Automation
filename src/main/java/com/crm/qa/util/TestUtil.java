@@ -178,10 +178,7 @@ public class TestUtil extends TestBase{
     
     
     public static void waitUntilPageLoad(WebDriver driver) throws InterruptedException { 
-    	new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->
-        ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
-
-    	
+    	new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
     }
     
     

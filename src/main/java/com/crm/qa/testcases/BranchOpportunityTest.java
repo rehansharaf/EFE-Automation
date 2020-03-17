@@ -164,7 +164,7 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	@Test(dataProvider = "Ian", dataProviderClass = LogaCallDataProvider.class)
 	public void scheduleMeetingviaNextAction(String advisorId) throws Exception {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
@@ -189,7 +189,6 @@ public class BranchOpportunityTest extends TestBase {
 		createBranchOptty_viaAPI();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
-		//opp.scheduleMeetingusingNextAction();
 		opp.enrollinBM();
 		opp.addFinancialAccount();
 		opp.validateFinancialAccount();
@@ -200,7 +199,7 @@ public class BranchOpportunityTest extends TestBase {
 	
 	//Work in Progress
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
-	public void createNewFinancialAccount(String advisorId) throws Exception {
+	public void createNewFinancialAccount_BMOptty(String advisorId) throws Exception {
 		
 		TestUtil.print("Create a New Financial Account ");
 		
@@ -209,7 +208,7 @@ public class BranchOpportunityTest extends TestBase {
 		opp.clickOpportunity();
 		opp.createFinancialAccount();
 		SalesforceTestRestAPI.verifyFinancialAccount(7, "true", 1);
-		opp.validateOpttyforStageStatus("Initial Appointment");
+		
 		
 	}
 	

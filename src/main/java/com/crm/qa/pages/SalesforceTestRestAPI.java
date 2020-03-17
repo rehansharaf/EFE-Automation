@@ -587,7 +587,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			softAssertion.assertEquals(finAccType, j, "Financial Account Type mismatch");
 			System.out.println("Financial Account record is----------------------------------------------------- " + finAccId
 					+ " " + finAccStatus);
-			 softAssertion.assertAll();
+			 //softAssertion.assertAll();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
