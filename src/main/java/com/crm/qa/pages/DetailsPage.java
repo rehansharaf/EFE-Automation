@@ -1,20 +1,14 @@
 package com.crm.qa.pages;
 
-import java.awt.AWTException;
+
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 import com.crm.qa.base.TestBase;
 import com.crm.qa.util.TestUtil;
@@ -423,9 +417,9 @@ public class DetailsPage extends TestBase {
 	
 	
 	
-	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	//JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 
-
+/*
 		static SimpleDateFormat timestamp = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
 		static String timeStamp = timestamp.format(new Date());
 		 
@@ -437,7 +431,7 @@ public class DetailsPage extends TestBase {
 		String timeStamp11 = timestamp11.format(new Date());
 		String[] dateStr12 = timeStamp11.split("\\s+");
 		
-
+*/
 		public static String  enteredDate;
 		public static String  verifyDate;
 		public static String  meetingDate;
@@ -456,19 +450,13 @@ public class DetailsPage extends TestBase {
 		public String meeting = "Meeting";
 		
 		public static String commentsToEnter;
-		static String[] splitStr1 = timeStamp.split("\\s+");
+		//static String[] splitStr1 = timeStamp.split("\\s+");
 
-		
-		
 		SoftAssert softAssertion = new SoftAssert();
-		
 		
 		public DetailsPage() {PageFactory.initElements(driver, this);}
 	
-		
-		
-
-	
+			
 	
 //*********************************Log a Call Interaction for Reach/Not Reached****************************************************
 
@@ -531,10 +519,7 @@ public class DetailsPage extends TestBase {
 			Thread.sleep(5000);
 			
 		}
-		
-		
 	}
-	
 	
 	
 	public void loganInteractionCreateOptty(String createOptty) throws InterruptedException {
@@ -612,8 +597,6 @@ public class DetailsPage extends TestBase {
 
 	public void scheduleFutureActivity(String schedule, String WFPath) throws InterruptedException, Exception {
 		
-		//if (RetailAccount.userProfile.equals("Field Advisor")||RetailAccount.userProfile.equals("Field CSM")){	
-		
 		if (WFPath.equalsIgnoreCase("futureActivitySection")){	
 
 			TestUtil.waitUntilElementVisible(schedulePhoneCall);
@@ -683,6 +666,7 @@ public class DetailsPage extends TestBase {
 			try{LoggedinUser = LoggedUser.getText().substring(11);}
 			catch (Exception e){LoggedinUser = "Aaron Rich";}
 			
+			Thread.sleep(3000);
 			TestUtil.waitUntilElementVisible(meetingStartDate);
 			meetingStartDate.sendKeys(enteredDate);
 			meetingStartTime.click();meetingStartTime.clear();meetingStartTime.sendKeys("12:00 PM");meetingStartTime.sendKeys(Keys.TAB);
@@ -743,11 +727,11 @@ public class DetailsPage extends TestBase {
 		workphoneEditInput.sendKeys("9998887777");
 		workphoneEditInput.sendKeys(Keys.TAB);
 		
-		TestUtil.clickElement(updateSaveBtn);
+		TestUtil.clickElement(updateSaveBtn);Thread.sleep(3000);
 		TestUtil.scrollintoView(scrolltoAccountDetails);
 		
 		TestUtil.waitUntilElementVisible(genderEditBtn);
-		TestUtil.clickElement(genderEditBtn);
+		TestUtil.clickElement(genderEditBtn);Thread.sleep(2000);
 		
 		TestUtil.waitUntilElementVisible(genderDropDown);
 		genderDropDown.click();	genderMale.click();
@@ -838,8 +822,7 @@ public class DetailsPage extends TestBase {
   	========================================================================================================================	
   	========================================================================================================================*/	
 	
-	
-
+/*
 	
 	public void closeExistingTask(int i) throws InterruptedException {
 		
@@ -881,7 +864,7 @@ public class DetailsPage extends TestBase {
 	
 	
 	private String verifyTaskDetails(String taskName) throws InterruptedException {
-			// TODO Auto-generated method stub
+		
 		Communications.click();
 		Thread.sleep(2000);
 			
@@ -947,7 +930,7 @@ public class DetailsPage extends TestBase {
 	
 	
 
-	/*
+	
 	
 	public void verifyCommunications(int i, String schedule) throws InterruptedException, ParseException {		
 		
@@ -989,7 +972,7 @@ public class DetailsPage extends TestBase {
 
 	}
 	
-*/
+
 
 	public void verifyConversations(int i) throws InterruptedException, ParseException {
 
@@ -1336,7 +1319,7 @@ public void verifyExistingTasks() throws InterruptedException {
 
 
 
-
+*/
 
 
 

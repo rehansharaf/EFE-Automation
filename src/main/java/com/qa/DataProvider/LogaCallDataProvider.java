@@ -1,5 +1,18 @@
 package com.qa.DataProvider;
 
+/* Different profiles thats can be used to run test cases
+ 
+**UserName**		  ***Profile ID***		****Type****
+Ian Krekelberg 		= 0050R000000XRFmQAO = Field Advisor
+Travis Adams 		= 0050R000000tUilQAE = Inbound Advisor
+Andrew Kovalcik  	= 0050R000000XRHEQA4 = Outbound1Advisor
+Robert Fitzpatrick 	= 0050R000000XRHYQA4 = Outbound2Advisor
+Rachel Alandzes 	= 0050R000000kTdBQAU = Field CSM
+Allison Boyd		= 0050R0000030MXPQA2 = Field CSM
+Imran Sharaf		= 0050R0000032jRGQAY = System Administrator for Developers
+*/
+
+
 import org.testng.annotations.DataProvider;
 
 public class LogaCallDataProvider {
@@ -7,15 +20,7 @@ public class LogaCallDataProvider {
 	@DataProvider(name = "multipleUsers1")
     public static Object[][] dataProviderMethod1() 
     {
-		/*
-		Ian Krekelberg 		= 0050R000000XRFmQAO = Field Advisor
-		Travis Adams 		= 0050R000000tUilQAE = Inbound Advisor
-		Andrew Kovalcik  	= 0050R000000XRHEQA4 = Outbound1Advisor
-		Robert Fitzpatrick 	= 0050R000000XRHYQA4 = Outbound2Advisor
-		Rachel Alandzes 	= 0050R000000kTdBQAU = Field CSM
-		Allison Boyd		= 0050R0000030MXPQA2 = Field CSM
-		Imran Sharaf		= 0050R0000032jRGQAY = System Administrator for Developers
-		*/
+	
 		return new Object[][] { { "0050R000000tUilQAE" }, { "0050R000000XRHEQA4" }, { "0050R000000XRHYQA4" }, { "0050R000000kTdBQAU" }, {"0050R000000XRFmQAO"}, {"0050R0000030MXPQA2"} };
     }
 
@@ -24,14 +29,14 @@ public class LogaCallDataProvider {
     {
 	
 		//return new Object[][] {   { "0050R000000XRFmQAO" }, { "0050R000000tUilQAE" },{ "0050R000000XRHEQA4" },{ "0050R000000XRHYQA4" },{ "0050R000000kTdBQAU" } , { "0050R0000030MXPQA2"} };
-		return new Object[][] { { "0050R000000XRFmQAO" },{"0050R000000XRHYQA4"}};
+		return new Object[][] {{"0050R000000tUilQAE"}};
     
     }
 
 	@DataProvider(name = "Ian")
     public static Object[][] Ian_dataProviderMethod() 
     {
-		return new Object[][] { { "0050R000000XRFmQAO" } };
+		return new Object[][] { { "0050R000000XRFmQAO" },{ "0050R000000XRFmQAO" },{ "0050R000000XRFmQAO" },{ "0050R000000XRFmQAO" },{ "0050R000000XRFmQAO" },{ "0050R000000XRFmQAO" }, { "0050R000000XRFmQAO" }, { "0050R000000XRFmQAO" }, { "0050R000000XRFmQAO" }, { "0050R000000XRFmQAO" }};
     
     }
 
@@ -78,6 +83,7 @@ public class LogaCallDataProvider {
     
     }
 	
+/*
 	@DataProvider(name = "RealName")
     public static Object[][] RealName_dataProviderMethod() {
      return new Object[][] 
@@ -89,10 +95,10 @@ public class LogaCallDataProvider {
         {"Amritansh", "Kumar","akumar@gmail.com"}           
          
     };
-     
-     
-}
-		
+  }
+
+
+*/		
 		
 		
 	

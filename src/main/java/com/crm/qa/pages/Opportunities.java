@@ -564,7 +564,7 @@ public class Opportunities extends TestBase{
 	
 	public  void enrollinBM() throws InterruptedException, AWTException, IOException, ParseException {
 		
-		TestUtil.waitUntilElementVisible(leadSourceLbl);
+		TestUtil.waitUntilElementVisible(leadSourceLbl);Thread.sleep(2000);
 		TestUtil.clickElement(clientsetupRdBtn);
 		
 		Thread.sleep(2000);
@@ -690,13 +690,14 @@ public class Opportunities extends TestBase{
 	public void clickOpportunity() throws InterruptedException, AWTException {
 		
 		Thread.sleep(3000);
-		
+	/*	
 		if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")|| (RetailAccount.userProfile.equals("Outbound 1 Advisor"))){
 			TestUtil.clickElement(oppLink);
 		}
 		
 		else {clickOpttyforOutbound2Advisor();}
-		
+	*/
+		clickOpttyforOutbound2Advisor();
 		Thread.sleep(3000);
 	
 	}

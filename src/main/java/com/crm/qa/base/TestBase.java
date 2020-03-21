@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.util.WebEventListener;
+import com.qa.EventListener.WebEventListener;
 
 
 
@@ -93,8 +93,9 @@ public class TestBase {
 	
 	
 	public static void initialization(){
-			String browserName = prop.getProperty("browser");
-			final String ExcelFilePath = prop.getProperty("ExcelFilePath");
+			
+		String browserName = prop.getProperty("browser");
+		final String ExcelFilePath = prop.getProperty("ExcelFilePath");
 				
 			String username = prop.getProperty("username");
 			String password = prop.getProperty("password");

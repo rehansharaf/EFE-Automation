@@ -18,7 +18,7 @@ import com.crm.qa.pages.verifyLead;
 import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.Log;
 import com.crm.qa.util.TestUtil;
-import com.qa.DataProvider.LogaCallDataProvider;
+import com.qa.DataProvider.*;
 import com.qa.ExtentReport.*;
 import com.crm.qa.base.*;
 
@@ -52,7 +52,8 @@ public class BranchOpportunityTest extends TestBase {
 		initializeData 	= new InitializeUserData();
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-	
+
+		initializeData.setTestCaseonDemandtoNo();
 		initializeData.initialize();
 	}
 
@@ -60,10 +61,8 @@ public class BranchOpportunityTest extends TestBase {
 	@Test()
 	public void createBranchOptty_viaAPI() throws Exception {
 
-		//HomePage.navigateToUser("advisor");
 		SalesforceTestRestAPI.APIConnection();
 		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.fname, SalesforceRestAPI.lname);
-		//opp.navigateTouser("primary");
 		homePage.navigateToRetailuser("Primary");
 		opp.validateOpttyCounter(1);
 		
@@ -139,7 +138,6 @@ public class BranchOpportunityTest extends TestBase {
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
-		//opp.logacall_Reached_StageClosedLost();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
 		opp.opportunityClosedLost();
@@ -186,6 +184,8 @@ public class BranchOpportunityTest extends TestBase {
 		TestUtil.print("BM Opportunity - Add a Financial Account ");
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
+		
+		
 		createBranchOptty_viaAPI();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
@@ -197,13 +197,13 @@ public class BranchOpportunityTest extends TestBase {
 	
 	
 	
-	//Work in Progress
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void createNewFinancialAccount_BMOptty(String advisorId) throws Exception {
 		
 		TestUtil.print("Create a New Financial Account ");
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
+		
 		createBranchOptty_viaAPI();
 		opp.clickOpportunity();
 		opp.createFinancialAccount();
@@ -211,8 +211,9 @@ public class BranchOpportunityTest extends TestBase {
 		
 		
 	}
+
 	
-/*	
+	/*	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void changeStageStatus(String advisorId) throws Exception {
 		

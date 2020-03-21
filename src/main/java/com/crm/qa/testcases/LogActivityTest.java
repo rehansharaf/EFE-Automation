@@ -66,7 +66,7 @@ public class LogActivityTest extends TestBase {
 	String sheetName = "demo";
 	
 	//Variables to generate Specific name Accounts
-	//public static int i=-1, j= -1;
+	public static int i=-1, j= -1;
 	
 	SoftAssert softAssertion = new SoftAssert();
 	
@@ -91,8 +91,9 @@ public class LogActivityTest extends TestBase {
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
 		//Variables counters to generate Specific name Accounts
-		//i=i+1; j=j+1;
+		i=i+1; j=j+1;
 		
+		initializeData.setTestCaseonDemandtoNo();
 		initializeData.initialize();
 		
 		
@@ -415,6 +416,7 @@ public class LogActivityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Primary");			
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
 		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
@@ -441,13 +443,6 @@ public class LogActivityTest extends TestBase {
 	
 	}
 
-//Need to work on it	
-	@Test(dataProvider = "Imran", dataProviderClass = LogaCallDataProvider.class)
-	public void meeting_CompleteFlowWithOptions(String advisorId) throws InterruptedException, ParseException, AWTException, InvalidFormatException, IOException{
-		
-			
-	}
-	
 	
 	
 	@SuppressWarnings("static-access")

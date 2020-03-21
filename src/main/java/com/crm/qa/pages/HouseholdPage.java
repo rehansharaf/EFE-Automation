@@ -273,7 +273,7 @@ public class HouseholdPage extends TestBase {
 		
 		
 		TestUtil.waitUntilElementVisible(householdTab);	Thread.sleep(5000);
-		TestUtil.clickElement(householdTab);
+		TestUtil.clickElement(householdTab);Thread.sleep(2000);
 		TestUtil.clickElement(coClientButton);Thread.sleep(5000);
 	
 		String spouseUrl = driver.getCurrentUrl();

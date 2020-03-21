@@ -22,14 +22,11 @@ public class InitializeUserData extends TestBase{
 	DetailsPage detailPage = new DetailsPage();
 	RetailAccount retailPage = new RetailAccount();
 	LogActivityTest logactivityTest = new LogActivityTest();
+	BranchOpportunityTest branchOpttyTest = new BranchOpportunityTest();
 	
-	//----------Temporary to generate Accounts with multiple names------------------
-	//String[] Fname =  { "Lloyd","Anita", "Angel", "Tammara" , "Guy","Clifton","Joanne","Joy","Herman","Clarence","Shelley","Alicia","Kristi","Bradley","Anthony"};
-	//String[] Lname = {  "McBride" , "Chapman" ,"Massey","Roy","Goodman" ,"Jones","Candy","Roberts","Brady","Norton","Walters","Warner","Wise","Collins","Caldwell" };
-	
+	String RunningTestCaseonDemand;
 	
 	
-	//@SuppressWarnings("static-access")
 	public void initialize(){
 		
 		
@@ -39,8 +36,11 @@ public class InitializeUserData extends TestBase{
 		String uid = Data.get("uniqueid");
 		SalesforceRestAPI.uid = RetailAccount.uid = DetailsPage.uid = uid;
 		
-		SalesforceRestAPI.fname = RetailAccount.fname = "Testf"+ uid;
-		SalesforceRestAPI.lname = RetailAccount.lname = "Testl"+ uid;
+	if (RunningTestCaseonDemand.equalsIgnoreCase("Yes")){}
+	else { 	
+			SalesforceRestAPI.fname = RetailAccount.fname = "Testf"+ uid; 
+			SalesforceRestAPI.lname = RetailAccount.lname = "Testl"+ uid;
+	}
 		
 		
 	//----------Temporary to generate Accounts with multiple names------------------	
@@ -48,6 +48,11 @@ public class InitializeUserData extends TestBase{
 	//	SalesforceRestAPI.lname = RetailAccount.lname = Lname[logactivityTest.j];
 	//--------------------------------------------------------------------------
 		
+		
+	//----------Temporary to generate Accounts with Opportunities with multiple names------------------	
+	//	SalesforceRestAPI.fname = RetailAccount.fname = Fname[branchOpttyTest.i]; 		
+	//	SalesforceRestAPI.lname = RetailAccount.lname = Lname[branchOpttyTest.j];
+	//------------------------------------------------------------------------------------------------	
 		
 		SalesforceRestAPI.bname = "Testb"+ uid;
 		
@@ -87,21 +92,10 @@ public class InitializeUserData extends TestBase{
 	
 		}
 
-	public static Map<String, String> getFirstLastName(){
-	 
-		
-		Map<String, String> nameData = new HashMap<String, String>();
-			
-			nameData.put("Phillip", "Owen");
-			nameData.put("John","Mahajan");
-			nameData.put("Braxton","Pete");
-			nameData.put("Ankur","Singh");
-			nameData.put("Amritansh", "Kumar");
-			
-			return nameData;
-	}
-
 	
+	public void setTestCaseonDemandtoYes()	{RunningTestCaseonDemand = "Yes";}
+	public void setTestCaseonDemandtoNo()	{RunningTestCaseonDemand = "No";}
+
 	
 	
 }

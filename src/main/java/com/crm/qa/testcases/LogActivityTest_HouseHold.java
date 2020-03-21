@@ -91,6 +91,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
+		initializeData.setTestCaseonDemandtoNo();
 		initializeData.initialize();
 		
 		try {Thread.sleep(2000);} 

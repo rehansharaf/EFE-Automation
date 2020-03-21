@@ -5,41 +5,26 @@
     <listener class-name="com.qa.EventListener.TestListener"/>
     <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Log a Call Test Scenarios(failed)" parallel="methods">
-    <classes>
-      <class name="com.crm.qa.testcases.LogActivityTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="UpdateSpouseAccountdetails" invocation-numbers="1"/>
-          <include name="nolead_Reached_MultipleOpportunity" invocation-numbers="0 0 1 1"/>
-          <include name="nolead_Reached_createWorkplaceOpportunity" invocation-numbers="0 0 1 1"/>
-          <include name="AddSpouseandLogaCallPrimary" invocation-numbers="1"/>
-        </methods>
-      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
-    </classes>
-  </test> <!-- Log a Call Test Scenarios(failed) -->
-  <test name="Branch Opportunity Test Scenarios(failed)" parallel="methods">
-    <classes>
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
-        <methods>
-          <include name="logacall_Reached_StageClosedLost" invocation-numbers="0 0 1 1"/>
-          <include name="scheduleMeetingviaNextAction" invocation-numbers="1 1"/>
-          <include name="setUp"/>
-          <include name="createNewFinancialAccount" invocation-numbers="0 0 1 1"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
-    </classes>
-  </test> <!-- Branch Opportunity Test Scenarios(failed) -->
   <test name="Log a Call for Household Test Scenarios(failed)" parallel="methods">
     <classes>
       <class name="com.crm.qa.testcases.LogActivityTest_HouseHold">
         <methods>
-          <include name="nolead_Reached_MultipleOpportunity" invocation-numbers="0 0 1 1"/>
-          <include name="nolead_Reached_createWorkplaceOpportunity" invocation-numbers="0 0 1 1"/>
           <include name="tearDown"/>
+          <include name="reachedwithBusinessLead"/>
+          <include name="nolead_Reached_createBranchOpportunity"/>
+          <include name="reached_Schedule_Phonecall"/>
+          <include name="notReachedwithBusinessLead"/>
+          <include name="reached_Schedule_ToDo"/>
+          <include name="reachedwithBusinessLead_SchedulePhoneCall"/>
+          <include name="UpdateHouseholdAccountdetails"/>
+          <include name="meeting_CompleteFlow"/>
+          <include name="UnplannedMeeting_multipleUsers"/>
+          <include name="reached_multipleUsers"/>
           <include name="setUp"/>
+          <include name="reached_Schedule_Appointment"/>
+          <include name="reachedwithBusinessLead_ScheduleTodo"/>
+          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
+          <include name="notReached_multipleUsers"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest_HouseHold -->
     </classes>

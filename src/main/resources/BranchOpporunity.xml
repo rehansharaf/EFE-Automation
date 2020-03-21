@@ -4,9 +4,7 @@
 
 	<listeners>
 		<listener class-name="com.qa.EventListener.TestListener"/>
-       <!--
-        <listener class-name="utils.Listeners.AnnotationTransformer"/>
-       -->
+		<listener class-name="com.qa.EventListener.FailureRetryListener"/>
    
 	</listeners>
 
@@ -25,7 +23,6 @@
 				<include name="logacall_notReached_Optty"></include>
 				<include name="logacall_Reached_Optty"></include>
 				<include name="logacall_Reached_StageClosedLost"></include>	
-				
 				<include name="scheduleMeetingandthenCloseMeeting"></include>
 				<include name="scheduleMeetingviaNextAction"></include>	
 				<include name="enrollment_BM"></include>
@@ -36,15 +33,8 @@
 				
 				
 
-				<include name="opttyClosedLost_viaAPI"></include>
-				<include name="moveStageStatusManually"></include>
-				<include name="logacall_notReached_Optty"></include>
-				<include name="logacall_Reached_Optty"></include>
-				<include name="logacall_Reached_StageClosedLost"></include>	
-				<include name="scheduleMeetingandthenCloseMeeting"></include>
-				<include name="scheduleMeetingviaNextAction"></include>	
-				<include name="enrollment_BM"></include>
-				<include name="createNewFinancialAccount_BMOptty"></include>	
+				
+			<include name="moveStageStatusManually"></include>	
 
 					
 			</methods>

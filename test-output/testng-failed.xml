@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]" parallel="methods">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
+    <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Free CRM App Test Cases(failed)" parallel="methods">
+  <test name="Free CRM App Test Cases(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
+      <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="scheduleMeetingviaNextAction" invocation-numbers="0 1"/>
-          <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="reachedwithBusinessLead" invocation-numbers="0 0"/>
+          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="0 0"/>
+          <include name="reachedwithBusinessLead_ScheduleMeeting" invocation-numbers="0 0"/>
+          <include name="setUp"/>
+          <include name="UpdateSpouseAccountdetails" invocation-numbers="0"/>
+          <include name="reachedwithBusinessLead_SchedulePhoneCall" invocation-numbers="0 0"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
   </test> <!-- Free CRM App Test Cases(failed) -->
 </suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->
