@@ -38,8 +38,8 @@
 					<include name="UpdatePrimaryAccountdetails"></include>
 					<include name="UpdateSpouseAccountdetails"></include>					
 					<include name="nolead_Reached_createBranchOpportunity"></include>
-					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
-					<include name="nolead_Reached_MultipleOpportunity"></include>
+					<!-- <include name="nolead_Reached_createWorkplaceOpportunity"></include>
+					<include name="nolead_Reached_MultipleOpportunity"></include>-->
 					<include name="validateFinancialDataForSponsoredClient"></include>
 					<include name="validateEmail"></include>
 			</methods>

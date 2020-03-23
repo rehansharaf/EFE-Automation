@@ -24,54 +24,43 @@ public class InitializeUserData extends TestBase{
 	LogActivityTest logactivityTest = new LogActivityTest();
 	BranchOpportunityTest branchOpttyTest = new BranchOpportunityTest();
 	
-	String RunningTestCaseonDemand;
+	 String RunningTestCaseonDemand;
 	
 	
-	public void initialize(){
+	@SuppressWarnings("static-access")
+	public  void initialize(){
 		
 		
 		Map<String, String> Data = new HashMap<String, String>();
 		Data = getDetailPageData();
 		
 		String uid = Data.get("uniqueid");
-		SalesforceRestAPI.uid = RetailAccount.uid = DetailsPage.uid = uid;
+		sfdcAPI.set_uid(uid); retailPage.set_uid(uid);detailPage.set_uid(uid);
+		
+		
 		
 	if (RunningTestCaseonDemand.equalsIgnoreCase("Yes")){}
 	else { 	
-			SalesforceRestAPI.fname = RetailAccount.fname = "Testf"+ uid; 
-			SalesforceRestAPI.lname = RetailAccount.lname = "Testl"+ uid;
+			sfdcAPI.set_fname("Testf"+ uid);retailPage.set_fname("Testf"+ uid);
+			sfdcAPI.set_lname("Testl"+ uid);retailPage.set_lname("Testl"+ uid);
+	
 	}
 		
+		sfdcAPI.set_bname("Testb"+ uid);
 		
-	//----------Temporary to generate Accounts with multiple names------------------	
-	//	SalesforceRestAPI.fname = RetailAccount.fname = Fname[logactivityTest.i]; 		
-	//	SalesforceRestAPI.lname = RetailAccount.lname = Lname[logactivityTest.j];
-	//--------------------------------------------------------------------------
+		retailPage.set_aname(SalesforceRestAPI.fname+" "+SalesforceRestAPI.lname);
+		retailPage.set_sposuefname("spouseTestf"+ uid);
+		retailPage.set_lname("spouseTestl"+ uid);
 		
+		detailPage.set_commentsToEnter("TestingPurpose "+ uid);
+		detailPage.set_enteredDate(Data.get("enteredDate"));
+		detailPage.set_verifyDate(Data.get("verifyDate"));
+		detailPage.set_meetingDate(Data.get("meetingDate"));
+		detailPage.set_meetingformattedDate(Data.get("meetingformattedDate"));
+		detailPage.set_unplannedDate(Data.get("unplannedDate"));
+		detailPage.set_emailupdate("testf"+uid+"@updateaccount.com");
 		
-	//----------Temporary to generate Accounts with Opportunities with multiple names------------------	
-	//	SalesforceRestAPI.fname = RetailAccount.fname = Fname[branchOpttyTest.i]; 		
-	//	SalesforceRestAPI.lname = RetailAccount.lname = Lname[branchOpttyTest.j];
-	//------------------------------------------------------------------------------------------------	
-		
-		SalesforceRestAPI.bname = "Testb"+ uid;
-		
-		String aname = SalesforceRestAPI.fname+" "+SalesforceRestAPI.lname;
-		RetailAccount.aname = aname;
-		
-		RetailAccount.spousefname = "spouseTestf"+ uid;
-		RetailAccount.spouselname = "spouseTestl"+ uid;		
-		DetailsPage.commentsToEnter = "TestingPurpose "+ uid;		
-		
-		DetailsPage.enteredDate = Data.get("enteredDate");
-		DetailsPage.verifyDate = Data.get("verifyDate");
-		DetailsPage.meetingDate = Data.get("meetingDate");
-		DetailsPage.meetingformattedDate = Data.get("meetingformattedDate");
-		DetailsPage.unplannedDate = Data.get("unplannedDate");
-		DetailsPage.emailupdate = "testf"+uid+"@updateaccount.com";
-				
-		SalesforceRestAPI.accountId = RetailAccount.accountId = SalesforceRestAPI.getHashMapData()[0];
-		
+		sfdcAPI.set_accountId(SalesforceRestAPI.getHashMapData()[0]);retailPage.set_accountId(SalesforceRestAPI.getHashMapData()[0]);
 		
 	}
 	

@@ -1293,16 +1293,29 @@ public static void createRegularAccount() {
   
  }   
 
-/*
+
+@SuppressWarnings("static-access")
 public void set_uid(String userid) {this.uid = userid;}
 public void set_fname(String firstname) {this.fname = firstname;}
 public void set_lname(String lastname) {this.lname = lastname;}
 public void set_bname(String busname) {this.bname = busname;}
-
-public static String getFirstName(){return fname;}
-public static String getLastName(){return lname;}
+public void set_accountId(String accountId) {this.accountId = accountId;}
 
 
+
+
+/*
+ *  public static String uid;
+    public static String accountId;
+    public static String fname ;
+    public static String lname ;
+    public static String bname ;
+   
+ */
+
+
+
+/*
 
 public static String generateRndmNum(String range) {
     

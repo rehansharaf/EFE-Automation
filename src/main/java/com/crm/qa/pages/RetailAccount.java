@@ -462,9 +462,28 @@ public class RetailAccount extends TestBase {
 		}	
 
 	
+	public void set_uid(String userid) {this.uid = userid;}
+	public void set_fname(String firstname) {this.fname = firstname;}
+	public void set_lname(String lastname) {this.lname = lastname;}
+	public void set_aname(String accountname) {this.aname = accountname;}
+	public void set_accountId(String accountId) {this.accountId = accountId;}
+	public void set_sposuefname(String sfirstname) {this.spousefname = sfirstname;}
+	public void set_spouselname(String slastname) {this.spouselname = slastname;}
 	
 	
 	
+	/*
+	 * 	public static String uid;
+	public static String accountId;
+	public static String aname;
+	public static String fname; 
+	public static String lname ;
+	public static String spousefname;
+	public static String spouselname;
+	public static String userProfile;
+	 * 
+	 * 
+	 */
 	
 	
 	

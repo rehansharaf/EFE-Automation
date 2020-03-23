@@ -3,6 +3,8 @@ package com.crm.qa.pages;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -413,48 +415,34 @@ public class DetailsPage extends TestBase {
 	@FindBy(xpath = "(//input[@placeholder='Enter Subject...'])[1]")
 	WebElement emailSubject;
 	
+//****************************************************************************************************************************************
 	
 	
-	
-	
-	//JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+	static SimpleDateFormat timestamp = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+	static String timeStamp = timestamp.format(new Date());
 
-/*
-		static SimpleDateFormat timestamp = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
-		static String timeStamp = timestamp.format(new Date());
-		 
-		SimpleDateFormat timestamp12 = new SimpleDateFormat("MM/dd/yyyy");
-		String timeStamp12 = timestamp12.format(new Date());
-
-	 
-		SimpleDateFormat timestamp11 = new SimpleDateFormat("M/d/yyyy");
-		String timeStamp11 = timestamp11.format(new Date());
-		String[] dateStr12 = timeStamp11.split("\\s+");
-		
-*/
-		public static String  enteredDate;
-		public static String  verifyDate;
-		public static String  meetingDate;
-		public static String  meetingformattedDate;
-	    public static String  uid ;
-	    public static String  unplannedDate;
-	    public static String  emailupdate;
+	public static String  enteredDate;
+	public static String  verifyDate;
+	public static String  meetingDate;
+	public static String  meetingformattedDate;
+	public static String  uid ;
+	public static String  unplannedDate;
+	public static String  emailupdate;
 	    
 	    
-	    String schedule_PhoneCall = "PhoneCall";
-		String schedule_ToDo = "ToDo";
-		String schedule_Meeting = "Meeting";
+	String schedule_PhoneCall = "PhoneCall";
+	String schedule_ToDo = "ToDo";
+	String schedule_Meeting = "Meeting";
 		
-		public String reached = "Reached";
-		public String notReached = "Not Reached";
-		public String meeting = "Meeting";
+	public String reached = "Reached";
+	public String notReached = "Not Reached";
+	public String meeting = "Meeting";
 		
-		public static String commentsToEnter;
-		//static String[] splitStr1 = timeStamp.split("\\s+");
-
-		SoftAssert softAssertion = new SoftAssert();
+	public static String commentsToEnter;
 		
-		public DetailsPage() {PageFactory.initElements(driver, this);}
+	SoftAssert softAssertion = new SoftAssert();
+		
+	public DetailsPage() {PageFactory.initElements(driver, this);}
 	
 			
 	
@@ -560,7 +548,6 @@ public class DetailsPage extends TestBase {
 			
 		else {
 				unplannedAppointment(meetClient,meetOutcome);
-				//if (!"Field Advisor".contains(RetailAccount.userProfile)||!"Field CSM".contains(RetailAccount.userProfile)||!"Administrator".contains(RetailAccount.userProfile)){
 				if (RetailAccount.userProfile.contains("Inbound")|| RetailAccount.userProfile.contains("Outbound")){
 
 					loganInteractionCreateOptty("createopttyno");
@@ -728,16 +715,17 @@ public class DetailsPage extends TestBase {
 		workphoneEditInput.sendKeys(Keys.TAB);
 		
 		TestUtil.clickElement(updateSaveBtn);Thread.sleep(3000);
-		TestUtil.scrollintoView(scrolltoAccountDetails);
+		TestUtil.scrollintoView(scrolltoAccountDetails);Thread.sleep(3000);
 		
 		TestUtil.waitUntilElementVisible(genderEditBtn);
 		TestUtil.clickElement(genderEditBtn);Thread.sleep(2000);
 		
 		TestUtil.waitUntilElementVisible(genderDropDown);
-		genderDropDown.click();	genderMale.click();
+		TestUtil.clickElement(genderDropDown);TestUtil.clickElement(genderMale);
 	
 		TestUtil.waitUntilElementVisible(dobEditInput);
-		dobEditInput.click();dobEditInput.clear();dobEditInput.sendKeys("12/11/1972");dobEditInput.sendKeys(Keys.TAB);
+		TestUtil.clickElement(dobEditInput);
+		dobEditInput.clear();dobEditInput.sendKeys("12/11/1972");dobEditInput.sendKeys(Keys.TAB);
 		
 		TestUtil.clickElement(updateSaveBtn);
 		TestUtil.waitUntilElementVisible(scrolltoAddressInformation);
@@ -776,7 +764,6 @@ public class DetailsPage extends TestBase {
 
 		TestUtil.scrollintoView(scrolltoAddressInformation);
 
-		//String mailingAddress = getFieldData("Edit Mailing Address").substring(0,42).trim();
 		String mailingAddress = getFieldData("Edit Mailing Address");
 		mailingAddress = mailingAddress.replace("\n", "").replace("\r", "");
 		softAssertion.assertTrue(mailingAddress.contains(mAddress),  "Mailing Address not matched.....");
@@ -812,7 +799,28 @@ public class DetailsPage extends TestBase {
 	
 
 	
-//************************************************************************************************************************
+//*************************************Setters to initialize the Variables***********************************************************************************
+	
+
+	public static void set_uid(String userid) {uid = userid;}
+	public static void set_enteredDate(String entDate) {enteredDate = entDate;}
+	public static void set_verifyDate(String verDate) {verifyDate = verDate;}
+	public static void set_meetingDate(String meetDate) {meetingDate = meetDate;}
+	public static void set_meetingformattedDate(String meetdatefrmt) {meetingformattedDate = meetdatefrmt;}
+	public static void set_unplannedDate(String unplndDate) {unplannedDate = unplndDate;}
+	public static void set_emailupdate(String emailUpdt) {emailupdate = emailUpdt;}
+	public static void set_commentsToEnter(String enterComments) {enterComments = commentsToEnter;}
+	
+	
+	
+	
+//***********************************************************************************************************************************
+	
+	
+	
+	
+	
+	
 	
 	
 	

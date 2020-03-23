@@ -552,7 +552,7 @@ public class Opportunities extends TestBase{
 		TestUtil.clickElement(meetingStatusEditBtn);Thread.sleep(2000); 
 		TestUtil.clickElement(meetingStatusUpdtDrpDwn);
 		meetingStatusUpdtDrpDwn.sendKeys("Completed", Keys.ENTER); 
-		TestUtil.clickElement(saveBtn); 
+		TestUtil.clickElement(saveBtn); Thread.sleep(5000);
 		TestUtil.clickElement(OpttyLink); 
 		
 		driver.navigate().refresh(); Thread.sleep(5000);

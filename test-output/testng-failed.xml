@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [SFDC Test Automation Test Suite]" parallel="methods">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
     <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Free CRM App Test Cases(failed)">
+  <test name="Branch Opportunity Test Scenarios(failed)" parallel="methods">
     <classes>
-      <class name="com.crm.qa.testcases.LogActivityTest">
+      <class name="com.crm.qa.testcases.BranchOpportunityTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="reachedwithBusinessLead" invocation-numbers="0 0"/>
-          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="0 0"/>
-          <include name="reachedwithBusinessLead_ScheduleMeeting" invocation-numbers="0 0"/>
+          <include name="scheduleMeetingviaNextAction" invocation-numbers="0 0"/>
+          <include name="createNewFinancialAccount_BMOptty" invocation-numbers="0 1 1"/>
           <include name="setUp"/>
-          <include name="UpdateSpouseAccountdetails" invocation-numbers="0"/>
-          <include name="reachedwithBusinessLead_SchedulePhoneCall" invocation-numbers="0 0"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
     </classes>
-  </test> <!-- Free CRM App Test Cases(failed) -->
-</suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->
+  </test> <!-- Branch Opportunity Test Scenarios(failed) -->
+  <test name="Log a Call for Household Test Scenarios(failed)" parallel="methods">
+    <classes>
+      <class name="com.crm.qa.testcases.LogActivityTest_HouseHold">
+        <methods>
+          <include name="UpdateHouseholdAccountdetails"/>
+          <include name="meeting_CompleteFlow"/>
+          <include name="tearDown"/>
+          <include name="UnplannedMeeting_multipleUsers" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="nolead_Reached_createBranchOpportunity"/>
+          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="0"/>
+          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
+        </methods>
+      </class> <!-- com.crm.qa.testcases.LogActivityTest_HouseHold -->
+    </classes>
+  </test> <!-- Log a Call for Household Test Scenarios(failed) -->
+</suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->
