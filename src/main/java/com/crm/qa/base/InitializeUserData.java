@@ -3,13 +3,9 @@ package com.crm.qa.base;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.testng.annotations.Test;
-
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.SalesforceRestAPI;
-import com.qa.DataProvider.LogaCallDataProvider;
 import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.testcases.*;
 

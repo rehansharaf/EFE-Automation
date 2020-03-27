@@ -1,36 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [SFDC Test Automation Test Suite]" parallel="methods">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
     <listener class-name="com.qa.EventListener.TestListener"/>
     <listener class-name="com.qa.EventListener.FailureRetryListener"/>
   </listeners>
-  <test name="Branch Opportunity Test Scenarios(failed)" parallel="methods">
+  <test name="Free CRM App Test Cases(failed)">
     <classes>
-      <class name="com.crm.qa.testcases.BranchOpportunityTest">
+      <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
-          <include name="scheduleMeetingviaNextAction" invocation-numbers="0 0"/>
-          <include name="createNewFinancialAccount_BMOptty" invocation-numbers="0 1 1"/>
-          <include name="setUp"/>
           <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
-    </classes>
-  </test> <!-- Branch Opportunity Test Scenarios(failed) -->
-  <test name="Log a Call for Household Test Scenarios(failed)" parallel="methods">
-    <classes>
-      <class name="com.crm.qa.testcases.LogActivityTest_HouseHold">
-        <methods>
-          <include name="UpdateHouseholdAccountdetails"/>
-          <include name="meeting_CompleteFlow"/>
-          <include name="tearDown"/>
-          <include name="UnplannedMeeting_multipleUsers" invocation-numbers="0"/>
+          <include name="UnplannedMeetingWithExistingMeeting" invocation-numbers="0 0 1 1"/>
           <include name="setUp"/>
-          <include name="nolead_Reached_createBranchOpportunity"/>
-          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="0"/>
-          <include name="reachedwithBusinessLead_ScheduleMeeting"/>
         </methods>
-      </class> <!-- com.crm.qa.testcases.LogActivityTest_HouseHold -->
+      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>
-  </test> <!-- Log a Call for Household Test Scenarios(failed) -->
-</suite> <!-- Failed suite [SFDC Test Automation Test Suite] -->
+  </test> <!-- Free CRM App Test Cases(failed) -->
+</suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

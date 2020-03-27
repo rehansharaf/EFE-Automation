@@ -429,7 +429,8 @@ public class DetailsPage extends TestBase {
 	public static String  unplannedDate;
 	public static String  emailupdate;
 	    
-	    
+	
+	public static String schedule;
 	String schedule_PhoneCall = "PhoneCall";
 	String schedule_ToDo = "ToDo";
 	String schedule_Meeting = "Meeting";
@@ -439,7 +440,14 @@ public class DetailsPage extends TestBase {
 	public String meeting = "Meeting";
 		
 	public static String commentsToEnter;
-		
+	public static String OutcomeValue;
+	
+	
+	public static String mtngClient;
+	public static String mtngOutcome;
+	public static String futureMeetingwithClient;
+	public static String mtngExist;
+	
 	SoftAssert softAssertion = new SoftAssert();
 		
 	public DetailsPage() {PageFactory.initElements(driver, this);}
@@ -468,18 +476,21 @@ public class DetailsPage extends TestBase {
 			TestUtil.clickElement(futureActivityNextButton1);
 		}	
 		
+		Thread.sleep(5000);
 	}	
 	
 	
 	public void enterComments(String Outcome, String gtsConversion) throws InterruptedException, IOException, ParseException {
 		
-		String commentsToEnter = "TestingPurpose " + uid; Thread.sleep(5000);
+		String commentsToEnter = "TestingPurpose " + uid; Thread.sleep(2000);
+		set_commentsToEnter(commentsToEnter);
+		set_Outcome(Outcome);
 		
 			
 		if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")){
 			
 			TestUtil.waitUntilElementVisible(commentsTextarea);
-			commentsTextarea.sendKeys(commentsToEnter);
+			commentsTextarea.sendKeys(commentsToEnter);Thread.sleep(3000);
 			TestUtil.waitUntilElementVisible(outcome);
 			TestUtil.SelectDropDownOption(outcome, Outcome);
 		
@@ -526,25 +537,33 @@ public class DetailsPage extends TestBase {
 	
 	public void logacallInteractionforMeeting(String Outcome, String gtsConversion, String meetClient, String meetOutcome, String meetingExist) throws InterruptedException, IOException, ParseException {	
 		
+
+		
+		set_meetingClient(meetClient);
+		set_meetingOutcome(meetOutcome);
+		
+		
 		enterComments (Outcome, gtsConversion);
 		
 		if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")){	
 			loganInteractionCreateOptty("createopttyno");
 			loganInteractionFutureActivity("futureactivityno");
 			
-			TestUtil.clickElement(noOpttyNxtBtn);
+			TestUtil.clickElement(noOpttyNxtBtn);Thread.sleep(3000);
 		}
 		
 		
 		if (meetingExist.toLowerCase().equals("meetingexistyes")){
 	
+			mtngExist = "Yes";
+			
 			TestUtil.clickElement(nextButton1);
 			
 			TestUtil.waitUntilElementVisible(meetwithClient);
 			TestUtil.SelectDropDownOption(meetwithClient, meetClient);
-			TestUtil.SelectDropDownOption(meetingOutcome, meetOutcome);
+			TestUtil.SelectDropDownOption(meetingOutcome, meetOutcome);Thread.sleep(3000);
 
-			TestUtil.clickElement(nextButton1);}
+			TestUtil.clickElement(nextButton1);Thread.sleep(3000);}
 			
 		else {
 				unplannedAppointment(meetClient,meetOutcome);
@@ -552,7 +571,7 @@ public class DetailsPage extends TestBase {
 
 					loganInteractionCreateOptty("createopttyno");
 					loganInteractionFutureActivity("futureactivityno");
-					TestUtil.clickElement(noOpttyNxtBtn);
+					TestUtil.clickElement(noOpttyNxtBtn);Thread.sleep(3000);
 			}
 		}
 	}
@@ -575,17 +594,20 @@ public class DetailsPage extends TestBase {
 		TestUtil.SelectDropDownOption(meetwithClient, meetClient);
 		TestUtil.SelectDropDownOption(meetingOutcome, meetOutcome);
 				
-		TestUtil.clickElement(nextButton1);
+		TestUtil.clickElement(nextButton1);Thread.sleep(3000);
 
 	}
 	
 
 //*********************************Reached Schedule***************************************************************	
 
-	public void scheduleFutureActivity(String schedule, String WFPath) throws InterruptedException, Exception {
+	public void scheduleFutureActivity(String schedule, String WFPath, String futureMeetingwithClient) throws InterruptedException, Exception {
+		
+		set_schedule(schedule);
+		set_futureMeetingwithClient(futureMeetingwithClient);
 		
 		if (WFPath.equalsIgnoreCase("futureActivitySection")){	
-
+			
 			TestUtil.waitUntilElementVisible(schedulePhoneCall);
 			if (schedule.toLowerCase().equals("phonecall")) {TestUtil.clickElement(schedulePhoneCall);}
 			else if (schedule.toLowerCase().equals("todo")) {TestUtil.clickElement(scheduleToDo);}
@@ -614,7 +636,7 @@ public class DetailsPage extends TestBase {
 		
 	public void futureActivityScheduleWorkflow(String schedule) throws InterruptedException {
 			
-	
+		
 			
 		String commentsToEnter = "TestingPurpose " + uid; Thread.sleep(3000);
 			
@@ -643,10 +665,10 @@ public class DetailsPage extends TestBase {
 	}
 
 
-		public void createFutureAppointment() throws InterruptedException {
+	public void createFutureAppointment() throws InterruptedException {
 			
 			TestUtil.waitUntilElementVisible(meetingClient);
-			TestUtil.SelectDropDownOption(meetingClient, "On-Phone Meeting");
+			TestUtil.SelectDropDownOption(meetingClient, get_futureMeetingwithClient());//On-Phone Meeting
 			
 			String LoggedinUser;
 			
@@ -799,7 +821,7 @@ public class DetailsPage extends TestBase {
 	
 
 	
-//*************************************Setters to initialize the Variables***********************************************************************************
+//*************************************Setters/Getters to set/get the Variables***********************************************************************************
 	
 
 	public static void set_uid(String userid) {uid = userid;}
@@ -809,10 +831,22 @@ public class DetailsPage extends TestBase {
 	public static void set_meetingformattedDate(String meetdatefrmt) {meetingformattedDate = meetdatefrmt;}
 	public static void set_unplannedDate(String unplndDate) {unplannedDate = unplndDate;}
 	public static void set_emailupdate(String emailUpdt) {emailupdate = emailUpdt;}
-	public static void set_commentsToEnter(String enterComments) {enterComments = commentsToEnter;}
+	public static void set_commentsToEnter(String enterComments) {commentsToEnter = enterComments;}
+	public static void set_Outcome(String outcome) {OutcomeValue = outcome;}
+	public static void set_schedule(String Schedule) {schedule = Schedule;}
+	public  void set_meetingClient(String mClient) {mtngClient= mClient;}
+	public  void set_meetingOutcome(String mOutcome) {mtngOutcome = mOutcome;}
+	public  void set_futureMeetingwithClient(String futureMeetClient){futureMeetingwithClient = futureMeetClient;}
 	
 	
-	
+	public static String  get_commentsToEnter() {return commentsToEnter ;}
+	public static String get_Outcome() {return OutcomeValue ;}
+	public static String get_enteredDate() {return enteredDate ;}
+	public static String get_schedule() {return schedule ;}
+	public String get_meetingClient() {return mtngClient ;}
+	public String get_meetingOutcome() {return mtngOutcome ;}
+	public String get_futureMeetingwithClient() {return futureMeetingwithClient ;}
+	public String get_meetingExist(){return mtngExist;}
 	
 //***********************************************************************************************************************************
 	

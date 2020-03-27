@@ -27,25 +27,25 @@ public class TestListener extends TestBase implements ITestListener {
  
     @Override
     public synchronized void onStart(ITestContext context) {
-        System.out.println("Automation Script Execution Started!");
+        System.out.println("//////////////////Automation Script Execution Started!/////////////////////////////");
     }
  
     @Override
     public synchronized void onFinish(ITestContext context) {
-        System.out.println(("Automation Script Execution Completed!"));
+        System.out.println(("////////////////////Automation Script Execution Completed!/////////////////////////"));
         extent.flush();
     }
  
     @Override
     public synchronized void onTestStart(ITestResult result) {
-        System.out.println((result.getMethod().getMethodName() + " started!"));
+        //System.out.println(("\n"+"----------------------------------Test Case: "+result.getMethod().getMethodName() + " started!----------------------------"+"\n"));
         ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(),result.getMethod().getDescription());
         test.set(extentTest);
     }
  
     @Override
     public synchronized void onTestSuccess(ITestResult result) {
-        System.out.println((result.getMethod().getMethodName() + " passed!"));
+        System.out.println(("\n"+"###############################Test Case: "+result.getMethod().getMethodName() + " is passed!####################################"+"\n"));
         test.get().pass("Test passed");
         
         

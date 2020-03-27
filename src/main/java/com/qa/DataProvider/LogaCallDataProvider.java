@@ -29,7 +29,7 @@ public class LogaCallDataProvider {
     {
 	
 		//return new Object[][] {   { "0050R000000XRFmQAO" }, { "0050R000000tUilQAE" },{ "0050R000000XRHEQA4" },{ "0050R000000XRHYQA4" },{ "0050R000000kTdBQAU" } , { "0050R0000030MXPQA2"} };
-		return new Object[][] {{"0050R000000XRFmQAO"},{ "0050R000000XRHYQA4" } };
+		return new Object[][] {{ "0050R000000XRFmQAO" },{ "0050R000000XRHYQA4" } };
     
     }
 

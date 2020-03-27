@@ -175,6 +175,22 @@ public class HomePage extends TestBase {
 
 	public boolean validateDescriptionData(String taskDescription, String description) {
 		
+		boolean desccomp = true;
+		
+		if (taskDescription.contains(description)){System.out.print("Description data matched"); desccomp = true;}
+		else {desccomp = false;}
+		
+		return desccomp;
+			
+		
+	}
+	
+	
+/*	
+	
+	
+	public boolean validateDescriptionData(String taskDescription, String description) {
+		
 		String[] splitStr3 = taskDescription.split("\\s+");
 		String[] splitStr4 = description.split("\\s+");
 		
@@ -206,7 +222,7 @@ public class HomePage extends TestBase {
 	}
 
 
-
+*/
 	public boolean validateCallDate(String taskCreatedDate, String enteredDate) {
 		
 		

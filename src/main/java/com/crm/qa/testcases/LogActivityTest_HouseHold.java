@@ -136,7 +136,6 @@ public class LogActivityTest_HouseHold extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");
-		//householdPage.gotoHouseholdviaAcctScreen();
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData1(1);
@@ -153,7 +152,6 @@ public class LogActivityTest_HouseHold extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");	
-		//householdPage.gotoHouseholdviaAcctScreen();
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "No-Show", "MeetingExistNO");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
@@ -261,7 +259,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		homePage.navigateToRetailuser("Primary");	
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached,  "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall");
+		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall","On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
@@ -278,7 +276,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		homePage.navigateToRetailuser("Primary");
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo",  "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall");
+		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall", "On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
@@ -296,8 +294,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		homePage.navigateToRetailuser("Primary");	
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
-		SalesforceTestRestAPI.validateMeetingData(3, 0);
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall", "On-Phone Meeting");
+		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
 	
 	}
 
@@ -345,7 +343,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		homePage.navigateToRetailuser("Primary");
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall");
+		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall","On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -363,7 +361,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		homePage.navigateToRetailuser("Primary");	
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall");
+		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall","On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -381,8 +379,8 @@ public class LogActivityTest_HouseHold extends TestBase {
 		homePage.navigateToRetailuser("Primary");	
 		householdPage.gotoHousehold();
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
-		SalesforceTestRestAPI.validateMeetingData(3, 0);
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");
+		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
 	}
@@ -399,7 +397,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Primary");	
 		householdPage.gotoHousehold();
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
 	
@@ -422,7 +420,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 
 		detailsPage.meetingCompletedFlow();
 		
-		SalesforceTestRestAPI.validateMeetingData(3, 1);
+		SalesforceTestRestAPI.validateMeetingData(3, "Client Meeting");
 	
 	}
 

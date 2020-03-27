@@ -92,7 +92,13 @@ public class CreateAcctOpttyonDemand extends TestBase {
 		
 	}
 	
-	
+	@AfterMethod
+	public void tearDown(){
+		driver.quit();
+		
+		
+		
+	}
 	
 
 }

@@ -38,6 +38,10 @@ import com.crm.qa.util.Validation;
 import com.crm.qa.util.ExcelWrite;
 import com.qa.DataProvider.*;
 
+import com.qa.ExtentReport.*;
+import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.Status;
+
 
 public class LogActivityTest extends TestBase {
 	
@@ -66,7 +70,7 @@ public class LogActivityTest extends TestBase {
 	String sheetName = "demo";
 	
 	//Variables to generate Specific name Accounts
-	public static int i=-1, j= -1;
+	//public static int i=-1, j= -1;
 	
 	SoftAssert softAssertion = new SoftAssert();
 	
@@ -91,7 +95,7 @@ public class LogActivityTest extends TestBase {
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
 		//Variables counters to generate Specific name Accounts
-		i=i+1; j=j+1;
+		//i=i+1; j=j+1;
 		
 		initializeData.setTestCaseonDemandtoNo();
 		initializeData.initialize();
@@ -109,7 +113,7 @@ public class LogActivityTest extends TestBase {
 	
 
 	
-	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
+	@Test(description = "Log a Call with Not Reached Scenario. Test Case will be run for multiple profiles.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void notReached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
 		TestUtil.print("Not Reached Scenario for Multiple Users");
@@ -119,7 +123,7 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		SalesforceTestRestAPI.validateTaskData1(1);
-		softAssertion.assertAll();
+		
 		
 	}
 	
@@ -230,7 +234,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached,  "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall");
+		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall","On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
@@ -246,7 +250,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo",  "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall");
+		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall", "On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		
@@ -263,8 +267,8 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Primary");				
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
-		SalesforceTestRestAPI.validateMeetingData(3, 0);
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall", "On-Phone Meeting");
+		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
 	
 	}
 
@@ -282,7 +286,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.notReached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData(1);
+		SalesforceTestRestAPI.validateTaskData1(1);
 		SalesforceTestRestAPI.validateLeadData(4);	
 								
 	}
@@ -312,7 +316,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall");
+		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall","On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -329,7 +333,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall");
+		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall","On-Phone Meeting");
 		SalesforceTestRestAPI.validateTaskData2(1);
 		SalesforceTestRestAPI.validateTaskScheduleData(2);
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
@@ -346,8 +350,8 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
-		SalesforceTestRestAPI.validateMeetingData(3, 0);
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");
+		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
 		SalesforceTestRestAPI.validateLeadDataReached(5);	
 								
 	}
@@ -364,7 +368,7 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");
 		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
 	
@@ -383,7 +387,7 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToRetailuser("Primary");
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistNo");
 		detailsPage.meetingCompletedFlow();
-		SalesforceTestRestAPI.validateMeetingData(3, 1);
+		SalesforceTestRestAPI.validateMeetingData(3, "Client Meeting");
 	
 	}
 

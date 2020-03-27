@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.util.TestUtil;
-import com.qa.EventListener.WebEventListener;
+import com.qa.EventListener.*;
 
 
 
@@ -57,13 +57,9 @@ public class TestBase {
 	
 
 	public static SoftAssert softAssertion = new SoftAssert();
-			
-	//   Map<String, String> sfdcData = new HashMap<String, String>();
 	public static HashMap<String, String> sfdcData = new HashMap<String, String>();
 		
-	 public WebDriver getDriver() {
-	        return driver;
-	    }
+	 public WebDriver getDriver() {return driver;}
 	
 	
 	public static String[] addDaysToCurrentTime(int days){
@@ -92,10 +88,11 @@ public class TestBase {
 	}
 	
 	
+	@SuppressWarnings("static-access")
 	public static void initialization(){
 			
 		String browserName = prop.getProperty("browser");
-		final String ExcelFilePath = prop.getProperty("ExcelFilePath");
+		//final String ExcelFilePath = prop.getProperty("ExcelFilePath");
 				
 			String username = prop.getProperty("username");
 			String password = prop.getProperty("password");
@@ -124,7 +121,6 @@ public class TestBase {
 			options.addArguments("–allow-running-insecure-content");
 			options.addArguments("--disable-extensions");
 			options.addArguments("--disable-gpu");
-			//options.addArguments("--incognito");
 			options.addArguments("--no-sandbox");
 			options.setExperimentalOption("prefs", prefs);
 			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
@@ -132,11 +128,7 @@ public class TestBase {
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			
 			
-		    //options.merge(capabilities);
-			
-			driver= new ChromeDriver(capabilities);
-			//driver= new ChromeDriver();
-			
+		    driver= new ChromeDriver(capabilities);
 			driver.manage().window().maximize();
 			
 	
@@ -156,9 +148,7 @@ public class TestBase {
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
 		driver = e_driver;
-		
-	
-		//driver.manage().window().maximize();
+			
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);

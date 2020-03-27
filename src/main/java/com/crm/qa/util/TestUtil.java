@@ -4,7 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -35,12 +40,18 @@ import static org.junit.Assert.*;
 import com.crm.qa.base.TestBase;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class TestUtil extends TestBase{
 	
 	public static long PAGE_LOAD_TIMEOUT = 50;
 	public static long IMPLICIT_WAIT = 50;
+	
+	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 	
 	public static String TESTDATA_SHEET_PATH = (System.getProperty("user.dir")+ "/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx");
 
@@ -279,6 +290,16 @@ public class TestUtil extends TestBase{
  	}
  	
      
+     
+     public static String changeDateFormat(String date) throws ParseException{
+    	 
+    	 DateFormat originalFormat = new SimpleDateFormat("MMMM dd, yyyy", Locale.ENGLISH);
+    	 DateFormat targetFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	 Date targetdate = originalFormat.parse(date);
+    	 String formattedDate = targetFormat.format(targetdate);
+    	 return formattedDate;
+    	 
+     }
      
      public boolean isLeadLinkVisible(){
  	    WebDriverWait zeroWait = new WebDriverWait(driver, 0);

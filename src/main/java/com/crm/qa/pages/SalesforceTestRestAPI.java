@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.ParseException;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
@@ -27,6 +28,7 @@ import org.json.JSONTokener;
 import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.base.TestBase;
+import com.crm.qa.util.TestUtil;
 
 public class SalesforceTestRestAPI extends TestBase {
 
@@ -63,9 +65,12 @@ public class SalesforceTestRestAPI extends TestBase {
 	static String descData = "true";
 	static boolean dData = Boolean.valueOf(descData);
 	static String description;
+	static String Outcome;
+	static String enteredDate;
+	static String schedule;
 	
 	static HomePage hpage = new HomePage();
-
+	static DetailsPage detailsPage= new DetailsPage();
 	static SalesforceRestAPI sfAPI = new SalesforceRestAPI();
 	//public static SoftAssert softAssertion = new SoftAssert();
 	//SalesforceRestAPI restapi = new SalesforceRestAPI();
@@ -160,12 +165,14 @@ public class SalesforceTestRestAPI extends TestBase {
 		SalesforceRestAPI.createService();
 	}
 
-
+	@SuppressWarnings("static-access")
 	public static void validateTaskData(int i) throws InterruptedException {
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		callTime = prop.getProperty("Call Start Time");
-		description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
+		
+		description = detailsPage.get_commentsToEnter();
+		Outcome = detailsPage.get_Outcome();
 		
 
 		try {
@@ -177,24 +184,25 @@ public class SalesforceTestRestAPI extends TestBase {
 			taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
 			taskCallType = task.getJSONObject(0).getString("Call_Type__c");
 			taskStatus = task.getJSONObject(0).getString("Status");
-			taskSolutionsDiscussed = task.getJSONObject(0).getString("Status");
-
-		//	softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start Time"), "call date mismatch");
 			
-			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
-			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
-			//boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
-			//softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
-			softAssertion.assertEquals(taskDescription, description, "Task description mismatch");
-			softAssertion.assertEquals(taskCallOutcome, "Not Reached", "Call Outcome mismatch");
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){}
+			else {taskSolutionsDiscussed = task.getJSONObject(0).getString("Solutions_Discussed__c");}
+			
+			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
+			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
+			softAssertion.assertEquals(taskCallOutcome, Outcome, "Call Outcome mismatch");
 			softAssertion.assertEquals(taskCallType, "Call", "Call Type mismatch");
 			softAssertion.assertEquals(taskStatus, "Completed", "Call Status mismatch");
-
-			// System.out.println(taskDescription);
-			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
-					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
-					+ taskSolutionsDiscussed);
-			//softAssertion.assertAll();
+		
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){
+				System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+						+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus);}
+				else {System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+						+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus +taskSolutionsDiscussed);}
+				
+			softAssertion.assertAll();
+			
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -202,11 +210,14 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
+	@SuppressWarnings("static-access")
 	public static void validateTaskData1(int i) throws InterruptedException {
 
-		Thread.sleep(10000);	
+		Thread.sleep(15000);	
 		callTime = prop.getProperty("Call Start Time");
-		description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
+		
+		description = detailsPage.get_commentsToEnter();
+		Outcome = detailsPage.get_Outcome();
 
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
@@ -217,21 +228,28 @@ public class SalesforceTestRestAPI extends TestBase {
 			taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
 			taskCallType = task.getJSONObject(0).getString("Call_Type__c");
 			taskStatus = task.getJSONObject(0).getString("Status");
-			//taskSolutionsDiscussed = task.getJSONObject(0).getString("Solutions_Discussed__c");
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){}
+			else {taskSolutionsDiscussed = task.getJSONObject(0).getString("Solutions_Discussed__c");}
 
-			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
-			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
+			
 			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
 			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
-			softAssertion.assertEquals(taskCallOutcome, "Reached", "Call Outcome mismatch");
+			softAssertion.assertEquals(taskCallOutcome, Outcome, "Call Outcome mismatch");
 			softAssertion.assertEquals(taskCallType, "Call", "Call Type mismatch");
 			softAssertion.assertEquals(taskStatus, "Completed", "Call Status mismatch");
 
 			System.out.println(taskDescription);
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){
 			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
-					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
-					+ taskSolutionsDiscussed);
-			// softAssertion.assertAll();
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus);}
+			else {System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus +taskSolutionsDiscussed);}
+			
+			softAssertion.assertAll();
+			
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -239,12 +257,15 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	
+	@SuppressWarnings("static-access")
 	public static void validateTaskData2(int i) throws InterruptedException {
 
 		Thread.sleep(10000);	
 		callTime = prop.getProperty("Call Start Time");
-		description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
+		//description = "added " + callTime +" "+ prop.getProperty("EnteredComments");
+		description = detailsPage.get_commentsToEnter();
+		Outcome = detailsPage.get_Outcome();
+		
 
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
@@ -257,19 +278,27 @@ public class SalesforceTestRestAPI extends TestBase {
 			taskStatus = task.getJSONObject(1).getString("Status");
 			//taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
 
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){}
+			else {taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");}
+			
 			//boolean timeComparison = hpage.validateCallDate(taskCreatedDate, callTime);
 			//softAssertion.assertEquals(timeComparison, tData , "call date mismatch");
 			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
 			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
-			softAssertion.assertEquals(taskCallOutcome, "Reached", "Call Outcome mismatch");
+			softAssertion.assertEquals(taskCallOutcome, Outcome, "Call Outcome mismatch");
 			softAssertion.assertEquals(taskCallType, "Call", "Call Type mismatch");
 			softAssertion.assertEquals(taskStatus, "Completed", "Call Status mismatch");
 
 			System.out.println(taskDescription);
+
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){
 			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
-					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
-					+ taskSolutionsDiscussed);
-			// softAssertion.assertAll();
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus);}
+			else {System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus +taskSolutionsDiscussed);}
+			
+			softAssertion.assertAll();
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -281,10 +310,15 @@ public class SalesforceTestRestAPI extends TestBase {
 	
 	
 	
-	
-	public static void validateTaskScheduleData(int i) throws InterruptedException {
+	@SuppressWarnings("static-access")
+	public static void validateTaskScheduleData(int i) throws InterruptedException, ParseException {
 
-		Thread.sleep(5000);	
+		Thread.sleep(5000);
+		
+		description = detailsPage.get_commentsToEnter();
+		Outcome = detailsPage.get_Outcome();
+		enteredDate = detailsPage.get_enteredDate();
+		schedule = detailsPage.get_schedule();
 		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
@@ -292,27 +326,36 @@ public class SalesforceTestRestAPI extends TestBase {
 			taskName = task.getJSONObject(1).getString("AccountId");
 			taskCreatedDate = task.getJSONObject(1).getString("Call_Start_Time__c");
 			taskDescription = (String) task.getJSONObject(1).get("Description");
-			// taskCallOutcome = task.getJSONObject(0).getString("Call_Outcome__c");
-			taskType = task.getJSONObject(0).getString("Type");
+			taskCallOutcome = task.getJSONObject(1).getString("Call_Outcome__c");
+			//taskType = task.getJSONObject(1).getString("Type");
 			taskStatus = task.getJSONObject(1).getString("Status");
-			//taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
-			taskActivityDate = task.getJSONObject(1).getString("ActivityDate");
+			taskActivityDate = task.getJSONObject(0).getString("ActivityDate");
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){}
+			else {taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");}
+			
 
 			// softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start
 			// Time"), "call date mismatch");
-			softAssertion.assertEquals(taskDescription, prop.getProperty("EnteredComments"),
-					"Task description mismatch");
-			// softAssertion.assertEquals(taskCallOutcome, "Follow Up", "Call Outcome
-			// mismatch");
-			softAssertion.assertEquals(taskType, "ToDo", "Call Type mismatch");
-			softAssertion.assertEquals(taskStatus, "Open", "Call Status mismatch");
-			softAssertion.assertEquals(taskActivityDate, "Open", "Call Status mismatch");
+			//softAssertion.assertEquals(taskDescription, prop.getProperty("EnteredComments"),"Task description mismatch");
+			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
+			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
+			softAssertion.assertEquals(taskCallOutcome, "Reached", "Call Outcome mismatch");
+			//softAssertion.assertEquals(taskType, "Task", "Call type mismatch");
+			softAssertion.assertEquals(taskStatus, "Completed", "Call Status mismatch");
+			softAssertion.assertEquals(taskActivityDate, TestUtil.changeDateFormat(enteredDate), "Entered Date mismatch");
 
 			System.out.println(taskDescription);
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){
 			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus);}
+			else {System.out.println("Task record is----------------------------------------------------- " + taskId + " "
 					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
-					+ taskSolutionsDiscussed);
-			// softAssertion.assertAll();
+					+ taskSolutionsDiscussed);}
+			
+			softAssertion.assertAll();
+		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -320,38 +363,53 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 
-	public static void validateTaskScheduleData_original(int i) throws InterruptedException {
+	
+	/*
+	@SuppressWarnings("static-access")
+	public static void validateTaskScheduleData1(int i) throws InterruptedException {
 
-		Thread.sleep(5000);	
+		Thread.sleep(5000);
+		
+		description = detailsPage.get_commentsToEnter();
+		Outcome = detailsPage.get_Outcome();
+		enteredDate = detailsPage.get_enteredDate();
 		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			taskId = task.getJSONObject(1).getString("Id");
 			taskName = task.getJSONObject(1).getString("AccountId");
-			// taskCreatedDate = task.getJSONObject(1).getString("Call_Start_Time__c");
-			taskDescription = (String) task.getJSONObject(0).get("Description");
+			taskCreatedDate = task.getJSONObject(1).getString("Call_Start_Time__c");
+			taskDescription = (String) task.getJSONObject(1).get("Description");
 			 taskCallOutcome = task.getJSONObject(1).getString("Call_Outcome__c");
-			taskType = task.getJSONObject(1).getString("Type");
+			taskType = task.getJSONObject(0).getString("Type");
 			taskStatus = task.getJSONObject(1).getString("Status");
-			taskSolutionsDiscussed =
-			task.getJSONObject(1).getString("Solutions_Discussed__c");
-			taskActivityDate = task.getJSONObject(1).getString("ActivityDate");
+			//taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");
+			taskActivityDate = task.getJSONObject(0).getString("ActivityDate");
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){}
+			else {taskSolutionsDiscussed = task.getJSONObject(1).getString("Solutions_Discussed__c");}
+			
 
 			// softAssertion.assertEquals(taskCreatedDate, prop.getProperty("Call Start
 			// Time"), "call date mismatch");
-			softAssertion.assertEquals(taskDescription, prop.getProperty("EnteredComments"),
-					"Task description mismatch");
+			//softAssertion.assertEquals(taskDescription, prop.getProperty("EnteredComments"),"Task description mismatch");
+			boolean descriptionComparison = hpage.validateDescriptionData(taskDescription, description);
+			softAssertion.assertEquals(descriptionComparison, dData , "Task description mismatch");
 			// softAssertion.assertEquals(taskCallOutcome, "Follow Up", "Call Outcome
 			// mismatch");
-			softAssertion.assertEquals(taskType, "ToDo", "Call Type mismatch");
+			softAssertion.assertEquals(taskType, "Call", "Call Type mismatch");
 			softAssertion.assertEquals(taskStatus, "Open", "Call Status mismatch");
-			softAssertion.assertEquals(taskActivityDate, "Open", "Call Status mismatch");
+			softAssertion.assertEquals(taskActivityDate, enteredDate, "Entered Date mismatch");
 
 			System.out.println(taskDescription);
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){
 			System.out.println("Task record is----------------------------------------------------- " + taskId + " "
+					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus);}
+			else {System.out.println("Task record is----------------------------------------------------- " + taskId + " "
 					+ taskName + " " + taskCreatedDate + taskDescription + taskCallOutcome + taskCallType + taskStatus
-					+ taskSolutionsDiscussed);
-			// softAssertion.assertAll();
+					+ taskSolutionsDiscussed);}
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -360,44 +418,46 @@ public class SalesforceTestRestAPI extends TestBase {
 	}
 	
 	
+*/
 	
-	public static void validateMeetingData(int i, int j) throws InterruptedException {
+	public static void validateMeetingData(int i, String meetType) throws InterruptedException {
 
 		Thread.sleep(5000);	
+		
+		String mClient = detailsPage.get_futureMeetingwithClient();	if (mClient==null){mClient="None";}
+		String mtClient = detailsPage.get_meetingClient();if (mtClient==null){mtClient="None";}
 		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			meetingId = task.getJSONObject(0).getString("Id");
 			meetingMedium = task.getJSONObject(0).getString("Meeting_Medium__c");
-
-			//meetingStatus = task.getJSONObject(0).get("Meeting_Status__c");
-			
 			meetingType = task.getJSONObject(0).getString("Type");
 			meetingSubType = task.getJSONObject(0).getString("Meeting_Sub_Type__c");
 			meetingStartDate = task.getJSONObject(0).getString("StartDateTime");
 			meetingEndDate = task.getJSONObject(0).getString("EndDateTime");
 			//appointmentStartDateText = task.getJSONObject(0).getString("Appointment_Start_Date_Time_Text__c");
-			if (j == 0) {
-			softAssertion.assertEquals(meetingType, "Prospect Meeting", "Meeting Type mismatch");
-			} else if (j == 1) {
-				
-				softAssertion.assertEquals(meetingType, "Client Meeting", "Meeting Type mismatch");
-				
-			}
-			softAssertion.assertEquals(meetingSubType, "Initial", "Meeting Sub Type mismatch");
-			softAssertion.assertEquals(meetingMedium, "On-Phone", "Meeting Medium mismatch");
-			//financial plan
-			//System.out.println(taskDescription);
+			
+			
+			softAssertion.assertEquals(meetingType, meetType, "Meeting Type mismatch");
+			softAssertion.assertEquals(meetingSubType, "Follow-up", "Meeting Sub Type mismatch");
+			
+			if (mtClient.contains(meetingMedium.toString())){softAssertion.assertTrue(mtClient.contains(meetingMedium.toString()), "Meeting Medium mismatch");}
+			else {softAssertion.assertEquals(meetingMedium,"Virtual", "Meeting Medium mismatch");}
+	
 			System.out.println("Event record is----------------------------------------------------- " + meetingId + " "
 					+ meetingMedium + " " + meetingType + meetingSubType);
-			 //softAssertion.assertAll();
+			 
+			softAssertion.assertAll();
+		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
+
 	
+/*	
 	public static void validateUnplannedMeetingData(int i) throws InterruptedException {
 
 		Thread.sleep(10000);	
@@ -425,7 +485,9 @@ public class SalesforceTestRestAPI extends TestBase {
 			System.out.println(taskDescription);
 			System.out.println("Event record is----------------------------------------------------- " + meetingId + " "
 					+ meetingMedium + " " + meetingType + meetingSubType);
-			//softAssertion.assertAll();
+			
+			softAssertion.assertAll();
+		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -433,7 +495,53 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	}
 	
+*/
+	
+	
+	public static void validateUnplannedMeetingData(int i) throws InterruptedException {
 
+		Thread.sleep(10000);
+		
+		String mClient = detailsPage.get_meetingClient();//In person meeting
+		String mOutcome = detailsPage.get_meetingOutcome();//No Show
+		String meetingExist = detailsPage.get_meetingExist();if (meetingExist ==null){meetingExist = "No";}
+		
+		
+		try {
+			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
+			Thread.sleep(3000);
+			
+			meetingId = task.getJSONObject(0).getString("Id");
+			meetingMedium = task.getJSONObject(0).getString("Meeting_Medium__c");
+			meetingType = task.getJSONObject(0).getString("Type");
+			meetingStartDate = task.getJSONObject(0).getString("StartDateTime");
+			meetingStatus = task.getJSONObject(0).get("Meeting_Status__c");
+			meetingSubType = task.getJSONObject(0).getString("Meeting_Sub_Type__c");
+			meetingEndDate = task.getJSONObject(0).getString("EndDateTime");
+			appointmentStartDateText = task.getJSONObject(0).getString("Appointment_Start_Date_Time_Text__c");
+			
+			softAssertion.assertTrue(mClient.contains(meetingMedium.toString()), "Meeting Medium mismatch");
+			softAssertion.assertEquals(meetingType, "Prospect Meeting", "Meeting Type mismatch");
+			softAssertion.assertEquals(meetingStatus, mOutcome, "Meeting Medium mismatch");
+			
+			if (meetingExist.equalsIgnoreCase("Yes")){softAssertion.assertEquals(meetingSubType, "Follow-up", "Meeting Sub Type mismatch");} 
+			else {softAssertion.assertEquals(meetingSubType, "Initial", "Meeting Sub Type mismatch");}
+			
+	
+			System.out.println("Event record is----------------------------------------------------- " + meetingId + " "
+					+ meetingMedium + " " + meetingType + meetingSubType);
+			
+			softAssertion.assertAll();
+		
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
 
 	public static void validateLeadData(int i) throws InterruptedException {
 
@@ -446,11 +554,14 @@ public class SalesforceTestRestAPI extends TestBase {
 			leadStatus = task.getJSONObject(0).getString("Status");
 
 			softAssertion.assertEquals(leadStatus, "Attempting", "Lead Status mismatch");
-			softAssertion.assertEquals(leadCallAttempts, "1", "Lead Call Attempts mismatch");
+			//softAssertion.assertEquals(leadCallAttempts, "1", "Lead Call Attempts mismatch");
+			softAssertion.assertTrue(leadCallAttempts.equals(1));
 
 			System.out.println("Lead record is----------------------------------------------------- " + leadId + " "
 					+ leadStatus + " " + leadCallAttempts);
-			// softAssertion.assertAll();
+			
+			softAssertion.assertAll();
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -462,6 +573,7 @@ public class SalesforceTestRestAPI extends TestBase {
 
 		Thread.sleep(5000);	
 		
+		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
 			leadId = task.getJSONObject(0).getString("Id");
@@ -471,13 +583,16 @@ public class SalesforceTestRestAPI extends TestBase {
 			leadIsConverted = task.getJSONObject(0).getBoolean("IsConverted");
 
 			softAssertion.assertEquals(leadStatus, "Closed without opportunity", "Lead Status mismatch");
-			softAssertion.assertEquals(leadCallAttempts, "1", "Lead Call Attempts mismatch");
-			softAssertion.assertEquals(leadCustomerContact, "reached", "Lead CustomerContact mismatch");
-			softAssertion.assertEquals(leadIsConverted, "true", "Lead CustomerContact mismatch");
+			softAssertion.assertTrue(leadCallAttempts.equals(1));
+			softAssertion.assertEquals(leadCustomerContact, "Reached", "Lead CustomerContact mismatch");
+			softAssertion.assertTrue(leadIsConverted.toString().contains("true"), "Lead Converted mismatch");
+			
 
 			System.out.println("Lead record is----------------------------------------------------- " + leadId + " "
-					+ leadStatus + " " + leadCallAttempts + "" + leadIsConverted);
-			// softAssertion.assertAll();
+					+ leadStatus + " " + leadCallAttempts + " " + leadIsConverted);
+		
+			softAssertion.assertAll();
+			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -487,7 +602,8 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	public static void validateBranchOpportunity(int i) throws InterruptedException {
 
-		Thread.sleep(5000);	
+		Thread.sleep(10000);	
+		int expectedAmount = 250000;
 		
 		try {
 			JSONArray task = SalesforceRestAPI.queryTaskObject(i);
@@ -498,13 +614,22 @@ public class SalesforceTestRestAPI extends TestBase {
 
 			int oppTotalAmount = task.getJSONObject(0).getInt("Total_Expected_Amount__c");
 
-			softAssertion.assertEquals(oppLeadSource, "NAC Outbound", "Opp Lead Source mismatch");
-			softAssertion.assertEquals(oppTotalAmount, "250000", "Opp Total Amount Call Attempts mismatch");
+			
+			if (RetailAccount.userProfile.contains("Field Advisor")|| RetailAccount.userProfile.contains("Field CSM")){
+					softAssertion.assertEquals(oppLeadSource, "Benefits Fair", "Opp Lead Source mismatch");}
+			else{	softAssertion.assertEquals(oppLeadSource, "NAC Outbound", "Opp Lead Source mismatch");}
+					
+			softAssertion.assertEquals(oppTotalAmount, expectedAmount, "Opp Total Amount Call Attempts mismatch");
+			//softAssertion.assertTrue(oppTotalAmount 250000);
+			
+			
 			softAssertion.assertEquals(oppStageName, "New", "Opp Stage Name mismatch");
 
 			System.out.println("Opportunity record is----------------------------------------------------- " + oppId
 					+ " " + oppLeadSource + " " + oppTotalAmount);
-			// softAssertion.assertAll();
+			
+			softAssertion.assertAll();
+		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

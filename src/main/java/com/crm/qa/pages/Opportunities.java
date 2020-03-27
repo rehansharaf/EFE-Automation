@@ -474,7 +474,7 @@ public class Opportunities extends TestBase{
 		
 		TestUtil.waitUntilElementVisible(tMAssets);
 		tMAssets.sendKeys("250000", Keys.TAB);
-		TestUtil.clickElement(logacallCreateBranchopttyNextButton);Thread.sleep(8000);
+		TestUtil.clickElement(logacallCreateBranchopttyNextButton);Thread.sleep(10000);
 		
 	}
 	
