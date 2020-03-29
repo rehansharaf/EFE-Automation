@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="5" total="53" passed="48">
+<testng-results skipped="0" failed="0" ignored="4" total="15" passed="11">
   <reporter-output>
   </reporter-output>
-  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="5036810" started-at="2020-03-27T19:38:46Z" finished-at="2020-03-27T21:02:43Z">
+  <suite name="FREE CRM Application Test Automation Test Suite" duration-ms="1771855" started-at="2020-03-29T17:10:03Z" finished-at="2020-03-29T17:39:35Z">
     <groups>
     </groups>
-    <test name="Free CRM App Test Cases" duration-ms="5036810" started-at="2020-03-27T19:38:46Z" finished-at="2020-03-27T21:02:43Z">
-      <class name="com.crm.qa.testcases.LogActivityTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="13083" started-at="2020-03-27T12:38:46Z" finished-at="2020-03-27T12:38:59Z">
+    <test name="Free CRM App Test Cases" duration-ms="1771855" started-at="2020-03-29T17:10:03Z" finished-at="2020-03-29T17:39:35Z">
+      <class name="com.crm.qa.testcases.BranchOpportunityTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="90787" started-at="2020-03-29T10:10:03Z" finished-at="2020-03-29T10:11:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReached_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="notReached_multipleUsers" duration-ms="73444" started-at="2020-03-27T12:38:59Z" description="Log a Call with Not Reached Scenario. Test Case will be run for multiple profiles." data-provider="multipleUsers" finished-at="2020-03-27T12:40:12Z">
+        <test-method status="PASS" signature="logacall_notReached_Optty(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="logacall_notReached_Optty" duration-ms="183685" started-at="2020-03-29T10:11:34Z" data-provider="multipleUsers" finished-at="2020-03-29T10:14:37Z">
           <params>
             <param index="0">
               <value>
@@ -21,16 +21,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- notReached_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="730" started-at="2020-03-27T12:40:12Z" finished-at="2020-03-27T12:40:13Z">
+        </test-method> <!-- logacall_notReached_Optty -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="736" started-at="2020-03-29T10:14:37Z" finished-at="2020-03-29T10:14:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8305" started-at="2020-03-27T12:40:13Z" finished-at="2020-03-27T12:40:21Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="20137" started-at="2020-03-29T10:14:38Z" finished-at="2020-03-29T10:14:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReached_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="notReached_multipleUsers" duration-ms="83565" started-at="2020-03-27T12:40:21Z" description="Log a Call with Not Reached Scenario. Test Case will be run for multiple profiles." data-provider="multipleUsers" finished-at="2020-03-27T12:41:45Z">
+        <test-method status="PASS" signature="logacall_notReached_Optty(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="logacall_notReached_Optty" duration-ms="169650" started-at="2020-03-29T10:14:58Z" data-provider="multipleUsers" finished-at="2020-03-29T10:17:48Z">
           <params>
             <param index="0">
               <value>
@@ -40,16 +40,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- notReached_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="769" started-at="2020-03-27T12:41:45Z" finished-at="2020-03-27T12:41:46Z">
+        </test-method> <!-- logacall_notReached_Optty -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="779" started-at="2020-03-29T10:17:48Z" finished-at="2020-03-29T10:17:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8610" started-at="2020-03-27T12:41:46Z" finished-at="2020-03-27T12:41:54Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="75266" started-at="2020-03-29T10:17:49Z" finished-at="2020-03-29T10:19:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_multipleUsers" duration-ms="82616" started-at="2020-03-27T12:41:54Z" data-provider="multipleUsers" finished-at="2020-03-27T12:43:17Z">
+        <test-method status="PASS" signature="logacall_Reached_Optty(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="logacall_Reached_Optty" duration-ms="163003" started-at="2020-03-29T10:19:04Z" data-provider="multipleUsers" finished-at="2020-03-29T10:21:47Z">
           <params>
             <param index="0">
               <value>
@@ -59,16 +59,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- reached_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="739" started-at="2020-03-27T12:43:17Z" finished-at="2020-03-27T12:43:18Z">
+        </test-method> <!-- logacall_Reached_Optty -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="720" started-at="2020-03-29T10:21:47Z" finished-at="2020-03-29T10:21:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8748" started-at="2020-03-27T12:43:18Z" finished-at="2020-03-27T12:43:26Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="6544" started-at="2020-03-29T10:21:48Z" finished-at="2020-03-29T10:21:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_multipleUsers" duration-ms="85567" started-at="2020-03-27T12:43:26Z" data-provider="multipleUsers" finished-at="2020-03-27T12:44:52Z">
+        <test-method status="PASS" signature="logacall_Reached_Optty(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="logacall_Reached_Optty" duration-ms="119873" started-at="2020-03-29T10:21:54Z" data-provider="multipleUsers" finished-at="2020-03-29T10:23:54Z">
           <params>
             <param index="0">
               <value>
@@ -78,16 +78,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- reached_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="743" started-at="2020-03-27T12:44:52Z" finished-at="2020-03-27T12:44:53Z">
+        </test-method> <!-- logacall_Reached_Optty -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="782" started-at="2020-03-29T10:23:54Z" finished-at="2020-03-29T10:23:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="9991" started-at="2020-03-27T12:44:53Z" finished-at="2020-03-27T12:45:03Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="6280" started-at="2020-03-29T10:23:55Z" finished-at="2020-03-29T10:24:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withOutcome_NoShow_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withOutcome_NoShow_multipleUsers" duration-ms="78776" started-at="2020-03-27T12:45:03Z" data-provider="multipleUsers" finished-at="2020-03-27T12:46:22Z">
+        <test-method status="PASS" signature="logacall_Reached_StageClosedLost(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="logacall_Reached_StageClosedLost" duration-ms="111988" started-at="2020-03-29T10:24:01Z" data-provider="multipleUsers" finished-at="2020-03-29T10:25:53Z">
           <params>
             <param index="0">
               <value>
@@ -97,16 +97,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withOutcome_NoShow_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="727" started-at="2020-03-27T12:46:22Z" finished-at="2020-03-27T12:46:22Z">
+        </test-method> <!-- logacall_Reached_StageClosedLost -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="750" started-at="2020-03-29T10:25:53Z" finished-at="2020-03-29T10:25:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8384" started-at="2020-03-27T12:46:22Z" finished-at="2020-03-27T12:46:31Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="5708" started-at="2020-03-29T10:25:54Z" finished-at="2020-03-29T10:25:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withOutcome_NoShow_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withOutcome_NoShow_multipleUsers" duration-ms="96204" started-at="2020-03-27T12:46:31Z" data-provider="multipleUsers" finished-at="2020-03-27T12:48:07Z">
+        <test-method status="PASS" signature="logacall_Reached_StageClosedLost(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="logacall_Reached_StageClosedLost" duration-ms="127914" started-at="2020-03-29T10:25:59Z" data-provider="multipleUsers" finished-at="2020-03-29T10:28:07Z">
           <params>
             <param index="0">
               <value>
@@ -116,16 +116,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withOutcome_NoShow_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="740" started-at="2020-03-27T12:48:07Z" finished-at="2020-03-27T12:48:08Z">
+        </test-method> <!-- logacall_Reached_StageClosedLost -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="768" started-at="2020-03-29T10:28:07Z" finished-at="2020-03-29T10:28:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8319" started-at="2020-03-27T12:48:08Z" finished-at="2020-03-27T12:48:16Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="9038" started-at="2020-03-29T10:28:08Z" finished-at="2020-03-29T10:28:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withOutcome_Cancelled_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withOutcome_Cancelled_multipleUsers" duration-ms="90340" started-at="2020-03-27T12:48:16Z" data-provider="multipleUsers" finished-at="2020-03-27T12:49:46Z">
+        <test-method status="PASS" signature="scheduleMeetingandthenCloseMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="scheduleMeetingandthenCloseMeeting" duration-ms="108260" started-at="2020-03-29T10:28:17Z" data-provider="multipleUsers" finished-at="2020-03-29T10:30:05Z">
           <params>
             <param index="0">
               <value>
@@ -135,16 +135,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withOutcome_Cancelled_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="741" started-at="2020-03-27T12:49:46Z" finished-at="2020-03-27T12:49:47Z">
+        </test-method> <!-- scheduleMeetingandthenCloseMeeting -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="782" started-at="2020-03-29T10:30:05Z" finished-at="2020-03-29T10:30:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8702" started-at="2020-03-27T12:49:47Z" finished-at="2020-03-27T12:49:56Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="6552" started-at="2020-03-29T10:30:06Z" finished-at="2020-03-29T10:30:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withOutcome_Cancelled_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withOutcome_Cancelled_multipleUsers" duration-ms="101833" started-at="2020-03-27T12:49:56Z" data-provider="multipleUsers" finished-at="2020-03-27T12:51:38Z">
+        <test-method status="PASS" signature="scheduleMeetingandthenCloseMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="scheduleMeetingandthenCloseMeeting" duration-ms="122302" started-at="2020-03-29T10:30:13Z" data-provider="multipleUsers" finished-at="2020-03-29T10:32:15Z">
           <params>
             <param index="0">
               <value>
@@ -154,16 +154,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withOutcome_Cancelled_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="767" started-at="2020-03-27T12:51:38Z" finished-at="2020-03-27T12:51:38Z">
+        </test-method> <!-- scheduleMeetingandthenCloseMeeting -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="777" started-at="2020-03-29T10:32:15Z" finished-at="2020-03-29T10:32:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="9271" started-at="2020-03-27T12:51:38Z" finished-at="2020-03-27T12:51:48Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="6009" started-at="2020-03-29T10:32:16Z" finished-at="2020-03-29T10:32:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withOutcome_Completed_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withOutcome_Completed_multipleUsers" duration-ms="84660" started-at="2020-03-27T12:51:48Z" data-provider="multipleUsers" finished-at="2020-03-27T12:53:12Z">
+        <test-method status="PASS" signature="scheduleMeetingviaNextAction(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="scheduleMeetingviaNextAction" duration-ms="152093" started-at="2020-03-29T10:32:22Z" data-provider="Ian" finished-at="2020-03-29T10:34:54Z">
           <params>
             <param index="0">
               <value>
@@ -173,35 +173,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withOutcome_Completed_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="743" started-at="2020-03-27T12:53:12Z" finished-at="2020-03-27T12:53:13Z">
+        </test-method> <!-- scheduleMeetingviaNextAction -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="882" started-at="2020-03-29T10:34:54Z" finished-at="2020-03-29T10:34:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8240" started-at="2020-03-27T12:53:13Z" finished-at="2020-03-27T12:53:21Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="6275" started-at="2020-03-29T10:34:55Z" finished-at="2020-03-29T10:35:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withOutcome_Completed_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withOutcome_Completed_multipleUsers" duration-ms="92461" started-at="2020-03-27T12:53:21Z" data-provider="multipleUsers" finished-at="2020-03-27T12:54:54Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withOutcome_Completed_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="745" started-at="2020-03-27T12:54:54Z" finished-at="2020-03-27T12:54:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8002" started-at="2020-03-27T12:54:54Z" finished-at="2020-03-27T12:55:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withMeeting_OnPhone_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withMeeting_OnPhone_multipleUsers" duration-ms="81824" started-at="2020-03-27T12:55:02Z" data-provider="multipleUsers" finished-at="2020-03-27T12:56:24Z">
+        <test-method status="PASS" signature="enrollment_BM(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="enrollment_BM" duration-ms="127029" started-at="2020-03-29T10:35:01Z" data-provider="multipleUsers" finished-at="2020-03-29T10:37:08Z">
           <params>
             <param index="0">
               <value>
@@ -211,16 +192,16 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withMeeting_OnPhone_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="768" started-at="2020-03-27T12:56:24Z" finished-at="2020-03-27T12:56:25Z">
+        </test-method> <!-- enrollment_BM -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="744" started-at="2020-03-29T10:37:08Z" finished-at="2020-03-29T10:37:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8499" started-at="2020-03-27T12:56:25Z" finished-at="2020-03-27T12:56:34Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="setUp" is-config="true" duration-ms="7420" started-at="2020-03-29T10:37:09Z" finished-at="2020-03-29T10:37:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withMeeting_OnPhone_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withMeeting_OnPhone_multipleUsers" duration-ms="89503" started-at="2020-03-27T12:56:34Z" data-provider="multipleUsers" finished-at="2020-03-27T12:58:03Z">
+        <test-method status="PASS" signature="enrollment_BM(java.lang.String)[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="enrollment_BM" duration-ms="137431" started-at="2020-03-29T10:37:16Z" data-provider="multipleUsers" finished-at="2020-03-29T10:39:34Z">
           <params>
             <param index="0">
               <value>
@@ -230,696 +211,12 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withMeeting_OnPhone_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="767" started-at="2020-03-27T12:58:03Z" finished-at="2020-03-27T12:58:04Z">
+        </test-method> <!-- enrollment_BM -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.BranchOpportunityTest@3d8314f0]" name="tearDown" is-config="true" duration-ms="847" started-at="2020-03-29T10:39:34Z" finished-at="2020-03-29T10:39:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8573" started-at="2020-03-27T12:58:04Z" finished-at="2020-03-27T12:58:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers" duration-ms="87830" started-at="2020-03-27T12:58:12Z" data-provider="multipleUsers" finished-at="2020-03-27T12:59:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="765" started-at="2020-03-27T12:59:40Z" finished-at="2020-03-27T12:59:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8326" started-at="2020-03-27T12:59:41Z" finished-at="2020-03-27T12:59:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers" duration-ms="98970" started-at="2020-03-27T12:59:49Z" data-provider="multipleUsers" finished-at="2020-03-27T13:01:28Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="809" started-at="2020-03-27T13:01:28Z" finished-at="2020-03-27T13:01:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8127" started-at="2020-03-27T13:01:29Z" finished-at="2020-03-27T13:01:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers" duration-ms="85831" started-at="2020-03-27T13:01:37Z" data-provider="multipleUsers" finished-at="2020-03-27T13:03:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="707" started-at="2020-03-27T13:03:03Z" finished-at="2020-03-27T13:03:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="10016" started-at="2020-03-27T13:03:04Z" finished-at="2020-03-27T13:03:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers" duration-ms="95480" started-at="2020-03-27T13:03:14Z" data-provider="multipleUsers" finished-at="2020-03-27T13:04:49Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="726" started-at="2020-03-27T13:04:49Z" finished-at="2020-03-27T13:04:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8396" started-at="2020-03-27T13:04:50Z" finished-at="2020-03-27T13:04:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_ToDo(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_Schedule_ToDo" duration-ms="95174" started-at="2020-03-27T13:04:58Z" data-provider="multipleUsers" finished-at="2020-03-27T13:06:34Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reached_Schedule_ToDo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="749" started-at="2020-03-27T13:06:34Z" finished-at="2020-03-27T13:06:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8977" started-at="2020-03-27T13:06:34Z" finished-at="2020-03-27T13:06:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_ToDo(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_Schedule_ToDo" duration-ms="88663" started-at="2020-03-27T13:06:43Z" data-provider="multipleUsers" finished-at="2020-03-27T13:08:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reached_Schedule_ToDo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="755" started-at="2020-03-27T13:08:12Z" finished-at="2020-03-27T13:08:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8538" started-at="2020-03-27T13:08:13Z" finished-at="2020-03-27T13:08:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_Phonecall(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_Schedule_Phonecall" duration-ms="78300" started-at="2020-03-27T13:08:21Z" data-provider="multipleUsers" finished-at="2020-03-27T13:09:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reached_Schedule_Phonecall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="748" started-at="2020-03-27T13:09:40Z" finished-at="2020-03-27T13:09:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8429" started-at="2020-03-27T13:09:40Z" finished-at="2020-03-27T13:09:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_Phonecall(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_Schedule_Phonecall" duration-ms="93312" started-at="2020-03-27T13:09:49Z" data-provider="multipleUsers" finished-at="2020-03-27T13:11:22Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reached_Schedule_Phonecall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="788" started-at="2020-03-27T13:11:22Z" finished-at="2020-03-27T13:11:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8395" started-at="2020-03-27T13:11:23Z" finished-at="2020-03-27T13:11:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_Appointment(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_Schedule_Appointment" duration-ms="88999" started-at="2020-03-27T13:11:31Z" data-provider="multipleUsers" finished-at="2020-03-27T13:13:00Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reached_Schedule_Appointment -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="727" started-at="2020-03-27T13:13:00Z" finished-at="2020-03-27T13:13:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="10078" started-at="2020-03-27T13:13:01Z" finished-at="2020-03-27T13:13:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reached_Schedule_Appointment(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reached_Schedule_Appointment" duration-ms="84940" started-at="2020-03-27T13:13:11Z" data-provider="multipleUsers" finished-at="2020-03-27T13:14:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reached_Schedule_Appointment -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="721" started-at="2020-03-27T13:14:36Z" finished-at="2020-03-27T13:14:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="9925" started-at="2020-03-27T13:14:37Z" finished-at="2020-03-27T13:14:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReachedwithBusinessLead(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="notReachedwithBusinessLead" duration-ms="80550" started-at="2020-03-27T13:14:47Z" data-provider="multipleUsers" finished-at="2020-03-27T13:16:07Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- notReachedwithBusinessLead -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="741" started-at="2020-03-27T13:16:07Z" finished-at="2020-03-27T13:16:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="9972" started-at="2020-03-27T13:16:08Z" finished-at="2020-03-27T13:16:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="notReachedwithBusinessLead(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="notReachedwithBusinessLead" duration-ms="94674" started-at="2020-03-27T13:16:18Z" data-provider="multipleUsers" finished-at="2020-03-27T13:17:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- notReachedwithBusinessLead -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="741" started-at="2020-03-27T13:17:53Z" finished-at="2020-03-27T13:17:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8224" started-at="2020-03-27T13:17:53Z" finished-at="2020-03-27T13:18:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead" duration-ms="88881" started-at="2020-03-27T13:18:01Z" data-provider="multipleUsers" finished-at="2020-03-27T13:19:30Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="745" started-at="2020-03-27T13:19:30Z" finished-at="2020-03-27T13:19:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8137" started-at="2020-03-27T13:19:31Z" finished-at="2020-03-27T13:19:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead" duration-ms="109155" started-at="2020-03-27T13:19:39Z" data-provider="multipleUsers" finished-at="2020-03-27T13:21:28Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="730" started-at="2020-03-27T13:21:28Z" finished-at="2020-03-27T13:21:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8437" started-at="2020-03-27T13:21:29Z" finished-at="2020-03-27T13:21:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_SchedulePhoneCall(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead_SchedulePhoneCall" duration-ms="96748" started-at="2020-03-27T13:21:38Z" data-provider="multipleUsers" finished-at="2020-03-27T13:23:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_SchedulePhoneCall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="720" started-at="2020-03-27T13:23:14Z" finished-at="2020-03-27T13:23:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8503" started-at="2020-03-27T13:23:15Z" finished-at="2020-03-27T13:23:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_SchedulePhoneCall(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead_SchedulePhoneCall" duration-ms="108603" started-at="2020-03-27T13:23:24Z" data-provider="multipleUsers" finished-at="2020-03-27T13:25:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_SchedulePhoneCall -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="734" started-at="2020-03-27T13:25:12Z" finished-at="2020-03-27T13:25:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8422" started-at="2020-03-27T13:25:13Z" finished-at="2020-03-27T13:25:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleTodo(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead_ScheduleTodo" duration-ms="98628" started-at="2020-03-27T13:25:21Z" data-provider="multipleUsers" finished-at="2020-03-27T13:27:00Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleTodo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="718" started-at="2020-03-27T13:27:00Z" finished-at="2020-03-27T13:27:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8296" started-at="2020-03-27T13:27:01Z" finished-at="2020-03-27T13:27:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleTodo(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead_ScheduleTodo" duration-ms="109073" started-at="2020-03-27T13:27:09Z" data-provider="multipleUsers" finished-at="2020-03-27T13:28:58Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleTodo -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="744" started-at="2020-03-27T13:28:58Z" finished-at="2020-03-27T13:28:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8470" started-at="2020-03-27T13:28:59Z" finished-at="2020-03-27T13:29:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead_ScheduleMeeting" duration-ms="96664" started-at="2020-03-27T13:29:07Z" data-provider="multipleUsers" finished-at="2020-03-27T13:30:44Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="730" started-at="2020-03-27T13:30:44Z" finished-at="2020-03-27T13:30:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8340" started-at="2020-03-27T13:30:45Z" finished-at="2020-03-27T13:30:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="reachedwithBusinessLead_ScheduleMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="reachedwithBusinessLead_ScheduleMeeting" duration-ms="102413" started-at="2020-03-27T13:30:53Z" data-provider="multipleUsers" finished-at="2020-03-27T13:32:35Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- reachedwithBusinessLead_ScheduleMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="733" started-at="2020-03-27T13:32:35Z" finished-at="2020-03-27T13:32:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8405" started-at="2020-03-27T13:32:36Z" finished-at="2020-03-27T13:32:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeetingWithExistingMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeetingWithExistingMeeting" duration-ms="105844" started-at="2020-03-27T13:32:45Z" data-provider="multipleUsers" finished-at="2020-03-27T13:34:30Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeetingWithExistingMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="728" started-at="2020-03-27T13:34:30Z" finished-at="2020-03-27T13:34:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="7970" started-at="2020-03-27T13:34:31Z" finished-at="2020-03-27T13:34:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UnplannedMeetingWithExistingMeeting(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UnplannedMeetingWithExistingMeeting" duration-ms="121094" started-at="2020-03-27T13:34:39Z" data-provider="multipleUsers" finished-at="2020-03-27T13:36:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnplannedMeetingWithExistingMeeting -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="734" started-at="2020-03-27T13:36:40Z" finished-at="2020-03-27T13:36:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8507" started-at="2020-03-27T13:36:41Z" finished-at="2020-03-27T13:36:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="meeting_CompleteFlow(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="meeting_CompleteFlow" duration-ms="66878" started-at="2020-03-27T13:36:49Z" data-provider="Imran" finished-at="2020-03-27T13:37:56Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R0000032jRGQAY]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- meeting_CompleteFlow -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="704" started-at="2020-03-27T13:37:56Z" finished-at="2020-03-27T13:37:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8345" started-at="2020-03-27T13:37:57Z" finished-at="2020-03-27T13:38:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="AddSpouseandLogaCallPrimary(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="AddSpouseandLogaCallPrimary" duration-ms="109126" started-at="2020-03-27T13:38:05Z" data-provider="multipleUsers" finished-at="2020-03-27T13:39:54Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddSpouseandLogaCallPrimary -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="765" started-at="2020-03-27T13:39:54Z" finished-at="2020-03-27T13:39:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8453" started-at="2020-03-27T13:39:55Z" finished-at="2020-03-27T13:40:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="AddSpouseandLogaCallPrimary(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="AddSpouseandLogaCallPrimary" duration-ms="127000" started-at="2020-03-27T13:40:04Z" data-provider="multipleUsers" finished-at="2020-03-27T13:42:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddSpouseandLogaCallPrimary -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="735" started-at="2020-03-27T13:42:11Z" finished-at="2020-03-27T13:42:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8374" started-at="2020-03-27T13:42:11Z" finished-at="2020-03-27T13:42:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="LogaCallwithSpouse_ValidateAtPrimary(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="LogaCallwithSpouse_ValidateAtPrimary" duration-ms="163564" started-at="2020-03-27T13:42:20Z" data-provider="multipleUsers" finished-at="2020-03-27T13:45:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogaCallwithSpouse_ValidateAtPrimary -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="797" started-at="2020-03-27T13:45:03Z" finished-at="2020-03-27T13:45:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8357" started-at="2020-03-27T13:45:04Z" finished-at="2020-03-27T13:45:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="LogaCallwithSpouse_ValidateAtPrimary(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="LogaCallwithSpouse_ValidateAtPrimary" duration-ms="175210" started-at="2020-03-27T13:45:13Z" data-provider="multipleUsers" finished-at="2020-03-27T13:48:08Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogaCallwithSpouse_ValidateAtPrimary -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="784" started-at="2020-03-27T13:48:08Z" finished-at="2020-03-27T13:48:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8880" started-at="2020-03-27T13:48:09Z" finished-at="2020-03-27T13:48:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdatePrimaryAccountdetails(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UpdatePrimaryAccountdetails" duration-ms="78667" started-at="2020-03-27T13:48:17Z" data-provider="multipleUsers" finished-at="2020-03-27T13:49:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UpdatePrimaryAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="782" started-at="2020-03-27T13:49:36Z" finished-at="2020-03-27T13:49:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8381" started-at="2020-03-27T13:49:37Z" finished-at="2020-03-27T13:49:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdatePrimaryAccountdetails(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UpdatePrimaryAccountdetails" duration-ms="84487" started-at="2020-03-27T13:49:45Z" data-provider="multipleUsers" finished-at="2020-03-27T13:51:10Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UpdatePrimaryAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="802" started-at="2020-03-27T13:51:10Z" finished-at="2020-03-27T13:51:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8408" started-at="2020-03-27T13:51:11Z" finished-at="2020-03-27T13:51:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdateSpouseAccountdetails(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UpdateSpouseAccountdetails" duration-ms="123718" started-at="2020-03-27T13:51:19Z" data-provider="multipleUsers" finished-at="2020-03-27T13:53:23Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UpdateSpouseAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="837" started-at="2020-03-27T13:53:23Z" finished-at="2020-03-27T13:53:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8414" started-at="2020-03-27T13:53:23Z" finished-at="2020-03-27T13:53:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="UpdateSpouseAccountdetails(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="UpdateSpouseAccountdetails" duration-ms="117460" started-at="2020-03-27T13:53:32Z" data-provider="multipleUsers" finished-at="2020-03-27T13:55:29Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UpdateSpouseAccountdetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="768" started-at="2020-03-27T13:55:29Z" finished-at="2020-03-27T13:55:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8234" started-at="2020-03-27T13:55:30Z" finished-at="2020-03-27T13:55:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="nolead_Reached_createBranchOpportunity(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="nolead_Reached_createBranchOpportunity" duration-ms="92919" started-at="2020-03-27T13:55:38Z" data-provider="multipleUsers" finished-at="2020-03-27T13:57:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- nolead_Reached_createBranchOpportunity -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="743" started-at="2020-03-27T13:57:11Z" finished-at="2020-03-27T13:57:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8234" started-at="2020-03-27T13:57:12Z" finished-at="2020-03-27T13:57:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="nolead_Reached_createBranchOpportunity(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="nolead_Reached_createBranchOpportunity" duration-ms="102070" started-at="2020-03-27T13:57:20Z" data-provider="multipleUsers" finished-at="2020-03-27T13:59:02Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- nolead_Reached_createBranchOpportunity -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="793" started-at="2020-03-27T13:59:02Z" finished-at="2020-03-27T13:59:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8552" started-at="2020-03-27T13:59:03Z" finished-at="2020-03-27T13:59:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateFinancialDataForSponsoredClient(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="validateFinancialDataForSponsoredClient" duration-ms="85262" started-at="2020-03-27T13:59:12Z" data-provider="Robert" finished-at="2020-03-27T14:00:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateFinancialDataForSponsoredClient -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="759" started-at="2020-03-27T14:00:37Z" finished-at="2020-03-27T14:00:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8508" started-at="2020-03-27T14:00:38Z" finished-at="2020-03-27T14:00:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateEmail(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="validateEmail" duration-ms="53100" started-at="2020-03-27T14:00:46Z" data-provider="multipleUsers" finished-at="2020-03-27T14:01:39Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRFmQAO]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateEmail -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="745" started-at="2020-03-27T14:01:39Z" finished-at="2020-03-27T14:01:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="setUp" is-config="true" duration-ms="8623" started-at="2020-03-27T14:01:40Z" finished-at="2020-03-27T14:01:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateEmail(java.lang.String)[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="validateEmail" duration-ms="53163" started-at="2020-03-27T14:01:49Z" data-provider="multipleUsers" finished-at="2020-03-27T14:02:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[0050R000000XRHYQA4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateEmail -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.crm.qa.testcases.LogActivityTest@70a9f84e]" name="tearDown" is-config="true" duration-ms="777" started-at="2020-03-27T14:02:42Z" finished-at="2020-03-27T14:02:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.crm.qa.testcases.LogActivityTest -->
+      </class> <!-- com.crm.qa.testcases.BranchOpportunityTest -->
     </test> <!-- Free CRM App Test Cases -->
   </suite> <!-- FREE CRM Application Test Automation Test Suite -->
 </testng-results>

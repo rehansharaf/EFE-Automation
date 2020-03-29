@@ -66,7 +66,6 @@ public class BranchOpportunityTest extends TestBase {
 		homePage.navigateToRetailuser("Primary");
 		opp.validateOpttyCounter(1);
 		
-		
 	}
 	
 	
@@ -80,9 +79,10 @@ public class BranchOpportunityTest extends TestBase {
 		createBranchOptty_viaAPI();
 		opp.clickOpportunity();
 		opp.opportunityClosedLost();
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Closed Lost", "$125,000", 6);
 		opp.validateOpttyforStageStatus("Closed Lost");
 		
+
 		
 	}
 	
@@ -108,7 +108,7 @@ public class BranchOpportunityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Attempting", "$125,000", 6);
 		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Attempting");
 		
@@ -124,7 +124,7 @@ public class BranchOpportunityTest extends TestBase {
 		createBranchOptty_viaAPI();
 		
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Attempting", 6);
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Attempting", "$125,000", 6);
 		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Attempting");
 		
@@ -141,7 +141,7 @@ public class BranchOpportunityTest extends TestBase {
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
 		opp.opportunityClosedLost();
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Closed Lost", 6);
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Closed Lost", "$125,000", 6);
 		opp.validateOpttyforStageStatus("Closed Lost");
 		
 	}
@@ -155,7 +155,7 @@ public class BranchOpportunityTest extends TestBase {
 		HomePage.navigateToMultipleUser("advisor", advisorId);
 		createBranchOptty_viaAPI();
 		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Initial Appointment", "$125,000", 6);
 		opp.clickOpportunity();
 		opp.validateOpttyforStageStatus("Initial Appointment");
 		
@@ -171,8 +171,8 @@ public class BranchOpportunityTest extends TestBase {
 		createBranchOptty_viaAPI();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
-		opp.scheduleMeetingusingNextAction();
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("Initial Appointment", 6);
+		opp.scheduleMeetingusingNextAction("On-Phone Meeting");
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Initial Appointment", "$125,000", 6);
 		opp.validateOpttyforStageStatus("Initial Appointment");
 		
 	}
@@ -193,10 +193,18 @@ public class BranchOpportunityTest extends TestBase {
 		opp.addFinancialAccount();
 		opp.validateFinancialAccount();
 		
+		
 	}
 	
+
 	
+/*------------------------------------------------------------------------------------------------------------------------	
 	
+*******************************************Old Scripts. May need them in future****************************************
+	
+//------------------------------------------------------------------------------------------------------------------------	*/
+	//This functionality is removed	
+/*
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void createNewFinancialAccount_BMOptty(String advisorId) throws Exception {
 		
@@ -211,7 +219,8 @@ public class BranchOpportunityTest extends TestBase {
 		
 		
 	}
-
+*/
+	
 	
 	/*	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
@@ -232,12 +241,6 @@ public class BranchOpportunityTest extends TestBase {
 	}
 	
 	*/
-	
-	
-	
-//------------------------------------------------------------------------------------------------------------------------	
-	
-	
 	
 	
 	

@@ -448,6 +448,11 @@ public class Opportunities extends TestBase{
 	@SuppressWarnings("static-access")
 	String commentsToEnter = detailsPage.commentsToEnter;
 	
+
+	public static String ldSource;
+	public static String stgStatus;
+	public static String expctdAmnt;
+	
 	
 //*************************************************** Create WP/BM Opportunities (via Log a Call) ********************************************************************************	
 	
@@ -534,14 +539,16 @@ public class Opportunities extends TestBase{
 
 //*************************************************** Schedule Meeting using Next Action********************************************************************************	
 
-	public  void scheduleMeetingusingNextAction() throws InterruptedException, AWTException, IOException, ParseException {
+	public  void scheduleMeetingusingNextAction(String meetingClient) throws InterruptedException, AWTException, IOException, ParseException {
 	
+		detailsPage.set_futureMeetingwithClient(meetingClient);
+		
 		TestUtil.waitUntilElementVisible(leadSourceLbl);
 		
 		if (stageStatusOptty.getText().equalsIgnoreCase("New")) {driver.navigate().refresh();TestUtil.waitUntilElementVisible(leadSourceLbl);}
 		
 		TestUtil.clickElement(scheduleanApptRadioBtn);
-		TestUtil.clickElement(closeOpptyasLostNextBtn);
+		TestUtil.clickElement(closeOpptyasLostNextBtn);Thread.sleep(2000);
 		detailsPage.createFutureAppointment(); 
 		
 		driver.navigate().refresh(); Thread.sleep(8000);
@@ -555,7 +562,7 @@ public class Opportunities extends TestBase{
 		TestUtil.clickElement(saveBtn); Thread.sleep(5000);
 		TestUtil.clickElement(OpttyLink); 
 		
-		driver.navigate().refresh(); Thread.sleep(5000);
+		driver.navigate().refresh(); Thread.sleep(10000);
 		
 	}
 
@@ -674,9 +681,6 @@ public class Opportunities extends TestBase{
 	
 		
 	
-	
-	
-	
 //********************************************Click Optty Link based on Profile***************************************************	
 
 	public void clickOpttyforOutbound2Advisor() throws InterruptedException, AWTException {
@@ -689,7 +693,7 @@ public class Opportunities extends TestBase{
 	
 	public void clickOpportunity() throws InterruptedException, AWTException {
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	/*	
 		if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")|| (RetailAccount.userProfile.equals("Outbound 1 Advisor"))){
 			TestUtil.clickElement(oppLink);
@@ -698,7 +702,7 @@ public class Opportunities extends TestBase{
 		else {clickOpttyforOutbound2Advisor();}
 	*/
 		clickOpttyforOutbound2Advisor();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	
 	}
 	
@@ -716,15 +720,16 @@ public class Opportunities extends TestBase{
 	
 //********************************************Validate Optty Stage***************************************************	
 	
-	public void validateOpttyforStageStatus(String stageStatus) throws InterruptedException, AWTException {
+	public void validateOpttyforStageStatus( String stageStatus) throws InterruptedException, AWTException {
 	
 		//if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")){clickOpportunity();}
 		
+		
 		TestUtil.waitUntilElementVisible(leadSourceLbl);
 		
-		validateField("Lead Source", "NAC Outbound", "Lead Source Value is not correct");
+		validateField("Lead Source", get_leadSource(), "Lead Source Value is not correct");
 		validateField("Stage", stageStatus, "Stage Status Value is not correct");
-		validateField("Estimated Expected Amount", "$125,000", "Expected Amount Value is not correct");
+		validateField("Estimated Expected Amount", get_expectedAmount(), "Expected Amount Value is not correct");
 		
 		if (stageStatus == "Closed Lost") {validateField("Loss Reason", "Duplicate", "Loss Reason Value is not correct");}
 	
@@ -737,8 +742,15 @@ public class Opportunities extends TestBase{
 	public void validateField(String fieldName, String expectedValue, String errorMessage) throws InterruptedException, AWTException {
 		
 		String actualValue = driver.findElement(By.xpath("(//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text)[last()]")).getText();
-		softAssertion.assertEquals(actualValue, expectedValue, errorMessage);
 		
+		while (!actualValue.equals(expectedValue))
+		{
+			driver.navigate().refresh();Thread.sleep(8000);
+			actualValue = driver.findElement(By.xpath("(//span[(text()='" +fieldName+ "')]/../..//lightning-formatted-text)[last()]")).getText();
+		}
+		
+		softAssertion.assertEquals(actualValue, expectedValue, errorMessage);
+	
 	}
 	
 	
@@ -762,12 +774,27 @@ public class Opportunities extends TestBase{
 	}
 	
 
+
+	
+	public  void set_leadSource(String leadsource) {ldSource= leadsource;}
+	public  void set_stageStatus(String stageStatus) {stgStatus = stageStatus;}
+	public  void set_expectedAmount(String exptAmnt){expctdAmnt=exptAmnt;}
+	
+	
+	public  String  get_leadSource() {return ldSource ;}
+	public  String get_stageStatus() {return stgStatus ;}
+	public  String get_expectedAmount() {return expctdAmnt ;}
+	
+	
+	
 	
 
 	
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-
-	
+//
+//********************************Old Scripts. Keeping them so they can be used in Future*****************************************
+//	
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 
 	/*
 	public static void selectDrpDwnOptionViaClick(WebElement dropdown, WebElement Option ) {

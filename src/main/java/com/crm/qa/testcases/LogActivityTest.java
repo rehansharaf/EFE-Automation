@@ -502,8 +502,14 @@ public class LogActivityTest extends TestBase {
 		TestUtil.print("Create WorkPlace Opportunity with no Lead and Reached Option");
 		
 		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
+		
+		//********Using a particular account for Workplace Optty scenario. Once the issue is resolved we remove the comments from the following two lines of code
+		//SalesforceTestRestAPI.APIConnection();
+		//homePage.navigateToRetailuser("Primary");
+		
+		//This line can be removed once the issue is resolved.
+		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000vhxshQAA/view");
+		
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
 		opp.createWorkplaceOpportunity();	
 		SalesforceTestRestAPI.validateTaskData(1);
