@@ -1,10 +1,17 @@
 package com.crm.qa.util;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -15,7 +22,7 @@ public class ReadFromExcel extends TestBase {
 
 	InitializeUserData 	initializeData = new InitializeUserData(); 
 	Properties cloned = (Properties)prop.clone();
-
+	private static int writeRow = 1;
 	
 	
 	
@@ -48,6 +55,57 @@ public class ReadFromExcel extends TestBase {
 
             return data;
         }
+
+
+
+    	public static void writeExcel(String usernumber, String accountId) throws IOException, InvalidFormatException {
+	 		
+
+    		String filePath = prop.getProperty("ExcelFilePath");
+    		String sheetName = prop.getProperty("ExcelSheetName");
+    		
+    		
+    		FileInputStream fis = new FileInputStream(filePath);
+    		
+    		Workbook workbook = new XSSFWorkbook(fis);
+    		
+    		Sheet sheet = workbook.getSheetAt(0);
+    		
+    			
+    			Row row = sheet.getRow(writeRow);
+    			
+    			Cell cell1 = row.createCell(2);
+    			Cell cell2 = row.createCell(3);
+    			
+    			cell1.setCellValue(usernumber);
+    			cell2.setCellValue(accountId);
+    			
+    			writeRow++;
+    			
+    		
+    		FileOutputStream fos = new FileOutputStream(filePath);
+    		
+    		workbook.write(fos);
+    		
+    		fos.close();
+     
+    	}
+			
+	 		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

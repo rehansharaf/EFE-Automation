@@ -103,12 +103,14 @@ public class HomePage extends TestBase {
 	
 		if (role.equalsIgnoreCase("advisor")){
 		
-			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");
+			driver.navigate().to(prop.getProperty("SFDC_TestEnv")+"/lightning/r/User/"+advisorId+"/view");Thread.sleep(2000);
+			TestUtil.waitUntilElementVisible(advisorLink);
 			userProfile  = RetailAccount.userProfile = usrProfile.getText();
 			TestUtil.clickElement(advisorLink);
 			
 			TestUtil.waitUntilElementVisible(iframe);driver.switchTo().frame(iframe);
-
+			
+			
 			TestUtil.clickElement(advisorLogin);driver.switchTo().defaultContent();Thread.sleep(5000);
 			
 			driver.navigate().refresh();

@@ -1,46 +1,31 @@
 package com.crm.qa.testcases;
 
-import java.awt.AWTException;
+
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.By;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.FinancialPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
-import com.crm.qa.pages.MeetingFlow;
-import com.crm.qa.pages.NASF;
 import com.crm.qa.pages.Opportunities;
 import com.crm.qa.pages.ReferralAppointment;
 import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.base.InitializeUserData;
 import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.pages.SalesforceTestRestAPI;
-import com.crm.qa.pages.Unenrollment;
-import com.crm.qa.pages.createLead;
-import com.crm.qa.pages.verifyLead;
 import com.crm.qa.pages.HouseholdPage;
 import com.crm.qa.pages.CommunicationPage;
+import com.crm.qa.util.Log;
 import com.crm.qa.util.TestUtil;
-import com.crm.qa.util.Validation;
-import com.crm.qa.util.ExcelWrite;
 import com.qa.DataProvider.*;
 
-import com.qa.ExtentReport.*;
-import com.relevantcodes.extentreports.LogStatus;
-import com.aventstack.extentreports.Status;
+
 
 
 public class LogActivityTest extends TestBase {
@@ -48,15 +33,9 @@ public class LogActivityTest extends TestBase {
 	DetailsPage detailsPage;
 	LoginPage loginPage;
 	HomePage homePage;
-	TestUtil testUtil;
-	createLead createlead;
-	verifyLead verifylead;
 	Opportunities opp;
 	ReferralAppointment ref;
 	SalesforceTestRestAPI sfdc;
-	MeetingFlow meetingflow;
-	Validation validation;
-	ExcelWrite excelWrite;
 	SalesforceTestRestAPI sfdcTestRestAPI;
 	SalesforceRestAPI sfdcRestAPI;
 	RetailAccount retailAccount;
@@ -65,24 +44,19 @@ public class LogActivityTest extends TestBase {
 	InitializeUserData initializeData;
 	FinancialPage financialPage;
 	
-	//VerifyTodo verifyTodo = new VerifyTodo();
-	
-	String sheetName = "demo";
-	
-	//Variables to generate Specific name Accounts
-	//public static int i=-1, j= -1;
-	
+		
 	SoftAssert softAssertion = new SoftAssert();
 	
+	
+	
 	@BeforeMethod
-	public void setUp() throws InterruptedException {
+	public void setUp() throws Exception {
 		initialization();
 		
 		
-		testUtil 			= new TestUtil();
+		
 		detailsPage 		= new DetailsPage();
 		loginPage 			= new LoginPage();
-		excelWrite 			= new ExcelWrite();
 		sfdcTestRestAPI 	= new SalesforceTestRestAPI();
 		sfdcRestAPI 		= new SalesforceRestAPI();
 		retailAccount 		= new RetailAccount();
@@ -94,11 +68,9 @@ public class LogActivityTest extends TestBase {
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
-		//Variables counters to generate Specific name Accounts
-		//i=i+1; j=j+1;
-		
 		initializeData.setTestCaseonDemandtoNo();
 		initializeData.initialize();
+		
 		
 		
 		try {Thread.sleep(2000);} 
@@ -108,17 +80,13 @@ public class LogActivityTest extends TestBase {
 	
 	
 	
-	@Test()
-	public void debug() throws InterruptedException, ParseException{SalesforceTestRestAPI.APIConnection();}
-	
-
-	
 	@Test(description = "Log a Call with Not Reached Scenario. Test Case will be run for multiple profiles.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void notReached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
 		TestUtil.print("Not Reached Scenario for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
+		
+		HomePage.navigateToMultipleUser("advisor", advisorId);Log.info("Logged in as : " +advisorType(advisorId));
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Primary");			
 		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
@@ -271,9 +239,6 @@ public class LogActivityTest extends TestBase {
 		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
 	
 	}
-
-
-	
 
 
 	
@@ -476,9 +441,9 @@ public class LogActivityTest extends TestBase {
 		homePage.navigateToSpouseuser();
 		detailsPage.updateAccountDetails();
 		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");		
-
 	
 	}
+	
 	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void nolead_Reached_createBranchOpportunity(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {

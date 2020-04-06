@@ -1294,12 +1294,15 @@ public static void createRegularAccount() {
  }   
 
 
-@SuppressWarnings("static-access")
-public void set_uid(String userid) {this.uid = userid;}
-public void set_fname(String firstname) {this.fname = firstname;}
-public void set_lname(String lastname) {this.lname = lastname;}
-public void set_bname(String busname) {this.bname = busname;}
-public void set_accountId(String accountId) {this.accountId = accountId;}
+
+public void set_uid(String userid) {uid = userid;}
+public void set_fname(String firstname) {fname = firstname;}
+public void set_lname(String lastname) {lname = lastname;}
+public void set_bname(String busname) {bname = busname;}
+
+public void set_accountId(String AccountId) {accountId = AccountId;}
+
+public String get_accountId(){return accountId;}
 
 
 

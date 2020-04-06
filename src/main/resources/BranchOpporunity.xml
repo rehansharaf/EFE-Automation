@@ -32,12 +32,7 @@
 
 				
 
-				<include name="logacall_notReached_Optty"></include>
-				<include name="logacall_Reached_Optty"></include>
-				<include name="logacall_Reached_StageClosedLost"></include>	
-				<include name="scheduleMeetingandthenCloseMeeting"></include>
-				<include name="scheduleMeetingviaNextAction"></include>	
-				<include name="enrollment_BM"></include>
+				<include name="opttyClosedLost_viaAPI"></include>
 					
 
 					

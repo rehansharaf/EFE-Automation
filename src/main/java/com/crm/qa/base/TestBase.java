@@ -27,6 +27,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.util.TestUtil;
 import com.qa.EventListener.*;
+import org.apache.log4j.Logger;
 
 
 
@@ -38,6 +39,7 @@ public class TestBase {
 	public static WebEventListener eventListener;
 	public  static WebDriverWait wait ;
 
+	public static Logger log = Logger.getLogger("devpinoyLogger");
 	
 	public TestBase(){
 		try {
@@ -131,10 +133,10 @@ public class TestBase {
 		    driver= new ChromeDriver(capabilities);
 			driver.manage().window().maximize();
 			
-	
-			Properties log4jProp = new Properties();
-			log4jProp.setProperty("log4j.rootLogger", "WARN");
-			PropertyConfigurator.configure(log4jProp);
+			
+			//Properties log4jProp = new Properties();
+			//log4jProp.setProperty("log4j.rootLogger", "WARN");
+			//PropertyConfigurator.configure(log4jProp);
 			
 		}
 		else if(browserName.equals("FF")){
@@ -157,7 +159,31 @@ public class TestBase {
 		
 	}
 	
+	 
+	public static String advisorType(String adv){
+		/* 
+		**UserName**		  ***Profile ID***		****Type****
+		Ian Krekelberg 		= 0050R000000XRFmQAO = Field Advisor
+		Travis Adams 		= 0050R000000tUilQAE = Inbound Advisor
+		Andrew Kovalcik  	= 0050R000000XRHEQA4 = Outbound1Advisor
+		Robert Fitzpatrick 	= 0050R000000XRHYQA4 = Outbound2Advisor
+		Rachel Alandzes 	= 0050R000000kTdBQAU = Field CSM
+		Allison Boyd		= 0050R0000030MXPQA2 = Field CSM
+		Imran Sharaf		= 0050R0000032jRGQAY = System Administrator for Developers
+		*/
+		String advisor = null;
 
+		if 		(adv.equalsIgnoreCase("0050R000000XRFmQAO")){advisor= "Field Advisor: Ian Krekelberg";}
+		else if (adv.equalsIgnoreCase("0050R000000tUilQAE")){advisor= "Inbound Advisor: Travis Adams";}
+		else if (adv.equalsIgnoreCase("0050R000000XRHEQA4")){advisor="Outbound1Advisor: Andrew Kovalcik";}
+		else if (adv.equalsIgnoreCase("0050R000000XRHYQA4")){advisor="Outbound2Advisor: Robert Fitzpatrick";}
+		else if (adv.equalsIgnoreCase("0050R000000kTdBQAU")){advisor= "Field CSM: Rachel Alandzes";}	
+		else if (adv.equalsIgnoreCase("0050R0000030MXPQA2")){advisor= "Field CSM: Allison Boyd";}	
+		else if (adv.equalsIgnoreCase("0050R0000032jRGQAY")){advisor= "System Administrator for Developers: Imran Sharaf";}	
+		
+		return advisor;
+	
+	}
 	
 
 }

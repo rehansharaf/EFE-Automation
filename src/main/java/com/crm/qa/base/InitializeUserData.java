@@ -19,12 +19,13 @@ public class InitializeUserData extends TestBase{
 	RetailAccount retailPage = new RetailAccount();
 	LogActivityTest logactivityTest = new LogActivityTest();
 	BranchOpportunityTest branchOpttyTest = new BranchOpportunityTest();
+	CreateAcctOpttyonDemand creatAcctonDemnd = new CreateAcctOpttyonDemand();
 	
 	 String RunningTestCaseonDemand;
 	
 	
 	@SuppressWarnings("static-access")
-	public  void initialize(){
+	public  void initialize() throws Exception{
 		
 		
 		Map<String, String> Data = new HashMap<String, String>();
@@ -57,6 +58,7 @@ public class InitializeUserData extends TestBase{
 		detailPage.set_emailupdate("testf"+uid+"@updateaccount.com");
 		
 		sfdcAPI.set_accountId(SalesforceRestAPI.getHashMapData()[0]);retailPage.set_accountId(SalesforceRestAPI.getHashMapData()[0]);
+		
 		
 	}
 	

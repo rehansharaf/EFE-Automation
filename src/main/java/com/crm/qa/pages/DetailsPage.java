@@ -20,6 +20,10 @@ import com.crm.qa.pages.RetailAccount;
 public class DetailsPage extends TestBase {
 	
 	
+	
+	@FindBy(xpath = "//span[text()='User Number']/../../..//lightning-formatted-text")
+	WebElement userNumber;
+	
 	@FindBy(xpath = "(//div[contains(text(),'Comments')]/../../../following-sibling::div/div/textarea)[last()]")
 	WebElement commentsTextarea;
 
@@ -523,6 +527,8 @@ public class DetailsPage extends TestBase {
 	
 	public void loganInteractionCreateOptty(String createOptty) throws InterruptedException {
 	
+		Thread.sleep(3000);
+		
 		if (createOptty.toLowerCase().equals("createopttyno")){TestUtil.clickElement(noOpttyRdBtn);	}
 		else if(createOptty.toLowerCase().equals("createopttyyes")){TestUtil.clickElement(yesOpttyRdBtn);}
 	}
@@ -847,6 +853,7 @@ public class DetailsPage extends TestBase {
 	public String get_meetingOutcome() {return mtngOutcome ;}
 	public String get_futureMeetingwithClient() {return futureMeetingwithClient ;}
 	public String get_meetingExist(){return mtngExist;}
+	public String getUserNumber(){return userNumber.getText();}
 	
 //***********************************************************************************************************************************
 	

@@ -306,7 +306,7 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//div[@class='row region-subheader']//button[contains(text(),'Next')]")
 	WebElement nextBtn;
 	
-	@FindBy(xpath = "//div[contains(text(),'Branch Management')]/ancestor::div[@class='content']//button")
+	@FindBy(xpath = "(//div[contains(text(),'Branch Management')]/ancestor::div[@class='content']//button)[last()]")
 	WebElement branchMngmntNextBtn;
 	
 	@FindBy(xpath = "//p[contains(text(),'Please click next button')]/ancestor::div[@class='content']//button")
@@ -437,7 +437,9 @@ public class Opportunities extends TestBase{
 	
 	DetailsPage detailsPage = new DetailsPage();
 	RetailAccount retailaccount = new RetailAccount();
+	HomePage homePage = new HomePage();
 	InitializeUserData initialize = new InitializeUserData();
+	
 	
 	JavascriptExecutor jse2 = (JavascriptExecutor)driver;
 	
@@ -453,6 +455,18 @@ public class Opportunities extends TestBase{
 	public static String stgStatus;
 	public static String expctdAmnt;
 	
+	
+
+	//*************************************************** Create Opportunities (via API) ********************************************************************************		
+	
+	public void createBranchOptty_viaAPI() throws Exception {
+
+		SalesforceTestRestAPI.APIConnection();
+		SalesforceTestRestAPI.dataCreation4(SalesforceRestAPI.fname, SalesforceRestAPI.lname);
+		homePage.navigateToRetailuser("Primary");
+		validateOpttyCounter(1);
+		
+	}	
 	
 //*************************************************** Create WP/BM Opportunities (via Log a Call) ********************************************************************************	
 	
@@ -694,14 +708,14 @@ public class Opportunities extends TestBase{
 	public void clickOpportunity() throws InterruptedException, AWTException {
 		
 		Thread.sleep(5000);
-	/*	
+		
 		if (RetailAccount.userProfile.contains("Field Advisor")||RetailAccount.userProfile.contains("Field CSM")|| (RetailAccount.userProfile.equals("Outbound 1 Advisor"))){
 			TestUtil.clickElement(oppLink);
 		}
 		
 		else {clickOpttyforOutbound2Advisor();}
-	*/
-		clickOpttyforOutbound2Advisor();
+	
+		//clickOpttyforOutbound2Advisor();
 		Thread.sleep(5000);
 	
 	}

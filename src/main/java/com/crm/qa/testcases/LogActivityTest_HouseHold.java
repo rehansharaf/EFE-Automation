@@ -72,7 +72,7 @@ public class LogActivityTest_HouseHold extends TestBase {
 	SoftAssert softAssertion = new SoftAssert();
 	
 	@BeforeMethod
-	public void setUp() throws InterruptedException {
+	public void setUp() throws Exception {
 		initialization();
 		
 		
