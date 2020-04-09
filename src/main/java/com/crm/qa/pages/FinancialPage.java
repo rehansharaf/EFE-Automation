@@ -71,17 +71,30 @@ public class FinancialPage extends TestBase {
 
 //************************************Create Financial Account**************************************************************************	
 	
-	public void createFinancialAccountviaUI() throws Exception {
+	public void createNumberofFinancialAccountviaUI(int numberofAccounts) throws Exception {
 		
 		opp.createBranchOptty_viaAPI();
 		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
 		opp.clickOpportunity();
 		opp.enrollinBM();
-		opp.addFinancialAccount();
-		opp.validateFinancialAccount();
+		opp.addNumberofFinancialAccounts(numberofAccounts);
+		if (numberofAccounts ==1){opp.validateFinancialAccount();}
 		homePage.navigateToRetailuser("primary");Thread.sleep(5000);
 	}
 
+	/*
+	public void createMultipleFinancialAccountviaUI() throws Exception {
+		
+		opp.createBranchOptty_viaAPI();
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
+		opp.clickOpportunity();
+		opp.enrollinBM();
+		opp.addNumberofFinancialAccounts(2);
+		opp.validateFinancialAccount();
+		homePage.navigateToRetailuser("primary");Thread.sleep(5000);
+	}
+*/
+	
 	
 	public void createFinancialAccountviaAPI() throws Exception{
 		

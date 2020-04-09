@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FREE CRM Application Test Automation Test Suite">
+
+	<listeners>
+		<listener class-name="com.qa.EventListener.TestListener"/>
+       <!--
+        <listener class-name="utils.Listeners.AnnotationTransformer"/>
+       -->
+        <listener class-name="com.qa.EventListener.FailureRetryListener"/>
+	</listeners>
+
+
+	<test name="Free CRM App Test Cases">
+		<classes>
+			
+
+			<class name="com.crm.qa.testcases.LogActivityTest">
+			
+			<methods>
+	
+				
+
+				<!--  	
+					
+					<include name="notReached_multipleUsers"></include>
+					<include name="reached_multipleUsers"></include>
+					<include name="UnplannedMeeting_withOutcome_NoShow_multipleUsers"></include>
+					<include name="UnplannedMeeting_withOutcome_Cancelled_multipleUsers"></include>
+					<include name="UnplannedMeeting_withOutcome_Completed_multipleUsers"></include>
+					<include name="UnplannedMeeting_withMeeting_OnPhone_multipleUsers"></include>
+					<include name="UnplannedMeeting_withMeeting_OnSiteEvent_multipleUsers"></include>
+					<include name="UnplannedMeeting_withMeeting_VirtualMeeting_multipleUsers"></include>
+					<include name="logaCall_UnplannedMeeting_multipleUsers"></include>
+					<include name="reached_Schedule_ToDo"></include>
+					<include name="reached_Schedule_Phonecall"></include>
+					<include name="reached_Schedule_Appointment"></include>
+					<include name="notReachedwithBusinessLead"></include>
+					<include name="reachedwithBusinessLead"></include>
+					<include name="reachedwithBusinessLead_SchedulePhoneCall"></include>
+					<include name="reachedwithBusinessLead_ScheduleTodo"></include>
+					<include name="reachedwithBusinessLead_ScheduleMeeting"></include>
+					<include name="UnplannedMeetingWithExistingMeeting"></include>
+					<include name="meeting_CompleteFlow"></include>
+					<include name="AddSpouseandLogaCallPrimary"></include>
+					<include name="LogaCallwithSpouse_ValidateAtPrimary"></include>	
+					<include name="UpdatePrimaryAccountdetails"></include>
+					<include name="UpdateSpouseAccountdetails"></include>					
+					<include name="nolead_Reached_createBranchOpportunity"></include>
+					<include name="nolead_Reached_createWorkplaceOpportunity"></include>
+					<include name="nolead_Reached_MultipleOpportunity"></include>
+					<include name="validateFinancialDataForSponsoredClient"></include>
+					<include name="validateEmail"></include>
+					
+					
+				-->
+
+
+					
+					<include name="notReached_multipleUsers"></include>
+				</methods>
+			
+			
+			</class>
+			
+
+		</classes>
+	</test>
+</suite>

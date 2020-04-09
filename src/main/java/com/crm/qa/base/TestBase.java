@@ -27,7 +27,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.util.TestUtil;
 import com.qa.EventListener.*;
-import org.apache.log4j.Logger;
+import org.apache.log4j.*;
 
 
 
@@ -39,7 +39,7 @@ public class TestBase {
 	public static WebEventListener eventListener;
 	public  static WebDriverWait wait ;
 
-	public static Logger log = Logger.getLogger("devpinoyLogger");
+	//public static Logger Log = Logger.getLogger("devpinoy");
 	
 	public TestBase(){
 		try {

@@ -1,6 +1,8 @@
 package com.crm.qa.testcases;
 
 import java.lang.reflect.Method;
+
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,12 +12,8 @@ import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.Opportunities;
-import com.crm.qa.pages.ReferralAppointment;
 import com.crm.qa.pages.RetailAccount;
 import com.crm.qa.pages.SalesforceTestRestAPI;
-import com.crm.qa.pages.createLead;
-import com.crm.qa.pages.verifyLead;
-import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.util.Log;
 import com.crm.qa.util.TestUtil;
 import com.qa.DataProvider.*;
@@ -30,15 +28,12 @@ public class BranchOpportunityTest extends TestBase {
 		LoginPage 			loginPage;
 		HomePage 			homePage;
 		TestUtil 			testUtil;
-		createLead 			createlead;
-		verifyLead 			verifylead;
 		Opportunities 		opp;
-		ReferralAppointment ref;
 		RetailAccount 		retailAccount;
 		InitializeUserData 	initializeData;
 		
 		SoftAssert softAssertion = new SoftAssert();
-	
+		static Logger log = Logger.getLogger("trail");
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -74,16 +69,13 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Mark Opportunity as Closed Lost ");
 		
-		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		opp.clickOpportunity();
-		opp.opportunityClosedLost();
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Closed Lost", "$125,000", 6);
-		opp.validateOpttyforStageStatus("Closed Lost");
-		
-
-		
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		opp.clickOpportunity();			log.info("Opportunity Selected");
+		opp.opportunityClosedLost();	log.info("Oppty moved to Closed/Lost");
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Closed Lost", "$125,000", 6);		log.info("Complete Validating Branch Optty");
+		opp.validateOpttyforStageStatus("Closed Lost");		log.info("Complete Validating Optty Stage as Closed/Lost");
+				
 	}
 	
 	
@@ -93,9 +85,9 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Move Stage Status Manually ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		opp.moveOpttyStageManually();
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		opp.moveOpttyStageManually();		log.info("Complete moving optty stage Manually");
 		
 	}
 	
@@ -105,12 +97,12 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Not Reached ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Attempting", "$125,000", 6);
-		opp.clickOpportunity();
-		opp.validateOpttyforStageStatus("Attempting");
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Attempting", "$125,000", 6);		log.info("Complete Validating Optty details");
+		opp.clickOpportunity();		log.info("Opportunity Selected");
+		opp.validateOpttyforStageStatus("Attempting");	log.info("Complete validaating optty stage as Attempting");
 		
 	}
 	
@@ -120,13 +112,12 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached  ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Attempting", "$125,000", 6);
-		opp.clickOpportunity();
-		opp.validateOpttyforStageStatus("Attempting");
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Attempting", "$125,000", 6);		log.info("Complete Validating Optty details");
+		opp.clickOpportunity();		log.info("Opportunity Selected");
+		opp.validateOpttyforStageStatus("Attempting");		log.info("Complete validaating optty stage as Attempting");
 		
 	}
 	
@@ -136,13 +127,13 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Log a Call / Reached - Move Stage to Closed ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		opp.clickOpportunity();
-		opp.opportunityClosedLost();
+		homePage.navigateToMultipleUser("advisor", advisorId); 		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		opp.clickOpportunity();		log.info("Opportunity Selected");
+		opp.opportunityClosedLost();		log.info("Move Optty stage to Closed/Lost  ");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Closed Lost", "$125,000", 6);
-		opp.validateOpttyforStageStatus("Closed Lost");
+		opp.validateOpttyforStageStatus("Closed Lost");		log.info("Complete validaating optty stage as Closed/Lost");
 		
 	}
 	
@@ -152,12 +143,12 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting and then Close Meeting ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");		log.info("Complete log a call scenario");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Initial Appointment", "$125,000", 6);
-		opp.clickOpportunity();
-		opp.validateOpttyforStageStatus("Initial Appointment");
+		opp.clickOpportunity();		log.info("Opportunity Selected");
+		opp.validateOpttyforStageStatus("Initial Appointment");		log.info("Complete validaating optty stage as Initial Apointment");
 		
 	}
 	
@@ -167,13 +158,13 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("Newly created Opportunity - Schedule Meeting through Next Action Section ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		opp.clickOpportunity();
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		opp.clickOpportunity();		log.info("Opportunity Selected");
 		opp.scheduleMeetingusingNextAction("On-Phone Meeting");
 		SalesforceTestRestAPI.validateBranchOpportunity_Stage("NAC Outbound","Initial Appointment", "$125,000", 6);
-		opp.validateOpttyforStageStatus("Initial Appointment");
+		opp.validateOpttyforStageStatus("Initial Appointment");		log.info("Complete validaating optty stage as Initial Apointment");
 		
 	}
 	
@@ -183,13 +174,13 @@ public class BranchOpportunityTest extends TestBase {
 		
 		TestUtil.print("BM Opportunity - Add a Financial Account ");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		opp.createBranchOptty_viaAPI();
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		opp.clickOpportunity();
-		opp.enrollinBM();
-		opp.addFinancialAccount();
-		opp.validateFinancialAccount();
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		opp.createBranchOptty_viaAPI();		log.info("Complete running opp.createBranchOptty_viaAPI()");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		opp.clickOpportunity();		log.info("Opportunity Selected");
+		opp.enrollinBM();			log.info("Completed Enrolling in Branch  ");
+		opp.addNumberofFinancialAccounts(1); log.info("Added Financial Account  ");
+		opp.validateFinancialAccount();		log.info("Complete Validation of Financial Account ");
 		
 		
 	}

@@ -3,6 +3,8 @@ package com.crm.qa.testcases;
 
 import java.io.IOException;
 import java.text.ParseException;
+
+import org.apache.log4j.*;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,7 +23,6 @@ import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.HouseholdPage;
 import com.crm.qa.pages.CommunicationPage;
-import com.crm.qa.util.Log;
 import com.crm.qa.util.TestUtil;
 import com.qa.DataProvider.*;
 
@@ -47,7 +48,7 @@ public class LogActivityTest extends TestBase {
 		
 	SoftAssert softAssertion = new SoftAssert();
 	
-	
+	static Logger log = Logger.getLogger("trail");
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -86,11 +87,11 @@ public class LogActivityTest extends TestBase {
 		TestUtil.print("Not Reached Scenario for Multiple Users");
 		
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);Log.info("Logged in as : " +advisorType(advisorId));
-		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_basic();		log.info("Complete running SalesforceTestRestAPI.dataCreation_basic()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");			
+		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateTaskData1(1);			log.info("Complete Validation through API");
 		
 		
 	}
@@ -102,11 +103,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached Scenario for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateTaskData1(1);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -117,11 +118,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "No-Show", "MeetingExistNO");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();		log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");	
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "No-Show", "MeetingExistNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -130,11 +131,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Cancelled", "MeetingExistNO");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();		log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Cancelled", "MeetingExistNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -144,11 +145,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();		log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "In-Person Meeting", "Completed", "MeetingExistNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -157,11 +158,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Phone Meeting", "Completed", "MeetingExistNO");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();		log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Phone Meeting", "Completed", "MeetingExistNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -170,11 +171,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Site Event", "Completed", "MeetingExistNO");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();		log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "On-Site Event", "Completed", "MeetingExistNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -183,11 +184,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "Virtual Meeting", "Completed", "MeetingExistNO");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();		log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");			
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo",  "Virtual Meeting", "Completed", "MeetingExistNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Validation through API");
 	
 	}
 	
@@ -198,13 +199,13 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Schedule To Do");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached,  "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall","On-Phone Meeting");
-		SalesforceTestRestAPI.validateTaskData2(1);
-		SalesforceTestRestAPI.validateTaskScheduleData(2);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached,  "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");		log.info("Complete log a call scenario with future activity");
+		detailsPage.scheduleFutureActivity("ToDo", "viaLogaCall","On-Phone Meeting");		log.info("Complete adding Meeting for Future Activity");
+		SalesforceTestRestAPI.validateTaskData2(1);		log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateTaskScheduleData(2);		log.info("Complete Task Schedule Data Validation through API");
 		
 	}
 	
@@ -214,13 +215,13 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Schedule Phone Call");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo",  "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall", "On-Phone Meeting");
-		SalesforceTestRestAPI.validateTaskData2(1);
-		SalesforceTestRestAPI.validateTaskScheduleData(2);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo",  "CreateOpttyNO", "FutureActivityYES");		log.info("Complete log a call scenariowith future acitivity");
+		detailsPage.scheduleFutureActivity("PhoneCall","viaLogaCall", "On-Phone Meeting");		log.info("Complete adding Meeting for Future Activity");
+		SalesforceTestRestAPI.validateTaskData2(1);		log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateTaskScheduleData(2);		log.info("Complete Task Schedule Data Validation through API");
 		
 	}
 	
@@ -231,12 +232,12 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Schedule Appointment");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");				
-		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall", "On-Phone Meeting");
-		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");			
+		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");		log.info("Complete log a call scenariowith future acitivity");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall", "On-Phone Meeting");		log.info("Complete adding Meeting for Future Activity");
+		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");		log.info("Complete Meeting Data Validation through API");
 	
 	}
 
@@ -247,12 +248,12 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Not Reached with Business Lead");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.notReached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData1(1);
-		SalesforceTestRestAPI.validateLeadData(4);	
+		homePage.navigateToMultipleUser("advisor", advisorId);log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");log.info("Open up the Account and log a Call");			
+		detailsPage.logacallInteraction( detailsPage.notReached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateTaskData1(1);log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateLeadData(4);	log.info("Complete Lead Data Validation through API");
 								
 	}
 	
@@ -262,12 +263,12 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData1(1);
-		SalesforceTestRestAPI.validateLeadDataReached(5);	
+		homePage.navigateToMultipleUser("advisor", advisorId);log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateTaskData1(1);log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateLeadDataReached(5);	log.info("Complete Lead Data Validation through API");
 								
 	}
 	
@@ -277,14 +278,14 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, Schedule Phone Call");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall","On-Phone Meeting");
-		SalesforceTestRestAPI.validateTaskData2(1);
-		SalesforceTestRestAPI.validateTaskScheduleData(2);
-		SalesforceTestRestAPI.validateLeadDataReached(5);	
+		homePage.navigateToMultipleUser("advisor", advisorId);log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");log.info("Complete log a call scenario with future activity");
+		detailsPage.scheduleFutureActivity("PhoneCall", "viaLogaCall","On-Phone Meeting");log.info("Complete adding Meeting for Future Activity");
+		SalesforceTestRestAPI.validateTaskData2(1);log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateTaskScheduleData(2);log.info("Complete Task Schedule Data Validation through API");
+		SalesforceTestRestAPI.validateLeadDataReached(5);log.info("Complete Lead Data Validation through API");	
 								
 	}
 	
@@ -294,14 +295,14 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, Schedule To Do");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall","On-Phone Meeting");
-		SalesforceTestRestAPI.validateTaskData2(1);
-		SalesforceTestRestAPI.validateTaskScheduleData(2);
-		SalesforceTestRestAPI.validateLeadDataReached(5);	
+		homePage.navigateToMultipleUser("advisor", advisorId);log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityYES");log.info("Complete log a call scenario with future activity");
+		detailsPage.scheduleFutureActivity("ToDo","viaLogaCall","On-Phone Meeting");log.info("Complete adding Meeting for Future Activity");
+		SalesforceTestRestAPI.validateTaskData2(1);log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateTaskScheduleData(2);log.info("Complete Task Schedule Data Validation through API");
+		SalesforceTestRestAPI.validateLeadDataReached(5);log.info("Complete Lead Data Validation through API");	
 								
 	}
 	
@@ -311,48 +312,46 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, Schedule Meeting");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_businesslead();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");
-		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");
-		SalesforceTestRestAPI.validateLeadDataReached(5);	
+		homePage.navigateToMultipleUser("advisor", advisorId);log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_businesslead();log.info("Complete running SalesforceTestRestAPI.dataCreation_businesslead()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");log.info("Complete log a call scenario with future activity");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");log.info("Complete adding Meeting for Future Activity");
+		SalesforceTestRestAPI.validateMeetingData(3, "Prospect Meeting");log.info("Complete Meeting Data Validation through API");
+		SalesforceTestRestAPI.validateLeadDataReached(5);	log.info("Complete Lead Data Validation through API");
 								
 	}
 	
-
-
 	
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void UnplannedMeetingWithExistingMeeting(String advisorId) throws Exception{
 		
 		TestUtil.print("Setting up an UnPlanned Meeting with Existing Meeting");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser("Primary");			
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");
-		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");
-		SalesforceTestRestAPI.validateUnplannedMeetingData(3);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_basic();		log.info("Complete running SalesforceTestRestAPI.dataCreation_basic()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");		
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityYES");		log.info("Complete log a call scenario");
+		detailsPage.scheduleFutureActivity("Meeting","viaLogaCall","On-Phone Meeting");		log.info("Complete schedule Meeting ");
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistYes");		log.info("Complete log a call scenario eith Meeting");
+		SalesforceTestRestAPI.validateUnplannedMeetingData(3);		log.info("Complete Meeting Data Validation through API");
 	
 	}
 	
 	
 
-	@SuppressWarnings("static-access")
+	
 	@Test(dataProvider = "Imran", dataProviderClass = LogaCallDataProvider.class)
 	public void meeting_CompleteFlow(String advisorId) throws Exception{
 		
 		TestUtil.print("Meeting Complete Flow");
 		
-		homePage.navigateToMultipleUser("Admin", advisorId);
-		SalesforceTestRestAPI.dataCreation1();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistNo");
-		detailsPage.meetingCompletedFlow();
-		SalesforceTestRestAPI.validateMeetingData(3, "Client Meeting");
+		homePage.navigateToMultipleUser("Admin", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation1();		log.info("Complete running SalesforceTestRestAPI.dataCreation1()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");
+		detailsPage.logacallInteractionforMeeting(detailsPage.meeting, "GTSconversionNo","In-Person Meeting", "Completed", "MeetingExistNo");		log.info("Complete log a call scenario");
+		detailsPage.meetingCompletedFlow();		log.info("Complete Meeting Flow");
+		SalesforceTestRestAPI.validateMeetingData(3, "Client Meeting");		log.info("Complete Meeting Data Validation through API");
 	
 	}
 
@@ -364,13 +363,13 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Log a Call Spouse");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");
-		SalesforceTestRestAPI.validateTaskData1(1);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and add Spouse Account");
+		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);		log.info("Complete adding Spouse Account");
+		homePage.navigateToRetailuser("Primary");		log.info("Navigate to Primary Account");
+		detailsPage.logacallInteraction( detailsPage.reached,"GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		SalesforceTestRestAPI.validateTaskData1(1);		log.info("Complete  Task Data Validation through API");
 		
 	}
 	
@@ -381,16 +380,14 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Log a Call with Spouse and Validate at Primary");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToSpouseuser();
-		
-		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");
-		communicationPage.validateCallonCommunication();
-		SalesforceTestRestAPI.validateTaskData1(1);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and add Spouse Account");
+		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);log.info("Complete adding Spouse Account");
+		homePage.navigateToSpouseuser();		log.info("Navigate to Spouse Details");
+		detailsPage.logacallInteraction( detailsPage.reached, "GTSconversionNo","CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
+		communicationPage.validateCallonCommunication();		log.info("Complete validating Communications details");
+		SalesforceTestRestAPI.validateTaskData1(1);		log.info("Complete Task Data Validation through API");
 		
 	}
 	
@@ -401,12 +398,12 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Create a Account Spouse");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToSpouseuser();
-		SalesforceRestAPI.createCTAccount();
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and add Spouse Account");
+		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);		log.info("Complete adding Spouse Account");
+		homePage.navigateToSpouseuser();		log.info("Navigate to Spouse Details");
+		SalesforceRestAPI.createCTAccount();	log.info("Complete creating CT Account through API");
 				
 	}
 	
@@ -418,11 +415,11 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("UpdatePrimaryAccountdetails");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.updateAccountDetails();
-		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");	
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and update Accuont details");
+		detailsPage.updateAccountDetails();		log.info("Complete updating Account Details");
+		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");		log.info("Complete validating Account details");	
 		
 	}
 	
@@ -434,13 +431,13 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("UpdateSpouseAccountdetails");
 	
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);
-		homePage.navigateToSpouseuser();
-		detailsPage.updateAccountDetails();
-		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");		
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and add Spouse Account");
+		householdPage.addSpouse(retailAccount.spousefname, retailAccount.spouselname);		log.info("Complete adding Spouse Account");
+		homePage.navigateToSpouseuser();		log.info("Navigate to Spouse Details");
+		detailsPage.updateAccountDetails();		log.info("Complete updating Account Details");
+		detailsPage.verifyAccountDetails(detailsPage.emailupdate(),"(999) 888-7777","Male","12/11/1972","1234 Test StreetScottsdale");		log.info("Complete validating Account details");	
 	
 	}
 	
@@ -450,13 +447,13 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("create Branch Opportunity with no Lead and Reached Option");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
-		opp.createBranchOpportunity("viaLogaCall");	
-		SalesforceTestRestAPI.validateTaskData(1);
-		SalesforceTestRestAPI.validateBranchOpportunity(6);	
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");	log.info("Open up the Account and log a Call");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");		log.info("Complete log a call scenario");
+		opp.createBranchOpportunity("viaLogaCall");		log.info("Complete creating Branch Optty");
+		SalesforceTestRestAPI.validateTaskData(1);		log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateBranchOpportunity(6);			log.info("Complete creating Branch Optty through API");
 				
 	}
 	
@@ -466,19 +463,18 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Create WorkPlace Opportunity with no Lead and Reached Option");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
 		
 		//********Using a particular account for Workplace Optty scenario. Once the issue is resolved we remove the comments from the following two lines of code
 		//SalesforceTestRestAPI.APIConnection();
 		//homePage.navigateToRetailuser("Primary");
 		
 		//This line can be removed once the issue is resolved.
-		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000vhxshQAA/view");
-		
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
-		opp.createWorkplaceOpportunity();	
-		SalesforceTestRestAPI.validateTaskData(1);
-		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);	
+		driver.navigate().to("https://fei--fscfull.lightning.force.com/lightning/r/Account/0010R00000vhxshQAA/view");  log.info("Navigate to the Account");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");		log.info("Complete log a Call scenario");
+		opp.createWorkplaceOpportunity();		log.info("Complete creating WorkPlace optty");
+		SalesforceTestRestAPI.validateTaskData(1);		log.info("Complete Task Data Validation through API");
+		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);		log.info("Complete creating WorkPlace Optty through API");
 				
 	}
 	
@@ -487,15 +483,15 @@ public class LogActivityTest extends TestBase {
 	@Test(dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void nolead_Reached_MultipleOpportunity(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException {
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.APIConnection();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
-		opp.createWorkplaceOpportunity();
-		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");
-		opp.createBranchOpportunity("vialogaCall");
-		SalesforceTestRestAPI.validateBranchOpportunity(6);	
-		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);
+		homePage.navigateToMultipleUser("advisor", advisorId);	log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.APIConnection();		log.info("Complete running SalesforceTestRestAPI.APIConnection()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");		log.info("Complete log a call scenario");
+		opp.createWorkplaceOpportunity();		log.info("Complete creating WorkPlace optty");
+		detailsPage.logacallInteraction(detailsPage.reached, "GTSconversionNo", "CreateOpttyYes", "FutureActivityNO");		log.info("Complete log a call scenario");
+		opp.createBranchOpportunity("vialogaCall");		log.info("Complete creating Branch Optty");
+		SalesforceTestRestAPI.validateBranchOpportunity(6);			log.info("Complete creating Branch Optty through API");
+		SalesforceTestRestAPI.validateWorkPlaceOpportunity(6);		log.info("Complete creating WorkPlace Optty through API");
 		
 				
 	}
@@ -506,9 +502,9 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Validate Financial Data for Sponsored Client");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		homePage.navigateToSponsoredClient("0010R00000CSdLHQA1");
-		financialPage.validateWorkplaceDetailsScreen();
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		homePage.navigateToSponsoredClient("0010R00000CSdLHQA1");	log.info("Navigate to Sponsored Client");
+		financialPage.validateWorkplaceDetailsScreen();		log.info("Complete validating WorkplaceDetails Screen");
 				
 	}
 	
@@ -518,10 +514,10 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Validate Email screen under Email Tab");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
-		SalesforceTestRestAPI.dataCreation_basic();
-		homePage.navigateToRetailuser("Primary");
-		detailsPage.validateEmail();
+		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		SalesforceTestRestAPI.dataCreation_basic();		log.info("Complete running SalesforceTestRestAPI.dataCreation_basic()");
+		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and validate email");
+		detailsPage.validateEmail();		log.info("Complete validating Email details");
 				
 	}
 	
@@ -578,7 +574,7 @@ public class LogActivityTest extends TestBase {
 		
 		System.out.println("Creating Retail 2 Account.........................");
 		
-		HomePage.navigateToUser("advisor");
+		homePage.navigateToUser("advisor");
 		retailAccount.createRetailuser(2);
 		retailAccount.searchAccount();
 		
@@ -590,7 +586,7 @@ public class LogActivityTest extends TestBase {
 		
 		System.out.println("Creating Retail 2 Account.........................");
 		
-		HomePage.navigateToUser("advisor");
+		homePage.navigateToUser("advisor");
 		retailAccount.createRetailuser(2);
 		retailAccount.searchAccount();
 	}
@@ -603,7 +599,7 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Log a Call (Reached) through Household, Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
+		homePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.APIConnection();
 		homePage.navigateToRetailuser("Household");
 		//householdPage.gotoHousehold();
@@ -618,7 +614,7 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Log a Call (Not Reached) through Household, Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
+		homePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_basic();
 		homePage.navigateToRetailuser("Household");			
 		//householdPage.enterComments(0);
@@ -634,7 +630,7 @@ public class LogActivityTest extends TestBase {
 		
 		TestUtil.print("Reached with Business Lead, UnPlanned Meeting for Multiple Users");
 		
-		HomePage.navigateToMultipleUser("advisor", advisorId);
+		homePage.navigateToMultipleUser("advisor", advisorId);
 		SalesforceTestRestAPI.dataCreation_businesslead();
 		homePage.navigateToRetailuser("Primary");			
 		householdPage.unplannedAppointment();

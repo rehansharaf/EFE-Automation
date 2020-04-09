@@ -98,7 +98,7 @@ public class HomePage extends TestBase {
 
 	
 	
-	public static void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
+	public void navigateToMultipleUser(String role, String advisorId) throws InterruptedException{
 	
 	
 		if (role.equalsIgnoreCase("advisor")){

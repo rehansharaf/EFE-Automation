@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FREE CRM Application Test Automation Test Suite" parallel="methods" thread-count="1">
+
+	<listeners>
+		<listener class-name="com.qa.EventListener.TestListener"/>
+		<listener class-name="com.qa.EventListener.FailureRetryListener"/>
+   
+	</listeners>
+
+
+	<test name="Free CRM App Test Cases">
+		<classes>
+			
+
+		<class name="com.crm.qa.testcases.CreateAcctOpttyonDemand">
+			
+			<methods>
+			<!-- 		
+				<include name="creatAccountsWithOpttyOnDemand"></include>
+				
+			-->
+					
+
+				
+				
+
+				
+			<include name="creatAccountsWithOpttyOnDemand"></include>	
+
+					
+			</methods>
+			
+			
+			</class>
+			
+
+		</classes>
+	</test>
+</suite>

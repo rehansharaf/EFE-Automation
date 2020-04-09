@@ -57,8 +57,8 @@ public class UnenrollmentDelink extends TestBase {
 	@FindBy(xpath = "//span[contains (text(), 'Unenrollment-Delink')]/ancestor::div[@class='content']//button[@title='Next']")
 	WebElement unerollDlinkSalesProcessNxtBtn;
 	
-	
-	
+	@FindBy(xpath="(//span[contains(text(),'Services')])[last()]")
+	WebElement servicesLink;
 	
 	
 	
@@ -76,11 +76,6 @@ public class UnenrollmentDelink extends TestBase {
 	
 	SoftAssert softAssertion = new SoftAssert();
 
-	public static String ldSource;
-	public static String stgStatus;
-	public static String expctdAmnt;
-	
-	
 	
 
 //************************************Terminate all Financial Account via UI**************************************************************************	
@@ -98,7 +93,8 @@ public class UnenrollmentDelink extends TestBase {
 		
 		TestUtil.clickElement(unerollDlinkSalesProcessNxtBtn);Thread.sleep(2000);
 		TestUtil.clickElement(unerollDlinkSalesProcessNxtBtn);Thread.sleep(2000);
-		TestUtil.clickElement(unerollDlinkSalesProcessNxtBtn);Thread.sleep(5000);
+		TestUtil.clickElement(unerollDlinkSalesProcessNxtBtn);Thread.sleep(15000);
+		TestUtil.waitUntilElementVisible(servicesLink);
 		
 	}
 	

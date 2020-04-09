@@ -28,9 +28,11 @@ public class ServicesPage extends TestBase{
 	@FindBy(xpath="(//span[contains(text(),'Services')])[last()]")
 	WebElement servicesLink;
 	
-	@FindBy(xpath="(//a[@data-refid='recordId'][text()='Branch Management'])[1]")
-	WebElement servicesBranchMngmntLink;
+	//@FindBy(xpath="(//a[@data-refid='recordId'][text()='Branch Management'])[1]")
+	//WebElement servicesBranchMngmntLink;
 	
+	@FindBy(xpath="(//a[@data-refid='recordId'][text()='Branch Management'])[last()]")
+	WebElement BranchMngmntLink;
 	
 	@FindBy(xpath="//a[@title = 'Branch Management']")
 	WebElement servicesBranchMgmntLink;
@@ -74,7 +76,7 @@ public class ServicesPage extends TestBase{
 			TestUtil.scrollintoView(branchAccountRelationshipLink);
 			
 			TestUtil.clickElement(servicesLink);Thread.sleep(2000);
-			TestUtil.clickElement(servicesBranchMngmntLink);
+			TestUtil.clickElement(BranchMngmntLink);
 			TestUtil.clickElement(servicesBranchMgmntLink);Thread.sleep(2000);
 			
 			softAssertion.assertEquals(servicesStatus.getText(), status, "Services Status doesnot match");

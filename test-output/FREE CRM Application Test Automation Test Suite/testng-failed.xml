@@ -10,12 +10,8 @@
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
           <include name="tearDown"/>
-          <include name="UpdatePrimaryAccountdetails" invocation-numbers="0"/>
-          <include name="reachedwithBusinessLead_ScheduleTodo" invocation-numbers="1"/>
-          <include name="validateEmail" invocation-numbers="0 0 1 1"/>
+          <include name="notReached_multipleUsers" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="UpdateSpouseAccountdetails" invocation-numbers="1"/>
-          <include name="UnplannedMeeting_withOutcome_Cancelled_multipleUsers" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->
     </classes>

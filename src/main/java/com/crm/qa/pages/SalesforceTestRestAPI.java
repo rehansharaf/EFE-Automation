@@ -21,6 +21,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,7 +75,7 @@ public class SalesforceTestRestAPI extends TestBase {
 	static Opportunities opp = new Opportunities();
 	static SalesforceRestAPI sfAPI = new SalesforceRestAPI();
 
-	
+	static Logger log = Logger.getLogger("trail");
 
 	public static void APIConnection() {
 
@@ -87,79 +88,73 @@ public class SalesforceTestRestAPI extends TestBase {
 
 	public static void dataCreation() {
 
-		SalesforceRestAPI.APIConnection();
-		SalesforceRestAPI.createRetailRecord();
-		SalesforceRestAPI.updateRetailRecord();
-		SalesforceRestAPI.updateBrancAccountRelationship();
-		SalesforceRestAPI.createBusinessLead();
-		SalesforceRestAPI.createBranchLead();
+		log.info("Running SFDC API");
+		SalesforceRestAPI.APIConnection();log.info("Complete running SalesforceRestAPI.APIConnection()");
+		SalesforceRestAPI.createRetailRecord();log.info("Complete running SalesforceRestAPI.createRetailRecord()");
+		SalesforceRestAPI.updateRetailRecord();log.info("Complete running SalesforceRestAPI.updateRetailRecord()");
+		SalesforceRestAPI.updateBrancAccountRelationship();log.info("Complete running SalesforceRestAPI.updateBrancAccountRelationship();");
+		SalesforceRestAPI.createBusinessLead();log.info("Complete running SalesforceRestAPI.createBusinessLead()");
+		SalesforceRestAPI.createBranchLead();log.info("Complete running SalesforceRestAPI.createBranchLead()");
 
 	}
 	
 	
 	public static void dataCreation_basic() {
 
-		SalesforceRestAPI.APIConnection();
-		SalesforceRestAPI.createRetailRecord();
-		SalesforceRestAPI.updateRetailRecord();
-		SalesforceRestAPI.updateBrancAccountRelationship();
+		SalesforceRestAPI.APIConnection();log.info("Complete running SalesforceRestAPI.APIConnection()");
+		SalesforceRestAPI.createRetailRecord();log.info("Complete running SalesforceRestAPI.createRetailRecord()");
+		SalesforceRestAPI.updateRetailRecord();log.info("Complete running SalesforceRestAPI.updateRetailRecord()");
+		SalesforceRestAPI.updateBrancAccountRelationship();log.info("Complete running SalesforceRestAPI.updateBrancAccountRelationship();");
 	}
 	
-	
-
-	
-	
-	
+		
 	public static void dataCreation_businesslead() {
 
-		SalesforceRestAPI.APIConnection();
-		SalesforceRestAPI.createRetailRecord();
-		SalesforceRestAPI.updateRetailRecord();
-		SalesforceRestAPI.updateBrancAccountRelationship();
-		SalesforceRestAPI.createBusinessLead();
+		SalesforceRestAPI.APIConnection();log.info("Complete running SalesforceRestAPI.APIConnection()");
+		SalesforceRestAPI.createRetailRecord();log.info("Complete running SalesforceRestAPI.createRetailRecord()");
+		SalesforceRestAPI.updateRetailRecord();log.info("Complete running SalesforceRestAPI.updateRetailRecord()");
+		SalesforceRestAPI.updateBrancAccountRelationship();log.info("Complete running SalesforceRestAPI.updateBrancAccountRelationship();");
+		SalesforceRestAPI.createBusinessLead();log.info("Complete running SalesforceRestAPI.createBusinessLead()");
 		
 	}
-	
-	
 	
 	
 	public static void dataCreation3(String FirstName, String LastName, String Email) {
 
-		SalesforceRestAPI.APIConnection();
-		SalesforceRestAPI.createRetailRecord_ExternalData(FirstName, LastName, Email);
-		SalesforceRestAPI.updateRetailRecord();
-		SalesforceRestAPI.updateBrancAccountRelationship();
+		SalesforceRestAPI.APIConnection();log.info("Complete running SalesforceRestAPI.APIConnection()");
+		SalesforceRestAPI.createRetailRecord_ExternalData(FirstName, LastName, Email);log.info("Complete running SalesforceRestAPI.createRetailRecord()");
+		SalesforceRestAPI.updateRetailRecord();log.info("Complete running SalesforceRestAPI.updateRetailRecord()");
+		SalesforceRestAPI.updateBrancAccountRelationship();log.info("Complete running SalesforceRestAPI.updateBrancAccountRelationship();");
 		
-
 	}
 	
 	public static void dataCreation4(String firstName, String lastName) throws InterruptedException {
 
-		SalesforceRestAPI.createBranchOpp(firstName, lastName);
+		SalesforceRestAPI.createBranchOpp(firstName, lastName);log.info("SalesforceRestAPI.createBranchOpp()");
 
 	}
 	
 	public static void dataCreation1() {
 
-		SalesforceRestAPI.APIConnection();
-		SalesforceRestAPI.createRetailRecord();
-		SalesforceRestAPI.updateRetailRecord1();
-		SalesforceRestAPI.updateBrancAccountRelationship();
-
+		SalesforceRestAPI.APIConnection();log.info("Complete running SalesforceRestAPI.APIConnection()");
+		SalesforceRestAPI.createRetailRecord();log.info("Complete running SalesforceRestAPI.createRetailRecord()");
+		SalesforceRestAPI.updateRetailRecord1();log.info("Complete running SalesforceRestAPI.updateRetailRecord1()");
+		SalesforceRestAPI.updateBrancAccountRelationship();log.info("Complete running SalesforceRestAPI.updateBrancAccountRelationship();");
+		
 	}
 	
 	public static void dataCreation2() {
 		
 		/* This method creates retail record, updates record with advisor and set branch Account Relationships. In addition to that, it creates service record and RP, CT< regular accounts.   */
 
-		SalesforceRestAPI.APIConnection();
-		SalesforceRestAPI.createRetailRecord();
-		SalesforceRestAPI.updateRetailRecord();
-		SalesforceRestAPI.updateBrancAccountRelationship();
-		SalesforceRestAPI.createRPAccount(SalesforceRestAPI.objMap.get("sfdcId") );
-		SalesforceRestAPI.createCTAccount();
-		SalesforceRestAPI.createRegularAccount();
-		SalesforceRestAPI.createService();
+		SalesforceRestAPI.APIConnection();log.info("Complete running SalesforceRestAPI.APIConnection()");
+		SalesforceRestAPI.createRetailRecord();log.info("Complete running SalesforceRestAPI.createRetailRecord()");
+		SalesforceRestAPI.updateRetailRecord();log.info("Complete running SalesforceRestAPI.updateRetailRecord()");
+		SalesforceRestAPI.updateBrancAccountRelationship();log.info("Complete running SalesforceRestAPI.updateBrancAccountRelationship();");
+		SalesforceRestAPI.createRPAccount(SalesforceRestAPI.objMap.get("sfdcId") );log.info("Complete running SalesforceRestAPI.createRPAccount()");
+		SalesforceRestAPI.createCTAccount();log.info("Complete running SalesforceRestAPI.createCTAccount()");
+		SalesforceRestAPI.createRegularAccount();log.info("Complete running SalesforceRestAPI.createRegularAccount()");
+		SalesforceRestAPI.createService();log.info("Complete running SalesforceRestAPI.createService()");
 	}
 
 	@SuppressWarnings("static-access")
@@ -200,8 +195,9 @@ public class SalesforceTestRestAPI extends TestBase {
 			softAssertion.assertAll();
 			
 			
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace(); log.fatal("API Validation Failed");}
 
+		
 	}
 
 	@SuppressWarnings("static-access")
@@ -244,9 +240,9 @@ public class SalesforceTestRestAPI extends TestBase {
 			softAssertion.assertAll();
 			
 			
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}}
 
-	}
+	
 
 	@SuppressWarnings("static-access")
 	public static void validateTaskData2(int i) throws InterruptedException {
@@ -286,7 +282,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 			
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -332,7 +328,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 		
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -365,7 +361,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			 
 			softAssertion.assertAll();
 		
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -406,7 +402,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 		
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 	
@@ -431,7 +427,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 			
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -460,7 +456,7 @@ public class SalesforceTestRestAPI extends TestBase {
 		
 			softAssertion.assertAll();
 			
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -492,7 +488,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 		
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -529,7 +525,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 		
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -565,7 +561,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			
 			softAssertion.assertAll();
 			
-		} catch (JSONException e) {e.printStackTrace();}
+		} catch (JSONException e) {e.printStackTrace();log.fatal("API Validation Failed");}
 
 	}
 
@@ -587,7 +583,7 @@ public class SalesforceTestRestAPI extends TestBase {
 			 //softAssertion.assertAll();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace();log.fatal("API Validation Failed");
 		}
 		
 	}

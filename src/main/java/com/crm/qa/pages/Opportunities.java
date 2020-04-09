@@ -351,6 +351,9 @@ public class Opportunities extends TestBase{
 	@FindBy(xpath = "//span[contains(text(),'Trade Hold')]/ancestor::div[@class='content']//button[text()='Next']")
 	WebElement tradeholdNextBtn;
 	
+	@FindBy(xpath = "(//div[text()='Yes']/../..//span[contains(@class,('radio'))])[last()]")
+	WebElement addAnotherFinancialAccountYes;
+	
 	@FindBy(xpath = "//div[contains(text(),'Add Another Financial Account?')]/ancestor::div[@class='content']//button")
 	WebElement addanotherFinancialAcctNextBtn;
 	
@@ -597,28 +600,36 @@ public class Opportunities extends TestBase{
 	
 //*************************************************** Add/Validate Financial Account ********************************************************************************
 	
-	public  void addFinancialAccount() throws InterruptedException, AWTException, IOException, ParseException {
+	public  void addNumberofFinancialAccounts(int numberofFinAcct) throws InterruptedException, AWTException, IOException, ParseException {
 	
+		
 		TestUtil.waitUntilElementVisible(addFinancialAcctNextBtn);
 		TestUtil.clickElement(addFinancialAcctNextBtn);
-	
-		TestUtil.clickElement(primaryownerIdRdBtn);
 		
-		TestUtil.waitUntilElementVisible(custodianDrpDwn);
-		TestUtil.SelectDropDownOption(custodianDrpDwn, "Fidelity");
-		TestUtil.SelectDropDownOption(accountregisterationDrpDwn, "Individual");
-		TestUtil.SelectDropDownOption(programDrpDwn, "Falcon");
-		TestUtil.SelectDropDownOption(buslinedetailsDrpDwn, "Branch Management");
-	
-		TestUtil.clickElement(primaryOwnerNextBtn);
-		
-		TestUtil.waitUntilElementVisible(investmentobjectiveDrpDwn);
-		TestUtil.SelectDropDownOption(investmentobjectiveDrpDwn, "Growth");
-		TestUtil.SelectDropDownOption(portfolioriskDrpDwn, "Moderate");
-		TestUtil.clickElement(tradeholdkChkBx);
-		
-		TestUtil.clickElement(tradeholdNextBtn);
-		TestUtil.clickElement(addanotherFinancialAcctNextBtn);
+		for (int count=0; count<numberofFinAcct; count++){
+				
+			//count=count-1;
+			TestUtil.clickElement(primaryownerIdRdBtn);
+			
+			TestUtil.waitUntilElementVisible(custodianDrpDwn);
+			TestUtil.SelectDropDownOption(custodianDrpDwn, "Fidelity");
+			TestUtil.SelectDropDownOption(accountregisterationDrpDwn, "Individual");
+			TestUtil.SelectDropDownOption(programDrpDwn, "Falcon");
+			TestUtil.SelectDropDownOption(buslinedetailsDrpDwn, "Branch Management");
+			
+			TestUtil.clickElement(primaryOwnerNextBtn);
+				
+			TestUtil.waitUntilElementVisible(investmentobjectiveDrpDwn);
+			TestUtil.SelectDropDownOption(investmentobjectiveDrpDwn, "Growth");
+			TestUtil.SelectDropDownOption(portfolioriskDrpDwn, "Moderate");
+			TestUtil.clickElement(tradeholdkChkBx);
+			TestUtil.clickElement(tradeholdNextBtn);
+				
+			if (count == numberofFinAcct-1){TestUtil.clickElement(addanotherFinancialAcctNextBtn);break;}
+			else {TestUtil.clickElement(addAnotherFinancialAccountYes); TestUtil.clickElement(addanotherFinancialAcctNextBtn);}
+			
+		}
+
 		
 	}
 	
@@ -650,7 +661,6 @@ public class Opportunities extends TestBase{
 		TestUtil.clickElement(financialAcctTab);
 		TestUtil.clickElement(newfinancialAcctBtn);
 		
-		//Thread.sleep(2000);
 		TestUtil.waitUntilElementVisible(financialAcctNameInput);
 		financialAcctNameInput.sendKeys("FinanceAcct"+ detailsPage.uid, Keys.ENTER);
 		
@@ -662,22 +672,14 @@ public class Opportunities extends TestBase{
 		TestUtil.waitUntilElementVisible(stageFinancial);
 		stageFinancial.sendKeys("Proposal", Keys.ENTER, Keys.TAB);
 		
-		
 		TestUtil.waitUntilElementVisible(registrationTypeFinancial);
 		registrationTypeFinancial.sendKeys("Individual", Keys.ENTER, Keys.TAB, Keys.TAB);
-		//TestUtil.SelectDropDownOption(registrationTypeFinancial, "Individual");
 		
 		TestUtil.waitUntilElementVisible(typeFinancial);
 		typeFinancial.sendKeys("Regular", Keys.ENTER, Keys.TAB);
-		//TestUtil.SelectDropDownOption(typeFinancial, "Regular");
 		
 		TestUtil.waitUntilElementVisible(currentEnrolFinancial);
 		currentEnrolFinancial.sendKeys("Personal Advisor", Keys.ENTER, Keys.TAB);
-		//TestUtil.SelectDropDownOption(currentEnrolFinancial, "Personal Advisor");
-		
-		
-		//Thread.sleep(2000);
-		//driver.findElement(By.xpath("//ul[contains(@class,'visible')]")).click();
 		
 		driver.findElement(By.xpath("(//span[contains(text(),'Save')])[2]")).click();
 		Thread.sleep(2000);
