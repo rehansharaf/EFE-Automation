@@ -10,7 +10,7 @@
       <class name="com.crm.qa.testcases.LogActivityTest">
         <methods>
           <include name="tearDown"/>
-          <include name="notReached_multipleUsers" invocation-numbers="0"/>
+          <include name="notReached_multipleUsers" invocation-numbers="0 0"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LogActivityTest -->

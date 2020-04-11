@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +25,6 @@ import org.testng.asserts.SoftAssert;
 
 import com.crm.qa.util.TestUtil;
 import com.qa.EventListener.*;
-import org.apache.log4j.*;
 
 
 
@@ -84,7 +81,7 @@ public class TestBase {
 		timestamp5 = formatter4.format(date);
 		Format formatter5 = new SimpleDateFormat("Mdhmm");
 		timestamp6 = formatter5.format(date);
-		Format formatter6 = new SimpleDateFormat("MM/dd/yyyy");
+		//Format formatter6 = new SimpleDateFormat("MM/dd/yyyy");
 		timestamp7 = formatter1.format(date1);
 		return new String[] {timestamp1, timestamp2, timestamp3, timestamp4, timestamp5, timestamp6, timestamp7};
 	}

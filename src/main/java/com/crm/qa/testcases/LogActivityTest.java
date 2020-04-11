@@ -8,8 +8,18 @@ import org.apache.log4j.*;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+import com.qa.ExtentReport.*;
+
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.DetailsPage;
 import com.crm.qa.pages.FinancialPage;
@@ -23,7 +33,7 @@ import com.crm.qa.pages.SalesforceRestAPI;
 import com.crm.qa.pages.SalesforceTestRestAPI;
 import com.crm.qa.pages.HouseholdPage;
 import com.crm.qa.pages.CommunicationPage;
-import com.crm.qa.util.TestUtil;
+import com.crm.qa.util.*;
 import com.qa.DataProvider.*;
 
 
@@ -50,11 +60,14 @@ public class LogActivityTest extends TestBase {
 	
 	static Logger log = Logger.getLogger("trail");
 	
+	
+
+	
+	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		
 		initialization();
-		
-		
 		
 		detailsPage 		= new DetailsPage();
 		loginPage 			= new LoginPage();
@@ -66,6 +79,7 @@ public class LogActivityTest extends TestBase {
 		initializeData 		= new InitializeUserData();
 		financialPage		= new FinancialPage();
 		opp					= new Opportunities();
+		
 		
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
@@ -81,6 +95,8 @@ public class LogActivityTest extends TestBase {
 	
 	
 	
+
+	
 	@Test(description = "Log a Call with Not Reached Scenario. Test Case will be run for multiple profiles.",dataProvider = "multipleUsers", dataProviderClass = LogaCallDataProvider.class)
 	public void notReached_multipleUsers(String advisorId) throws InterruptedException, ParseException, IOException, InvalidFormatException{
 		
@@ -88,7 +104,7 @@ public class LogActivityTest extends TestBase {
 		
 		
 		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
-		SalesforceTestRestAPI.dataCreation_basic();		log.info("Complete running SalesforceTestRestAPI.dataCreation_basic()");
+		SalesforceTestRestAPI.dataCreation_basic();		log.info("Complete running SalesforceTestRestAPI.dataCreation_basic()"); 
 		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");			
 		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
 		SalesforceTestRestAPI.validateTaskData1(1);			log.info("Complete Validation through API");
