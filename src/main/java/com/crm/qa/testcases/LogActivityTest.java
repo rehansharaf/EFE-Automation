@@ -36,6 +36,8 @@ import com.crm.qa.pages.CommunicationPage;
 import com.crm.qa.util.*;
 import com.qa.DataProvider.*;
 
+import com.qa.EventListener.TestListener; //Added the import
+
 
 
 
@@ -104,6 +106,9 @@ public class LogActivityTest extends TestBase {
 		
 		
 		homePage.navigateToMultipleUser("advisor", advisorId);		log.info("Logged in as : " +advisorType(advisorId));
+		
+		TestListener.test.get().info("Logged in as : " +advisorType(advisorId)); //We can add logs like this in extent report
+		
 		SalesforceTestRestAPI.dataCreation_basic();		log.info("Complete running SalesforceTestRestAPI.dataCreation_basic()"); 
 		homePage.navigateToRetailuser("Primary");		log.info("Open up the Account and log a Call");			
 		detailsPage.logacallInteraction(detailsPage.notReached, "GTSconversionNo", "CreateOpttyNO", "FutureActivityNO");		log.info("Complete log a call scenario");
