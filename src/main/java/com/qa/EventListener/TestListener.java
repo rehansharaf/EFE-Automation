@@ -22,8 +22,11 @@ import org.apache.log4j.*;
 public class TestListener extends TestBase implements ITestListener {
 
 	 //Extent Report Declarations
-    private static ExtentReports extent = ExtentManager.createInstance();
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    /*private static ExtentReports extent = ExtentManager.createInstance();
+    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();*/
+    public static ExtentReports extent = ExtentManager.createInstance();
+    public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    public static ExtentTest extentTest;
     public static Logger Log = Logger.getLogger("trail");
     
  
@@ -43,7 +46,7 @@ public class TestListener extends TestBase implements ITestListener {
     @Override
     public synchronized void onTestStart(ITestResult result) {
         //System.out.println(("\n"+"----------------------------------Test Case: "+result.getMethod().getMethodName() + " started!----------------------------"+"\n"));
-        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(),result.getMethod().getDescription());
+        extentTest = extent.createTest(result.getMethod().getMethodName(),result.getMethod().getDescription());
         test.set(extentTest);
         Log.info("\n"+"###############################Test Case: "+result.getMethod().getMethodName() + " is Started!####################################"+"\n");
     }
